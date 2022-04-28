@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Alert from '../components/Alert';
-import CloseButton from '../components/CloseButton';
+import Button from '../components/Button';
 
 export default {
   title: 'Components/Alert',
   component: Alert,
-  subcomponents: { CloseButton },
   parameters: {
     docs: {
       description: {
@@ -15,6 +14,7 @@ export default {
       },
     },
   },
+  args: { onClose: null },
 };
 
 function Template(args) {
@@ -24,7 +24,33 @@ function Template(args) {
 export const Default = Template.bind({});
 Default.args = {
   children: 'A simple default alert—check it out!',
+  onClose: null,
 };
+
+export function LiveExample() {
+  const [show, setShow] = useState(false);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    setShow(true);
+  };
+
+  return (
+    show ? (
+      <Alert
+        theme="success"
+        isDismissible
+        onClose={() => setShow(false)}
+      >
+        Nice, you triggered this alert message!
+      </Alert>
+    ) : (
+      <Button onClick={handleClick}>
+        Show live alert
+      </Button>
+    )
+  );
+}
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -74,7 +100,9 @@ LinkColor.args = {
   children: [
     'A simple primary alert with',
     ' ',
-    <Alert.Link to="https://www.getbootstrap.com">an example link</Alert.Link>,
+    <Alert.Link to="https://www.getbootstrap.com">
+      an example link
+    </Alert.Link>,
     '. ',
     'Give it a click if you like.',
   ],

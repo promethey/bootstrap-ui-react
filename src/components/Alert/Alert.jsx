@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CloseButton from '../CloseButton';
@@ -7,8 +7,10 @@ import AlertHeading from './AlertHeading';
 
 function Alert(props) {
   const {
-    style, children, className, theme, isDismissible, isAnimated,
+    style, children, className, theme, isDismissible, isAnimated, onClose,
   } = props;
+
+  const alertRef = createRef(null);
 
   const classes = classNames(
     'alert',
@@ -21,22 +23,38 @@ function Alert(props) {
     className,
   );
 
+  useEffect(() => {
+    if (onClose) {
+      const alert = alertRef.current;
+      const listener = () => onClose();
+      alert.addEventListener('close.bs.alert', listener);
+
+      return () => {
+        alert.removeEventListener('close.bs.alert', listener);
+      };
+    }
+
+    return null;
+  }, []);
+
   return (
-    <div className={classes} style={style} role="alert">
+    <div ref={alertRef} className={classes} style={style} role="alert">
       {children}
-      {isDismissible && <CloseButton dataDismiss="alert" />}
+      {isDismissible && (
+        <CloseButton dataDismiss="alert" />
+      )}
     </div>
   );
 }
 
 Alert.propTypes = {
-  /** Add custom CSS styles */
+  /** Add other styles */
   style: PropTypes.shape({}),
 
   /** Add children components */
   children: PropTypes.node.isRequired,
 
-  /** Add custom classes. Read more [classnames](https://www.npmjs.com/package/classnames) */
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
@@ -59,6 +77,9 @@ Alert.propTypes = {
 
   /** Add animations */
   isAnimated: PropTypes.bool,
+
+  /** Add event handler for close */
+  onClose: PropTypes.func,
 };
 
 Alert.defaultProps = {
@@ -67,6 +88,7 @@ Alert.defaultProps = {
   theme: 'primary',
   isDismissible: false,
   isAnimated: false,
+  onClose: null,
 };
 
 Alert.Link = AlertLink;

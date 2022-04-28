@@ -5,7 +5,7 @@
 [ReactJS](https://www.reactjs.org) components library basis on
 [Bootstrap](https://www.getbootstrap.com).
 
-Version: 1.0.0
+Currently v1.0.0
 
 Documentation generate by [Storybook](storybook.js.org).
 
@@ -20,14 +20,14 @@ Documentation generate by [Storybook](storybook.js.org).
 ## Components
 
 1. [ ] Accordion
-2. [ ] Alert
-3. [ ] Badge
+2. [x] Alert
+3. [x] Badge
 4. [ ] Breadcrumb
-5. [ ] Button
+5. [x] Button
 6. [ ] Button group
 7. [ ] Card
 8. [ ] Carousel
-9. [ ] Close button
+9. [x] Close button
 10. [ ] Collapse
 11. [ ] Dropdown
 12. [ ] List group

@@ -26,10 +26,10 @@ function CloseButton(props) {
 }
 
 CloseButton.propTypes = {
-  /** Add custom CSS styles */
+  /** Add other styles */
   style: PropTypes.shape({}),
 
-  /** Add custom classes */
+  /** Add other classes */
   className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 
   /** Choose main theme */
