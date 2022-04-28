@@ -1,10 +1,9 @@
 {
-  "name": "bootstrap-ui",
+  "name": "bootstrap-ui-react",
   "version": "1.0.0",
   "description": "React component library basis on Bootstrap [getbootstrap.com]",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
