@@ -5,6 +5,15 @@ export default {
   title: 'Components/Progress',
   component: Progress,
   subcomponents: { 'Progress.Bar': Progress.Bar },
+  parameters: {
+    docs: {
+      description: {
+        component: `Documentation and examples for using Bootstrap
+        custom progress bars featuring support for stacked bars,
+        animated backgrounds, and text labels.`,
+      },
+    },
+  },
 };
 
 function Template(args) {

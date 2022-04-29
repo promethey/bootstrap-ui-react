@@ -4,6 +4,14 @@ import { Spinner, Button } from '../components';
 export default {
   title: 'Components/Spinner',
   component: Spinner,
+  parameters: {
+    docs: {
+      description: {
+        component: `Indicate the loading state of a component or page
+        with Bootstrap spinners, built entirely with HTML, CSS, and no JavaScript.`,
+      },
+    },
+  },
 };
 
 function Template(args) {
