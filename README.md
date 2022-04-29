@@ -1,4 +1,4 @@
-# Bootstrap-UI
+# Bootstrap-UI-React
 
 [ReactJS](https://www.reactjs.org) components library basis on
 [Bootstrap](https://www.getbootstrap.com) v5.1.3
@@ -25,7 +25,7 @@ Documentation generate by [Storybook](storybook.js.org).
 4. [ ] Breadcrumb
 5. [x] Button
 6. [ ] ButtonGroup
-7. [ ] Card
+7. [x] Card
 8. [ ] Carousel
 9. [x] CloseButton
 10. [ ] Collapse
