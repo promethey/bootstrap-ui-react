@@ -39,7 +39,7 @@ Default.args = {
       <Card.Title>Card title</Card.Title>
       <Card.Text>
         Some quick example text to build on the card
-        title and make up the bulk of the card's content.
+        title and make up the bulk of the card&apos;s content.
       </Card.Text>
       <Button>Go somewhere</Button>
     </Card.Body>,
