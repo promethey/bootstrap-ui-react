@@ -1,11 +1,11 @@
 # Bootstrap-UI
 
 [ReactJS](https://www.reactjs.org) components library basis on
-[Bootstrap](https://www.getbootstrap.com).
+[Bootstrap](https://www.getbootstrap.com) v5.1.3
 
 > **[`npm i bootstrap-ui`](npmjs.com)**
 
-Bootstrap v5.1.3. Currently **v1.0**
+Currently **v1.0**
 
 Documentation generate by [Storybook](storybook.js.org).
 
