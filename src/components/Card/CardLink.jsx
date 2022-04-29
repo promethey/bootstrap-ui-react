@@ -27,7 +27,7 @@ CardLink.propTypes = {
   /** Add other styles */
   style: PropTypes.shape({}),
 
-  /** Add title */
+  /** Add text */
   children: PropTypes.node.isRequired,
 
   /** Add other classes */
@@ -36,7 +36,7 @@ CardLink.propTypes = {
     PropTypes.string,
   ]),
 
-  /** Path to resource */
+  /** Add path to resource */
   to: PropTypes.string,
 
   /** Change link color */

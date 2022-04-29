@@ -15,8 +15,13 @@ function CardGroup(props) {
 }
 
 CardGroup.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add other subcomponents */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,

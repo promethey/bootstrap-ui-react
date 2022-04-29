@@ -11,7 +11,7 @@ function CardText(props) {
   const cardTextColor = getPrefix('text', textColor);
 
   const classes = classNames(
-    'card-title',
+    'card-text',
     { [cardTextColor]: textColor },
     className,
   );
@@ -27,7 +27,7 @@ CardText.propTypes = {
   /** Add other styles */
   style: PropTypes.shape({}),
 
-  /** Add title */
+  /** Add text */
   children: PropTypes.node.isRequired,
 
   /** Add other classes */
@@ -36,6 +36,7 @@ CardText.propTypes = {
     PropTypes.string,
   ]),
 
+  /** Change text color */
   textColor: PropTypes.oneOf([
     'primary',
     'secondary',

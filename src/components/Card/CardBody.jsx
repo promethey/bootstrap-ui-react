@@ -27,7 +27,7 @@ CardBody.propTypes = {
   /** Add other styles */
   style: PropTypes.shape({}),
 
-  /** Add children components */
+  /** Add other subcomponents */
   children: PropTypes.node.isRequired,
 
   /** Add other classes */

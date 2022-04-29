@@ -4,7 +4,7 @@ export { default as Badge } from './Badge';
 // Breadcrumb
 export { default as Button } from './Button';
 // ButtonGroup
-// Card
+export { default as Card } from './Card';
 // Carousel
 export { default as CloseButton } from './CloseButton';
 // Collapse

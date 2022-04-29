@@ -8,6 +8,7 @@ import CardImage from './CardImage';
 import CardBody from './CardBody';
 import CardTitle from './CardTitle';
 import CardSubtitle from './CardSubtitle';
+import CardText from './CardText';
 import CardLink from './CardLink';
 import CardFooter from './CardFooter';
 
@@ -110,6 +111,7 @@ Card.Image = CardImage;
 Card.Body = CardBody;
 Card.Title = CardTitle;
 Card.Subtitle = CardSubtitle;
+Card.Text = CardText;
 Card.Link = CardLink;
 Card.Footer = CardFooter;
 
