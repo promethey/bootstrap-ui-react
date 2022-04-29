@@ -1,6 +1,5 @@
 import React from 'react';
-import Badge from '../components/Badge';
-import Button from '../components/Button';
+import { Badge, Button } from '../components';
 
 export default {
   title: 'Components/Badge',
@@ -200,9 +199,4 @@ export function AllRounded() {
     </>
   );
 }
-
-export const Rounded = Template.bind({});
-Rounded.args = {
-  isRounded: true,
-  children: 'Rounded',
-};
+AllRounded.storyName = 'All rounded';

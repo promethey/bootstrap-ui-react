@@ -1,11 +1,11 @@
 # Bootstrap-UI
 
-> **[`npm i bootstrap-ui`](npmjs.com)**
-
 [ReactJS](https://www.reactjs.org) components library basis on
 [Bootstrap](https://www.getbootstrap.com).
 
-Currently v1.0.0
+> **[`npm i bootstrap-ui`](npmjs.com)**
+
+Bootstrap v5.1.3. Currently **v1.0**
 
 Documentation generate by [Storybook](storybook.js.org).
 
@@ -24,13 +24,13 @@ Documentation generate by [Storybook](storybook.js.org).
 3. [x] Badge
 4. [ ] Breadcrumb
 5. [x] Button
-6. [ ] Button group
+6. [ ] ButtonGroup
 7. [ ] Card
 8. [ ] Carousel
-9. [x] Close button
+9. [x] CloseButton
 10. [ ] Collapse
 11. [ ] Dropdown
-12. [ ] List group
+12. [ ] ListGroup
 13. [ ] Modal
 14. [ ] Nav
 15. [ ] Tab
@@ -38,6 +38,6 @@ Documentation generate by [Storybook](storybook.js.org).
 17. [ ] Offcanvas
 18. [ ] Pagination
 19. [ ] Placeholder
-20. [ ] Progress
-21. [ ] Spinner
+20. [x] Progress
+21. [x] Spinner
 22. [ ] Toast
