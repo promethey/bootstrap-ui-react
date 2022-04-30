@@ -45,3 +45,29 @@ Default.args = {
     </Card.Body>,
   ],
 };
+
+export function Body() {
+  return (
+    <Card>
+      <Card.Body>
+        This is some text within a card body.
+      </Card.Body>
+    </Card>
+  );
+}
+
+export const TitleTextAndLinks = Template.bind({});
+TitleTextAndLinks.args = {
+  children: [
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Subtitle>Card subtitle</Card.Subtitle>
+      <Card.Text>
+        Some quick example text to build on the card
+        title and make up the bulk of the card&apos;s content.
+      </Card.Text>
+      <Card.Link>Card link</Card.Link>
+      <Card.Link>Another link</Card.Link>
+    </Card.Body>,
+  ],
+};
