@@ -17,6 +17,7 @@ function ListGroup(props) {
     BASE_CLASS_NAME,
     {
       [`${BASE_CLASS_NAME}-flush`]: isFlush,
+      [`${BASE_CLASS_NAME}-numbered`]: isNumbered,
       'list-group-horizontal': typeof isHorizontal === 'boolean' && isHorizontal,
       [`list-group-horizontal-${isHorizontal}`]: typeof isHorizontal === 'string',
     },

@@ -24,8 +24,11 @@ function ListGroupItem(props) {
   const properties = {
     className: classes,
     style,
-    'aria-current': isActive,
   };
+
+  if (isActive) {
+    properties['aria-current'] = true;
+  }
 
   if (Component === 'a') {
     properties.href = to;
@@ -48,7 +51,8 @@ function ListGroupItem(props) {
 }
 
 ListGroupItem.propTypes = {
-  as: PropTypes.oneOf(['li', 'a', 'button']),
+  /** Component JSX type */
+  as: PropTypes.oneOf(['li', 'a', 'button', 'label']),
 
   /** Add other styles */
   style: PropTypes.shape({}),
