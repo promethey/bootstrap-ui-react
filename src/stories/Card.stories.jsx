@@ -228,6 +228,7 @@ TextCenter.args = {
     <Card.Footer textColor="muted">2 days ago</Card.Footer>,
   ],
 };
+TextCenter.storyName = 'Text center';
 
 export function UsingUtilities() {
   return (
