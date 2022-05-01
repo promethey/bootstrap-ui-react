@@ -5,15 +5,18 @@ import { getPrefix } from '../prefix';
 
 function CardHeader(props) {
   const {
-    style, children, className, textColor, bgColor, borderColor,
+    as: Component, style, children, className,
+    textColor, bgColor, borderColor,
   } = props;
+
+  const BASE_CLASS_NAME = 'card-header';
 
   const headerTextColor = getPrefix('text', textColor);
   const headerBgColor = getPrefix('bg', bgColor);
   const headerBorderColor = getPrefix('border', borderColor);
 
   const classes = classNames(
-    'card-header',
+    BASE_CLASS_NAME,
     {
       [headerTextColor]: textColor,
       [headerBgColor]: bgColor,
@@ -23,13 +26,24 @@ function CardHeader(props) {
   );
 
   return (
-    <div className={classes} style={style}>
+    <Component className={classes} style={style}>
       {children}
-    </div>
+    </Component>
   );
 }
 
 CardHeader.propTypes = {
+  /** Component JSX type */
+  as: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'div',
+  ]),
+
   /** Add other styles */
   style: PropTypes.shape({}),
 
@@ -89,6 +103,7 @@ CardHeader.propTypes = {
 };
 
 CardHeader.defaultProps = {
+  as: 'div',
   style: null,
   className: null,
   textColor: null,

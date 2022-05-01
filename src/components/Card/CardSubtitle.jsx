@@ -5,14 +5,16 @@ import { getPrefix } from '../prefix';
 
 function CardSubtitle(props) {
   const {
-    as: Component, style, children, className, color,
+    as: Component, style, children, className, textColor,
   } = props;
 
-  const subtitleColor = getPrefix('text', color);
+  const BASE_CLASS_NAME = 'card-title';
+
+  const subtitleColor = getPrefix('text', textColor);
 
   const classes = classNames(
-    'card-title',
-    { [subtitleColor]: color },
+    BASE_CLASS_NAME,
+    { [subtitleColor]: textColor },
     className,
   );
 
@@ -24,7 +26,7 @@ function CardSubtitle(props) {
 }
 
 CardSubtitle.propTypes = {
-  /** Change JSX component type */
+  /** Component JSX type */
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 
   /** Add other styles */
@@ -39,7 +41,7 @@ CardSubtitle.propTypes = {
     PropTypes.string,
   ]),
 
-  color: PropTypes.oneOf([
+  textColor: PropTypes.oneOf([
     'primary',
     'secondary',
     'success',
@@ -60,7 +62,7 @@ CardSubtitle.defaultProps = {
   as: 'h6',
   style: null,
   className: null,
-  color: 'muted',
+  textColor: 'muted',
 };
 
 export default CardSubtitle;

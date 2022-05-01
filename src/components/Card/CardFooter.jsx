@@ -13,7 +13,7 @@ function CardFooter(props) {
   const footerBorderColor = getPrefix('border', borderColor);
 
   const classes = classNames(
-    'card-header',
+    'card-footer',
     {
       [footerTextColor]: textColor,
       [footerBgColor]: bgColor,

@@ -8,10 +8,12 @@ function CardTitle(props) {
     as: Component, style, children, className, textColor,
   } = props;
 
+  const BASE_CLASS_NAME = 'card-title';
+
   const titleTextColor = getPrefix('text', textColor);
 
   const classes = classNames(
-    'card-title',
+    BASE_CLASS_NAME,
     { [titleTextColor]: textColor },
     className,
   );
@@ -39,6 +41,7 @@ CardTitle.propTypes = {
     PropTypes.string,
   ]),
 
+  /** Change text color */
   textColor: PropTypes.oneOf([
     'primary',
     'secondary',

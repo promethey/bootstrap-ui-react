@@ -32,10 +32,58 @@ export function All() {
       'Dark',
       'Link',
     ].map((theme) => (
-      <Button key={theme} theme={theme.toLowerCase()} className="me-2">
+      <Button
+        key={theme}
+        className="me-2"
+        theme={theme.toLowerCase()}
+      >
         {theme}
       </Button>
     ))
+  );
+}
+
+export function Outlines() {
+  return (
+    [
+      'Primary',
+      'Secondary',
+      'Success',
+      'Danger',
+      'Warning',
+      'Info',
+      'Light',
+      'Dark',
+    ].map((theme) => (
+      <Button
+        key={theme}
+        className="me-2"
+        theme={theme.toLowerCase()}
+        isOutline
+      >
+        {theme}
+      </Button>
+    ))
+  );
+}
+
+export function Tags() {
+  const examples = [
+    { as: 'a', type: null, label: 'Link' },
+    { as: 'button', type: 'submit', label: 'Button' },
+    { as: 'input', type: 'button', label: 'Input' },
+    { as: 'input', type: 'submit', label: 'Submit' },
+    { as: 'input', type: 'reset', label: 'Reset' },
+  ];
+
+  return (
+    <>
+      {examples.map(({ as, type, label }) => (
+        <Button key={label} as={as} type={type} className="me-2">
+          {label}
+        </Button>
+      ))}
+    </>
   );
 }
 
@@ -121,9 +169,102 @@ Disabled.args = {
   children: 'Disabled',
 };
 
+export const DisabledLink = Template.bind({});
+DisabledLink.args = {
+  as: 'a',
+  theme: 'primary',
+  isDisabled: true,
+  children: 'Disabled',
+};
+DisabledLink.storyName = 'Disabled link';
+
+export const DisabledInput = Template.bind({});
+DisabledInput.args = {
+  as: 'input',
+  theme: 'primary',
+  isDisabled: true,
+  children: 'Disabled',
+};
+DisabledInput.storyName = 'Disabled input';
+
 export const Block = Template.bind({});
 Block.args = {
   theme: 'primary',
   isBlock: true,
   children: 'Block',
 };
+
+export function ToggleStates() {
+  const examples = [
+    {
+      isActive: false,
+      isDisabled: false,
+      label: 'Toggle button',
+    },
+    {
+      isActive: true,
+      isDisabled: false,
+      label: 'Active toggle button',
+    },
+    {
+      isActive: false,
+      isDisabled: true,
+      label: 'Disabled toggle button',
+    },
+  ];
+
+  return (
+    <>
+      {examples.map(({ isActive, label, isDisabled }) => (
+        <Button
+          key={label}
+          isToggle
+          isActive={isActive}
+          isDisabled={isDisabled}
+          className="me-2"
+        >
+          {label}
+        </Button>
+      ))}
+    </>
+  );
+}
+ToggleStates.storyName = 'Toggle states';
+
+export function ToggleStatesForLinks() {
+  const examples = [
+    {
+      isActive: false,
+      isDisabled: false,
+      label: 'Toggle button',
+    },
+    {
+      isActive: true,
+      isDisabled: false,
+      label: 'Active toggle button',
+    },
+    {
+      isActive: false,
+      isDisabled: true,
+      label: 'Disabled toggle button',
+    },
+  ];
+
+  return (
+    <>
+      {examples.map(({ isActive, label, isDisabled }) => (
+        <Button
+          key={label}
+          as="a"
+          isToggle
+          isActive={isActive}
+          isDisabled={isDisabled}
+          className="me-2"
+        >
+          {label}
+        </Button>
+      ))}
+    </>
+  );
+}
+ToggleStatesForLinks.storyName = 'Toggle states for links';

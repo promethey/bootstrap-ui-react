@@ -5,7 +5,9 @@ import classNames from 'classnames';
 function CardGroup(props) {
   const { style, children, className } = props;
 
-  const classes = classNames('card-group', className);
+  const BASE_CLASS_NAME = 'card-group';
+
+  const classes = classNames(BASE_CLASS_NAME, className);
 
   return (
     <div className={classes} style={style}>

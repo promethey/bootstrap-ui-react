@@ -8,10 +8,12 @@ function CardBody(props) {
     style, children, className, textColor,
   } = props;
 
+  const BASE_CLASS_NAME = 'card-body';
+
   const bodyTextColor = getPrefix('text', textColor);
 
   const classes = classNames(
-    'card-body',
+    BASE_CLASS_NAME,
     { [bodyTextColor]: textColor },
     className,
   );
