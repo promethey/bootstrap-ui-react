@@ -58,3 +58,60 @@ OutlinedStyles.args = {
   ],
 };
 OutlinedStyles.storyName = 'Outlines styles';
+
+export function Sizing() {
+  return (
+    <>
+      <ButtonGroup size="lg">
+        <Button theme="dark" isOutline>
+          Left
+        </Button>
+        <Button theme="dark" isOutline>
+          Middle
+        </Button>
+        <Button theme="dark" isOutline>
+          Right
+        </Button>
+      </ButtonGroup>
+      <div className="my-2" />
+      <ButtonGroup>
+        <Button theme="dark" isOutline>
+          Left
+        </Button>
+        <Button theme="dark" isOutline>
+          Middle
+        </Button>
+        <Button theme="dark" isOutline>
+          Right
+        </Button>
+      </ButtonGroup>
+      <div className="my-2" />
+      <ButtonGroup size="sm">
+        <Button theme="dark" isOutline>
+          Left
+        </Button>
+        <Button theme="dark" isOutline>
+          Middle
+        </Button>
+        <Button theme="dark" isOutline>
+          Right
+        </Button>
+      </ButtonGroup>
+    </>
+  );
+}
+
+export const VerticalButtons = Template.bind({});
+VerticalButtons.args = {
+  'aria-label': 'Basic vertical buttons example',
+  isVertical: true,
+  children: [
+    <Button theme="dark">Button</Button>,
+    <Button theme="dark">Button</Button>,
+    <Button theme="dark">Button</Button>,
+    <Button theme="dark">Button</Button>,
+    <Button theme="dark">Button</Button>,
+    <Button theme="dark">Button</Button>,
+  ],
+};
+VerticalButtons.storyName = 'Vertical buttons';
