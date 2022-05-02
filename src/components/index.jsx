@@ -3,7 +3,7 @@ export { default as Alert } from './Alert';
 export { default as Badge } from './Badge';
 // Breadcrumb
 export { default as Button } from './Button';
-// ButtonGroup
+export { default as ButtonGroup } from './ButtonGroup';
 export { default as Card } from './Card';
 // Carousel
 export { default as CloseButton } from './CloseButton';

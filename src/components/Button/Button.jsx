@@ -18,6 +18,7 @@ function Button(props) {
     isToggle,
     isActive,
     onClick,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'btn';
@@ -38,6 +39,7 @@ function Button(props) {
     style,
     className: classes,
     onClick,
+    ...rest,
   };
 
   /** <button /> props */
