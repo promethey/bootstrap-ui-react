@@ -20,3 +20,5 @@ export { default as ListGroup } from './ListGroup';
 export { default as Progress } from './Progress';
 export { default as Spinner } from './Spinner';
 // Toasts
+
+export { default as TextBox } from './TextBox';

@@ -37,6 +37,7 @@ export const TextColors = [
   'white',
   'black-50',
   'white-50',
+  'reset',
 ];
 
 export const LinkColors = [
