@@ -8,7 +8,7 @@ export default {
     docs: {
       description: {
         component: `Component for displaying text.
-        Support full text utilities API to control alignment,
+        Support all text utilities to control alignment,
         wrapping, weight, and more.`,
       },
     },
@@ -52,6 +52,15 @@ export function TextAlignment() {
   );
 }
 TextAlignment.storyName = 'Alignments';
+
+export const Wrap = Template.bind({});
+Wrap.args = {
+  style: { width: '8rem' },
+  children: 'This text should wrap.',
+  bgColor: 'light',
+  isBorder: true,
+  isWrap: true,
+};
 
 export const NoWrap = Template.bind({});
 NoWrap.args = {
@@ -202,3 +211,19 @@ LineThrough.args = {
   decoration: 'line-through',
 };
 LineThrough.storyName = 'Line through';
+
+export const Margins = Template.bind({});
+Margins.args = {
+  children: 'Margins',
+  margin: [0, null, 0, null],
+};
+
+export const HorizonalCentering = Template.bind({});
+HorizonalCentering.args = {
+  style: { width: '200px' },
+  children: 'Centered element',
+  marginX: 'auto',
+  bgColor: 'light',
+  isBorder: true,
+};
+HorizonalCentering.storyName = 'Horizonal centering';

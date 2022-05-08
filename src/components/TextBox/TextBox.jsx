@@ -12,6 +12,14 @@ function TextBox(props) {
     fw,
     fst,
     lh,
+    margin,
+    marginSm,
+    marginMd,
+    marginLg,
+    marginXl,
+    marginXxl,
+    marginX,
+    marginY,
     textColor,
     bgColor,
     isBorder,
@@ -32,12 +40,76 @@ function TextBox(props) {
 
   const BASE_CLASS_NAME = 'text';
 
+  const getMarginClassNames = (sizes, breakpoint = false) => {
+    if (sizes) {
+      if (Array.isArray(sizes)) {
+        /**
+         * Sides table:
+         * t - index === 0 (top)
+         * s - index === 1 (start)
+         * b - index === 2 (bottom)
+         * e - index === 3 (end)
+         */
+        if (sizes.length === 4 || sizes.length === 2) {
+          return sizes.map((m, index) => {
+            let sides = '';
+
+            if ([0, 1, 2, 3, 4, 5, 'auto'].includes(m)) {
+              switch (index) {
+                case 0:
+                  sides = 't';
+                  break;
+                case 1:
+                  sides = 's';
+                  break;
+                case 2:
+                  sides = 'b';
+                  break;
+                case 3:
+                  sides = 'e';
+                  break;
+                default:
+                  break;
+              }
+
+              if (breakpoint) {
+                return `m${sides}-${breakpoint}-${m}`;
+              }
+
+              return `m${sides}-${m}`;
+            }
+
+            return null;
+          }).join(' ');
+        }
+      }
+
+      if (typeof sizes === 'number') {
+        return `m-${sizes}`;
+      }
+
+      if (typeof sizes === 'string') {
+        return `m-${sizes}`;
+      }
+    }
+
+    return null;
+  };
+
   const classes = classNames(
     {
       [`bg-${bgColor}`]: bgColor,
       border: isBorder,
       [`border-${isBorder}`]: typeof isBorder === 'string',
       [`${BASE_CLASS_NAME}-${textColor}`]: textColor,
+      [getMarginClassNames(margin)]: margin,
+      [getMarginClassNames(margin, 'sm')]: marginSm,
+      [getMarginClassNames(margin, 'md')]: marginMd,
+      [getMarginClassNames(margin, 'lg')]: marginLg,
+      [getMarginClassNames(margin, 'xl')]: marginXl,
+      [getMarginClassNames(margin, 'xxl')]: marginXxl,
+      [`mx-${marginX}`]: marginX,
+      [`my-${marginY}`]: marginY,
       [`${BASE_CLASS_NAME}-${alignment}`]: alignment,
       [`${BASE_CLASS_NAME}-sm-${alignmentSm}`]: alignmentSm,
       [`${BASE_CLASS_NAME}-md-${alignmentMd}`]: alignmentMd,
@@ -103,6 +175,50 @@ TextBox.propTypes = {
     'base',
     'lg',
   ]),
+  margin: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.number,
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  marginSm: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.number,
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  marginMd: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.number,
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  marginLg: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.number,
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  marginXl: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.number,
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  marginXxl: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.number,
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  marginX: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+  marginY: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
   textColor: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -196,6 +312,14 @@ TextBox.defaultProps = {
   fw: null,
   fst: null,
   lh: null,
+  margin: null,
+  marginSm: null,
+  marginMd: null,
+  marginLg: null,
+  marginXl: null,
+  marginXxl: null,
+  marginX: null,
+  marginY: null,
   textColor: null,
   bgColor: null,
   isBorder: false,
