@@ -102,7 +102,7 @@ export function FontSizes() {
 
   return (
     sizes.map((size) => (
-      <TextBox fs={size}>
+      <TextBox key={size} fs={size}>
         .fs-
         {size}
         {' '}
@@ -124,7 +124,7 @@ export function FontWeights() {
 
   return (
     examples.map((example) => (
-      <TextBox fw={example.value}>
+      <TextBox key={example.value} fw={example.value}>
         {example.text}
       </TextBox>
     ))
@@ -140,7 +140,7 @@ export function FontStyles() {
 
   return (
     examples.map((example) => (
-      <TextBox fst={example.value}>
+      <TextBox key={example.value} fst={example.value}>
         {example.text}
       </TextBox>
     ))
@@ -212,11 +212,68 @@ LineThrough.args = {
 };
 LineThrough.storyName = 'Line through';
 
-export const Margins = Template.bind({});
-Margins.args = {
-  children: 'Margins',
-  margin: [0, null, 0, null],
-};
+export function Margins() {
+  return (
+    <>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3, 3, 3, 3]}
+        padding={2}
+      >
+        Example
+      </TextBox>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3, 4]}
+        padding={2}
+      >
+        Example 1
+      </TextBox>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3, 3, null, null]}
+        padding={2}
+      >
+        Example 2
+      </TextBox>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3, null]}
+        padding={2}
+      >
+        Example 3
+      </TextBox>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3, null, 3, null]}
+        padding={2}
+      >
+        Example 4
+      </TextBox>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3, 3, 3]}
+        padding={2}
+      >
+        Example 5
+      </TextBox>
+      <TextBox
+        bgColor="light"
+        isBorder
+        margin={[3]}
+        padding={2}
+      >
+        Example 6
+      </TextBox>
+    </>
+  );
+}
 
 export const HorizonalCentering = Template.bind({});
 HorizonalCentering.args = {
@@ -227,3 +284,34 @@ HorizonalCentering.args = {
   isBorder: true,
 };
 HorizonalCentering.storyName = 'Horizonal centering';
+
+export function Paddings() {
+  return (
+    <>
+      <TextBox bgColor="light" isBorder padding={[3, 3, 3, 3]}>
+        Example
+      </TextBox>
+      <TextBox bgColor="light" isBorder paddingX={3} paddingY={3}>
+        Example 2
+      </TextBox>
+      <TextBox bgColor="light" isBorder padding={3}>
+        Example 3
+      </TextBox>
+      <TextBox
+        as="div"
+        bgColor="danger"
+        textColor="white"
+        padding={4}
+      >
+        <TextBox
+          fs={5}
+          fw="bolder"
+          margin={0}
+          alignment="center"
+        >
+          Example 4
+        </TextBox>
+      </TextBox>
+    </>
+  );
+}

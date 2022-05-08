@@ -20,6 +20,14 @@ function TextBox(props) {
     marginXxl,
     marginX,
     marginY,
+    padding,
+    paddingSm,
+    paddingMd,
+    paddingLg,
+    paddingXl,
+    paddingXxl,
+    paddingX,
+    paddingY,
     textColor,
     bgColor,
     isBorder,
@@ -40,21 +48,42 @@ function TextBox(props) {
 
   const BASE_CLASS_NAME = 'text';
 
-  const getMarginClassNames = (sizes, breakpoint = false) => {
-    if (sizes) {
+  const getSpacingClassNames = (property = '', sizes = 0, breakpoint = false) => {
+    if (sizes !== null) {
       if (Array.isArray(sizes)) {
         /**
+         * Indexes on block element:
+         *
+         *        0
+         *   -----------
+         * 3 -         - 1
+         *   -----------
+         *        2
+         *
          * Sides table:
          * t - index === 0 (top)
          * s - index === 1 (start)
          * b - index === 2 (bottom)
          * e - index === 3 (end)
+         *
+         * Examples (property='m'):
+         * sizes = [2, 1, 1, 2] => 'mt-2 me-1 mb-1 ms-2'
+         * sizes = [2, null, 1, null] => 'mt-2 mb-1'
+         * sizes = [2, null, null, null] => 'mt-2'
+         * sizes = [2, 2, 2] => 'mt-2 me-2 mb-2'
+         * sizes = [2] => 'mt-2'
+         * sizes = 2 => 'm-2'
+         * sizes = 0 => 'm-0'
          */
-        if (sizes.length === 4 || sizes.length === 2) {
-          return sizes.map((m, index) => {
-            let sides = '';
+        if (sizes.length >= 1 && sizes.length <= 4) {
+          // [3, 2] => [3, 2, 3, 2]
+          const modifiedSizes = sizes.length === 2 ? [...sizes, ...sizes] : sizes;
 
-            if ([0, 1, 2, 3, 4, 5, 'auto'].includes(m)) {
+          return modifiedSizes.map((size, index) => {
+            let sides = '';
+            const defaultSizes = [0, 1, 2, 3, 4, 5, 'auto'];
+
+            if (defaultSizes.includes(size)) {
               switch (index) {
                 case 0:
                   sides = 't';
@@ -73,23 +102,19 @@ function TextBox(props) {
               }
 
               if (breakpoint) {
-                return `m${sides}-${breakpoint}-${m}`;
+                return `${property}${sides}-${breakpoint}-${size}`;
               }
 
-              return `m${sides}-${m}`;
+              return `${property}${sides}-${size}`;
             }
 
             return null;
-          }).join(' ');
+          }).filter((spacingClassName) => spacingClassName !== null).join(' ');
         }
       }
 
-      if (typeof sizes === 'number') {
-        return `m-${sizes}`;
-      }
-
-      if (typeof sizes === 'string') {
-        return `m-${sizes}`;
+      if (typeof sizes === 'number' || typeof sizes === 'string') {
+        return `${property}-${sizes}`;
       }
     }
 
@@ -102,14 +127,22 @@ function TextBox(props) {
       border: isBorder,
       [`border-${isBorder}`]: typeof isBorder === 'string',
       [`${BASE_CLASS_NAME}-${textColor}`]: textColor,
-      [getMarginClassNames(margin)]: margin,
-      [getMarginClassNames(margin, 'sm')]: marginSm,
-      [getMarginClassNames(margin, 'md')]: marginMd,
-      [getMarginClassNames(margin, 'lg')]: marginLg,
-      [getMarginClassNames(margin, 'xl')]: marginXl,
-      [getMarginClassNames(margin, 'xxl')]: marginXxl,
-      [`mx-${marginX}`]: marginX,
-      [`my-${marginY}`]: marginY,
+      [getSpacingClassNames('m', margin)]: margin !== null,
+      [getSpacingClassNames('m', marginSm, 'sm')]: marginSm !== null,
+      [getSpacingClassNames('m', marginMd, 'md')]: marginMd !== null,
+      [getSpacingClassNames('m', marginLg, 'lg')]: marginLg !== null,
+      [getSpacingClassNames('m', marginXl, 'xl')]: marginXl !== null,
+      [getSpacingClassNames('m', marginXxl, 'xxl')]: marginXxl !== null,
+      [`mx-${marginX}`]: marginX !== null,
+      [`my-${marginY}`]: marginY !== null,
+      [getSpacingClassNames('p', padding)]: padding !== null,
+      [getSpacingClassNames('p', paddingSm, 'sm')]: paddingSm !== null,
+      [getSpacingClassNames('p', paddingMd, 'md')]: paddingMd !== null,
+      [getSpacingClassNames('p', paddingLg, 'lg')]: paddingLg !== null,
+      [getSpacingClassNames('p', paddingXl, 'xl')]: paddingXxl !== null,
+      [getSpacingClassNames('p', paddingXxl, 'xxl')]: paddingXxl !== null,
+      [`px-${paddingX}`]: paddingX !== null,
+      [`py-${paddingY}`]: paddingY !== null,
       [`${BASE_CLASS_NAME}-${alignment}`]: alignment,
       [`${BASE_CLASS_NAME}-sm-${alignmentSm}`]: alignmentSm,
       [`${BASE_CLASS_NAME}-md-${alignmentMd}`]: alignmentMd,
@@ -179,46 +212,78 @@ TextBox.propTypes = {
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
-    PropTypes.number,
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
   marginSm: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
-    PropTypes.number,
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
   marginMd: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
-    PropTypes.number,
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
   marginLg: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
-    PropTypes.number,
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
   marginXl: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
-    PropTypes.number,
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
   marginXxl: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
-    PropTypes.number,
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
   marginX: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
   marginY: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+  padding: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  paddingSm: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  paddingMd: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  paddingLg: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  paddingXl: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  paddingXxl: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
+  paddingX: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+  paddingY: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
   textColor: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -320,6 +385,14 @@ TextBox.defaultProps = {
   marginXxl: null,
   marginX: null,
   marginY: null,
+  padding: null,
+  paddingSm: null,
+  paddingMd: null,
+  paddingLg: null,
+  paddingXl: null,
+  paddingXxl: null,
+  paddingX: null,
+  paddingY: null,
   textColor: null,
   bgColor: null,
   isBorder: false,
