@@ -49,6 +49,48 @@ InlineFlex.args = {
 };
 InlineFlex.storyName = 'Inline flex';
 
+export function Width() {
+  return (
+    <FlexBox direction="column" padding={2} bgColor="light" isBorder>
+      <FlexBox
+        width={25}
+        margin={[null, null, 2, null]}
+        padding={2}
+        bgColor="light"
+        isBorder="info"
+      >
+        25%
+      </FlexBox>
+      <FlexBox
+        width={50}
+        margin={[null, null, 2, null]}
+        padding={2}
+        bgColor="light"
+        isBorder="info"
+      >
+        50%
+      </FlexBox>
+      <FlexBox
+        width={75}
+        margin={[null, null, 2, null]}
+        padding={2}
+        bgColor="light"
+        isBorder="info"
+      >
+        75%
+      </FlexBox>
+      <FlexBox
+        width={100}
+        padding={2}
+        bgColor="light"
+        isBorder="info"
+      >
+        100%
+      </FlexBox>
+    </FlexBox>
+  );
+}
+
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
   direction: 'row',
@@ -357,3 +399,121 @@ export function FlexFill() {
   );
 }
 FlexFill.storyName = 'Flex fill';
+
+export function FlexGrow() {
+  return (
+    <FlexBox padding={1} bgColor="light" isBorder>
+      <FlexBox flexGrow={1} padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Third flex item
+      </FlexBox>
+    </FlexBox>
+  );
+}
+FlexGrow.storyName = 'Flex grow';
+
+export function FlexShrink() {
+  return (
+    <FlexBox padding={1} bgColor="light" isBorder>
+      <FlexBox width={100} padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox flexShrink={1} padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+    </FlexBox>
+  );
+}
+FlexShrink.storyName = 'Flex shrink';
+
+export function AutoMargins() {
+  return (
+    <>
+      <FlexBox margin={[null, null, 3, null]} padding={1} bgColor="light" isBorder>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+      </FlexBox>
+      <FlexBox margin={[null, null, 3, null]} padding={1} bgColor="light" isBorder>
+        <FlexBox margin={[null, 'auto', null, null]} padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+      </FlexBox>
+      <FlexBox margin={[null, null, 3, null]} padding={1} bgColor="light" isBorder>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox margin={[null, null, null, 'auto']} padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+      </FlexBox>
+    </>
+  );
+}
+AutoMargins.storyName = 'Auto margins';
+
+export function WithAlignItems() {
+  return (
+    <>
+      <FlexBox
+        direction="column"
+        alignItems="start"
+        margin={[null, 3, null, null]}
+        padding={1}
+        style={{ height: '200px' }}
+        bgColor="light"
+        isBorder
+      >
+        <FlexBox margin={[null, null, 'auto', null]} padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+      </FlexBox>
+      <FlexBox
+        direction="column"
+        alignItems="end"
+        margin={[null, 3, null, null]}
+        padding={1}
+        style={{ height: '200px' }}
+        bgColor="light"
+        isBorder
+      >
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+        <FlexBox margin={['auto', null, null, null]} padding={2} bgColor="light" isBorder>
+          Flex item
+        </FlexBox>
+      </FlexBox>
+    </>
+  );
+}
+WithAlignItems.storyName = 'With align items';

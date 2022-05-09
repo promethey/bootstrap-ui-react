@@ -12,9 +12,9 @@ export function getSpacingClassNames(property = '', sizes = 0, breakpoint = fals
        *
        * Sides table:
        * t - index === 0 (top)
-       * s - index === 1 (start)
+       * e - index === 1 (end)
        * b - index === 2 (bottom)
-       * e - index === 3 (end)
+       * s - index === 3 (start)
        *
        * Examples (property='m'):
        * sizes = [2, 1, 1, 2] => 'mt-2 me-1 mb-1 ms-2'
@@ -39,13 +39,13 @@ export function getSpacingClassNames(property = '', sizes = 0, breakpoint = fals
                 sides = 't';
                 break;
               case 1:
-                sides = 's';
+                sides = 'e';
                 break;
               case 2:
                 sides = 'b';
                 break;
               case 3:
-                sides = 'e';
+                sides = 's';
                 break;
               default:
                 break;
