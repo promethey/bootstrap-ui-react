@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../utilities/prefix';
+import { usePrefix } from '../helpers/prefix';
 import CardGroup from './CardGroup';
 import CardHeader from './CardHeader';
 import CardImage from './CardImage';
