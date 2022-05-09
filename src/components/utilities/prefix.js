@@ -1,3 +1,3 @@
-export function getPrefix(prefix, className) {
+export function usePrefix(prefix, className) {
   return className ? `${prefix}-${className}` : prefix;
 }

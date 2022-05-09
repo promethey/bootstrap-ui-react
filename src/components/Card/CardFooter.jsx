@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function CardFooter(props) {
   const {
     style, children, className, textColor, bgColor, borderColor,
   } = props;
 
-  const footerTextColor = getPrefix('text', textColor);
-  const footerBgColor = getPrefix('bg', bgColor);
-  const footerBorderColor = getPrefix('border', borderColor);
+  const footerTextColor = usePrefix('text', textColor);
+  const footerBgColor = usePrefix('bg', bgColor);
+  const footerBorderColor = usePrefix('border', borderColor);
 
   const classes = classNames(
     'card-footer',

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function CardText(props) {
   const {
     style, children, className, textColor,
   } = props;
 
-  const cardTextColor = getPrefix('text', textColor);
+  const cardTextColor = usePrefix('text', textColor);
 
   const classes = classNames(
     'card-text',

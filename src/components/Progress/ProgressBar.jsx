@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function ProgressBar(props) {
   const {
@@ -10,8 +10,8 @@ function ProgressBar(props) {
     isStriped, isAnimated,
   } = props;
 
-  const bgColorClassName = getPrefix('bg', bgColor);
-  const textColorClassName = getPrefix('text', textColor);
+  const bgColorClassName = usePrefix('bg', bgColor);
+  const textColorClassName = usePrefix('text', textColor);
 
   const classes = classNames(
     'progress-bar',

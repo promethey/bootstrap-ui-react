@@ -22,3 +22,4 @@ export { default as Spinner } from './Spinner';
 // Toasts
 
 export { default as TextBox } from './TextBox';
+export { default as FlexBox } from './FlexBox';

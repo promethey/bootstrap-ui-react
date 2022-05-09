@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function CardTitle(props) {
   const {
@@ -10,7 +10,7 @@ function CardTitle(props) {
 
   const BASE_CLASS_NAME = 'card-title';
 
-  const titleTextColor = getPrefix('text', textColor);
+  const titleTextColor = usePrefix('text', textColor);
 
   const classes = classNames(
     BASE_CLASS_NAME,

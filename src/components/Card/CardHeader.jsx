@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function CardHeader(props) {
   const {
@@ -11,9 +11,9 @@ function CardHeader(props) {
 
   const BASE_CLASS_NAME = 'card-header';
 
-  const headerTextColor = getPrefix('text', textColor);
-  const headerBgColor = getPrefix('bg', bgColor);
-  const headerBorderColor = getPrefix('border', borderColor);
+  const headerTextColor = usePrefix('text', textColor);
+  const headerBgColor = usePrefix('bg', bgColor);
+  const headerBorderColor = usePrefix('border', borderColor);
 
   const classes = classNames(
     BASE_CLASS_NAME,

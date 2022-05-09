@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function ButtonGroup(props) {
   const {
@@ -10,8 +10,8 @@ function ButtonGroup(props) {
 
   const BASE_CLASS_NAME = 'btn-group';
 
-  const sizeClassName = getPrefix(BASE_CLASS_NAME, size);
-  const verticalClassName = getPrefix(BASE_CLASS_NAME, 'vertical');
+  const sizeClassName = usePrefix(BASE_CLASS_NAME, size);
+  const verticalClassName = usePrefix(BASE_CLASS_NAME, 'vertical');
 
   const classes = classNames(
     !isVertical ? BASE_CLASS_NAME : verticalClassName,

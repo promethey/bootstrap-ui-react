@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function CardLink(props) {
   const {
@@ -10,7 +10,7 @@ function CardLink(props) {
 
   const BASE_CLASS_NAME = 'card-link';
 
-  const linkTextColor = getPrefix('link', linkColor);
+  const linkTextColor = usePrefix('link', linkColor);
 
   const classes = classNames(
     BASE_CLASS_NAME,

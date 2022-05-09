@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getPrefix } from '../prefix';
+import { usePrefix } from '../utilities/prefix';
 
 function CardBody(props) {
   const {
@@ -10,7 +10,7 @@ function CardBody(props) {
 
   const BASE_CLASS_NAME = 'card-body';
 
-  const bodyTextColor = getPrefix('text', textColor);
+  const bodyTextColor = usePrefix('text', textColor);
 
   const classes = classNames(
     BASE_CLASS_NAME,
