@@ -517,3 +517,64 @@ export function WithAlignItems() {
   );
 }
 WithAlignItems.storyName = 'With align items';
+
+export function Wrap() {
+  return (
+    <FlexBox isWrap padding={1} bgColor="light" isBorder style={{ width: '100px' }}>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+    </FlexBox>
+  );
+}
+
+export function NoWrap() {
+  return (
+    <FlexBox isNoWrap padding={1} bgColor="light" isBorder style={{ width: '100px' }}>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+      <FlexBox padding={2} bgColor="light" isBorder>
+        Flex item
+      </FlexBox>
+    </FlexBox>
+  );
+}
+NoWrap.storyName = 'No wrap';
+
+export function Order() {
+  return (
+    <FlexBox isNoWrap padding={1} bgColor="light" isBorder>
+      <FlexBox order={3} padding={2} bgColor="light" isBorder>
+        First flex item
+      </FlexBox>
+      <FlexBox order={2} padding={2} bgColor="light" isBorder>
+        Second flex item
+      </FlexBox>
+      <FlexBox order={1} padding={2} bgColor="light" isBorder>
+        Third flex item
+      </FlexBox>
+    </FlexBox>
+  );
+}
