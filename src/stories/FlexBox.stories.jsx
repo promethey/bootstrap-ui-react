@@ -31,6 +31,26 @@ function TemplateItems(args) {
   );
 }
 
+function TemplateAlignContent(args) {
+  return (
+    <FlexBox
+      style={{ height: '200px' }}
+      width={75}
+      isWrap
+      padding={1}
+      bgColor="light"
+      isBorder
+      {...args}
+    >
+      {[...new Array(15)].map(() => (
+        <FlexBox padding={2} bgColor="light" isBorder>
+          FlexItem
+        </FlexBox>
+      ))}
+    </FlexBox>
+  );
+}
+
 export const Flex = Template.bind({});
 Flex.args = {
   children: 'I\'m a flexbox container!',
@@ -54,7 +74,7 @@ export function Width() {
     <FlexBox direction="column" padding={2} bgColor="light" isBorder>
       <FlexBox
         width={25}
-        margin={[null, null, 2, null]}
+        mb={2}
         padding={2}
         bgColor="light"
         isBorder="info"
@@ -63,7 +83,7 @@ export function Width() {
       </FlexBox>
       <FlexBox
         width={50}
-        margin={[null, null, 2, null]}
+        mb={2}
         padding={2}
         bgColor="light"
         isBorder="info"
@@ -72,7 +92,7 @@ export function Width() {
       </FlexBox>
       <FlexBox
         width={75}
-        margin={[null, null, 2, null]}
+        mb={2}
         padding={2}
         bgColor="light"
         isBorder="info"
@@ -94,28 +114,28 @@ export function Width() {
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
   direction: 'row',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 DirectionRow.storyName = 'Direction row';
 
 export const DirectionRowReverse = TemplateItems.bind({});
 DirectionRowReverse.args = {
   direction: 'row-reverse',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 DirectionRowReverse.storyName = 'Direction row reverse';
 
 export const DirectionColumn = TemplateItems.bind({});
 DirectionColumn.args = {
   direction: 'column',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 DirectionColumn.storyName = 'Direction column';
 
 export const DirectionColumnReverse = TemplateItems.bind({});
 DirectionColumnReverse.args = {
   direction: 'column-reverse',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 DirectionColumnReverse.storyName = 'Direction column reverse';
 
@@ -146,42 +166,42 @@ DirectionResponsive.storyName = 'Direction responsive';
 export const JustifyContentStart = TemplateItems.bind({});
 JustifyContentStart.args = {
   justifyContent: 'start',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 JustifyContentStart.storyName = 'Justify content start';
 
 export const JustifyContentEnd = TemplateItems.bind({});
 JustifyContentEnd.args = {
   justifyContent: 'end',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 JustifyContentEnd.storyName = 'Justify content end';
 
 export const JustifyContentCenter = TemplateItems.bind({});
 JustifyContentCenter.args = {
   justifyContent: 'center',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 JustifyContentCenter.storyName = 'Justify content center';
 
 export const JustifyContentBetween = TemplateItems.bind({});
 JustifyContentBetween.args = {
   justifyContent: 'between',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 JustifyContentBetween.storyName = 'Justify content between';
 
 export const JustifyContentAround = TemplateItems.bind({});
 JustifyContentAround.args = {
   justifyContent: 'around',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 JustifyContentAround.storyName = 'Justify content around';
 
 export const JustifyContentEvenly = TemplateItems.bind({});
 JustifyContentEvenly.args = {
   justifyContent: 'evenly',
-  margin: [null, null, 3, null],
+  mb: 3,
 };
 JustifyContentEvenly.storyName = 'Justify content evenly';
 
@@ -434,7 +454,7 @@ FlexShrink.storyName = 'Flex shrink';
 export function AutoMargins() {
   return (
     <>
-      <FlexBox margin={[null, null, 3, null]} padding={1} bgColor="light" isBorder>
+      <FlexBox mb={3} padding={1} bgColor="light" isBorder>
         <FlexBox padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
@@ -445,8 +465,8 @@ export function AutoMargins() {
           Flex item
         </FlexBox>
       </FlexBox>
-      <FlexBox margin={[null, null, 3, null]} padding={1} bgColor="light" isBorder>
-        <FlexBox margin={[null, 'auto', null, null]} padding={2} bgColor="light" isBorder>
+      <FlexBox mb={3} padding={1} bgColor="light" isBorder>
+        <FlexBox me="auto" padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
         <FlexBox padding={2} bgColor="light" isBorder>
@@ -456,14 +476,14 @@ export function AutoMargins() {
           Flex item
         </FlexBox>
       </FlexBox>
-      <FlexBox margin={[null, null, 3, null]} padding={1} bgColor="light" isBorder>
+      <FlexBox mb={3} padding={1} bgColor="light" isBorder>
         <FlexBox padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
         <FlexBox padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
-        <FlexBox margin={[null, null, null, 'auto']} padding={2} bgColor="light" isBorder>
+        <FlexBox ms="auto" padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
       </FlexBox>
@@ -478,13 +498,13 @@ export function WithAlignItems() {
       <FlexBox
         direction="column"
         alignItems="start"
-        margin={[null, 3, null, null]}
+        me={3}
         padding={1}
         style={{ height: '200px' }}
         bgColor="light"
         isBorder
       >
-        <FlexBox margin={[null, null, 'auto', null]} padding={2} bgColor="light" isBorder>
+        <FlexBox mb="auto" padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
         <FlexBox padding={2} bgColor="light" isBorder>
@@ -497,7 +517,7 @@ export function WithAlignItems() {
       <FlexBox
         direction="column"
         alignItems="end"
-        margin={[null, 3, null, null]}
+        me={3}
         padding={1}
         style={{ height: '200px' }}
         bgColor="light"
@@ -509,7 +529,7 @@ export function WithAlignItems() {
         <FlexBox padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
-        <FlexBox margin={['auto', null, null, null]} padding={2} bgColor="light" isBorder>
+        <FlexBox mt="auto" padding={2} bgColor="light" isBorder>
           Flex item
         </FlexBox>
       </FlexBox>
@@ -578,3 +598,39 @@ export function Order() {
     </FlexBox>
   );
 }
+
+export const AlignContentStart = TemplateAlignContent.bind({});
+AlignContentStart.args = {
+  alignContent: 'start',
+};
+AlignContentStart.storyName = 'Align content start';
+
+export const AlignContentEnd = TemplateAlignContent.bind({});
+AlignContentEnd.args = {
+  alignContent: 'end',
+};
+AlignContentEnd.storyName = 'Align content end';
+
+export const AlignContentCenter = TemplateAlignContent.bind({});
+AlignContentCenter.args = {
+  alignContent: 'center',
+};
+AlignContentCenter.storyName = 'Align content center';
+
+export const AlignContentBetween = TemplateAlignContent.bind({});
+AlignContentBetween.args = {
+  alignContent: 'between',
+};
+AlignContentBetween.storyName = 'Align content between';
+
+export const AlignContentAround = TemplateAlignContent.bind({});
+AlignContentAround.args = {
+  alignContent: 'around',
+};
+AlignContentAround.storyName = 'Align content around';
+
+export const AlignContentStretch = TemplateAlignContent.bind({});
+AlignContentStretch.args = {
+  alignContent: 'stretch',
+};
+AlignContentStretch.storyName = 'Align content stretch';
