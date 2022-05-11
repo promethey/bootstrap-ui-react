@@ -4,6 +4,13 @@ import { FlexBox } from '../components';
 export default {
   title: 'Components/FlexBox',
   component: FlexBox,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Component supporting full Bootstrap Flex API end more...',
+      },
+    },
+  },
 };
 
 function Template(args) {
@@ -44,7 +51,7 @@ function TemplateAlignContent(args) {
     >
       {[...new Array(15)].map(() => (
         <FlexBox padding={2} bgColor="light" isBorder>
-          FlexItem
+          Flex item
         </FlexBox>
       ))}
     </FlexBox>
@@ -77,7 +84,7 @@ export function Width() {
         mb={2}
         padding={2}
         bgColor="light"
-        isBorder="info"
+        isBorder
       >
         25%
       </FlexBox>
@@ -86,7 +93,7 @@ export function Width() {
         mb={2}
         padding={2}
         bgColor="light"
-        isBorder="info"
+        isBorder
       >
         50%
       </FlexBox>
@@ -95,7 +102,7 @@ export function Width() {
         mb={2}
         padding={2}
         bgColor="light"
-        isBorder="info"
+        isBorder
       >
         75%
       </FlexBox>
@@ -103,7 +110,7 @@ export function Width() {
         width={100}
         padding={2}
         bgColor="light"
-        isBorder="info"
+        isBorder
       >
         100%
       </FlexBox>
@@ -114,28 +121,24 @@ export function Width() {
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
   direction: 'row',
-  mb: 3,
 };
 DirectionRow.storyName = 'Direction row';
 
 export const DirectionRowReverse = TemplateItems.bind({});
 DirectionRowReverse.args = {
   direction: 'row-reverse',
-  mb: 3,
 };
 DirectionRowReverse.storyName = 'Direction row reverse';
 
 export const DirectionColumn = TemplateItems.bind({});
 DirectionColumn.args = {
   direction: 'column',
-  mb: 3,
 };
 DirectionColumn.storyName = 'Direction column';
 
 export const DirectionColumnReverse = TemplateItems.bind({});
 DirectionColumnReverse.args = {
   direction: 'column-reverse',
-  mb: 3,
 };
 DirectionColumnReverse.storyName = 'Direction column reverse';
 
@@ -166,42 +169,36 @@ DirectionResponsive.storyName = 'Direction responsive';
 export const JustifyContentStart = TemplateItems.bind({});
 JustifyContentStart.args = {
   justifyContent: 'start',
-  mb: 3,
 };
 JustifyContentStart.storyName = 'Justify content start';
 
 export const JustifyContentEnd = TemplateItems.bind({});
 JustifyContentEnd.args = {
   justifyContent: 'end',
-  mb: 3,
 };
 JustifyContentEnd.storyName = 'Justify content end';
 
 export const JustifyContentCenter = TemplateItems.bind({});
 JustifyContentCenter.args = {
   justifyContent: 'center',
-  mb: 3,
 };
 JustifyContentCenter.storyName = 'Justify content center';
 
 export const JustifyContentBetween = TemplateItems.bind({});
 JustifyContentBetween.args = {
   justifyContent: 'between',
-  mb: 3,
 };
 JustifyContentBetween.storyName = 'Justify content between';
 
 export const JustifyContentAround = TemplateItems.bind({});
 JustifyContentAround.args = {
   justifyContent: 'around',
-  mb: 3,
 };
 JustifyContentAround.storyName = 'Justify content around';
 
 export const JustifyContentEvenly = TemplateItems.bind({});
 JustifyContentEvenly.args = {
   justifyContent: 'evenly',
-  mb: 3,
 };
 JustifyContentEvenly.storyName = 'Justify content evenly';
 
@@ -634,3 +631,9 @@ AlignContentStretch.args = {
   alignContent: 'stretch',
 };
 AlignContentStretch.storyName = 'Align content stretch';
+
+export const WithoutDisplay = Template.bind({});
+WithoutDisplay.args = {
+  children: 'Without display',
+  display: false,
+};

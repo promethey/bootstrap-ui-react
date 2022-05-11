@@ -121,8 +121,8 @@ function FlexBox(props) {
   const BASE_CLASS_NAME = usePrefix('d', display);
 
   const classes = classNames(
-    BASE_CLASS_NAME,
     {
+      [BASE_CLASS_NAME]: display,
       [usePrefix('d-sm', displaySm)]: displaySm !== null,
       [usePrefix('d-md', displayMd)]: displayMd !== null,
       [usePrefix('d-lg', displayLg)]: displayLg !== null,
@@ -227,8 +227,8 @@ function FlexBox(props) {
       [usePrefix('ps', ps)]: ps !== null,
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
-      border: isBorder,
       [usePrefix('border', isBorder)]: typeof isBorder === 'string',
+      border: isBorder,
     },
     className,
   );
@@ -241,119 +241,170 @@ function FlexBox(props) {
 }
 
 FlexBox.propTypes = {
+  /** Change JSX type */
   as: PropTypes.oneOf([
     'div',
     'span',
   ]),
+
+  /** Change other styles */
   style: PropTypes.shape({}),
+
+  /** Add other children components */
   children: PropTypes.node.isRequired,
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  /** Change *display* style */
   display: PropTypes.oneOf([
     'flex',
     'inline-flex',
   ]),
+
+  /** Change *display* style for breakpoint sm */
   displaySm: PropTypes.oneOf([
     'flex',
     'inline-flex',
   ]),
+
+  /** Change *display* style for breakpoint md */
   displayMd: PropTypes.oneOf([
     'flex',
     'inline-flex',
   ]),
+
+  /** Change *display* style for breakpoint lg */
   displayLg: PropTypes.oneOf([
     'flex',
     'inline-flex',
   ]),
+
+  /** Change *flex-display* style for breakpoint xl */
   displayXl: PropTypes.oneOf([
     'flex',
     'inline-flex',
   ]),
+
+  /** Change *display* style for breakpoint xxl */
   displayXxl: PropTypes.oneOf([
     'flex',
     'inline-flex',
   ]),
+
+  /** Change width style */
   width: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
+  /** Change *direction* */
   direction: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
   ]),
+
+  /** Change *direction* for breakpoint sm */
   directionSm: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
   ]),
+
+  /** Change *direction* for breakpoint md */
   directionMd: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
   ]),
+
+  /** Change *direction* for breakpoint lg */
   directionLg: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
   ]),
+
+  /** Change *direction* for breakpoint xl */
   directionXl: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
   ]),
+
+  /** Change *direction* for breakpoint xxl */
   directionXxl: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
   ]),
+
+  /** Change *justify-content* style */
   justifyContent: PropTypes.oneOf([
     'start',
     'end',
+    'center',
     'between',
     'around',
     'evenly',
   ]),
+
+  /** Change *justify-content* style for breakpoint sm */
   justifyContentSm: PropTypes.oneOf([
     'start',
     'end',
+    'center',
     'between',
     'around',
     'evenly',
   ]),
+
+  /** Change *justify-content* style for breakpoint md */
   justifyContentMd: PropTypes.oneOf([
     'start',
     'end',
+    'center',
     'between',
     'around',
     'evenly',
   ]),
+
+  /** Change *justify-content* style for breakpoint lg */
   justifyContentLg: PropTypes.oneOf([
     'start',
     'end',
+    'center',
     'between',
     'around',
     'evenly',
   ]),
+
+  /** Change *justify-content* style for breakpoint xl */
   justifyContentXl: PropTypes.oneOf([
     'start',
     'end',
+    'center',
     'between',
     'around',
     'evenly',
   ]),
+
+  /** Change *justify-content* style for breakpoint xxl */
   justifyContentXxl: PropTypes.oneOf([
     'start',
     'end',
+    'center',
     'between',
     'around',
     'evenly',
   ]),
+
+  /** Change *align-items* style */
   alignItems: PropTypes.oneOf([
     'start',
     'end',
@@ -361,6 +412,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-items* style for breakpoint sm */
   alignItemsSm: PropTypes.oneOf([
     'start',
     'end',
@@ -368,6 +421,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-items* style for breakpoint md */
   alignItemsMd: PropTypes.oneOf([
     'start',
     'end',
@@ -375,6 +430,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-items* style for breakpoint lg */
   alignItemsLg: PropTypes.oneOf([
     'start',
     'end',
@@ -382,6 +439,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-items* style for breakpoint xl */
   alignItemsXl: PropTypes.oneOf([
     'start',
     'end',
@@ -389,6 +448,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-items* style for breakpoint xxl */
   alignItemsXxl: PropTypes.oneOf([
     'start',
     'end',
@@ -396,6 +457,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-self* style for breakpoint */
   alignSelf: PropTypes.oneOf([
     'start',
     'end',
@@ -403,6 +466,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-self* style for breakpoint sm */
   alignSelfSm: PropTypes.oneOf([
     'start',
     'end',
@@ -410,6 +475,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-self* style for breakpoint md */
   alignSelfMd: PropTypes.oneOf([
     'start',
     'end',
@@ -417,6 +484,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-self* style for breakpoint lg */
   alignSelfLg: PropTypes.oneOf([
     'start',
     'end',
@@ -424,6 +493,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-self* style for breakpoint xl */
   alignSelfXl: PropTypes.oneOf([
     'start',
     'end',
@@ -431,6 +502,8 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Change *align-self* style for breakpoint xxl */
   alignSelfXxl: PropTypes.oneOf([
     'start',
     'end',
@@ -438,42 +511,116 @@ FlexBox.propTypes = {
     'baseline',
     'stretch',
   ]),
+
+  /** Activate *flex-fill* style */
   isFill: PropTypes.bool,
+
+  /** Activate *flex-fill* style for breakpoint sm */
   isFillSm: PropTypes.bool,
+
+  /** Change *flex-fill* style for breakpoint md */
   isFillMd: PropTypes.bool,
+
+  /** Change *flex-fill* style for breakpoint lg */
   isFillLg: PropTypes.bool,
+
+  /** Change *flex-fill* style for breakpoint xl */
   isFillXl: PropTypes.bool,
+
+  /** Change *flex-fill* style for breakpoint xxl */
   isFillXxl: PropTypes.bool,
+
+  /** Change *flex-grow* style */
   flexGrow: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-grow* style for breakpoint sm */
   flexGrowSm: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-grow* style for breakpoint md */
   flexGrowMd: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-grow* style for breakpoint lg */
   flexGrowLg: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-grow* style for breakpoint xl */
   flexGrowXl: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-grow* style for breakpoint xxl */
   flexGrowXxl: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-shrink* style */
   flexShrink: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-shrink* style for breakpoint sm */
   flexShrinkSm: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-shrink* style for breakpoint md */
   flexShrinkMd: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-shrink* style for breakpoint lg */
   flexShrinkLg: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-shrink* style for breakpoint xl */
   flexShrinkXl: PropTypes.oneOf([0, 1]),
+
+  /** Change *flex-shrink* style for breakpoint xxl */
   flexShrinkXxl: PropTypes.oneOf([0, 1]),
+
+  /** Activate *flex-wrap* style */
   isWrap: PropTypes.bool,
+
+  /** Activate *flex-wrap* style for breakpoint sm */
   isWrapSm: PropTypes.bool,
+
+  /** Activate *flex-wrap* style for breakpoint md */
   isWrapMd: PropTypes.bool,
+
+  /** Activate *flex-wrap* style for breakpoint lg */
   isWrapLg: PropTypes.bool,
+
+  /** Activate *flex-wrap* style for breakpoint xl */
   isWrapXl: PropTypes.bool,
+
+  /** Activate *flex-wrap* style for breakpoint xxl */
   isWrapXxl: PropTypes.bool,
+
+  /** Activate *flex-nowrap* style */
   isNoWrap: PropTypes.bool,
+
+  /** Activate *flex-nowrap* style for breakpoint sm */
   isNoWrapSm: PropTypes.bool,
+
+  /** Activate *flex-nowrap* style for breakpoint md */
   isNoWrapMd: PropTypes.bool,
+
+  /** Activate *flex-nowrap* style for breakpoint lg */
   isNoWrapLg: PropTypes.bool,
+
+  /** Activate *flex-nowrap* style for breakpoint xl */
   isNoWrapXl: PropTypes.bool,
+
+  /** Activate *flex-nowrap* style for breakpoint xxl */
   isNoWrapXxl: PropTypes.bool,
+
+  /** Activate *flex-wrap-reverse* style */
   isWrapReverse: PropTypes.bool,
+
+  /** Activate *flex-wrap-reverse* style for breakpoint sm */
   isWrapReverseSm: PropTypes.bool,
+
+  /** Activate *flex-wrap-reverse* style for breakpoint md */
   isWrapReverseMd: PropTypes.bool,
+
+  /** Activate *flex-wrap-reverse* style for breakpoint lg */
   isWrapReverseLg: PropTypes.bool,
+
+  /** Activate *flex-wrap-reverse* style for breakpoint xl */
   isWrapReverseXl: PropTypes.bool,
+
+  /** Activate *flex-wrap-reverse* style for breakpoint xxl */
   isWrapReverseXxl: PropTypes.bool,
+
+  /** Set *order* */
   order: PropTypes.oneOf([
     1,
     2,
@@ -483,6 +630,8 @@ FlexBox.propTypes = {
     'first',
     'last',
   ]),
+
+  /** Set *order* for breakpoint sm */
   orderSm: PropTypes.oneOf([
     1,
     2,
@@ -492,6 +641,8 @@ FlexBox.propTypes = {
     'first',
     'last',
   ]),
+
+  /** Set *order* for breakpoint md */
   orderMd: PropTypes.oneOf([
     1,
     2,
@@ -501,6 +652,8 @@ FlexBox.propTypes = {
     'first',
     'last',
   ]),
+
+  /** Set *order* for breakpoint lg */
   orderLg: PropTypes.oneOf([
     1,
     2,
@@ -510,6 +663,8 @@ FlexBox.propTypes = {
     'first',
     'last',
   ]),
+
+  /** Set *order* for breakpoint xl */
   orderXl: PropTypes.oneOf([
     1,
     2,
@@ -519,6 +674,8 @@ FlexBox.propTypes = {
     'first',
     'last',
   ]),
+
+  /** Set *order* for breakpoint xxl */
   orderXxl: PropTypes.oneOf([
     1,
     2,
@@ -528,6 +685,8 @@ FlexBox.propTypes = {
     'first',
     'last',
   ]),
+
+  /** Change *align-content* style */
   alignContent: PropTypes.oneOf([
     'start',
     'end',
@@ -535,6 +694,8 @@ FlexBox.propTypes = {
     'around',
     'stretch',
   ]),
+
+  /** Change *align-content* style for breakpoint sm */
   alignContentSm: PropTypes.oneOf([
     'start',
     'end',
@@ -542,6 +703,8 @@ FlexBox.propTypes = {
     'around',
     'stretch',
   ]),
+
+  /** Change *align-content* style for breakpoint md */
   alignContentMd: PropTypes.oneOf([
     'start',
     'end',
@@ -549,6 +712,8 @@ FlexBox.propTypes = {
     'around',
     'stretch',
   ]),
+
+  /** Change *align-content* style for breakpoint lg */
   alignContentLg: PropTypes.oneOf([
     'start',
     'end',
@@ -556,6 +721,8 @@ FlexBox.propTypes = {
     'around',
     'stretch',
   ]),
+
+  /** Change *align-content* style for breakpoint xl */
   alignContentXl: PropTypes.oneOf([
     'start',
     'end',
@@ -563,6 +730,8 @@ FlexBox.propTypes = {
     'around',
     'stretch',
   ]),
+
+  /** Change *align-content* style for breakpoint xxl */
   alignContentXxl: PropTypes.oneOf([
     'start',
     'end',
@@ -570,90 +739,140 @@ FlexBox.propTypes = {
     'around',
     'stretch',
   ]),
+
+  /** Set *margin* style */
   margin: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *margin* style for breakpoint sm */
   marginSm: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *margin* style for breakpoint md */
   marginMd: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *margin* style for breakpoint lg */
   marginLg: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *margin* style for breakpoint xl */
   marginXl: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *margin* style for breakpoint xxl */
   marginXxl: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *margin* X-axis style */
   marginX: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+
+  /** Set *margin* Y-axis style */
   marginY: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+
+  /** Set *margin* top style */
   mt: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *margin* end style */
   me: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *margin* bottom style */
   mb: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *margin* start style */
   ms: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *padding* style */
   padding: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *padding* style for breakpoint sm */
   paddingSm: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *padding* style for breakpoint md */
   paddingMd: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *padding* style for breakpoint lg */
   paddingLg: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *padding* style for breakpoint xl */
   paddingXl: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *padding* style for breakpoint xxl */
   paddingXxl: PropTypes.oneOfType([
     PropTypes.arrayOf(
       PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
     ),
     PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   ]),
+
+  /** Set *padding* X-axis style */
   paddingX: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+
+  /** Set *padding* Y-axis style */
   paddingY: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+
+  /** Set *padding* top style */
   pt: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *padding* end style */
   pe: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *padding* bottom style */
   pb: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *padding* start style */
   ps: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Change background color */
   bgColor: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -667,6 +886,8 @@ FlexBox.propTypes = {
     'white',
     'transparent',
   ]),
+
+  /** Change text color */
   textColor: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -683,6 +904,8 @@ FlexBox.propTypes = {
     'white-50',
     'reset',
   ]),
+
+  /** Set border and change border color */
   isBorder: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([
