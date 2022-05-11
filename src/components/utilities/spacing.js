@@ -1,4 +1,4 @@
-export function getSpacingClassNames(property = '', sizes = 0, breakpoint = false) {
+export function getSpacingClassName(property = '', sizes = 0, breakpoint = false) {
   if (sizes !== null) {
     if (Array.isArray(sizes)) {
       /**
@@ -69,4 +69,39 @@ export function getSpacingClassNames(property = '', sizes = 0, breakpoint = fals
   }
 
   return null;
+}
+
+export function getSpacingClassNames(
+  property,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  xxl,
+  axisX,
+  axisY,
+  top,
+  end,
+  bottom,
+  start,
+) {
+  const BASE_CLASS_NAME = property;
+
+  return {
+    [getSpacingClassName(BASE_CLASS_NAME, xs)]: xs !== null,
+    [getSpacingClassName(BASE_CLASS_NAME, sm, 'sm')]: sm !== null,
+    [getSpacingClassName(BASE_CLASS_NAME, md, 'md')]: md !== null,
+    [getSpacingClassName(BASE_CLASS_NAME, lg, 'lg')]: lg !== null,
+    [getSpacingClassName(BASE_CLASS_NAME, xl, 'xl')]: xl !== null,
+    [getSpacingClassName(BASE_CLASS_NAME, xxl, 'xxl')]: xxl !== null,
+
+    [getSpacingClassName(`${BASE_CLASS_NAME}x`, axisX)]: axisX !== null,
+    [getSpacingClassName(`${BASE_CLASS_NAME}y`, axisY)]: axisY !== null,
+
+    [getSpacingClassName(`${BASE_CLASS_NAME}t`, top)]: top !== null,
+    [getSpacingClassName(`${BASE_CLASS_NAME}e`, end)]: end !== null,
+    [getSpacingClassName(`${BASE_CLASS_NAME}b`, bottom)]: bottom !== null,
+    [getSpacingClassName(`${BASE_CLASS_NAME}s`, start)]: start !== null,
+  };
 }

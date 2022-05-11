@@ -8,7 +8,7 @@ export default {
     docs: {
       description: {
         component: `Component for displaying text.
-        Support all text utilities to control alignment,
+        Support all text utilities to control align,
         wrapping, weight, and more.`,
       },
     },
@@ -24,28 +24,105 @@ Default.args = {
   children: 'Simple text',
 };
 
+export function Display() {
+  return (
+    <>
+      <TextBox display="none">
+        This is default text
+      </TextBox>
+      <TextBox
+        display="block"
+        padding={2}
+        bgColor="light"
+        isBorder
+      >
+        Display block
+      </TextBox>
+      <TextBox
+        display="inline-block"
+        padding={2}
+        bgColor="light"
+        isBorder
+      >
+        Display inline-block
+      </TextBox>
+      <TextBox
+        display="flex"
+        padding={2}
+        bgColor="light"
+        isBorder
+      >
+        Display flex
+      </TextBox>
+      <TextBox
+        display="inline-flex"
+        padding={2}
+        bgColor="light"
+        isBorder
+      >
+        Display inline-flex
+      </TextBox>
+    </>
+  );
+}
+
+export function Print() {
+  return (
+    <>
+      <TextBox margin={0} displayPrint="none">
+        Screen Only (Hide on displayPrint only)
+      </TextBox>
+      <TextBox margin={0} display="none" displayPrint="block">
+        Print Only (Hide on screen only)
+      </TextBox>
+      <TextBox margin={0} display="none" displayLg="block" displayPrint="block">
+        Hide up to large on screen, but always show on displayPrint
+      </TextBox>
+    </>
+  );
+}
+
+export function Opacity() {
+  return (
+    <>
+      <TextBox margin={0} textColor="primary">
+        This is default primary text
+      </TextBox>
+      <TextBox margin={0} textColor="primary" textOpacity={75}>
+        This is 75% opacity primary text
+      </TextBox>
+      <TextBox margin={0} textColor="primary" textOpacity={50}>
+        This is 50% opacity primary text
+      </TextBox>
+      <TextBox margin={0} textColor="primary" textOpacity={25}>
+        This is 25% opacity primary text
+      </TextBox>
+    </>
+  );
+}
+
 export function TextAlignment() {
   return (
     <>
-      <TextBox alignment="start">
+      <TextBox align="start">
         Start aligned TextBox on all viewport sizes.
       </TextBox>
-      <TextBox alignment="center">
+      <TextBox align="center">
         Center aligned TextBox on all viewport sizes.
       </TextBox>
-      <TextBox alignment="end">
+      <TextBox align="end">
         End aligned TextBox on all viewport sizes.
       </TextBox>
-      <TextBox alignmentSm="start">
+      <TextBox alignSm="start">
         Start aligned TextBox on viewports sized SM (small) or wider.
       </TextBox>
-      <TextBox alignmentMd="start">
+      <TextBox alignMd="start">
         Start aligned TextBox on viewports sized MD (medium) or wider.
       </TextBox>
-      <TextBox alignmentLg="start">
+      <TextBox alignLg="start">
         Start aligned TextBox on viewports sized LG (large) or wider.
       </TextBox>
-      <TextBox alignmentXl="start">
+      <TextBox alignXl="start">
         Start aligned TextBox on viewports sized XL (extra-large) or wider.
       </TextBox>
     </>
@@ -307,7 +384,7 @@ export function Paddings() {
           fs={5}
           fw="bolder"
           margin={0}
-          alignment="center"
+          align="center"
         >
           Example 4
         </TextBox>

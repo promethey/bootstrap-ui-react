@@ -4,7 +4,10 @@ import classNames from 'classnames';
 
 function Heading(props) {
   const {
-    as: Component, style, children, className,
+    as: Component,
+    style,
+    children,
+    className,
   } = props;
 
   const classes = classNames(
