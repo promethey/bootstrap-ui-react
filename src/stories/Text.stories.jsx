@@ -1,9 +1,9 @@
 import React from 'react';
-import { TextBox } from '../components';
+import { Text } from '../components';
 
 export default {
-  title: 'Components/TextBox',
-  component: TextBox,
+  title: 'Components/Text',
+  component: Text,
   parameters: {
     docs: {
       description: {
@@ -16,7 +16,7 @@ export default {
 };
 
 function Template(args) {
-  return <TextBox {...args} />;
+  return <Text {...args} />;
 }
 
 export const Default = Template.bind({});
@@ -27,41 +27,41 @@ Default.args = {
 export function Display() {
   return (
     <>
-      <TextBox display="none">
+      <Text display="none">
         This is default text
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         display="block"
         padding={2}
         bgColor="light"
         isBorder
       >
         Display block
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         display="inline-block"
         padding={2}
         bgColor="light"
         isBorder
       >
         Display inline-block
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         display="flex"
         padding={2}
         bgColor="light"
         isBorder
       >
         Display flex
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         display="inline-flex"
         padding={2}
         bgColor="light"
         isBorder
       >
         Display inline-flex
-      </TextBox>
+      </Text>
     </>
   );
 }
@@ -69,15 +69,15 @@ export function Display() {
 export function Print() {
   return (
     <>
-      <TextBox margin={0} displayPrint="none">
+      <Text margin={0} displayPrint="none">
         Screen Only (Hide on displayPrint only)
-      </TextBox>
-      <TextBox margin={0} display="none" displayPrint="block">
+      </Text>
+      <Text margin={0} display="none" displayPrint="block">
         Print Only (Hide on screen only)
-      </TextBox>
-      <TextBox margin={0} display="none" displayLg="block" displayPrint="block">
+      </Text>
+      <Text margin={0} display="none" displayLg="block" displayPrint="block">
         Hide up to large on screen, but always show on displayPrint
-      </TextBox>
+      </Text>
     </>
   );
 }
@@ -85,18 +85,18 @@ export function Print() {
 export function Opacity() {
   return (
     <>
-      <TextBox margin={0} textColor="primary">
+      <Text margin={0} textColor="primary">
         This is default primary text
-      </TextBox>
-      <TextBox margin={0} textColor="primary" textOpacity={75}>
+      </Text>
+      <Text margin={0} textColor="primary" textOpacity={75}>
         This is 75% opacity primary text
-      </TextBox>
-      <TextBox margin={0} textColor="primary" textOpacity={50}>
+      </Text>
+      <Text margin={0} textColor="primary" textOpacity={50}>
         This is 50% opacity primary text
-      </TextBox>
-      <TextBox margin={0} textColor="primary" textOpacity={25}>
+      </Text>
+      <Text margin={0} textColor="primary" textOpacity={25}>
         This is 25% opacity primary text
-      </TextBox>
+      </Text>
     </>
   );
 }
@@ -104,27 +104,27 @@ export function Opacity() {
 export function TextAlignment() {
   return (
     <>
-      <TextBox align="start">
-        Start aligned TextBox on all viewport sizes.
-      </TextBox>
-      <TextBox align="center">
-        Center aligned TextBox on all viewport sizes.
-      </TextBox>
-      <TextBox align="end">
-        End aligned TextBox on all viewport sizes.
-      </TextBox>
-      <TextBox alignSm="start">
-        Start aligned TextBox on viewports sized SM (small) or wider.
-      </TextBox>
-      <TextBox alignMd="start">
-        Start aligned TextBox on viewports sized MD (medium) or wider.
-      </TextBox>
-      <TextBox alignLg="start">
-        Start aligned TextBox on viewports sized LG (large) or wider.
-      </TextBox>
-      <TextBox alignXl="start">
-        Start aligned TextBox on viewports sized XL (extra-large) or wider.
-      </TextBox>
+      <Text align="start">
+        Start aligned Text on all viewport sizes.
+      </Text>
+      <Text align="center">
+        Center aligned Text on all viewport sizes.
+      </Text>
+      <Text align="end">
+        End aligned Text on all viewport sizes.
+      </Text>
+      <Text alignSm="start">
+        Start aligned Text on viewports sized SM (small) or wider.
+      </Text>
+      <Text alignMd="start">
+        Start aligned Text on viewports sized MD (medium) or wider.
+      </Text>
+      <Text alignLg="start">
+        Start aligned Text on viewports sized LG (large) or wider.
+      </Text>
+      <Text alignXl="start">
+        Start aligned Text on viewports sized XL (extra-large) or wider.
+      </Text>
     </>
   );
 }
@@ -179,12 +179,12 @@ export function FontSizes() {
 
   return (
     sizes.map((size) => (
-      <TextBox key={size} fs={size}>
+      <Text key={size} fs={size}>
         .fs-
         {size}
         {' '}
         text
-      </TextBox>
+      </Text>
     ))
   );
 }
@@ -201,9 +201,9 @@ export function FontWeights() {
 
   return (
     examples.map((example) => (
-      <TextBox key={example.value} fw={example.value}>
+      <Text key={example.value} fw={example.value}>
         {example.text}
-      </TextBox>
+      </Text>
     ))
   );
 }
@@ -217,9 +217,9 @@ export function FontStyles() {
 
   return (
     examples.map((example) => (
-      <TextBox key={example.value} fst={example.value}>
+      <Text key={example.value} fst={example.value}>
         {example.text}
-      </TextBox>
+      </Text>
     ))
   );
 }
@@ -228,30 +228,30 @@ FontStyles.storyName = 'Font styles';
 export function LineHeights() {
   return (
     <>
-      <TextBox lh={1}>
+      <Text lh={1}>
         This is a long paragraph written to show how the line-height of
         an element is affected by our utilities. Classes are applied to
         the element itself or sometimes the parent element.
         These classes can be customized as needed with our utility API.
-      </TextBox>
-      <TextBox lh="sm">
+      </Text>
+      <Text lh="sm">
         This is a long paragraph written to show how the line-height of
         an element is affected by our utilities. Classes are applied to
         the element itself or sometimes the parent element. These classes
         can be customized as needed with our utility API.
-      </TextBox>
-      <TextBox lh="base">
+      </Text>
+      <Text lh="base">
         This is a long paragraph written to show how the line-height of an
         element is affected by our utilities. Classes are applied to the element
         itself or sometimes the parent element. These classes can be customized
         as needed with our utility API.
-      </TextBox>
-      <TextBox lh="lg">
+      </Text>
+      <Text lh="lg">
         This is a long paragraph written to show how the line-height of an element
         is affected by our utilities. Classes are applied to the element itself
         or sometimes the parent element. These classes can be customized as
         needed with our utility API.
-      </TextBox>
+      </Text>
     </>
   );
 }
@@ -292,62 +292,62 @@ LineThrough.storyName = 'Line through';
 export function Margins() {
   return (
     <>
-      <TextBox
+      <Text
         bgColor="light"
         isBorder
         margin={[3, 3, 3, 3]}
         padding={2}
       >
         Example
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         bgColor="light"
         isBorder
         margin={[3, 4]}
         padding={2}
       >
         Example 1
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         bgColor="light"
         isBorder
         margin={[3, 3, null, null]}
         padding={2}
       >
         Example 2
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         bgColor="light"
         isBorder
         margin={[3, null]}
         padding={2}
       >
         Example 3
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         bgColor="light"
         isBorder
         margin={[3, null, 3, null]}
         padding={2}
       >
         Example 4
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         bgColor="light"
         isBorder
         margin={[3, 3, 3]}
         padding={2}
       >
         Example 5
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         bgColor="light"
         isBorder
         margin={[3]}
         padding={2}
       >
         Example 6
-      </TextBox>
+      </Text>
     </>
   );
 }
@@ -365,30 +365,30 @@ HorizonalCentering.storyName = 'Horizonal centering';
 export function Paddings() {
   return (
     <>
-      <TextBox bgColor="light" isBorder padding={[3, 3, 3, 3]}>
+      <Text bgColor="light" isBorder padding={[3, 3, 3, 3]}>
         Example
-      </TextBox>
-      <TextBox bgColor="light" isBorder paddingX={3} paddingY={3}>
+      </Text>
+      <Text bgColor="light" isBorder paddingX={3} paddingY={3}>
         Example 2
-      </TextBox>
-      <TextBox bgColor="light" isBorder padding={3}>
+      </Text>
+      <Text bgColor="light" isBorder padding={3}>
         Example 3
-      </TextBox>
-      <TextBox
+      </Text>
+      <Text
         as="div"
         bgColor="danger"
         textColor="white"
         padding={4}
       >
-        <TextBox
+        <Text
           fs={5}
           fw="bolder"
           margin={0}
           align="center"
         >
           Example 4
-        </TextBox>
-      </TextBox>
+        </Text>
+      </Text>
     </>
   );
 }

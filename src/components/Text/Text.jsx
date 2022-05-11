@@ -5,7 +5,7 @@ import { getSpacingClassNames } from '../utilities/spacing';
 import { getDisplayClassNames, getPrintClassNames } from '../utilities/display';
 import { usePrefix } from '../helpers/prefix';
 
-function TextBox(props) {
+function Text(props) {
   const {
     as: Component,
     style,
@@ -155,7 +155,7 @@ function TextBox(props) {
   );
 }
 
-TextBox.propTypes = {
+Text.propTypes = {
   /** Change JSX type */
   as: PropTypes.oneOf([
     'h1',
@@ -630,7 +630,7 @@ TextBox.propTypes = {
   isTruncate: PropTypes.bool,
 };
 
-TextBox.defaultProps = {
+Text.defaultProps = {
   as: 'p',
   style: null,
   className: null,
@@ -693,4 +693,4 @@ TextBox.defaultProps = {
   isTruncate: false,
 };
 
-export default TextBox;
+export default Text;

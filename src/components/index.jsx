@@ -21,5 +21,5 @@ export { default as Progress } from './Progress';
 export { default as Spinner } from './Spinner';
 // Toasts
 
-export { default as TextBox } from './TextBox';
+export { default as Text } from './Text';
 export { default as FlexBox } from './FlexBox';
