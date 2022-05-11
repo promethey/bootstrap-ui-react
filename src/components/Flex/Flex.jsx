@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { usePrefix } from '../helpers/prefix';
 import { getSpacingClassNames } from '../utilities/spacing';
 
-function FlexBox(props) {
+function Flex(props) {
   const {
     as: Component,
     style,
@@ -201,35 +201,41 @@ function FlexBox(props) {
       [usePrefix('align-content-lg', alignContentLg)]: alignContentLg,
       [usePrefix('align-content-xl', alignContentXl)]: alignContentXl,
       [usePrefix('align-content-xxl', alignContentXxl)]: alignContentXxl,
-      [getSpacingClassNames('m', margin)]: margin !== null,
-      [getSpacingClassNames('m', marginSm, 'sm')]: marginSm !== null,
-      [getSpacingClassNames('m', marginMd, 'md')]: marginMd !== null,
-      [getSpacingClassNames('m', marginLg, 'lg')]: marginLg !== null,
-      [getSpacingClassNames('m', marginXl, 'xl')]: marginXl !== null,
-      [getSpacingClassNames('m', marginXxl, 'xxl')]: marginXxl !== null,
-      [getSpacingClassNames('mx', marginX)]: marginX !== null,
-      [getSpacingClassNames('my', marginY)]: marginY !== null,
-      [usePrefix('mt', mt)]: mt !== null,
-      [usePrefix('me', me)]: me !== null,
-      [usePrefix('mb', mb)]: mb !== null,
-      [usePrefix('ms', ms)]: ms !== null,
-      [getSpacingClassNames('p', padding)]: padding !== null,
-      [getSpacingClassNames('p', paddingSm, 'sm')]: paddingSm !== null,
-      [getSpacingClassNames('p', paddingMd, 'Md')]: paddingMd !== null,
-      [getSpacingClassNames('p', paddingLg, 'lg')]: paddingLg !== null,
-      [getSpacingClassNames('p', paddingXl, 'xl')]: paddingXl !== null,
-      [getSpacingClassNames('p', paddingXxl, 'xxl')]: paddingXxl !== null,
-      [getSpacingClassNames('px', paddingX)]: paddingX !== null,
-      [getSpacingClassNames('py', paddingY)]: paddingY !== null,
-      [usePrefix('pt', pt)]: pt !== null,
-      [usePrefix('pe', pe)]: pe !== null,
-      [usePrefix('pb', pb)]: pb !== null,
-      [usePrefix('ps', ps)]: ps !== null,
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
       [usePrefix('border', isBorder)]: typeof isBorder === 'string',
       border: isBorder,
     },
+    getSpacingClassNames(
+      'm',
+      margin,
+      marginSm,
+      marginMd,
+      marginLg,
+      marginXl,
+      marginXxl,
+      marginX,
+      marginY,
+      mt,
+      me,
+      mb,
+      ms,
+    ),
+    getSpacingClassNames(
+      'p',
+      padding,
+      paddingSm,
+      paddingMd,
+      paddingLg,
+      paddingXl,
+      paddingXxl,
+      paddingX,
+      paddingY,
+      pt,
+      pe,
+      pb,
+      ps,
+    ),
     className,
   );
 
@@ -240,7 +246,7 @@ function FlexBox(props) {
   );
 }
 
-FlexBox.propTypes = {
+Flex.propTypes = {
   /** Change JSX type */
   as: PropTypes.oneOf([
     'div',
@@ -922,7 +928,7 @@ FlexBox.propTypes = {
   ]),
 };
 
-FlexBox.defaultProps = {
+Flex.defaultProps = {
   as: 'div',
   style: null,
   className: null,
@@ -1034,4 +1040,4 @@ FlexBox.defaultProps = {
   isBorder: false,
 };
 
-export default FlexBox;
+export default Flex;
