@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../components';
+import { Button, Flex } from '../components';
 
 export default {
   title: 'Components/Button',
@@ -64,6 +64,48 @@ export function Outlines() {
         {theme}
       </Button>
     ))
+  );
+}
+
+export function Width() {
+  return (
+    <Flex direction="column" padding={2} bgColor="light" isBorder>
+      <Button width={25} maxWidth={100} mb={2}>
+        Width 25%
+      </Button>
+      <Button width={50} mb={2}>
+        Width 50%
+      </Button>
+      <Button width={75} mb={2}>
+        Width 75%
+      </Button>
+      <Button width={100} mb={2}>
+        Width 100%
+      </Button>
+      <Button width="auto" mb={2}>
+        Width auto
+      </Button>
+      <Button isBlock>Block</Button>
+    </Flex>
+  );
+}
+
+export function StretchedLink() {
+  return (
+    <Button as="a" isStretchedLink>
+      Stretched link
+    </Button>
+  );
+}
+
+export function Opacity() {
+  return (
+    <>
+      <Button opacity={100} me={2}>100%</Button>
+      <Button opacity={75} me={2}>75%</Button>
+      <Button opacity={50} me={2}>50%</Button>
+      <Button opacity={25}>25%</Button>
+    </>
   );
 }
 
