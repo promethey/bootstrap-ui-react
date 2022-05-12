@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Button } from '../components';
+import { Alert, Button, Text } from '../components';
 
 export default {
   title: 'Components/Alert',
@@ -113,7 +113,7 @@ Dismissing.args = {
   isDismissible: true,
   isAnimated: true,
   children: [
-    <strong>Holy guacamole!</strong>,
+    <Text as="strong">Holy guacamole!</Text>,
     ' ',
     'You should check in on some of those fields below.',
   ],
@@ -124,15 +124,15 @@ AdditionalContent.args = {
   theme: 'success',
   children: [
     <Alert.Heading>Well done!</Alert.Heading>,
-    <p>
+    <Text>
       Aww yeah, you successfully read this important alert message.
       This example text is going to run a bit longer so that you can see how spacing
       within an alert works with this kind of content.
-    </p>,
+    </Text>,
     <hr />,
-    <p className="mb-0">
+    <Text mb={0}>
       Whenever you need to, be sure to use margin
       utilities to keep things nice and tidy.
-    </p>,
+    </Text>,
   ],
 };

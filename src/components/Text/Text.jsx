@@ -73,7 +73,7 @@ function Text(props) {
 
   const BASE_CLASS_NAME = 'text';
 
-  const classes = classNames(
+  let classes = classNames(
     {
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('border', isBorder)]: typeof isBorder === 'string',
@@ -148,6 +148,10 @@ function Text(props) {
     className,
   );
 
+  if (classes === '') {
+    classes = null;
+  }
+
   return (
     <Component style={style} className={classes} {...rest}>
       {children}
@@ -164,6 +168,7 @@ Text.propTypes = {
     'h4',
     'h5',
     'h6',
+    'strong',
     'small',
     'span',
     'p',
