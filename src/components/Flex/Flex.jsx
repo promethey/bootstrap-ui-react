@@ -114,9 +114,11 @@ function Flex(props) {
     pb,
     ps,
     opacity,
+    shadow,
     bgColor,
     textColor,
     isBorder,
+    isRounded,
   } = props;
 
   const BASE_CLASS_NAME = usePrefix('d', display);
@@ -203,10 +205,13 @@ function Flex(props) {
       [usePrefix('align-content-xl', alignContentXl)]: alignContentXl,
       [usePrefix('align-content-xxl', alignContentXxl)]: alignContentXxl,
       [usePrefix('opacity', opacity)]: opacity,
+      [usePrefix('shadow', shadow)]: shadow,
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
       [usePrefix('border', isBorder)]: typeof isBorder === 'string',
       border: isBorder,
+      [usePrefix('rounded', isRounded)]: typeof isRounded === 'string',
+      rounded: typeof isRounded === 'boolean',
     },
     getSpacingClassNames(
       'm',
@@ -888,6 +893,16 @@ Flex.propTypes = {
     100,
   ]),
 
+  /** Add shadow style */
+  shadow: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'none',
+      'sm',
+      'lg',
+    ]),
+  ]),
+
   /** Change background color */
   bgColor: PropTypes.oneOf([
     'primary',
@@ -934,6 +949,19 @@ Flex.propTypes = {
       'light',
       'dark',
       'white',
+    ]),
+  ]),
+
+  /** Add border radius style */
+  isRounded: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'top',
+      'end',
+      'bottom',
+      'start',
+      'circle',
+      'pill',
     ]),
   ]),
 };
@@ -1046,9 +1074,11 @@ Flex.defaultProps = {
   pb: null,
   ps: null,
   opacity: null,
+  shadow: null,
   bgColor: null,
   textColor: null,
   isBorder: false,
+  isRounded: null,
 };
 
 export default Flex;

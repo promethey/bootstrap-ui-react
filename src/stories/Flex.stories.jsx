@@ -163,6 +163,108 @@ export function Opacity() {
   );
 }
 
+export function Shadow() {
+  return (
+    <>
+      <Flex padding={3} mb={5} shadow="none" bgColor="light" isRounded>
+        No shadow
+      </Flex>
+      <Flex padding={3} mb={5} shadow="sm" bgColor="body" isRounded>
+        Small shadow
+      </Flex>
+      <Flex padding={3} mb={5} shadow bgColor="body" isRounded>
+        Regular shadow
+      </Flex>
+      <Flex padding={3} mb={5} shadow="lg" bgColor="body" isRounded>
+        Larger shadow
+      </Flex>
+    </>
+  );
+}
+
+export function Rounded() {
+  return (
+    <Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded="top"
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded="end"
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded="bottom"
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded="start"
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded="circle"
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '150px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        bgColor="secondary"
+        textColor="light"
+        isRounded="pill"
+      >
+        150x75
+      </Flex>
+    </Flex>
+  );
+}
+
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
   direction: 'row',
