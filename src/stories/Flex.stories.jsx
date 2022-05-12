@@ -265,6 +265,62 @@ export function Rounded() {
   );
 }
 
+export function BorderWidth() {
+  return (
+    <Flex direction="row">
+      <Flex
+        style={{ width: '100px', height: '100px' }}
+        me={2}
+        bgColor="light"
+        isBorder
+        borderWidth={1}
+      />
+      <Flex
+        style={{ width: '100px', height: '100px' }}
+        me={2}
+        bgColor="light"
+        isBorder
+        borderWidth={2}
+      />
+      <Flex
+        style={{ width: '100px', height: '100px' }}
+        me={2}
+        bgColor="light"
+        isBorder
+        borderWidth={3}
+      />
+      <Flex
+        style={{ width: '100px', height: '100px' }}
+        me={2}
+        bgColor="light"
+        isBorder
+        borderWidth={4}
+      />
+      <Flex
+        style={{ width: '100px', height: '100px' }}
+        me={2}
+        bgColor="light"
+        isBorder
+        borderWidth={5}
+      />
+    </Flex>
+  );
+}
+BorderWidth.storyName = 'Border width';
+
+export function Visibility() {
+  return (
+    <>
+      <Flex padding={2} bgColor="light" isBorder isVisible>
+        Visible
+      </Flex>
+      <Flex padding={2} bgColor="light" isBorder isInvisible>
+        Invisible
+      </Flex>
+    </>
+  );
+}
+
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
   direction: 'row',

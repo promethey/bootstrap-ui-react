@@ -118,7 +118,10 @@ function Flex(props) {
     bgColor,
     textColor,
     isBorder,
+    borderWidth,
     isRounded,
+    isVisible,
+    isInvisible,
   } = props;
 
   const BASE_CLASS_NAME = usePrefix('d', display);
@@ -209,9 +212,12 @@ function Flex(props) {
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
       [usePrefix('border', isBorder)]: typeof isBorder === 'string',
+      [usePrefix('border', borderWidth)]: borderWidth,
       border: isBorder,
       [usePrefix('rounded', isRounded)]: typeof isRounded === 'string',
       rounded: typeof isRounded === 'boolean',
+      visible: isVisible && !isInvisible,
+      invisible: isInvisible && !isVisible,
     },
     getSpacingClassNames(
       'm',
@@ -952,6 +958,15 @@ Flex.propTypes = {
     ]),
   ]),
 
+  /** Change border width style */
+  borderWidth: PropTypes.oneOf([
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
   /** Add border radius style */
   isRounded: PropTypes.oneOfType([
     PropTypes.bool,
@@ -964,6 +979,12 @@ Flex.propTypes = {
       'pill',
     ]),
   ]),
+
+  /** Activate visible */
+  isVisible: PropTypes.bool,
+
+  /** Activate invisible */
+  isInvisible: PropTypes.bool,
 };
 
 Flex.defaultProps = {
@@ -1078,7 +1099,10 @@ Flex.defaultProps = {
   bgColor: null,
   textColor: null,
   isBorder: false,
+  borderWidth: null,
   isRounded: null,
+  isVisible: false,
+  isInvisible: false,
 };
 
 export default Flex;
