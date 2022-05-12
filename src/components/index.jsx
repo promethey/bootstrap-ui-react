@@ -1,4 +1,9 @@
 // Accordion
+// Toasts
+
+// Layout
+export { default as Container } from './Container';
+
 export { default as Alert } from './Alert';
 export { default as Badge } from './Badge';
 // Breadcrumb
@@ -19,7 +24,6 @@ export { default as ListGroup } from './ListGroup';
 // Placeholder
 export { default as Progress } from './Progress';
 export { default as Spinner } from './Spinner';
-// Toasts
 
 export { default as Text } from './Text';
 export { default as Flex } from './Flex';
