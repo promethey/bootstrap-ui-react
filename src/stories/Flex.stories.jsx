@@ -308,6 +308,57 @@ export function BorderWidth() {
 }
 BorderWidth.storyName = 'Border width';
 
+export function RoundedSizes() {
+  return (
+    <Flex direction="row">
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded={0}
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded={1}
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        me={2}
+        bgColor="secondary"
+        textColor="light"
+        isRounded={2}
+      >
+        75x75
+      </Flex>
+      <Flex
+        style={{ width: '75px', height: '75px' }}
+        justifyContent="center"
+        alignItems="center"
+        bgColor="secondary"
+        textColor="light"
+        isRounded={3}
+      >
+        75x75
+      </Flex>
+    </Flex>
+  );
+}
+RoundedSizes.storyName = 'Rounded sizes';
+
 export function Visibility() {
   return (
     <>

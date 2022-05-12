@@ -24,6 +24,37 @@ Default.args = {
   children: 'Simple text',
 };
 
+export function Colors() {
+  const examples = [
+    { textColor: 'primary', bgColor: null },
+    { textColor: 'secondary', bgColor: null },
+    { textColor: 'success', bgColor: null },
+    { textColor: 'danger', bgColor: null },
+    { textColor: 'warning', bgColor: 'dark' },
+    { textColor: 'info', bgColor: 'dark' },
+    { textColor: 'light', bgColor: 'dark' },
+    { textColor: 'dark', bgColor: null },
+    { textColor: 'body', bgColor: null },
+    { textColor: 'muted', bgColor: null },
+    { textColor: 'white', bgColor: 'dark' },
+    { textColor: 'black-50', bgColor: null },
+    { textColor: 'white-50', bgColor: 'dark' },
+  ];
+
+  return (
+    examples.map(({ textColor, bgColor }) => (
+      <Text
+        key={textColor}
+        bgColor={bgColor}
+        textColor={textColor}
+      >
+        .text-
+        {textColor}
+      </Text>
+    ))
+  );
+}
+
 export function Display() {
   return (
     <>
@@ -228,25 +259,25 @@ FontStyles.storyName = 'Font styles';
 export function LineHeights() {
   return (
     <>
-      <Text lh={1}>
+      <Text padding={2} lh={1} isBorder>
         This is a long paragraph written to show how the line-height of
         an element is affected by our utilities. Classes are applied to
         the element itself or sometimes the parent element.
         These classes can be customized as needed with our utility API.
       </Text>
-      <Text lh="sm">
+      <Text padding={2} lh="sm" isBorder>
         This is a long paragraph written to show how the line-height of
         an element is affected by our utilities. Classes are applied to
         the element itself or sometimes the parent element. These classes
         can be customized as needed with our utility API.
       </Text>
-      <Text lh="base">
+      <Text padding={2} lh="base" isBorder>
         This is a long paragraph written to show how the line-height of an
         element is affected by our utilities. Classes are applied to the element
         itself or sometimes the parent element. These classes can be customized
         as needed with our utility API.
       </Text>
-      <Text lh="lg">
+      <Text padding={2} lh="lg" isBorder>
         This is a long paragraph written to show how the line-height of an element
         is affected by our utilities. Classes are applied to the element itself
         or sometimes the parent element. These classes can be customized as
@@ -295,7 +326,7 @@ export function Margins() {
       <Text
         bgColor="light"
         isBorder
-        margin={[3, 3, 3, 3]}
+        margin={[1, 2, 3, 4]}
         padding={2}
       >
         Example
@@ -311,7 +342,8 @@ export function Margins() {
       <Text
         bgColor="light"
         isBorder
-        margin={[3, 3, null, null]}
+        mt={3}
+        ms={3}
         padding={2}
       >
         Example 2
@@ -327,7 +359,8 @@ export function Margins() {
       <Text
         bgColor="light"
         isBorder
-        margin={[3, null, 3, null]}
+        mt={3}
+        me={3}
         padding={2}
       >
         Example 4
@@ -343,10 +376,26 @@ export function Margins() {
       <Text
         bgColor="light"
         isBorder
-        margin={[3]}
+        margin={3}
         padding={2}
       >
         Example 6
+      </Text>
+      <Text
+        bgColor="light"
+        isBorder
+        marginX={4}
+        padding={2}
+      >
+        Example 7
+      </Text>
+      <Text
+        bgColor="light"
+        isBorder
+        marginY={4}
+        padding={2}
+      >
+        Example 8
       </Text>
     </>
   );
