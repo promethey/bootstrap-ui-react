@@ -113,6 +113,7 @@ function Flex(props) {
     pe,
     pb,
     ps,
+    opacity,
     bgColor,
     textColor,
     isBorder,
@@ -201,6 +202,7 @@ function Flex(props) {
       [usePrefix('align-content-lg', alignContentLg)]: alignContentLg,
       [usePrefix('align-content-xl', alignContentXl)]: alignContentXl,
       [usePrefix('align-content-xxl', alignContentXxl)]: alignContentXxl,
+      [usePrefix('opacity', opacity)]: opacity,
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
       [usePrefix('border', isBorder)]: typeof isBorder === 'string',
@@ -878,6 +880,14 @@ Flex.propTypes = {
   /** Set *padding* start style */
   ps: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
 
+  /** Change opacity style */
+  opacity: PropTypes.oneOf([
+    25,
+    50,
+    75,
+    100,
+  ]),
+
   /** Change background color */
   bgColor: PropTypes.oneOf([
     'primary',
@@ -1035,6 +1045,7 @@ Flex.defaultProps = {
   pe: null,
   pb: null,
   ps: null,
+  opacity: null,
   bgColor: null,
   textColor: null,
   isBorder: false,

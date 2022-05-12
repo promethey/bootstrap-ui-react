@@ -118,6 +118,51 @@ export function Width() {
   );
 }
 
+export function Opacity() {
+  return (
+    <Flex direction="column" padding={2} isBorder>
+      <Flex
+        mb={2}
+        padding={2}
+        bgColor="primary"
+        textColor="light"
+        opacity={100}
+      >
+        100%
+      </Flex>
+      <Flex
+        mb={2}
+        padding={2}
+        bgColor="primary"
+        textColor="light"
+        isBorder
+        opacity={75}
+      >
+        75%
+      </Flex>
+      <Flex
+        mb={2}
+        padding={2}
+        bgColor="primary"
+        textColor="light"
+        isBorder
+        opacity={50}
+      >
+        50%
+      </Flex>
+      <Flex
+        padding={2}
+        bgColor="primary"
+        textColor="light"
+        isBorder
+        opacity={25}
+      >
+        25%
+      </Flex>
+    </Flex>
+  );
+}
+
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
   direction: 'row',
