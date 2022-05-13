@@ -9,7 +9,7 @@ Simple. Fast. Modular
 
 Currenlty: v1.0.0 | Bootstrap: v5.1.3 ([more](https://getbootstrap.com/))
 
-![ReactLogo](./img/bootstrap-ui.png)
+![BootstrapUILogo](./img/bootstrap-ui.png)
 
 ### **Instalation**
 ```shell
