@@ -114,7 +114,7 @@ function Col(props) {
       [usePrefix('order-xxl', order)]: orderXxl !== null,
       [usePrefix('offset', offset)]: offset !== null,
       [usePrefix('offset', 'sm', offsetSm)]: offsetSm !== null,
-      [usePrefix('offset', 'md', offsetSm)]: offsetSm !== null,
+      [usePrefix('offset', 'md', offsetMd)]: offsetMd !== null,
       [usePrefix('offset', 'lg', offsetLg)]: offsetLg !== null,
       [usePrefix('offset', 'xl', offsetXl)]: offsetXl !== null,
       [usePrefix('offset', 'xxl', offsetXxl)]: offsetXxl !== null,
@@ -665,6 +665,7 @@ Col.propTypes = {
 
   /** Move columns */
   offset: PropTypes.oneOf([
+    0,
     1,
     2,
     3,
@@ -681,6 +682,7 @@ Col.propTypes = {
 
   /** Move columns for breakpoint sm */
   offsetSm: PropTypes.oneOf([
+    0,
     1,
     2,
     3,
@@ -697,6 +699,7 @@ Col.propTypes = {
 
   /** Move columns for breakpoint md */
   offsetMd: PropTypes.oneOf([
+    0,
     1,
     2,
     3,
@@ -713,6 +716,7 @@ Col.propTypes = {
 
   /** Move columns for breakpoint lg */
   offsetLg: PropTypes.oneOf([
+    0,
     1,
     2,
     3,
@@ -729,6 +733,7 @@ Col.propTypes = {
 
   /** Move columns for breakpoint xl */
   offsetXl: PropTypes.oneOf([
+    0,
     1,
     2,
     3,
@@ -745,6 +750,7 @@ Col.propTypes = {
 
   /** Move columns for breakpoint xxl */
   offsetXxl: PropTypes.oneOf([
+    0,
     1,
     2,
     3,

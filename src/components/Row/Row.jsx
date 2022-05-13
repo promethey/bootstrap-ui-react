@@ -51,6 +51,8 @@ function Row(props) {
     alignItemsLg,
     alignItemsXl,
     alignItemsXxl,
+    bgColor,
+    isBorder,
     isVisible,
     isInvisible,
   } = props;
@@ -78,6 +80,9 @@ function Row(props) {
       [usePrefix('align-items-lg', alignItemsLg)]: alignItemsLg,
       [usePrefix('align-items-xl', alignItemsXl)]: alignItemsXl,
       [usePrefix('align-items-xxl', alignItemsXxl)]: alignItemsXxl,
+      [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('border', isBorder)]: typeof isBorder === 'string',
+      border: isBorder,
       visible: isVisible && !isInvisible,
       invisible: isInvisible && !isVisible,
     },
@@ -476,6 +481,37 @@ Row.propTypes = {
     'stretch',
   ]),
 
+  /** Change background color */
+  bgColor: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'body',
+    'white',
+    'transparent',
+  ]),
+
+  /** Add border and change border color */
+  isBorder: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'primary',
+      'secondary',
+      'success',
+      'danger',
+      'warning',
+      'info',
+      'light',
+      'dark',
+      'white',
+    ]),
+  ]),
+
   /** Activate visible */
   isVisible: PropTypes.bool,
 
@@ -528,6 +564,8 @@ Row.defaultProps = {
   alignItemsLg: null,
   alignItemsXl: null,
   alignItemsXxl: null,
+  bgColor: null,
+  isBorder: false,
   isVisible: false,
   isInvisible: false,
 };

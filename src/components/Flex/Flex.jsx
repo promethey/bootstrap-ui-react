@@ -266,11 +266,13 @@ Flex.propTypes = {
     'span',
   ]),
 
-  /** Change other styles */
+  /** Add other styles */
   style: PropTypes.shape({}),
 
   /** Add other children components */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
