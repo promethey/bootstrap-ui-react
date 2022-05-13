@@ -10,6 +10,12 @@ function Col(props) {
     style,
     children,
     className,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    xxl,
     margin,
     marginSm,
     marginMd,
@@ -64,6 +70,8 @@ function Col(props) {
     offsetLg,
     offsetXl,
     offsetXxl,
+    bgColor,
+    isBorder,
     isVisible,
     isInvisible,
     ...rest
@@ -72,8 +80,14 @@ function Col(props) {
   const BASE_CLASS_NAME = 'col';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
     {
+      [usePrefix(BASE_CLASS_NAME, xs)]: xs,
+      [BASE_CLASS_NAME]: xs === null,
+      [usePrefix('col', 'sm', sm)]: sm !== null,
+      [usePrefix('col', 'md', md)]: md !== null,
+      [usePrefix('col', 'lg', lg)]: lg !== null,
+      [usePrefix('col', 'xl', xl)]: xl !== null,
+      [usePrefix('col', 'xxl', xxl)]: xxl !== null,
       [usePrefix('justify-content', justifyContent)]: justifyContent,
       [usePrefix('justify-content-sm', justifyContentSm)]: justifyContentSm,
       [usePrefix('justify-content-md', justifyContentMd)]: justifyContentMd,
@@ -104,6 +118,9 @@ function Col(props) {
       [usePrefix('offset', 'lg', offsetLg)]: offsetLg !== null,
       [usePrefix('offset', 'xl', offsetXl)]: offsetXl !== null,
       [usePrefix('offset', 'xxl', offsetXxl)]: offsetXxl !== null,
+      [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('border', isBorder)]: isBorder && typeof isBorder === 'string',
+      border: isBorder,
       visible: isVisible && !isInvisible,
       invisible: isInvisible && !isVisible,
     },
@@ -158,6 +175,126 @@ Col.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
+  ]),
+
+  /** Column size for breakpoint xs */
+  xs: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      'auto',
+    ]),
+  ]),
+
+  /** Column size for breakpoint sm */
+  sm: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      'auto',
+    ]),
+  ]),
+
+  /** Column size for breakpoint md */
+  md: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      'auto',
+    ]),
+  ]),
+
+  /** Column size for breakpoint lg */
+  lg: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      'auto',
+    ]),
+  ]),
+
+  /** Column size for breakpoint xl */
+  xl: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      'auto',
+    ]),
+  ]),
+
+  /** Column size for breakpoint xxl */
+  xxl: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      'auto',
+    ]),
   ]),
 
   /** Set *margin* style */
@@ -622,6 +759,37 @@ Col.propTypes = {
     12,
   ]),
 
+  /** Change background color */
+  bgColor: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'body',
+    'white',
+    'transparent',
+  ]),
+
+  /** Add border and change border color */
+  isBorder: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'primary',
+      'secondary',
+      'success',
+      'danger',
+      'warning',
+      'info',
+      'light',
+      'dark',
+      'white',
+    ]),
+  ]),
+
   /** Activate visible */
   isVisible: PropTypes.bool,
 
@@ -632,6 +800,12 @@ Col.propTypes = {
 Col.defaultProps = {
   style: null,
   className: null,
+  xs: null,
+  sm: null,
+  md: null,
+  lg: null,
+  xl: null,
+  xxl: null,
   margin: null,
   marginSm: null,
   marginMd: null,
@@ -686,6 +860,8 @@ Col.defaultProps = {
   offsetLg: null,
   offsetXl: null,
   offsetXxl: null,
+  bgColor: null,
+  isBorder: false,
   isVisible: false,
   isInvisible: false,
 };
