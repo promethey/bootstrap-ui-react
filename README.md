@@ -1,14 +1,9 @@
 # **Bootstrap-UI**
 
-<p style="font-size: 18px; font-weight: bold;">
-  🚀 Best ReactJS component library for fast creating your app 🚀
-</p>
+🚀 **Best ReactJS component library for fast creating your app** 🚀
 
-<p>
-  <del>Complicated. Slow. Not modular</del>
-  <br />
-  Simple. Fast. Modular
-</p>
+~~Complicated. Slow. Not modular~~
+Simple. Fast. Modular
 
 👏 Documentation generate by [Storybook](storybook.js.org) 👏
 
