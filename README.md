@@ -1,43 +1,88 @@
-# Bootstrap-UI-React
+# **Bootstrap-UI**
 
-[ReactJS](https://www.reactjs.org) components library basis on
-[Bootstrap](https://www.getbootstrap.com) v5.1.3
+<p style="font-size: 18px; font-weight: bold;">
+  🚀 Best ReactJS component library for fast creating your app 🚀
+</p>
 
-> **[`npm i bootstrap-ui`](npmjs.com)**
+<p>
+  <del>Complicated. Slow. Not modular</del>
+  <br />
+  Simple. Fast. Modular
+</p>
 
-Currently **v1.0**
+👏 Documentation generate by [Storybook](storybook.js.org) 👏
 
-Documentation generate by [Storybook](storybook.js.org).
+Currenlty: v1.0.0 | Bootstrap: v5.1.3 ([more](https://getbootstrap.com/))
 
-![ReactLogo](https://ru.reactjs.org/logo-og.png)
+![ReactLogo](./img/bootstrap-ui.png)
 
-## Features
+### **Instalation**
+```shell
+npm i bootstrap-ui
+```
 
-- Support install via [NPM](https://www.npmjs.com)
-- Support [Bootstrap v5.1.3](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
-- Documents generate by [Storybook](https://www.storybook.js.org)
+### **Features**
++ 💥 Install library via [npm](https://www.npmjs.com)
++ 🔥 Support latest version of [Bootstrap](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
++ 🧾 Documents generate by [Storybook](https://www.storybook.js.org)
++ 📖 Many informative, original and honest examples
++ ✨ Clean JavaScript (without TS)
 
-## Components
+### **Import**
+```js
+import { Badge } from 'bootstrap-ui';
+```
 
-1. [ ] Accordion
-2. [x] Alert
-3. [x] Badge
-4. [ ] Breadcrumb
-5. [x] Button
-6. [ ] ButtonGroup
-7. [x] Card
-8. [ ] Carousel
-9. [x] CloseButton
-10. [ ] Collapse
-11. [ ] Dropdown
-12. [ ] ListGroup
-13. [ ] Modal
-14. [ ] Nav
-15. [ ] Tab
-16. [ ] Navbar
-17. [ ] Offcanvas
-18. [ ] Pagination
-19. [ ] Placeholder
-20. [x] Progress
-21. [x] Spinner
-22. [ ] Toast
+### **Usage**
+```js
+import { Container, Row, Col } from 'bootstrap-ui';
+
+function Example() {
+  return (
+    <Container>
+      <Row cols={2}>
+        <Col>
+          Column
+        </Col>
+        <Col>
+          Column
+        </Col>
+        <Col>
+          Column
+        </Col>
+        <Col>
+          Column
+        </Col>
+      </Row>
+    </Container>
+  )
+}
+
+export default Example;
+```
+
+### **Components**
++ ⬜ Accordion
++ ✅ Alert
++ ✅ Badge
++ ⬜ Breadcrumb
++ ✅ Button
++ ✅ ButtonGroup
++ ✅ Card
++ ⬜ Carousel
++ ✅ CloseButton
++ ⬜ Collapse
++ ⬜ Dropdown
++ ✅ ListGroup
++ ⬜ Modal
++ ⬜ Nav
++ ⬜ Tab
++ ⬜ Navbar
++ ⬜ Offcanvas
++ ⬜ Pagination
++ ⬜ Placeholder
++ ✅ Progress
++ ✅ Spinner
++ ⬜ Toast
++ ✅ Flex
++ ✅ Text
