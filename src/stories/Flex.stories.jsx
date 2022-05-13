@@ -118,6 +118,53 @@ export function Width() {
   );
 }
 
+export function Height() {
+  return (
+    <Flex padding={2} bgColor="light" isBorder style={{ height: '200px' }}>
+      <Flex
+        width={25}
+        height={25}
+        justifyContent="center"
+        alignItems="center"
+        bgColor="light"
+        isBorder
+      >
+        Height 25%
+      </Flex>
+      <Flex
+        width={25}
+        height={50}
+        justifyContent="center"
+        alignItems="center"
+        bgColor="light"
+        isBorder
+      >
+        Height 50%
+      </Flex>
+      <Flex
+        width={25}
+        height={75}
+        justifyContent="center"
+        alignItems="center"
+        bgColor="light"
+        isBorder
+      >
+        Height 75%
+      </Flex>
+      <Flex
+        width={25}
+        height={100}
+        justifyContent="center"
+        alignItems="center"
+        bgColor="light"
+        isBorder
+      >
+        Height 100%
+      </Flex>
+    </Flex>
+  );
+}
+
 export function Opacity() {
   return (
     <Flex direction="column" padding={2} isBorder>

@@ -17,6 +17,7 @@ function Flex(props) {
     displayXl,
     displayXxl,
     width,
+    height,
     direction,
     directionSm,
     directionMd,
@@ -135,6 +136,7 @@ function Flex(props) {
       [usePrefix('d-xl', displayXl)]: displayXl !== null,
       [usePrefix('d-xxl', displayXxl)]: displayXxl !== null,
       [usePrefix('w', width)]: width !== null,
+      [usePrefix('h', height)]: height !== null,
       [usePrefix('flex', direction)]: direction,
       [usePrefix('flex-sm', directionSm)]: directionSm,
       [usePrefix('flex-md', directionMd)]: directionMd,
@@ -316,6 +318,9 @@ Flex.propTypes = {
 
   /** Change width style */
   width: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
+  /** Change height style */
+  height: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
   /** Change *direction* */
   direction: PropTypes.oneOf([
@@ -1006,6 +1011,7 @@ Flex.defaultProps = {
   displayXl: null,
   displayXxl: null,
   width: null,
+  height: null,
   direction: null,
   directionSm: null,
   directionMd: null,
