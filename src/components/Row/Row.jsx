@@ -15,6 +15,14 @@ function Row(props) {
     colsLg,
     colsXl,
     colsXxl,
+    gutter,
+    gutterSm,
+    gutterMd,
+    gutterLg,
+    gutterXl,
+    gutterXxl,
+    gutterX,
+    gutterY,
     margin,
     marginSm,
     marginMd,
@@ -68,6 +76,14 @@ function Row(props) {
       [usePrefix(BASE_CLASS_NAME, 'cols', 'lg', colsLg)]: colsLg !== null,
       [usePrefix(BASE_CLASS_NAME, 'cols', 'xl', colsXl)]: colsXl !== null,
       [usePrefix(BASE_CLASS_NAME, 'cols', 'xxl', colsXxl)]: colsXxl !== null,
+      [usePrefix('g', gutter)]: gutter !== null,
+      [usePrefix('g', 'sm', gutterSm)]: gutterSm !== null,
+      [usePrefix('g', 'md', gutterMd)]: gutterMd !== null,
+      [usePrefix('g', 'lg', gutterLg)]: gutterLg !== null,
+      [usePrefix('g', 'xl', gutterXl)]: gutterXl !== null,
+      [usePrefix('g', 'xxl', gutterXl)]: gutterXxl !== null,
+      [usePrefix('gx', gutterX)]: gutterX !== null,
+      [usePrefix('gy', gutterY)]: gutterY !== null,
       [usePrefix('justify-content', justifyContent)]: justifyContent,
       [usePrefix('justify-content-sm', justifyContentSm)]: justifyContentSm,
       [usePrefix('justify-content-md', justifyContentMd)]: justifyContentMd,
@@ -233,6 +249,86 @@ Row.propTypes = {
     11,
     12,
     'auto',
+  ]),
+
+  /** Change gaps between columns */
+  gutter: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for breakpoint sm */
+  gutterSm: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for breakpoint md */
+  gutterMd: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for breakpoint lg */
+  gutterLg: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for breakpoint xl */
+  gutterXl: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for breakpoint xxl */
+  gutterXxl: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for axis-X */
+  gutterX: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ]),
+
+  /** Change gaps between columns for axis-X */
+  gutterY: PropTypes.oneOf([
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
   ]),
 
   /** Set *margin* style */
@@ -528,6 +624,14 @@ Row.defaultProps = {
   colsLg: null,
   colsXl: null,
   colsXxl: null,
+  gutter: null,
+  gutterSm: null,
+  gutterMd: null,
+  gutterLg: null,
+  gutterXl: null,
+  gutterXxl: null,
+  gutterX: null,
+  gutterY: null,
   margin: null,
   marginSm: null,
   marginMd: null,

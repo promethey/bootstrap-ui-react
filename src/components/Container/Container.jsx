@@ -36,6 +36,7 @@ function Container(props) {
     ps,
     bgColor,
     textColor,
+    overflow,
     isBorder,
     isVisible,
     isInvisible,
@@ -48,6 +49,7 @@ function Container(props) {
     {
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
+      [usePrefix('overflow', overflow)]: overflow,
       [usePrefix('border', isBorder)]: isBorder && typeof isBorder === 'string',
       border: isBorder,
       [usePrefix(BASE_CLASS_NAME, 'fluid')]: typeof isFluid === 'boolean' && isFluid,
@@ -285,6 +287,14 @@ Container.propTypes = {
     'reset',
   ]),
 
+  /** Change content overflows */
+  overflow: PropTypes.oneOf([
+    'auto',
+    'hidden',
+    'visible',
+    'scroll',
+  ]),
+
   /** Add border and change border color */
   isBorder: PropTypes.oneOfType([
     PropTypes.bool,
@@ -338,6 +348,7 @@ Container.defaultProps = {
   ps: null,
   bgColor: null,
   textColor: null,
+  overflow: null,
   isBorder: false,
   isVisible: false,
   isInvisible: false,
