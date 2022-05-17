@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import DropdownToggle from './DropdownToggle';
+import DropdownMenu from './DropdownMenu';
+import DropdownItem from './DropdownItem';
+import DropdownDivider from './DropdownDivider';
+import DropdownText from './DropdownText';
+import DropdownHeader from './DropdownHeader';
 import { getSpacingClassNames } from '../utilities/spacing';
 
-function ButtonGroup(props) {
+function Dropdown(props) {
   const {
     style,
     children,
     className,
-    size,
-    isVertical,
-    drop,
     margin,
     marginSm,
     marginMd,
@@ -39,17 +41,8 @@ function ButtonGroup(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'btn-group';
-
-  const sizeClassName = usePrefix(BASE_CLASS_NAME, size);
-  const verticalClassName = usePrefix(BASE_CLASS_NAME, 'vertical');
-
   const classes = classNames(
-    !isVertical ? BASE_CLASS_NAME : verticalClassName,
-    {
-      [sizeClassName]: size,
-      [`drop${drop}`]: drop,
-    },
+    'dropdown',
     getSpacingClassNames(
       'm',
       margin,
@@ -84,43 +77,19 @@ function ButtonGroup(props) {
   );
 
   return (
-    <div
-      style={style}
-      className={classes}
-      role="group"
-      {...rest}
-    >
+    <div style={style} className={classes} {...rest}>
       {children}
     </div>
   );
 }
 
-ButtonGroup.propTypes = {
-  /** Add other styles */
+Dropdown.propTypes = {
   style: PropTypes.shape({}),
-
-  /** Add button components */
   children: PropTypes.node.isRequired,
-
-  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
-
-  /** Change size */
-  size: PropTypes.oneOf(['sm', 'lg']),
-
-  /** Activate vertical style */
-  isVertical: PropTypes.bool,
-
-  /** Change dropdown directions */
-  drop: PropTypes.oneOf([
-    'up',
-    'end',
-    'start',
-  ]),
-
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
     PropTypes.arrayOf(
@@ -254,12 +223,9 @@ ButtonGroup.propTypes = {
   ps: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
 };
 
-ButtonGroup.defaultProps = {
+Dropdown.defaultProps = {
   style: null,
   className: null,
-  size: null,
-  isVertical: false,
-  drop: null,
   margin: null,
   marginSm: null,
   marginMd: null,
@@ -286,4 +252,11 @@ ButtonGroup.defaultProps = {
   ps: null,
 };
 
-export default ButtonGroup;
+Dropdown.Toggle = DropdownToggle;
+Dropdown.Menu = DropdownMenu;
+Dropdown.Item = DropdownItem;
+Dropdown.Divider = DropdownDivider;
+Dropdown.Text = DropdownText;
+Dropdown.Header = DropdownHeader;
+
+export default Dropdown;

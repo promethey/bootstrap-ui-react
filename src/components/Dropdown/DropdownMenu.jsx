@@ -4,14 +4,19 @@ import classNames from 'classnames';
 import { usePrefix } from '../helpers/prefix';
 import { getSpacingClassNames } from '../utilities/spacing';
 
-function ButtonGroup(props) {
+function DropdownMenu(props) {
   const {
     style,
     children,
     className,
-    size,
-    isVertical,
-    drop,
+    label,
+    isDark,
+    align,
+    alignSm,
+    alignMd,
+    alignLg,
+    alignXl,
+    alignXxl,
     margin,
     marginSm,
     marginMd,
@@ -36,19 +41,23 @@ function ButtonGroup(props) {
     pe,
     pb,
     ps,
+    textColor,
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'btn-group';
-
-  const sizeClassName = usePrefix(BASE_CLASS_NAME, size);
-  const verticalClassName = usePrefix(BASE_CLASS_NAME, 'vertical');
+  const BASE_CLASS_NAME = 'dropdown-menu';
 
   const classes = classNames(
-    !isVertical ? BASE_CLASS_NAME : verticalClassName,
+    BASE_CLASS_NAME,
     {
-      [sizeClassName]: size,
-      [`drop${drop}`]: drop,
+      [usePrefix(BASE_CLASS_NAME, 'dark')]: isDark,
+      [usePrefix(BASE_CLASS_NAME, align)]: align,
+      [usePrefix(BASE_CLASS_NAME, 'sm', alignSm)]: alignSm,
+      [usePrefix(BASE_CLASS_NAME, 'md', alignMd)]: alignMd,
+      [usePrefix(BASE_CLASS_NAME, 'lg', alignLg)]: alignLg,
+      [usePrefix(BASE_CLASS_NAME, 'xl', alignXl)]: alignXl,
+      [usePrefix(BASE_CLASS_NAME, 'xxl', alignXxl)]: alignXxl,
+      [usePrefix('text', textColor)]: textColor,
     },
     getSpacingClassNames(
       'm',
@@ -87,7 +96,7 @@ function ButtonGroup(props) {
     <div
       style={style}
       className={classes}
-      role="group"
+      aria-labelledby={label}
       {...rest}
     >
       {children}
@@ -95,32 +104,21 @@ function ButtonGroup(props) {
   );
 }
 
-ButtonGroup.propTypes = {
-  /** Add other styles */
+DropdownMenu.propTypes = {
   style: PropTypes.shape({}),
-
-  /** Add button components */
   children: PropTypes.node.isRequired,
-
-  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
-
-  /** Change size */
-  size: PropTypes.oneOf(['sm', 'lg']),
-
-  /** Activate vertical style */
-  isVertical: PropTypes.bool,
-
-  /** Change dropdown directions */
-  drop: PropTypes.oneOf([
-    'up',
-    'end',
-    'start',
-  ]),
-
+  label: PropTypes.string.isRequired,
+  isDark: PropTypes.bool,
+  align: PropTypes.oneOf('start', 'end'),
+  alignSm: PropTypes.oneOf('start', 'end'),
+  alignMd: PropTypes.oneOf('start', 'end'),
+  alignLg: PropTypes.oneOf('start', 'end'),
+  alignXl: PropTypes.oneOf('start', 'end'),
+  alignXxl: PropTypes.oneOf('start', 'end'),
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
     PropTypes.arrayOf(
@@ -252,14 +250,36 @@ ButtonGroup.propTypes = {
 
   /** Set *padding* start style */
   ps: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Change text color */
+  textColor: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'body',
+    'muted',
+    'white',
+    'black-50',
+    'white-50',
+    'reset',
+  ]),
 };
 
-ButtonGroup.defaultProps = {
+DropdownMenu.defaultProps = {
   style: null,
   className: null,
-  size: null,
-  isVertical: false,
-  drop: null,
+  isDark: false,
+  align: false,
+  alignSm: false,
+  alignMd: false,
+  alignLg: false,
+  alignXl: false,
+  alignXxl: false,
   margin: null,
   marginSm: null,
   marginMd: null,
@@ -284,6 +304,7 @@ ButtonGroup.defaultProps = {
   pe: null,
   pb: null,
   ps: null,
+  textColor: null,
 };
 
-export default ButtonGroup;
+export default DropdownMenu;

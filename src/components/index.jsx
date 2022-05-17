@@ -15,7 +15,7 @@ export { default as Card } from './Card';
 // Carousel
 export { default as CloseButton } from './CloseButton';
 // Collapse
-// Dropdowns
+export { default as Dropdown } from './Dropdown';
 export { default as ListGroup } from './ListGroup';
 // Modal
 // Nav

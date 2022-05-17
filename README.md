@@ -67,7 +67,7 @@ export default Example;
 + ⬜ Carousel
 + ✅ CloseButton
 + ⬜ Collapse
-+ ⬜ Dropdown
++ ✅ Dropdown
 + ✅ ListGroup
 + ⬜ Modal
 + ⬜ Nav
