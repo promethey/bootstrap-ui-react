@@ -7,7 +7,7 @@ import DropdownItem from './DropdownItem';
 import DropdownDivider from './DropdownDivider';
 import DropdownText from './DropdownText';
 import DropdownHeader from './DropdownHeader';
-import { getSpacingClassNames } from '../utilities/spacing';
+import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Dropdown(props) {
   const {

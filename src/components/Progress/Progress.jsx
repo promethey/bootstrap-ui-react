@@ -4,15 +4,19 @@ import classNames from 'classnames';
 import ProgressBar from './ProgressBar';
 
 function Progress(props) {
-  const { style, children, className } = props;
+  const {
+    style, children, className, ...rest
+  } = props;
+
+  const BASE_CLASS_NAME = 'progress';
 
   const classes = classNames(
-    'progress',
+    BASE_CLASS_NAME,
     className,
   );
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style} {...rest}>
       {children}
     </div>
   );

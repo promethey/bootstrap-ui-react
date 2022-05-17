@@ -1,19 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from '../../helpers/prefix';
 
 function CardImage(props) {
   const {
-    style, className, src, alt, position,
+    style,
+    className,
+    src,
+    alt,
+    position,
+    ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'card-img';
+
   const classes = classNames(
-    `card-img-${position}`,
+    usePrefix(BASE_CLASS_NAME, position),
     className,
   );
 
   return (
-    <img src={src} alt={alt} className={classes} style={style} />
+    <img
+      src={src}
+      alt={alt}
+      className={classes}
+      style={style}
+      {...rest}
+    />
   );
 }
 

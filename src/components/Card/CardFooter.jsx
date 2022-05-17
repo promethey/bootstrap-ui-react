@@ -1,29 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 
 function CardFooter(props) {
   const {
-    style, children, className, textColor, bgColor, borderColor,
+    style,
+    children,
+    className,
+    bgColor,
+    textColor,
+    borderColor,
+    ...rest
   } = props;
 
-  const footerTextColor = usePrefix('text', textColor);
-  const footerBgColor = usePrefix('bg', bgColor);
-  const footerBorderColor = usePrefix('border', borderColor);
+  const BASE_CLASS_NAME = 'card-footer';
 
   const classes = classNames(
-    'card-footer',
+    BASE_CLASS_NAME,
     {
-      [footerTextColor]: textColor,
-      [footerBgColor]: bgColor,
-      [footerBorderColor]: borderColor,
+      [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('text', textColor)]: textColor,
+      [usePrefix('border', borderColor)]: borderColor,
     },
     className,
   );
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style} {...rest}>
       {children}
     </div>
   );

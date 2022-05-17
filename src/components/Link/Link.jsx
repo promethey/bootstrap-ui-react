@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from '../../helpers/prefix';
 
 function Link(props) {
   const {
@@ -9,6 +10,7 @@ function Link(props) {
     className,
     to,
     linkColor,
+    ...rest
   } = props;
 
   const classes = classNames(
@@ -19,7 +21,7 @@ function Link(props) {
   );
 
   return (
-    <a href={to} style={style} className={classes}>
+    <a href={to} style={style} className={classes} {...rest}>
       {children}
     </a>
   );

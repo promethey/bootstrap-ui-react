@@ -9,8 +9,10 @@ function DropdownDivider(props) {
     style, className, ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'dropdown-divider';
+
   const classes = classNames(
-    'dropdown-divider',
+    BASE_CLASS_NAME,
     className,
   );
 

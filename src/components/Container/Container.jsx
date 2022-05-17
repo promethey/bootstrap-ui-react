@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
-import { getSpacingClassNames } from '../utilities/spacing';
+import { usePrefix } from '../../helpers/prefix';
+import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Container(props) {
   const {
@@ -40,6 +40,7 @@ function Container(props) {
     isBorder,
     isVisible,
     isInvisible,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'container';
@@ -91,7 +92,7 @@ function Container(props) {
   );
 
   return (
-    <div style={style} className={classes}>
+    <div style={style} className={classes} {...rest}>
       {children}
     </div>
   );

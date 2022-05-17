@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from '../../helpers/prefix';
 
 function ListGroupItem(props) {
   const {
-    as: Component, style, children, className,
-    theme, isActive, isDisabled, to, onClick,
+    as: Component,
+    style,
+    children,
+    className,
+    theme,
+    isActive,
+    isDisabled,
+    to,
+    onClick,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'list-group-item';
@@ -13,8 +22,8 @@ function ListGroupItem(props) {
   const classes = classNames(
     BASE_CLASS_NAME,
     {
-      [`${BASE_CLASS_NAME}-${theme}`]: theme,
-      [`${BASE_CLASS_NAME}-action`]: Component !== 'li',
+      [usePrefix(BASE_CLASS_NAME, theme)]: theme,
+      [usePrefix(BASE_CLASS_NAME, 'action')]: Component !== 'li',
       active: isActive,
       disabled: isDisabled,
     },
@@ -44,7 +53,7 @@ function ListGroupItem(props) {
   }
 
   return (
-    <Component {...properties}>
+    <Component {...properties} {...rest}>
       {children}
     </Component>
   );

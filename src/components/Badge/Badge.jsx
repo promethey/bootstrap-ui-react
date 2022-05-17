@@ -1,22 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from '../../helpers/prefix';
 
 function Badge(props) {
   const {
-    style, children, className, bgColor, textColor, isRounded,
+    style,
+    children,
+    className,
+    bgColor,
+    textColor,
+    isRounded,
+    ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'badge';
+
   const classes = classNames(
-    'badge',
-    `bg-${bgColor}`,
-    `text-${textColor}`,
-    { 'rounded-pill': isRounded },
+    BASE_CLASS_NAME,
+    usePrefix('bg', bgColor),
+    usePrefix('text', textColor),
+    { [usePrefix('rounded', 'pill')]: isRounded },
     className,
   );
 
   return (
-    <span className={classes} style={style}>
+    <span className={classes} style={style} {...rest}>
       {children}
     </span>
   );

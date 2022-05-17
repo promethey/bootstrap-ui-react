@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 
 function CardLink(props) {
   const {
-    style, children, className, to, linkColor,
+    style,
+    children,
+    className,
+    to,
+    linkColor,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'card-link';
 
-  const linkTextColor = usePrefix('link', linkColor);
-
   const classes = classNames(
     BASE_CLASS_NAME,
-    { [linkTextColor]: linkColor },
+    { [usePrefix('link', linkColor)]: linkColor },
     className,
   );
 
   return (
-    <a href={to} className={classes} style={style}>
+    <a href={to} className={classes} style={style} {...rest}>
       {children}
     </a>
   );

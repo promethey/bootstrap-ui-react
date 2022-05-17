@@ -1,23 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 
 function CardText(props) {
   const {
-    style, children, className, textColor,
+    style,
+    children,
+    className,
+    textColor,
+    ...rest
   } = props;
 
-  const cardTextColor = usePrefix('text', textColor);
+  const BASE_CLASS_NAME = 'card-text';
 
   const classes = classNames(
-    'card-text',
-    { [cardTextColor]: textColor },
+    BASE_CLASS_NAME,
+    { [usePrefix('text', textColor)]: textColor },
     className,
   );
 
   return (
-    <p className={classes} style={style}>
+    <p className={classes} style={style} {...rest}>
       {children}
     </p>
   );

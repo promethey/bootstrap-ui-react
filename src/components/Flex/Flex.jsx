@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
-import { getSpacingClassNames } from '../utilities/spacing';
+import { usePrefix } from '../../helpers/prefix';
+import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Flex(props) {
   const {
@@ -123,6 +123,7 @@ function Flex(props) {
     isRounded,
     isVisible,
     isInvisible,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = usePrefix('d', display);
@@ -255,7 +256,7 @@ function Flex(props) {
   );
 
   return (
-    <Component style={style} className={classes}>
+    <Component style={style} className={classes} {...rest}>
       {children}
     </Component>
   );

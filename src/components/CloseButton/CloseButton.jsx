@@ -1,15 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from '../../helpers/prefix';
 
 function CloseButton(props) {
   const {
-    style, className, theme, dataDismiss, isDisabled,
+    style,
+    className,
+    theme,
+    dataDismiss,
+    isDisabled,
+    ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'btn-close';
+
   const classes = classNames(
-    'btn-close',
-    { [`btn-close-${theme}`]: theme },
+    BASE_CLASS_NAME,
+    { [usePrefix(BASE_CLASS_NAME, theme)]: theme },
     className,
   );
 
@@ -21,6 +29,7 @@ function CloseButton(props) {
       aria-label="Close"
       disabled={isDisabled}
       data-bs-dismiss={dataDismiss}
+      {...rest}
     />
   );
 }

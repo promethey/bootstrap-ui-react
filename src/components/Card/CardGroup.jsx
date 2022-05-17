@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 function CardGroup(props) {
-  const { style, children, className } = props;
+  const {
+    style, children, className, ...rest
+  } = props;
 
   const BASE_CLASS_NAME = 'card-group';
 
-  const classes = classNames(BASE_CLASS_NAME, className);
+  const classes = classNames(
+    BASE_CLASS_NAME,
+    className,
+  );
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style} {...rest}>
       {children}
     </div>
   );

@@ -1,24 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from '../../helpers/prefix';
 
 function Spinner(props) {
   const {
-    style, className, theme, type, isSmall,
+    style,
+    className,
+    theme,
+    type,
+    isSmall,
+    ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'spinner';
+
   const classes = classNames(
-    `spinner-${type}`,
+    usePrefix(BASE_CLASS_NAME, type),
     {
-      [`text-${theme}`]: theme,
-      [`spinner-${type}-sm`]: isSmall,
+      [usePrefix('text', theme)]: theme,
+      [usePrefix(BASE_CLASS_NAME, type, 'sm')]: isSmall,
     },
     className,
   );
 
   return (
-    <div className={classes} style={style} role="status">
-      <div className="visually-hidden">Loading...</div>
+    <div className={classes} style={style} role="status" {...rest}>
+      <div className="visually-hidden">
+        Loading...
+      </div>
     </div>
   );
 }

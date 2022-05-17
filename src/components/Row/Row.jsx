@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
-import { getSpacingClassNames } from '../utilities/spacing';
+import { usePrefix } from '../../helpers/prefix';
+import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Row(props) {
   const {
@@ -63,6 +63,7 @@ function Row(props) {
     isBorder,
     isVisible,
     isInvisible,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'row';
@@ -136,7 +137,7 @@ function Row(props) {
   );
 
   return (
-    <div style={style} className={classes}>
+    <div style={style} className={classes} {...rest}>
       {children}
     </div>
   );

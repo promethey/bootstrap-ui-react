@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { getDisplayClassNames } from '../../utilities/display';
 
 function ColBreak(props) {
   const {
@@ -13,23 +13,24 @@ function ColBreak(props) {
     displayLg,
     displayXl,
     displayXxl,
+    ...rest
   } = props;
 
   const classes = classNames(
     'w-100',
-    {
-      [usePrefix('d', display)]: display,
-      [usePrefix('d-sm', displaySm)]: displaySm,
-      [usePrefix('d-md', displayMd)]: displayMd,
-      [usePrefix('d-lg', displayLg)]: displayLg,
-      [usePrefix('d-xl', displayXl)]: displayXl,
-      [usePrefix('d-xxl', displayXxl)]: displayXxl,
-    },
+    getDisplayClassNames(
+      display,
+      displaySm,
+      displayMd,
+      displayLg,
+      displayXl,
+      displayXxl,
+    ),
     className,
   );
 
   return (
-    <div style={style} className={classes} />
+    <div style={style} className={classes} {...rest} />
   );
 }
 

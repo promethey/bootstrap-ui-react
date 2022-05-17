@@ -1,32 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 
 function CardHeader(props) {
   const {
-    as: Component, style, children, className,
-    textColor, bgColor, borderColor,
+    as: Component,
+    style,
+    children,
+    className,
+    bgColor,
+    textColor,
+    borderColor,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'card-header';
 
-  const headerTextColor = usePrefix('text', textColor);
-  const headerBgColor = usePrefix('bg', bgColor);
-  const headerBorderColor = usePrefix('border', borderColor);
-
   const classes = classNames(
     BASE_CLASS_NAME,
     {
-      [headerTextColor]: textColor,
-      [headerBgColor]: bgColor,
-      [headerBorderColor]: borderColor,
+      [usePrefix('text', textColor)]: textColor,
+      [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('border', borderColor)]: borderColor,
     },
     className,
   );
 
   return (
-    <Component className={classes} style={style}>
+    <Component className={classes} style={style} {...rest}>
       {children}
     </Component>
   );

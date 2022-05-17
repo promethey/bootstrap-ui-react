@@ -4,16 +4,18 @@ import classNames from 'classnames';
 
 function AlertHeading(props) {
   const {
-    style, children, className,
+    style, children, className, ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'alert-heading';
+
   const classes = classNames(
-    'alert-heading',
+    BASE_CLASS_NAME,
     className,
   );
 
   return (
-    <h4 className={classes} style={style}>
+    <h4 className={classes} style={style} {...rest}>
       {children}
     </h4>
   );
@@ -22,7 +24,10 @@ function AlertHeading(props) {
 AlertHeading.propTypes = {
   style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
-  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
 };
 
 AlertHeading.defaultProps = {

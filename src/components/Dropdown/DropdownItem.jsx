@@ -14,8 +14,10 @@ function DropdownItem(props) {
     ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'dropdown-item';
+
   const classes = classNames(
-    'dropdown-item',
+    BASE_CLASS_NAME,
     {
       active: isActive && !isDisabled,
       disabled: isDisabled && !isActive,

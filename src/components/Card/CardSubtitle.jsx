@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 
 function CardSubtitle(props) {
   const {
-    as: Component, style, children, className, textColor,
+    as: Component,
+    style,
+    children,
+    className,
+    textColor,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'card-title';
 
-  const subtitleColor = usePrefix('text', textColor);
-
   const classes = classNames(
     BASE_CLASS_NAME,
-    { [subtitleColor]: textColor },
+    { [usePrefix('text', textColor)]: textColor },
     className,
   );
 
   return (
-    <Component className={classes} style={style}>
+    <Component className={classes} style={style} {...rest}>
       {children}
     </Component>
   );
@@ -27,7 +30,14 @@ function CardSubtitle(props) {
 
 CardSubtitle.propTypes = {
   /** Component JSX type */
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  as: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+  ]),
 
   /** Add other styles */
   style: PropTypes.shape({}),

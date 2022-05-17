@@ -4,16 +4,23 @@ import classNames from 'classnames';
 
 function AlertLink(props) {
   const {
-    style, children, className, to,
+    style, children, className, to, ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'alert-link';
+
   const classes = classNames(
-    'alert-link',
+    BASE_CLASS_NAME,
     className,
   );
 
   return (
-    <a href={to} className={classes} style={style}>
+    <a
+      href={to}
+      className={classes}
+      style={style}
+      {...rest}
+    >
       {children}
     </a>
   );
@@ -22,7 +29,10 @@ function AlertLink(props) {
 AlertLink.propTypes = {
   style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
-  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   to: PropTypes.string,
 };
 

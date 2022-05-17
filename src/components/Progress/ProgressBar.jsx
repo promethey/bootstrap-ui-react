@@ -1,25 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 
 function ProgressBar(props) {
   const {
-    style, children, className, bgColor, textColor,
-    valueNow, valueMin, valueMax, isDisplayedPercent,
-    isStriped, isAnimated,
+    style,
+    children,
+    className,
+    bgColor,
+    textColor,
+    valueNow,
+    valueMin,
+    valueMax,
+    isDisplayedPercent,
+    isStriped,
+    isAnimated,
+    ...rest
   } = props;
 
-  const bgColorClassName = usePrefix('bg', bgColor);
-  const textColorClassName = usePrefix('text', textColor);
+  const BASE_CLASS_NAME = 'progress-bar';
 
   const classes = classNames(
-    'progress-bar',
+    BASE_CLASS_NAME,
     {
-      [bgColorClassName]: bgColor,
-      [textColorClassName]: textColor,
-      'progress-bar-striped': isStriped,
-      'progress-bar-animated': isAnimated,
+      [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('text', textColor)]: textColor,
+      [usePrefix(BASE_CLASS_NAME, 'striped')]: isStriped,
+      [usePrefix(BASE_CLASS_NAME, 'animated')]: isAnimated,
     },
     className,
   );
@@ -27,16 +35,17 @@ function ProgressBar(props) {
   const progressPercent = `${(((valueMax - valueMin) / 100) * valueNow).toString()}%`;
 
   return (
-    <divc
+    <div
       className={classes}
       style={{ ...style, width: progressPercent }}
       role="progressbar"
       aria-valuenow={valueNow}
       aria-valuemin={valueMin}
       aria-valuemax={valueMax}
+      {...rest}
     >
       {isDisplayedPercent ? progressPercent : children}
-    </divc>
+    </div>
   );
 }
 

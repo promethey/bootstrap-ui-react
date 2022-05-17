@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ListGroupItem from './ListGroupItem';
+import { usePrefix } from '../../helpers/prefix';
 
 function ListGroup(props) {
   const {
-    style, children, className, isFlush, isNumbered, isHorizontal,
+    style,
+    children,
+    className,
+    isFlush,
+    isNumbered,
+    isHorizontal,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'list-group';
@@ -16,16 +23,16 @@ function ListGroup(props) {
   const classes = classNames(
     BASE_CLASS_NAME,
     {
-      [`${BASE_CLASS_NAME}-flush`]: isFlush,
-      [`${BASE_CLASS_NAME}-numbered`]: isNumbered,
-      'list-group-horizontal': typeof isHorizontal === 'boolean' && isHorizontal,
-      [`list-group-horizontal-${isHorizontal}`]: typeof isHorizontal === 'string',
+      [usePrefix(BASE_CLASS_NAME, 'flush')]: isFlush,
+      [usePrefix(BASE_CLASS_NAME, 'numbered')]: isNumbered,
+      [usePrefix(BASE_CLASS_NAME, 'horizontal')]: typeof isHorizontal === 'boolean' && isHorizontal,
+      [usePrefix(BASE_CLASS_NAME, 'horizontal', isHorizontal)]: typeof isHorizontal === 'string',
     },
     className,
   );
 
   return (
-    <Component className={classes} style={style}>
+    <Component className={classes} style={style} {...rest}>
       {children}
     </Component>
   );

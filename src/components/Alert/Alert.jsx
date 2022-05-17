@@ -4,19 +4,29 @@ import classNames from 'classnames';
 import CloseButton from '../CloseButton';
 import AlertLink from './AlertLink';
 import AlertHeading from './AlertHeading';
+import { usePrefix } from '../../helpers/prefix';
 
 function Alert(props) {
   const {
-    style, children, className, theme, isDismissible, isAnimated, onClose,
+    style,
+    children,
+    className,
+    theme,
+    isDismissible,
+    isAnimated,
+    onClose,
+    ...rest
   } = props;
+
+  const BASE_CLASS_NAME = 'alert';
 
   const alertRef = createRef(null);
 
   const classes = classNames(
-    'alert',
-    `alert-${theme}`,
+    BASE_CLASS_NAME,
+    usePrefix(BASE_CLASS_NAME, theme),
     {
-      'alert-dismissible': isDismissible,
+      [usePrefix(BASE_CLASS_NAME, 'dismissible')]: isDismissible,
       fade: isAnimated,
       show: isAnimated,
     },
@@ -38,7 +48,13 @@ function Alert(props) {
   }, []);
 
   return (
-    <div ref={alertRef} className={classes} style={style} role="alert">
+    <div
+      ref={alertRef}
+      className={classes}
+      style={style}
+      role="alert"
+      {...rest}
+    >
       {children}
       {isDismissible && (
         <CloseButton dataDismiss="alert" />

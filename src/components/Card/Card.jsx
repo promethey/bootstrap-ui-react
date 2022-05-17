@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from '../../helpers/prefix';
 import CardGroup from './CardGroup';
 import CardHeader from './CardHeader';
 import CardImage from './CardImage';
@@ -14,25 +14,29 @@ import CardFooter from './CardFooter';
 
 function Card(props) {
   const {
-    style, children, className, textColor, bgColor, borderColor,
+    style,
+    children,
+    className,
+    bgColor,
+    textColor,
+    borderColor,
+    ...rest
   } = props;
 
-  const cardTextColor = usePrefix('text', textColor);
-  const cardBgColor = usePrefix('bg', bgColor);
-  const cardBorderColor = usePrefix('border', bgColor);
+  const BASE_CLASS_NAME = 'card';
 
   const classes = classNames(
-    'card',
+    BASE_CLASS_NAME,
     {
-      [cardTextColor]: textColor,
-      [cardBgColor]: bgColor,
-      [cardBorderColor]: borderColor,
+      [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('text', textColor)]: textColor,
+      [usePrefix('border', bgColor)]: borderColor,
     },
     className,
   );
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style} {...rest}>
       {children}
     </div>
   );
