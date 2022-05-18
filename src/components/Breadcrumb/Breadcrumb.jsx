@@ -8,6 +8,7 @@ function Breadcrumb(props) {
     children,
     style,
     className,
+    divider,
     ...rest
   } = props;
 
@@ -18,10 +19,18 @@ function Breadcrumb(props) {
     className,
   );
 
+  const navStyle = {};
+
+  if (divider !== null) {
+    navStyle['--bs-breadcrumb-divider'] = `'${divider}'`;
+  }
+
   return (
-    <ol style={style} className={classes} {...rest}>
-      {children}
-    </ol>
+    <nav style={navStyle} aria-label="breadcrumb">
+      <ol style={style} className={classes} {...rest}>
+        {children}
+      </ol>
+    </nav>
   );
 }
 
@@ -37,11 +46,15 @@ Breadcrumb.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  /** Change default divider */
+  divider: PropTypes.string,
 };
 
 Breadcrumb.defaultProps = {
   style: null,
   className: null,
+  divider: null,
 };
 
 Breadcrumb.Item = BreadcrumbItem;

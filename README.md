@@ -1,13 +1,10 @@
 # **Bootstrap-UI**
 
-🚀 **Best ReactJS component library for fast creating your app** 🚀
+ReactJS component library basis on [Bootstrap](https://getbootstrap.com/) for fast creating web application.
 
-~~Complicated. Slow. Not modular~~
-Simple. Fast. Modular
+Documentation generate by [Storybook](storybook.js.org)
 
-👏 Documentation generate by [Storybook](storybook.js.org) 👏
-
-Currenlty: v1.0.0 | Bootstrap: v5.1.3 ([more](https://getbootstrap.com/))
+Currenlty: v1.0.0 | Bootstrap: [v5.1.3](https://www.npmjs.com/package/bootstrap)
 
 ![BootstrapUILogo](./img/bootstrap-ui.png)
 

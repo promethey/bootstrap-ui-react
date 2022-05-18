@@ -28,5 +28,6 @@ export { default as Progress } from 'components/Progress';
 export { default as Spinner } from 'components/Spinner';
 
 export { default as Text } from 'components/Text';
+export { default as Link } from 'components/Link';
 export { default as Heading } from 'components/Heading';
 export { default as Flex } from 'components/Flex';
