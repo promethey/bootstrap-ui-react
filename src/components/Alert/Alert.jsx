@@ -1,11 +1,11 @@
 import React, { useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import CloseButton from '../CloseButton';
+import { usePrefix } from 'helpers/prefix';
+import CloseButton from 'components/CloseButton';
+import { getSpacingClassNames } from 'utilities/spacing';
 import AlertLink from './AlertLink';
 import AlertHeading from './AlertHeading';
-import { usePrefix } from '../../helpers/prefix';
-import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Alert(props) {
   const {
