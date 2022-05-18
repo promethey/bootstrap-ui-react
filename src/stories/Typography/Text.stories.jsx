@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text } from '../components';
+import { Text } from '../../components';
 
 export default {
-  title: 'Components/Text',
+  title: 'Typography/Text',
   component: Text,
   parameters: {
     docs: {

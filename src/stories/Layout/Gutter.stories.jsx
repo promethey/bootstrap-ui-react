@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Container, Row, Col, Flex,
-} from '../components';
+} from '../../components';
 
 export default {
   title: 'Layout/Gutter',

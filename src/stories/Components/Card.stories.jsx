@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, ListGroup } from '../components';
+import { Card, Button, ListGroup } from '../../components';
 
 export default {
   title: 'Components/Card',

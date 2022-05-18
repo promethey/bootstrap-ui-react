@@ -1,5 +1,5 @@
 import React from 'react';
-import { CloseButton } from '../components';
+import { CloseButton } from '../../components';
 
 export default {
   title: 'Components/CloseButton',
