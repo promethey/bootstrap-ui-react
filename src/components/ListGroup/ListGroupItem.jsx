@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../../helpers/prefix';
+import { usePrefix } from 'helpers/prefix';
 
 function ListGroupItem(props) {
   const {
@@ -30,6 +30,7 @@ function ListGroupItem(props) {
     className,
   );
 
+  /** Base properties */
   const properties = {
     className: classes,
     style,
@@ -75,6 +76,7 @@ ListGroupItem.propTypes = {
     PropTypes.string,
   ]),
 
+  /** Change theme */
   theme: PropTypes.oneOf([
     'primary',
     'secondary',

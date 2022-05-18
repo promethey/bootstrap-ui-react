@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text } from '../../components';
+import { Heading, Text } from 'components';
 
 export default {
   title: 'Typography/Heading',

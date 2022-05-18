@@ -7,8 +7,10 @@ function DropdownText(props) {
     style, children, className, ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'dropdown-item-text';
+
   const classes = classNames(
-    'dropdown-item-text',
+    BASE_CLASS_NAME,
     className,
   );
 
@@ -22,8 +24,13 @@ function DropdownText(props) {
 }
 
 DropdownText.propTypes = {
+  /** Add other style */
   style: PropTypes.shape({}),
+
+  /** Add text content */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,

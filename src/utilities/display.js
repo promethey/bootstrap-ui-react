@@ -1,4 +1,4 @@
-import { usePrefix } from '../helpers/prefix';
+import { usePrefix } from 'helpers/prefix';
 
 export function getDisplayClassName(value, breakpoint) {
   const BASE_CLASS_NAME = 'd';

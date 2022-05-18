@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Button } from '../../components';
+import { Badge, Button } from 'components';
 
 export default {
   title: 'Components/Badge',
@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Documentation and examples for badges, our small count and labeling component.',
+        component: `Documentation and examples for badges,
+        our small count and labeling component.`,
       },
     },
   },
@@ -18,18 +19,20 @@ function Template(args) {
 }
 
 export function Defaults() {
+  const examples = [
+    'Primary',
+    'Secondary',
+    'Success',
+    'Danger',
+    'Warning',
+    'Info',
+    'Light',
+    'Dark',
+  ];
+
   return (
     <>
-      {[
-        'Primary',
-        'Secondary',
-        'Success',
-        'Danger',
-        'Warning',
-        'Info',
-        'Light',
-        'Dark',
-      ].map((bgColor) => {
+      {examples.map((bgColor) => {
         let textColor;
 
         switch (bgColor.toLowerCase()) {

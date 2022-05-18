@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex } from '../../components';
+import { Button, Flex } from 'components';
 
 export default {
   title: 'Components/Button',

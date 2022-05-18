@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { getSpacingClassNames } from 'utilities/spacing';
+import { usePrefix } from 'helpers/prefix';
 import ColBreak from './ColBreak';
-import { usePrefix } from '../../helpers/prefix';
-import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Col(props) {
   const {

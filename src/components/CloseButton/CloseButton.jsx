@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../../helpers/prefix';
+import { usePrefix } from 'helpers/prefix';
 
 function CloseButton(props) {
   const {
@@ -39,7 +39,10 @@ CloseButton.propTypes = {
   style: PropTypes.shape({}),
 
   /** Add other classes */
-  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
 
   /** Choose main theme */
   theme: PropTypes.oneOf(['white']),

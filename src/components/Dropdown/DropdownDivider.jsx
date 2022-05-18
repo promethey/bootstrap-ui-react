@@ -24,8 +24,10 @@ function DropdownDivider(props) {
 }
 
 DropdownDivider.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
-  children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,

@@ -2,21 +2,21 @@
 // Toasts
 
 // Layout
-export { default as Container } from './Container';
-export { default as Row } from './Row';
-export { default as Col } from './Col';
+export { default as Container } from 'components/Container';
+export { default as Row } from 'components/Row';
+export { default as Col } from 'components/Col';
 
-export { default as Alert } from './Alert';
-export { default as Badge } from './Badge';
-export { default as Breadcrumb } from './Breadcrumb';
-export { default as Button } from './Button';
-export { default as ButtonGroup } from './ButtonGroup';
-export { default as Card } from './Card';
+export { default as Alert } from 'components/Alert';
+export { default as Badge } from 'components/Badge';
+export { default as Breadcrumb } from 'components/Breadcrumb';
+export { default as Button } from 'components/Button';
+export { default as ButtonGroup } from 'components/ButtonGroup';
+export { default as Card } from 'components/Card';
 // Carousel
-export { default as CloseButton } from './CloseButton';
+export { default as CloseButton } from 'components/CloseButton';
 // Collapse
-export { default as Dropdown } from './Dropdown';
-export { default as ListGroup } from './ListGroup';
+export { default as Dropdown } from 'components/Dropdown';
+export { default as ListGroup } from 'components/ListGroup';
 // Modal
 // Nav
 // Tab
@@ -24,9 +24,9 @@ export { default as ListGroup } from './ListGroup';
 // Offcanvas
 // Pagination
 // Placeholder
-export { default as Progress } from './Progress';
-export { default as Spinner } from './Spinner';
+export { default as Progress } from 'components/Progress';
+export { default as Spinner } from 'components/Spinner';
 
-export { default as Text } from './Text';
-export { default as Heading } from './Heading';
-export { default as Flex } from './Flex';
+export { default as Text } from 'components/Text';
+export { default as Heading } from 'components/Heading';
+export { default as Flex } from 'components/Flex';

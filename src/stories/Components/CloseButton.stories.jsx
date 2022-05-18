@@ -1,5 +1,5 @@
 import React from 'react';
-import { CloseButton } from '../../components';
+import { CloseButton } from 'components';
 
 export default {
   title: 'Components/CloseButton',
@@ -7,7 +7,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'A generic close button for dismissing content like modals and alerts.',
+        component: `A generic close button for dismissing
+        content like modals and alerts.`,
       },
     },
   },

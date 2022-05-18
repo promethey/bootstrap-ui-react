@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Dropdown, ButtonGroup, Button, Text, Flex,
-} from '../../components';
+} from 'components';
 
 export default {
   title: 'Components/Dropdown',

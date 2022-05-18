@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../../helpers/prefix';
-import { getSpacingClassNames } from '../../utilities/spacing';
+import { usePrefix } from 'helpers/prefix';
+import { getSpacingClassNames } from 'utilities/spacing';
 
 function DropdownMenu(props) {
   const {
@@ -105,20 +105,42 @@ function DropdownMenu(props) {
 }
 
 DropdownMenu.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add dropdown items */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  /** Alias for *aria-labelledby* */
   label: PropTypes.string.isRequired,
+
+  /** Activate dark style */
   isDark: PropTypes.bool,
+
+  /** Change alignement */
   align: PropTypes.oneOf('start', 'end'),
+
+  /** Change alignement for breakpoint sm */
   alignSm: PropTypes.oneOf('start', 'end'),
+
+  /** Change alignement for breakpoint md */
   alignMd: PropTypes.oneOf('start', 'end'),
+
+  /** Change alignement for breakpoint lg */
   alignLg: PropTypes.oneOf('start', 'end'),
+
+  /** Change alignement for breakpoint xl */
   alignXl: PropTypes.oneOf('start', 'end'),
+
+  /** Change alignement for breakpoint xxl */
   alignXxl: PropTypes.oneOf('start', 'end'),
+
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
     PropTypes.arrayOf(

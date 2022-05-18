@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../../helpers/prefix';
+import { usePrefix } from 'helpers/prefix';
 
 function Link(props) {
   const {
@@ -28,13 +28,22 @@ function Link(props) {
 }
 
 Link.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add link label */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  /** Alias for href attribute */
   to: PropTypes.string.isRequired,
+
+  /** Change link color */
   linkColor: PropTypes.oneOf([
     'primary',
     'secondary',

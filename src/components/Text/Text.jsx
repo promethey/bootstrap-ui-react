@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getSpacingClassNames } from '../../utilities/spacing';
-import { getDisplayClassNames, getPrintClassNames } from '../../utilities/display';
-import { usePrefix } from '../../helpers/prefix';
+import { getSpacingClassNames } from 'utilities/spacing';
+import { getDisplayClassNames, getPrintClassNames } from 'utilities/display';
+import { usePrefix } from 'helpers/prefix';
 
 function Text(props) {
   const {

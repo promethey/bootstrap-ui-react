@@ -52,15 +52,28 @@ function DropdownItem(props) {
 }
 
 DropdownItem.propTypes = {
+  /** Change JSX type */
   as: PropTypes.oneOf(['a', 'button']),
+
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add children components */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  /** Alias for href attribute */
   to: PropTypes.string,
+
+  /** Activate active style */
   isActive: PropTypes.bool,
+
+  /** Activate disabled style */
   isDisabled: PropTypes.bool,
 };
 

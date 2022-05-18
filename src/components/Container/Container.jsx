@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../../helpers/prefix';
-import { getSpacingClassNames } from '../../utilities/spacing';
+import { getSpacingClassNames } from 'utilities/spacing';
+import { usePrefix } from 'helpers/prefix';
 
 function Container(props) {
   const {

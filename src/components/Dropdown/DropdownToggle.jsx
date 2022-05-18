@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { usePrefix } from 'helpers/prefix';
 import Button from '../Button';
-import { usePrefix } from '../../helpers/prefix';
 
 function DropdownToggle(props) {
   const {
@@ -27,6 +27,7 @@ function DropdownToggle(props) {
     className,
   );
 
+  /** Base properties */
   const properties = {
     style,
     className: classes,
@@ -58,19 +59,34 @@ function DropdownToggle(props) {
 }
 
 DropdownToggle.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add dropdown label */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  /** Alias for id attribute */
   id: PropTypes.string,
+
+  /** Activate split design */
   isSplit: PropTypes.bool,
+
+  /** Add offset settings */
   offset: PropTypes.arrayOf(PropTypes.number),
+
+  /** Add reference setting */
   reference: PropTypes.oneOf([
     'toggle',
     'parent',
   ]),
+
+  /** Activate auto close setting */
   isAutoClose: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([

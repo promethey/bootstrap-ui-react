@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../../helpers/prefix';
-import Text from '../Text';
+import { usePrefix } from 'helpers/prefix';
+import Text from 'components/Text';
 
 function Heading(props) {
   const {

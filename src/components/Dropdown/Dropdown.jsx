@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { getSpacingClassNames } from 'utilities/spacing';
 import DropdownToggle from './DropdownToggle';
 import DropdownMenu from './DropdownMenu';
 import DropdownItem from './DropdownItem';
 import DropdownDivider from './DropdownDivider';
 import DropdownText from './DropdownText';
 import DropdownHeader from './DropdownHeader';
-import { getSpacingClassNames } from '../../utilities/spacing';
 
 function Dropdown(props) {
   const {
@@ -41,8 +41,10 @@ function Dropdown(props) {
     ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'dropdown';
+
   const classes = classNames(
-    'dropdown',
+    BASE_CLASS_NAME,
     getSpacingClassNames(
       'm',
       margin,
@@ -84,12 +86,18 @@ function Dropdown(props) {
 }
 
 Dropdown.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add dropdown children components */
   children: PropTypes.node.isRequired,
+
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
     PropTypes.arrayOf(
