@@ -12,7 +12,7 @@ export { default as Breadcrumb } from 'components/Breadcrumb';
 export { default as Button } from 'components/Button';
 export { default as ButtonGroup } from 'components/ButtonGroup';
 export { default as Card } from 'components/Card';
-// Carousel
+export { default as Carousel } from 'components/Carousel';
 export { default as CloseButton } from 'components/CloseButton';
 // Collapse
 export { default as Dropdown } from 'components/Dropdown';
