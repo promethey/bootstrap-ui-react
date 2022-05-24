@@ -6,4 +6,4 @@ export default create({
   brandTitle: 'Bootstrap-UI',
   brandUrl: 'https://github.com/promethey/bootstrap-ui-react',
   brandImage: `/${Logo}`
-})
+});
