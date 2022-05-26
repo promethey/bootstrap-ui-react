@@ -14,7 +14,7 @@ export { default as ButtonGroup } from 'components/ButtonGroup';
 export { default as Card } from 'components/Card';
 export { default as Carousel } from 'components/Carousel';
 export { default as CloseButton } from 'components/CloseButton';
-// Collapse
+export { default as Collapse } from 'components/Collapse';
 export { default as Dropdown } from 'components/Dropdown';
 export { default as ListGroup } from 'components/ListGroup';
 // Modal

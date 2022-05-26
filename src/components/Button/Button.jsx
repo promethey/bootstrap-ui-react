@@ -47,6 +47,8 @@ function Button(props) {
     isToggle,
     isActive,
     isStretchedLink,
+    bsToggle,
+    bsTarget,
     onClick,
     ...rest
   } = props;
@@ -103,6 +105,7 @@ function Button(props) {
     style,
     className: classes,
     onClick,
+    'data-bs-toggle': bsToggle,
     ...rest,
   };
 
@@ -116,7 +119,7 @@ function Button(props) {
   /** <a /> props */
   const linkProperties = {
     ...baseProperties,
-    href: to,
+    href: to || '#',
     role: 'button',
   };
 
@@ -144,19 +147,19 @@ function Button(props) {
     linkProperties['aria-disabled'] = true;
   }
 
-  if (Component === 'button') {
-    return (
-      <button {...buttonProperties}>
-        {children}
-      </button>
-    );
-  }
-
-  if (Component === 'a') {
+  if (Component === 'a' || to !== null) {
     return (
       <a {...linkProperties}>
         {children}
       </a>
+    );
+  }
+
+  if (Component === 'button') {
+    return (
+      <button {...buttonProperties} data-bs-target={bsTarget}>
+        {children}
+      </button>
     );
   }
 
@@ -390,13 +393,19 @@ Button.propTypes = {
 
   /** Click event handler */
   onClick: PropTypes.func,
+
+  /** Alias for *data-bs-toggle* */
+  bsToggle: PropTypes.string,
+
+  /** Alias for *data-bs-target* */
+  bsTarget: PropTypes.string,
 };
 
 Button.defaultProps = {
   as: 'button',
   style: null,
   className: null,
-  to: '#',
+  to: null,
   type: 'button',
   width: null,
   maxWidth: null,
@@ -434,6 +443,8 @@ Button.defaultProps = {
   isActive: false,
   isStretchedLink: false,
   onClick: null,
+  bsToggle: null,
+  bsTarget: null,
 };
 
 export default Button;
