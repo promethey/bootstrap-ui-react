@@ -31,3 +31,5 @@ export { default as Text } from 'components/Text';
 export { default as Link } from 'components/Link';
 export { default as Heading } from 'components/Heading';
 export { default as Flex } from 'components/Flex';
+
+export { default as Form } from 'components/Form';
