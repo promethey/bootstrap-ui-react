@@ -193,7 +193,7 @@ export function AllRounded() {
             bgColor={bgColor.toLowerCase()}
             textColor={textColor}
             className="me-2"
-            isRounded
+            rounded="pill"
           >
             {bgColor}
           </Badge>

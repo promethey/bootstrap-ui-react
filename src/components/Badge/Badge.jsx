@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from 'helpers/prefix';
+import Box from 'components/Box';
 
 function Badge(props) {
   const {
@@ -10,7 +10,6 @@ function Badge(props) {
     className,
     bgColor,
     textColor,
-    isRounded,
     ...rest
   } = props;
 
@@ -18,16 +17,19 @@ function Badge(props) {
 
   const classes = classNames(
     BASE_CLASS_NAME,
-    usePrefix('bg', bgColor),
-    usePrefix('text', textColor),
-    { [usePrefix('rounded', 'pill')]: isRounded },
     className,
   );
 
   return (
-    <span className={classes} style={style} {...rest}>
+    <Box
+      className={classes}
+      style={style}
+      bgColor={bgColor}
+      textColor={textColor}
+      {...rest}
+    >
       {children}
-    </span>
+    </Box>
   );
 }
 
@@ -76,9 +78,6 @@ Badge.propTypes = {
 
   /** Choose text color */
   textColor: PropTypes.oneOf(BadgeTextColors),
-
-  /** Activate rounded pill style */
-  isRounded: PropTypes.bool,
 };
 
 Badge.defaultProps = {
@@ -86,7 +85,6 @@ Badge.defaultProps = {
   className: null,
   bgColor: 'primary',
   textColor: 'white',
-  isRounded: false,
 };
 
 export default Badge;

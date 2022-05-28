@@ -213,16 +213,16 @@ export function Opacity() {
 export function Shadow() {
   return (
     <>
-      <Flex padding={3} mb={5} shadow="none" bgColor="light" isRounded>
+      <Flex padding={3} mb={5} shadow="none" bgColor="light" rounded>
         No shadow
       </Flex>
-      <Flex padding={3} mb={5} shadow="sm" bgColor="body" isRounded>
+      <Flex padding={3} mb={5} shadow="sm" bgColor="body" rounded>
         Small shadow
       </Flex>
-      <Flex padding={3} mb={5} shadow bgColor="body" isRounded>
+      <Flex padding={3} mb={5} shadow bgColor="body" rounded>
         Regular shadow
       </Flex>
-      <Flex padding={3} mb={5} shadow="lg" bgColor="body" isRounded>
+      <Flex padding={3} mb={5} shadow="lg" bgColor="body" rounded>
         Larger shadow
       </Flex>
     </>
@@ -239,7 +239,7 @@ export function Rounded() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded
+        rounded
       >
         75x75
       </Flex>
@@ -250,7 +250,7 @@ export function Rounded() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded="top"
+        rounded="top"
       >
         75x75
       </Flex>
@@ -261,7 +261,7 @@ export function Rounded() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded="end"
+        rounded="end"
       >
         75x75
       </Flex>
@@ -272,7 +272,7 @@ export function Rounded() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded="bottom"
+        rounded="bottom"
       >
         75x75
       </Flex>
@@ -283,7 +283,7 @@ export function Rounded() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded="start"
+        rounded="start"
       >
         75x75
       </Flex>
@@ -294,7 +294,7 @@ export function Rounded() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded="circle"
+        rounded="circle"
       >
         75x75
       </Flex>
@@ -304,7 +304,7 @@ export function Rounded() {
         alignItems="center"
         bgColor="secondary"
         textColor="light"
-        isRounded="pill"
+        rounded="pill"
       >
         150x75
       </Flex>
@@ -365,7 +365,7 @@ export function RoundedSizes() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded={0}
+        rounded={0}
       >
         75x75
       </Flex>
@@ -376,7 +376,7 @@ export function RoundedSizes() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded={1}
+        rounded={1}
       >
         75x75
       </Flex>
@@ -387,7 +387,7 @@ export function RoundedSizes() {
         me={2}
         bgColor="secondary"
         textColor="light"
-        isRounded={2}
+        rounded={2}
       >
         75x75
       </Flex>
@@ -397,7 +397,7 @@ export function RoundedSizes() {
         alignItems="center"
         bgColor="secondary"
         textColor="light"
-        isRounded={3}
+        rounded={3}
       >
         75x75
       </Flex>
@@ -932,10 +932,3 @@ AlignContentStretch.args = {
   alignContent: 'stretch',
 };
 AlignContentStretch.storyName = 'Align content stretch';
-
-export const WithoutDisplayClassName = Template.bind({});
-WithoutDisplayClassName.args = {
-  children: 'Without display class name',
-  display: false,
-};
-WithoutDisplayClassName.storyName = 'Without display class name';
