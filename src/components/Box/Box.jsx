@@ -17,7 +17,9 @@ function Box(props) {
     displayXl,
     displayXxl,
     width,
+    maxWidth,
     height,
+    maxHeight,
     margin,
     marginSm,
     marginMd,
@@ -63,7 +65,9 @@ function Box(props) {
       [usePrefix('d-xl', displayXl)]: displayXl !== null,
       [usePrefix('d-xxl', displayXxl)]: displayXxl !== null,
       [usePrefix('w', width)]: width !== null,
+      [usePrefix('mw', width)]: maxWidth !== null,
       [usePrefix('h', height)]: height !== null,
+      [usePrefix('mh', height)]: maxHeight !== null,
       [usePrefix('opacity', opacity)]: opacity,
       [usePrefix('shadow', shadow)]: shadow,
       [usePrefix('bg', bgColor)]: bgColor,
@@ -121,6 +125,9 @@ Box.propTypes = {
   as: PropTypes.oneOf([
     'div',
     'span',
+    'a',
+    'button',
+    'input',
   ]),
 
   /** Add other styles */
@@ -174,8 +181,14 @@ Box.propTypes = {
   /** Change width style */
   width: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
+  /** Change max width style */
+  maxWidth: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
   /** Change height style */
   height: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
+  /** Change max height style */
+  maxHeight: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
@@ -422,7 +435,9 @@ Box.defaultProps = {
   displayXl: null,
   displayXxl: null,
   width: null,
+  maxWidth: null,
   height: null,
+  maxHeight: null,
   margin: null,
   marginSm: null,
   marginMd: null,

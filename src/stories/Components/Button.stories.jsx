@@ -85,7 +85,7 @@ export function Width() {
       <Button width="auto" mb={2}>
         Width auto
       </Button>
-      <Button isBlock>Block</Button>
+      <Button width={100}>Block</Button>
     </Flex>
   );
 }
@@ -232,24 +232,24 @@ DisabledInput.storyName = 'Disabled input';
 export const Block = Template.bind({});
 Block.args = {
   theme: 'primary',
-  isBlock: true,
+  width: 100,
   children: 'Block',
 };
 
 export function ToggleStates() {
   const examples = [
     {
-      isActive: false,
+      isPressed: false,
       isDisabled: false,
       label: 'Toggle button',
     },
     {
-      isActive: true,
+      isPressed: true,
       isDisabled: false,
       label: 'Active toggle button',
     },
     {
-      isActive: false,
+      isPressed: false,
       isDisabled: true,
       label: 'Disabled toggle button',
     },
@@ -257,11 +257,12 @@ export function ToggleStates() {
 
   return (
     <>
-      {examples.map(({ isActive, label, isDisabled }) => (
+      {examples.map(({ isPressed, label, isDisabled }) => (
         <Button
           key={label}
-          isToggle
-          isActive={isActive}
+          bsToggle="button"
+          autoComplete="off"
+          isPressed={isPressed}
           isDisabled={isDisabled}
           className="me-2"
         >
@@ -276,17 +277,17 @@ ToggleStates.storyName = 'Toggle states';
 export function ToggleStatesForLinks() {
   const examples = [
     {
-      isActive: false,
+      isPressed: false,
       isDisabled: false,
       label: 'Toggle button',
     },
     {
-      isActive: true,
+      isPressed: true,
       isDisabled: false,
       label: 'Active toggle button',
     },
     {
-      isActive: false,
+      isPressed: false,
       isDisabled: true,
       label: 'Disabled toggle button',
     },
@@ -294,12 +295,13 @@ export function ToggleStatesForLinks() {
 
   return (
     <>
-      {examples.map(({ isActive, label, isDisabled }) => (
+      {examples.map(({ isPressed, label, isDisabled }) => (
         <Button
           key={label}
           as="a"
-          isToggle
-          isActive={isActive}
+          bsToggle="button"
+          autoComplete="off"
+          isPressed={isPressed}
           isDisabled={isDisabled}
           className="me-2"
         >
