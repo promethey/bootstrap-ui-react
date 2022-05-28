@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 import { getSpacingClassNames } from 'utilities/spacing';
 
-function Box(props) {
+const Box = React.forwardRef((props, ref) => {
   const {
     as: Component,
     style,
@@ -114,11 +114,11 @@ function Box(props) {
   );
 
   return (
-    <Component style={style} className={classes} {...rest}>
+    <Component ref={ref} style={style} className={classes} {...rest}>
       {children}
     </Component>
   );
-}
+});
 
 Box.propTypes = {
   /** Change JSX type */
