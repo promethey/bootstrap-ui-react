@@ -89,7 +89,8 @@ const Box = React.forwardRef((props, ref) => {
       border,
       [usePrefix('rounded', rounded)]: typeof rounded === 'string' || typeof rounded === 'number',
       rounded: typeof rounded === 'boolean',
-      [usePrefix('visually', visually)]: visually,
+      [usePrefix('visually', 'hidden')]: typeof visually === 'boolean' && !visually,
+      [usePrefix('visually', visually)]: typeof visually === 'string',
       visible: isVisible && !isInvisible,
       invisible: isInvisible && !isVisible,
     },
@@ -565,7 +566,8 @@ Box.propTypes = {
   visually: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([
-      'focusable',
+      'hidden',
+      'hidden-focusable',
     ]),
   ]),
 
@@ -632,7 +634,7 @@ Box.defaultProps = {
   borderWidth: null,
   border: false,
   rounded: null,
-  visually: false,
+  visually: null,
   isVisible: false,
   isInvisible: false,
 };

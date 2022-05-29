@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
+import Box from 'components/Box';
 
 function Spinner(props) {
   const {
@@ -25,11 +26,11 @@ function Spinner(props) {
   );
 
   return (
-    <div className={classes} style={style} role="status" {...rest}>
-      <div className="visually-hidden">
+    <Box className={classes} style={style} role="status" {...rest}>
+      <Box visually={false}>
         Loading...
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
@@ -58,7 +59,7 @@ Spinner.propTypes = {
   /** Change style type */
   type: PropTypes.oneOf(['border', 'grow']),
 
-  /** Activate small style */
+  /** Activate small size */
   isSmall: PropTypes.bool,
 };
 
