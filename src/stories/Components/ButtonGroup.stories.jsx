@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, ButtonGroup } from 'components';
+import { Button, ButtonGroup, Box } from 'components';
 
 export default {
   title: 'Components/ButtonGroup',
   component: ButtonGroup,
-  subcomponents: { Button },
+  subcomponents: { Button, Box },
   parameters: {
     docs: {
       description: {
@@ -31,7 +31,7 @@ Default.args = {
 export const Active = Template.bind({});
 Active.args = {
   children: [
-    <Button as="a" isActive aria-current="page">
+    <Button as="a" isPressed aria-current="page">
       Active link
     </Button>,
     <Button as="a">Link</Button>,
