@@ -27,7 +27,7 @@ function Story(args) {
 export function Example() {
   return (
     <>
-      <Box display="block" mb={3}>
+      <Box mb={3}>
         <Form.Label htmlFor="exampleFormControlInput1">
           Email address
         </Form.Label>
@@ -37,9 +37,9 @@ export function Example() {
           placeholder="name@example.com"
         />
       </Box>
-      <Box display="block">
+      <Box>
         <Form.Label htmlFor="exampleFormControlTextarea1">
-          Email textarea
+          Example textarea
         </Form.Label>
         <Form.Control
           as="textarea"
@@ -103,9 +103,9 @@ Readonly.args = {
 export function ReadonlyPlainText() {
   return (
     <>
-      <Row mb={3}>
+      <Row mb={3} alignItems="center">
         <Col sm={2}>
-          <Form.Label htmlFor="staticEmail">
+          <Form.Label htmlFor="staticEmail" style={{ marginBottom: 0 }}>
             Email
           </Form.Label>
         </Col>
@@ -118,9 +118,9 @@ export function ReadonlyPlainText() {
           />
         </Col>
       </Row>
-      <Row mb={3}>
+      <Row mb={3} alignItems="center">
         <Col sm={2}>
-          <Form.Label htmlFor="inputPassword">
+          <Form.Label htmlFor="inputPassword" style={{ marginBottom: 0 }}>
             Password
           </Form.Label>
         </Col>
@@ -139,13 +139,13 @@ ReadonlyPlainText.storyName = 'Readonly plain text';
 export function FileInput() {
   return (
     <>
-      <Box display="block" mb={3}>
+      <Box mb={3}>
         <Form.Label htmlFor="formFile">
           Default file input example
         </Form.Label>
         <Form.Control type="file" id="formFile" />
       </Box>
-      <Box display="block" mb={3}>
+      <Box mb={3}>
         <Form.Label htmlFor="formFileMultiple">
           Multiple files input example
         </Form.Label>
@@ -155,7 +155,7 @@ export function FileInput() {
           isMultiple
         />
       </Box>
-      <Box display="block" mb={3}>
+      <Box mb={3}>
         <Form.Label htmlFor="formFileDisabled">
           Disabled file input example
         </Form.Label>
@@ -165,7 +165,7 @@ export function FileInput() {
           isDisabled
         />
       </Box>
-      <Box display="block" mb={3}>
+      <Box mb={3}>
         <Form.Label htmlFor="formFileSm">
           Small file input example
         </Form.Label>
@@ -175,7 +175,7 @@ export function FileInput() {
           size="sm"
         />
       </Box>
-      <Box display="block">
+      <Box>
         <Form.Label htmlFor="formFileLg">
           Large file input example
         </Form.Label>
