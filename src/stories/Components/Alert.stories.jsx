@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Alert, Button, Text } from 'components';
+import {
+  Alert, Button, Text, Box,
+} from 'components';
 
 export default {
   title: 'Components/Alert',
   component: Alert,
+  subcomponents: { Box },
   parameters: {
     docs: {
       description: {

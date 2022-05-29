@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text } from 'components';
+import { Text, Box } from 'components';
 
 export default {
   title: 'Typography/Text',
   component: Text,
+  subcomponents: { Box },
   parameters: {
     docs: {
       description: {
@@ -423,21 +424,26 @@ export function Paddings() {
       <Text bgColor="light" isBorder padding={3}>
         Example 3
       </Text>
-      <Text
-        as="div"
-        bgColor="danger"
-        textColor="white"
-        padding={4}
-      >
-        <Text
-          fs={5}
-          fw="bolder"
-          margin={0}
-          align="center"
-        >
-          Example 4
-        </Text>
-      </Text>
     </>
+  );
+}
+
+export function Custom() {
+  return (
+    <Text
+      as="div"
+      bgColor="danger"
+      textColor="white"
+      padding={4}
+    >
+      <Text
+        fs={5}
+        fw="bolder"
+        margin={0}
+        align="center"
+      >
+        Example 4
+      </Text>
+    </Text>
   );
 }

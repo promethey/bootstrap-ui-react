@@ -1,9 +1,10 @@
 import React from 'react';
-import { Flex } from 'components';
+import { Flex, Box } from 'components';
 
 export default {
   title: 'Components/Flex',
   component: Flex,
+  subcomponent: { Box },
   parameters: {
     docs: {
       description: {

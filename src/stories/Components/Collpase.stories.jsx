@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  Collapse, Button, Card, Flex, Row, Col,
+  Collapse, Button, Card, Flex, Row, Col, Box,
 } from 'components';
 
 export default {
   title: 'Components/Collapse',
   component: Collapse,
+  subcomponents: { Box },
   parameters: {
     docs: {
       description: {
@@ -101,3 +102,4 @@ export function MultipleTargets() {
     </>
   );
 }
+MultipleTargets.storyName = 'Multiple targets';

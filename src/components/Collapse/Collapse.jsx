@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
+import Box from 'components/Box';
 
 function Collapse(props) {
   const {
@@ -10,6 +11,7 @@ function Collapse(props) {
     className,
     id,
     isHorizontal,
+    ...rest
   } = props;
 
   const BASE_CLASS_NAME = 'collapse';
@@ -23,9 +25,9 @@ function Collapse(props) {
   );
 
   return (
-    <div style={style} id={id} className={classes}>
+    <Box style={style} id={id} className={classes} {...rest}>
       {children}
-    </div>
+    </Box>
   );
 }
 

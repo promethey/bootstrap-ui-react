@@ -1,13 +1,22 @@
 import React from 'react';
 import {
-  Flex, Form, Row, Col,
+  Box, Form, Row, Col,
 } from 'components';
 
 export default {
-  title: 'Forms/Form controls',
+  title: 'Forms/Control',
   component: Form.Control,
   subcomponents: {
     'Form.Label': Form.Label,
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `Give textual form controls like inputs and
+        textareas an upgrade with custom styles, sizing, focus
+        states, and more.`,
+      },
+    },
   },
 };
 
@@ -18,7 +27,7 @@ function Story(args) {
 export function Example() {
   return (
     <>
-      <Flex display="block" mb={3}>
+      <Box display="block" mb={3}>
         <Form.Label htmlFor="exampleFormControlInput1">
           Email address
         </Form.Label>
@@ -27,8 +36,8 @@ export function Example() {
           id="exampleFormControlInput1"
           placeholder="name@example.com"
         />
-      </Flex>
-      <Flex display="block">
+      </Box>
+      <Box display="block">
         <Form.Label htmlFor="exampleFormControlTextarea1">
           Email textarea
         </Form.Label>
@@ -37,7 +46,7 @@ export function Example() {
           id="exampleFormControlTextarea1"
           rows={3}
         />
-      </Flex>
+      </Box>
     </>
   );
 }
@@ -52,7 +61,6 @@ export function Sizing() {
         mb={2}
       />
       <Form.Control
-        size="lg"
         placeholder="Default input"
         aria-label="default input example"
         mb={2}
@@ -131,13 +139,13 @@ ReadonlyPlainText.storyName = 'Readonly plain text';
 export function FileInput() {
   return (
     <>
-      <Flex display="block" mb={3}>
+      <Box display="block" mb={3}>
         <Form.Label htmlFor="formFile">
           Default file input example
         </Form.Label>
         <Form.Control type="file" id="formFile" />
-      </Flex>
-      <Flex display="block" mb={3}>
+      </Box>
+      <Box display="block" mb={3}>
         <Form.Label htmlFor="formFileMultiple">
           Multiple files input example
         </Form.Label>
@@ -146,8 +154,8 @@ export function FileInput() {
           id="formFileMultiple"
           isMultiple
         />
-      </Flex>
-      <Flex display="block" mb={3}>
+      </Box>
+      <Box display="block" mb={3}>
         <Form.Label htmlFor="formFileDisabled">
           Disabled file input example
         </Form.Label>
@@ -156,8 +164,8 @@ export function FileInput() {
           id="formFileDisabled"
           isDisabled
         />
-      </Flex>
-      <Flex display="block" mb={3}>
+      </Box>
+      <Box display="block" mb={3}>
         <Form.Label htmlFor="formFileSm">
           Small file input example
         </Form.Label>
@@ -166,8 +174,8 @@ export function FileInput() {
           id="formFileSm"
           size="sm"
         />
-      </Flex>
-      <Flex display="block">
+      </Box>
+      <Box display="block">
         <Form.Label htmlFor="formFileLg">
           Large file input example
         </Form.Label>
@@ -176,7 +184,7 @@ export function FileInput() {
           id="formFileLg"
           size="lg"
         />
-      </Flex>
+      </Box>
     </>
   );
 }

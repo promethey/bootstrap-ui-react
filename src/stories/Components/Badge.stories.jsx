@@ -1,9 +1,10 @@
 import React from 'react';
-import { Badge, Button } from 'components';
+import { Badge, Button, Box } from 'components';
 
 export default {
   title: 'Components/Badge',
   component: Badge,
+  subcomponents: { Box },
   parameters: {
     docs: {
       description: {

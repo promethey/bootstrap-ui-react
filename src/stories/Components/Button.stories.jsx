@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Flex } from 'components';
+import { Button, Flex, Box } from 'components';
 
 export default {
   title: 'Components/Button',
   component: Button,
+  subcomponents: { Box },
   parameters: {
     docs: {
       description: {
@@ -69,7 +70,7 @@ export function Outlines() {
 
 export function Width() {
   return (
-    <Flex direction="column" padding={2} bgColor="light" isBorder>
+    <Flex direction="column" padding={2} bgColor="light" border>
       <Button width={25} maxWidth={100} mb={2}>
         Width 25%
       </Button>

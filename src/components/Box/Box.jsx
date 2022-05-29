@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 import { getSpacingClassNames } from 'utilities/spacing';
+import { getDisplayClassNames, getPrintClassNames } from 'utilities/display';
 
 const Box = React.forwardRef((props, ref) => {
   const {
@@ -16,10 +17,21 @@ const Box = React.forwardRef((props, ref) => {
     displayLg,
     displayXl,
     displayXxl,
+    displayPrint,
+    displayPrintSm,
+    displayPrintMd,
+    displayPrintLg,
+    displayPrintXl,
+    displayPrintXxl,
     width,
     maxWidth,
     height,
     maxHeight,
+    position,
+    top,
+    end,
+    bottom,
+    start,
     margin,
     marginSm,
     marginMd,
@@ -49,8 +61,9 @@ const Box = React.forwardRef((props, ref) => {
     bgColor,
     textColor,
     borderWidth,
-    isBorder,
+    border,
     rounded,
+    visually,
     isVisible,
     isInvisible,
     ...rest
@@ -58,28 +71,45 @@ const Box = React.forwardRef((props, ref) => {
 
   const classes = classNames(
     {
-      [usePrefix('d', display)]: display,
-      [usePrefix('d-sm', displaySm)]: displaySm !== null,
-      [usePrefix('d-md', displayMd)]: displayMd !== null,
-      [usePrefix('d-lg', displayLg)]: displayLg !== null,
-      [usePrefix('d-xl', displayXl)]: displayXl !== null,
-      [usePrefix('d-xxl', displayXxl)]: displayXxl !== null,
       [usePrefix('w', width)]: width !== null,
-      [usePrefix('mw', width)]: maxWidth !== null,
+      [usePrefix('mw', maxWidth)]: maxWidth !== null,
       [usePrefix('h', height)]: height !== null,
-      [usePrefix('mh', height)]: maxHeight !== null,
+      [usePrefix('mh', maxHeight)]: maxHeight !== null,
+      [usePrefix('position', position)]: position,
+      [usePrefix('top', top)]: top !== null,
+      [usePrefix('end', end)]: end !== null,
+      [usePrefix('bottom', bottom)]: bottom !== null,
+      [usePrefix('start', start)]: start !== null,
       [usePrefix('opacity', opacity)]: opacity,
       [usePrefix('shadow', shadow)]: shadow,
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('text', textColor)]: textColor,
-      [usePrefix('border', isBorder)]: typeof isBorder === 'string',
+      [usePrefix('border', border)]: typeof border === 'string',
       [usePrefix('border', borderWidth)]: borderWidth,
-      border: isBorder,
+      border,
       [usePrefix('rounded', rounded)]: typeof rounded === 'string' || typeof rounded === 'number',
       rounded: typeof rounded === 'boolean',
+      [usePrefix('visually', visually)]: visually,
       visible: isVisible && !isInvisible,
       invisible: isInvisible && !isVisible,
     },
+    getDisplayClassNames(
+      display,
+      displaySm,
+      displayMd,
+      displayLg,
+      displayLg,
+      displayXl,
+      displayXxl,
+    ),
+    getPrintClassNames(
+      displayPrint,
+      displayPrintSm,
+      displayPrintMd,
+      displayPrintLg,
+      displayPrintXl,
+      displayPrintXxl,
+    ),
     getSpacingClassNames(
       'm',
       margin,
@@ -128,6 +158,15 @@ Box.propTypes = {
     'a',
     'button',
     'input',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'strong',
+    'small',
+    'p',
   ]),
 
   /** Add other styles */
@@ -178,6 +217,90 @@ Box.propTypes = {
     'inline-flex',
   ]),
 
+  /** Change *display* print style */
+  displayPrint: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
+  /** Change *display* print style for breakpoint sm */
+  displayPrintSm: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
+  /** Change *display* print style for breakpoint md */
+  displayPrintMd: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
+  /** Change *display* print style for breakpoint lg */
+  displayPrintLg: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
+  /** Change *display* print style for breakpoint xl */
+  displayPrintXl: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
+  /** Change *display* print style for breakpoint xxl */
+  displayPrintXxl: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
   /** Change width style */
   width: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
@@ -189,6 +312,27 @@ Box.propTypes = {
 
   /** Change max height style */
   maxHeight: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
+  /** Change position style */
+  position: PropTypes.oneOf([
+    'static',
+    'relative',
+    'absolute',
+    'fixed',
+    'sticky',
+  ]),
+
+  /** Change top position */
+  top: PropTypes.oneOf([0, 50, 100]),
+
+  /** Change top position */
+  end: PropTypes.oneOf([0, 50, 100]),
+
+  /** Change top position */
+  bottom: PropTypes.oneOf([0, 50, 100]),
+
+  /** Change top position */
+  start: PropTypes.oneOf([0, 50, 100]),
 
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
@@ -374,7 +518,7 @@ Box.propTypes = {
   ]),
 
   /** Set border and change border color */
-  isBorder: PropTypes.oneOfType([
+  border: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([
       'primary',
@@ -417,6 +561,14 @@ Box.propTypes = {
     ]),
   ]),
 
+  /** Visually hide element */
+  visually: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'focusable',
+    ]),
+  ]),
+
   /** Activate visible */
   isVisible: PropTypes.bool,
 
@@ -434,10 +586,21 @@ Box.defaultProps = {
   displayLg: null,
   displayXl: null,
   displayXxl: null,
+  displayPrint: null,
+  displayPrintSm: null,
+  displayPrintMd: null,
+  displayPrintLg: null,
+  displayPrintXl: null,
+  displayPrintXxl: null,
   width: null,
   maxWidth: null,
   height: null,
   maxHeight: null,
+  position: null,
+  top: null,
+  end: null,
+  bottom: null,
+  start: null,
   margin: null,
   marginSm: null,
   marginMd: null,
@@ -467,8 +630,9 @@ Box.defaultProps = {
   bgColor: null,
   textColor: null,
   borderWidth: null,
-  isBorder: false,
+  border: false,
   rounded: null,
+  visually: false,
   isVisible: false,
   isInvisible: false,
 };

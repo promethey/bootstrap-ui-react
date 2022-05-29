@@ -1,11 +1,5 @@
 // Accordion
 // Toasts
-
-// Layout
-export { default as Container } from 'components/Container';
-export { default as Row } from 'components/Row';
-export { default as Col } from 'components/Col';
-
 export { default as Alert } from 'components/Alert';
 export { default as Badge } from 'components/Badge';
 export { default as Breadcrumb } from 'components/Breadcrumb';
@@ -27,9 +21,19 @@ export { default as ListGroup } from 'components/ListGroup';
 export { default as Progress } from 'components/Progress';
 export { default as Spinner } from 'components/Spinner';
 
-export { default as Text } from 'components/Text';
+// Other
+export { default as Box } from 'components/Box';
 export { default as Link } from 'components/Link';
-export { default as Heading } from 'components/Heading';
 export { default as Flex } from 'components/Flex';
 
+// Layout
+export { default as Container } from 'components/Container';
+export { default as Row } from 'components/Row';
+export { default as Col } from 'components/Col';
+
+// Typography
+export { default as Text } from 'components/Text';
+export { default as Heading } from 'components/Heading';
+
+// Form
 export { default as Form } from 'components/Form';
