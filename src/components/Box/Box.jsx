@@ -56,16 +56,31 @@ const Box = React.forwardRef((props, ref) => {
     pe,
     pb,
     ps,
+    float,
+    floatSm,
+    floatMd,
+    floatLg,
+    floatXl,
+    floatXxl,
     opacity,
     shadow,
     bgColor,
+    isBgGradient,
+    bgOpacity,
     textColor,
-    borderWidth,
     border,
+    borderColor,
+    borderWidth,
     rounded,
     visually,
     isVisible,
     isInvisible,
+    isClearFix,
+    isTranslateMiddle,
+    isTranslateMiddleX,
+    isTranslateMiddleY,
+    textSelect,
+    overflow,
     ...rest
   } = props;
 
@@ -80,19 +95,35 @@ const Box = React.forwardRef((props, ref) => {
       [usePrefix('end', end)]: end !== null,
       [usePrefix('bottom', bottom)]: bottom !== null,
       [usePrefix('start', start)]: start !== null,
+      [usePrefix('float', float)]: float,
+      [usePrefix('float', 'sm', floatSm)]: floatSm,
+      [usePrefix('float', 'md', floatMd)]: floatMd,
+      [usePrefix('float', 'lg', floatLg)]: floatLg,
+      [usePrefix('float', 'xl', floatXl)]: floatXl,
+      [usePrefix('float', 'xxl', floatXxl)]: floatXxl,
       [usePrefix('opacity', opacity)]: opacity,
       [usePrefix('shadow', shadow)]: shadow,
       [usePrefix('bg', bgColor)]: bgColor,
+      [usePrefix('bg', 'gradient')]: isBgGradient,
+      [usePrefix('bg', 'opacity', bgOpacity)]: bgOpacity,
       [usePrefix('text', textColor)]: textColor,
       [usePrefix('border', border)]: typeof border === 'string',
       [usePrefix('border', borderWidth)]: borderWidth,
-      border,
+      [usePrefix('border', borderColor)]: borderColor,
+      [usePrefix('border', border)]: typeof border === 'string' || typeof border === 'number',
+      border: typeof border === 'boolean' && border,
       [usePrefix('rounded', rounded)]: typeof rounded === 'string' || typeof rounded === 'number',
       rounded: typeof rounded === 'boolean',
       [usePrefix('visually', 'hidden')]: typeof visually === 'boolean' && !visually,
       [usePrefix('visually', visually)]: typeof visually === 'string',
       visible: isVisible && !isInvisible,
       invisible: isInvisible && !isVisible,
+      clearfix: isClearFix,
+      [usePrefix('translate', 'middle')]: isTranslateMiddle,
+      [usePrefix('translate', 'middle', 'x')]: isTranslateMiddleX,
+      [usePrefix('translate', 'middle', 'y')]: isTranslateMiddleY,
+      [usePrefix('user', 'select', textSelect)]: textSelect,
+      [usePrefix('overflow', overflow)]: overflow,
     },
     getDisplayClassNames(
       display,
@@ -320,7 +351,10 @@ Box.propTypes = {
     'relative',
     'absolute',
     'fixed',
+    'fixed-top',
+    'fixed-bottom',
     'sticky',
+    'sticky-top',
   ]),
 
   /** Change top position */
@@ -467,6 +501,48 @@ Box.propTypes = {
   /** Set *padding* start style */
   ps: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
 
+  /** Add float position style */
+  float: PropTypes.oneOf([
+    'start',
+    'end',
+    'none',
+  ]),
+
+  /** Add float position style for breakpoint sm */
+  floatSm: PropTypes.oneOf([
+    'start',
+    'end',
+    'none',
+  ]),
+
+  /** Add float position style for breakpoint md */
+  floatMd: PropTypes.oneOf([
+    'start',
+    'end',
+    'none',
+  ]),
+
+  /** Add float position style for breakpoint lg */
+  floatLg: PropTypes.oneOf([
+    'start',
+    'end',
+    'none',
+  ]),
+
+  /** Add float position style for breakpoint xl */
+  floatXl: PropTypes.oneOf([
+    'start',
+    'end',
+    'none',
+  ]),
+
+  /** Add float position style for breakpoint xxl */
+  floatXxl: PropTypes.oneOf([
+    'start',
+    'end',
+    'none',
+  ]),
+
   /** Change opacity style */
   opacity: PropTypes.oneOf([
     25,
@@ -479,7 +555,6 @@ Box.propTypes = {
   shadow: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([
-      'none',
       'sm',
       'lg',
     ]),
@@ -498,6 +573,17 @@ Box.propTypes = {
     'body',
     'white',
     'transparent',
+  ]),
+
+  /** Activate background gradient style */
+  isBgGradient: PropTypes.bool,
+
+  /** Change background color opacity */
+  bgOpacity: PropTypes.oneOf([
+    10,
+    25,
+    50,
+    75,
   ]),
 
   /** Change text color */
@@ -522,16 +608,29 @@ Box.propTypes = {
   border: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([
-      'primary',
-      'secondary',
-      'success',
-      'danger',
-      'warning',
-      'info',
-      'light',
-      'dark',
-      'white',
+      0,
+      'top',
+      'top-0',
+      'end',
+      'end-0',
+      'bottom',
+      'bottom-0',
+      'start',
+      'start-0',
     ]),
+  ]),
+
+  /** Change default border color */
+  borderColor: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'white',
   ]),
 
   /** Change border width style */
@@ -576,6 +675,33 @@ Box.propTypes = {
 
   /** Activate invisible */
   isInvisible: PropTypes.bool,
+
+  /** Activate clearfix */
+  isClearFix: PropTypes.bool,
+
+  /** Activate translate middle style */
+  isTranslateMiddle: PropTypes.bool,
+
+  /** Activate translate middle style for axis-X */
+  isTranslateMiddleX: PropTypes.bool,
+
+  /** Activate translate middle style for axis-Y */
+  isTranslateMiddleY: PropTypes.bool,
+
+  /** Change text select */
+  textSelect: PropTypes.oneOf([
+    'all',
+    'auto',
+    'none',
+  ]),
+
+  /** Change overflow style */
+  overflow: PropTypes.oneOf([
+    'auto',
+    'hidden',
+    'visible',
+    'scroll',
+  ]),
 };
 
 Box.defaultProps = {
@@ -627,16 +753,31 @@ Box.defaultProps = {
   pe: null,
   pb: null,
   ps: null,
+  float: null,
+  floatSm: null,
+  floatMd: null,
+  floatLg: null,
+  floatXl: null,
+  floatXxl: null,
   opacity: null,
   shadow: null,
   bgColor: null,
+  isBgGradient: false,
+  bgOpacity: null,
   textColor: null,
   borderWidth: null,
   border: false,
+  borderColor: null,
   rounded: null,
   visually: null,
   isVisible: false,
   isInvisible: false,
+  isClearFix: false,
+  isTranslateMiddle: false,
+  isTranslateMiddleX: false,
+  isTranslateMiddleY: false,
+  textSelect: null,
+  overflow: null,
 };
 
 export default Box;

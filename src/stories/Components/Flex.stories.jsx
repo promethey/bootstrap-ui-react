@@ -23,16 +23,16 @@ function TemplateItems(args) {
     <Flex
       padding={1}
       bgColor="light"
-      isBorder
+      border
       {...args}
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -47,11 +47,11 @@ function TemplateAlignContent(args) {
       isWrap
       padding={1}
       bgColor="light"
-      isBorder
+      border
       {...args}
     >
       {[...new Array(15)].map(() => (
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
       ))}
@@ -63,7 +63,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: 'I\'m a flexbox container!',
   bgColor: 'light',
-  isBorder: true,
+  border: true,
   padding: 2,
 };
 
@@ -72,353 +72,10 @@ InlineFlex.args = {
   children: 'I\'m an inline flexbox container!',
   display: 'inline-flex',
   bgColor: 'light',
-  isBorder: true,
+  border: true,
   padding: 2,
 };
 InlineFlex.storyName = 'Inline flex';
-
-export function Width() {
-  return (
-    <Flex direction="column" padding={2} bgColor="light" isBorder>
-      <Flex
-        width={25}
-        mb={2}
-        padding={2}
-        bgColor="light"
-        isBorder
-      >
-        25%
-      </Flex>
-      <Flex
-        width={50}
-        mb={2}
-        padding={2}
-        bgColor="light"
-        isBorder
-      >
-        50%
-      </Flex>
-      <Flex
-        width={75}
-        mb={2}
-        padding={2}
-        bgColor="light"
-        isBorder
-      >
-        75%
-      </Flex>
-      <Flex
-        width={100}
-        padding={2}
-        bgColor="light"
-        isBorder
-      >
-        100%
-      </Flex>
-    </Flex>
-  );
-}
-
-export function Height() {
-  return (
-    <Flex padding={2} bgColor="light" isBorder style={{ height: '200px' }}>
-      <Flex
-        width={25}
-        height={25}
-        justifyContent="center"
-        alignItems="center"
-        bgColor="light"
-        isBorder
-      >
-        Height 25%
-      </Flex>
-      <Flex
-        width={25}
-        height={50}
-        justifyContent="center"
-        alignItems="center"
-        bgColor="light"
-        isBorder
-      >
-        Height 50%
-      </Flex>
-      <Flex
-        width={25}
-        height={75}
-        justifyContent="center"
-        alignItems="center"
-        bgColor="light"
-        isBorder
-      >
-        Height 75%
-      </Flex>
-      <Flex
-        width={25}
-        height={100}
-        justifyContent="center"
-        alignItems="center"
-        bgColor="light"
-        isBorder
-      >
-        Height 100%
-      </Flex>
-    </Flex>
-  );
-}
-
-export function Opacity() {
-  return (
-    <Flex direction="column" padding={2} isBorder>
-      <Flex
-        mb={2}
-        padding={2}
-        bgColor="primary"
-        textColor="light"
-        opacity={100}
-      >
-        100%
-      </Flex>
-      <Flex
-        mb={2}
-        padding={2}
-        bgColor="primary"
-        textColor="light"
-        isBorder
-        opacity={75}
-      >
-        75%
-      </Flex>
-      <Flex
-        mb={2}
-        padding={2}
-        bgColor="primary"
-        textColor="light"
-        isBorder
-        opacity={50}
-      >
-        50%
-      </Flex>
-      <Flex
-        padding={2}
-        bgColor="primary"
-        textColor="light"
-        isBorder
-        opacity={25}
-      >
-        25%
-      </Flex>
-    </Flex>
-  );
-}
-
-export function Shadow() {
-  return (
-    <>
-      <Flex padding={3} mb={5} shadow="none" bgColor="light" rounded>
-        No shadow
-      </Flex>
-      <Flex padding={3} mb={5} shadow="sm" bgColor="body" rounded>
-        Small shadow
-      </Flex>
-      <Flex padding={3} mb={5} shadow bgColor="body" rounded>
-        Regular shadow
-      </Flex>
-      <Flex padding={3} mb={5} shadow="lg" bgColor="body" rounded>
-        Larger shadow
-      </Flex>
-    </>
-  );
-}
-
-export function Rounded() {
-  return (
-    <Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded="top"
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded="end"
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded="bottom"
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded="start"
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded="circle"
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '150px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        bgColor="secondary"
-        textColor="light"
-        rounded="pill"
-      >
-        150x75
-      </Flex>
-    </Flex>
-  );
-}
-
-export function BorderWidth() {
-  return (
-    <Flex direction="row">
-      <Flex
-        style={{ width: '100px', height: '100px' }}
-        me={2}
-        bgColor="light"
-        isBorder
-        borderWidth={1}
-      />
-      <Flex
-        style={{ width: '100px', height: '100px' }}
-        me={2}
-        bgColor="light"
-        isBorder
-        borderWidth={2}
-      />
-      <Flex
-        style={{ width: '100px', height: '100px' }}
-        me={2}
-        bgColor="light"
-        isBorder
-        borderWidth={3}
-      />
-      <Flex
-        style={{ width: '100px', height: '100px' }}
-        me={2}
-        bgColor="light"
-        isBorder
-        borderWidth={4}
-      />
-      <Flex
-        style={{ width: '100px', height: '100px' }}
-        me={2}
-        bgColor="light"
-        isBorder
-        borderWidth={5}
-      />
-    </Flex>
-  );
-}
-BorderWidth.storyName = 'Border width';
-
-export function RoundedSizes() {
-  return (
-    <Flex direction="row">
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded={0}
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded={1}
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        me={2}
-        bgColor="secondary"
-        textColor="light"
-        rounded={2}
-      >
-        75x75
-      </Flex>
-      <Flex
-        style={{ width: '75px', height: '75px' }}
-        justifyContent="center"
-        alignItems="center"
-        bgColor="secondary"
-        textColor="light"
-        rounded={3}
-      >
-        75x75
-      </Flex>
-    </Flex>
-  );
-}
-RoundedSizes.storyName = 'Rounded sizes';
-
-export function Visibility() {
-  return (
-    <>
-      <Flex padding={2} bgColor="light" isBorder isVisible>
-        Visible
-      </Flex>
-      <Flex padding={2} bgColor="light" isBorder isInvisible>
-        Invisible
-      </Flex>
-    </>
-  );
-}
 
 export const DirectionRow = TemplateItems.bind({});
 DirectionRow.args = {
@@ -454,13 +111,13 @@ export function DirectionResponsive() {
       directionXl="column"
       directionXxl="column-reverse"
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item 1
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item 2
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item 3
       </Flex>
     </Flex>
@@ -567,15 +224,15 @@ export function AlignSelfStart() {
       style={{ height: '100px' }}
       padding={1}
       bgColor="light"
-      isBorder
+      border
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="start" padding={2} bgColor="info" isBorder="primary">
+      <Flex alignSelf="start" padding={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -589,15 +246,15 @@ export function AlignSelfEnd() {
       style={{ height: '100px' }}
       padding={1}
       bgColor="light"
-      isBorder
+      border
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="end" padding={2} bgColor="info" isBorder="primary">
+      <Flex alignSelf="end" padding={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -611,15 +268,15 @@ export function AlignSelfCenter() {
       style={{ height: '100px' }}
       padding={1}
       bgColor="light"
-      isBorder
+      border
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="center" padding={2} bgColor="info" isBorder="primary">
+      <Flex alignSelf="center" padding={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -633,15 +290,15 @@ export function AlignSelfBaseline() {
       style={{ height: '100px' }}
       padding={1}
       bgColor="light"
-      isBorder
+      border
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="baseline" padding={2} bgColor="info" isBorder="primary">
+      <Flex alignSelf="baseline" padding={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -655,15 +312,15 @@ export function AlignSelfStretch() {
       style={{ height: '100px' }}
       padding={1}
       bgColor="light"
-      isBorder
+      border
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="stretch" padding={2} bgColor="info" isBorder="primary">
+      <Flex alignSelf="stretch" padding={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -677,9 +334,9 @@ export function AlignSelfResponsive() {
       style={{ height: '100px' }}
       padding={1}
       bgColor="light"
-      isBorder
+      border
     >
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
       <Flex
@@ -691,11 +348,11 @@ export function AlignSelfResponsive() {
         alignSelfXxl="start"
         padding={2}
         bgColor="info"
-        isBorder="primary"
+        border="primary"
       >
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -704,14 +361,14 @@ export function AlignSelfResponsive() {
 
 export function FlexFill() {
   return (
-    <Flex padding={1} bgColor="light" isBorder>
-      <Flex isFill padding={2} bgColor="light" isBorder>
+    <Flex padding={1} bgColor="light" border>
+      <Flex isFill padding={2} bgColor="light" border>
         Flex item with a lot of content
       </Flex>
-      <Flex isFill padding={2} bgColor="light" isBorder>
+      <Flex isFill padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex isFill padding={2} bgColor="light" isBorder>
+      <Flex isFill padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -721,14 +378,14 @@ FlexFill.storyName = 'Flex fill';
 
 export function FlexGrow() {
   return (
-    <Flex padding={1} bgColor="light" isBorder>
-      <Flex flexGrow={1} padding={2} bgColor="light" isBorder>
+    <Flex padding={1} bgColor="light" border>
+      <Flex flexGrow={1} padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Third flex item
       </Flex>
     </Flex>
@@ -738,11 +395,11 @@ FlexGrow.storyName = 'Flex grow';
 
 export function FlexShrink() {
   return (
-    <Flex padding={1} bgColor="light" isBorder>
-      <Flex width={100} padding={2} bgColor="light" isBorder>
+    <Flex padding={1} bgColor="light" border>
+      <Flex width={100} padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex flexShrink={1} padding={2} bgColor="light" isBorder>
+      <Flex flexShrink={1} padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -753,36 +410,36 @@ FlexShrink.storyName = 'Flex shrink';
 export function AutoMargins() {
   return (
     <>
-      <Flex mb={3} padding={1} bgColor="light" isBorder>
-        <Flex padding={2} bgColor="light" isBorder>
+      <Flex mb={3} padding={1} bgColor="light" border>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
-          Flex item
-        </Flex>
-      </Flex>
-      <Flex mb={3} padding={1} bgColor="light" isBorder>
-        <Flex me="auto" padding={2} bgColor="light" isBorder>
-          Flex item
-        </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
-          Flex item
-        </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
-      <Flex mb={3} padding={1} bgColor="light" isBorder>
-        <Flex padding={2} bgColor="light" isBorder>
+      <Flex mb={3} padding={1} bgColor="light" border>
+        <Flex me="auto" padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex ms="auto" padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
+          Flex item
+        </Flex>
+      </Flex>
+      <Flex mb={3} padding={1} bgColor="light" border>
+        <Flex padding={2} bgColor="light" border>
+          Flex item
+        </Flex>
+        <Flex padding={2} bgColor="light" border>
+          Flex item
+        </Flex>
+        <Flex ms="auto" padding={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
@@ -801,15 +458,15 @@ export function WithAlignItems() {
         padding={1}
         style={{ height: '200px' }}
         bgColor="light"
-        isBorder
+        border
       >
-        <Flex mb="auto" padding={2} bgColor="light" isBorder>
+        <Flex mb="auto" padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
@@ -820,15 +477,15 @@ export function WithAlignItems() {
         padding={1}
         style={{ height: '200px' }}
         bgColor="light"
-        isBorder
+        border
       >
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" isBorder>
+        <Flex padding={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex mt="auto" padding={2} bgColor="light" isBorder>
+        <Flex mt="auto" padding={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
@@ -839,20 +496,20 @@ WithAlignItems.storyName = 'With align items';
 
 export function Wrap() {
   return (
-    <Flex isWrap padding={1} bgColor="light" isBorder style={{ width: '100px' }}>
-      <Flex padding={2} bgColor="light" isBorder>
+    <Flex isWrap padding={1} bgColor="light" border style={{ width: '100px' }}>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -861,20 +518,20 @@ export function Wrap() {
 
 export function NoWrap() {
   return (
-    <Flex isNoWrap padding={1} bgColor="light" isBorder style={{ width: '100px' }}>
-      <Flex padding={2} bgColor="light" isBorder>
+    <Flex isNoWrap padding={1} bgColor="light" border style={{ width: '100px' }}>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" isBorder>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -884,14 +541,14 @@ NoWrap.storyName = 'No wrap';
 
 export function Order() {
   return (
-    <Flex isNoWrap padding={1} bgColor="light" isBorder>
-      <Flex order={3} padding={2} bgColor="light" isBorder>
+    <Flex isNoWrap padding={1} bgColor="light" border>
+      <Flex order={3} padding={2} bgColor="light" border>
         First flex item
       </Flex>
-      <Flex order={2} padding={2} bgColor="light" isBorder>
+      <Flex order={2} padding={2} bgColor="light" border>
         Second flex item
       </Flex>
-      <Flex order={1} padding={2} bgColor="light" isBorder>
+      <Flex order={1} padding={2} bgColor="light" border>
         Third flex item
       </Flex>
     </Flex>

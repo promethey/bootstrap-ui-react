@@ -1,10 +1,578 @@
 import React from 'react';
-import { Box } from 'components';
+import { Box, Button } from 'components';
 
 export default {
   title: 'Components/Box',
   component: Box,
 };
+
+export function Example() {
+  return (
+    <Box
+      bgColor="light"
+      padding={3}
+      border
+      rounded={3}
+    >
+      Box component
+    </Box>
+  );
+}
+
+export function Width() {
+  const examples = [
+    25,
+    50,
+    75,
+    100,
+  ];
+
+  return (
+    <Box padding={2} bgColor="light" border>
+      {examples.map((width, index) => (
+        <Box
+          width={width}
+          mb={index !== examples.length - 1 ? 2 : null}
+          padding={2}
+          bgColor="primary"
+          textColor="light"
+          border
+        >
+          {width}
+          %
+        </Box>
+      ))}
+    </Box>
+  );
+}
+
+export function MaxWidth() {
+  return (
+    <Box
+      maxWidth={100}
+      bgColor="secondary"
+      textColor="light"
+      style={{ height: '100px' }}
+      padding={3}
+    >
+      Max-width 100%
+    </Box>
+  );
+}
+MaxWidth.storyName = 'Max width';
+
+export function Height() {
+  const examples = [
+    25,
+    50,
+    75,
+    100,
+  ];
+
+  return (
+    <Box
+      display="flex"
+      padding={2}
+      bgColor="light"
+      border
+      style={{ height: '200px' }}
+    >
+      {examples.map((height, index) => (
+        <Box
+          width={25}
+          height={height}
+          padding={[1, 2]}
+          me={index !== examples.length - 1 ? 2 : null}
+          bgColor="primary"
+          textColor="light"
+          border
+        >
+          {height}
+          %
+        </Box>
+      ))}
+    </Box>
+  );
+}
+
+export function MaxHeight() {
+  return (
+    <Box bgColor="info" bgOpacity={25} style={{ height: '100px' }}>
+      <Box
+        maxHeight={100}
+        bgColor="info"
+        style={{ width: '100px', height: '200px' }}
+      >
+        Max-height 100%
+      </Box>
+    </Box>
+  );
+}
+MaxHeight.storyName = 'Max height';
+
+export function Visibility() {
+  return (
+    <>
+      <Box padding={2} bgColor="light" border isVisible>
+        Visible
+      </Box>
+      <Box padding={2} bgColor="light" border isInvisible>
+        Invisible
+      </Box>
+    </>
+  );
+}
+
+export function Visually() {
+  return (
+    <>
+      <Box padding={2} bgColor="light" border>
+        Visible
+      </Box>
+      <Box padding={2} bgColor="light" border visually={false}>
+        Visually hidden
+      </Box>
+      <Box padding={2} bgColor="light" border visually="hidden">
+        Visually hidden 2
+      </Box>
+      <Box padding={2} bgColor="light" border visually="hidden-focusable">
+        Visually hidden focusable
+      </Box>
+    </>
+  );
+}
+Visually.storyName = 'Visually';
+
+export function BackgroundColors() {
+  const examples = [
+    { bgColor: 'primary', textColor: 'white' },
+    { bgColor: 'secondary', textColor: 'white' },
+    { bgColor: 'success', textColor: 'white' },
+    { bgColor: 'danger', textColor: 'white' },
+    { bgColor: 'warning', textColor: 'dark' },
+    { bgColor: 'info', textColor: 'dark' },
+    { bgColor: 'light', textColor: 'dark' },
+    { bgColor: 'dark', textColor: 'white' },
+    { bgColor: 'body', textColor: 'dark' },
+    { bgColor: 'white', textColor: 'dark' },
+    { bgColor: 'transparent', textColor: 'dark' },
+  ];
+
+  return (
+    <>
+      {examples.map(({ bgColor, textColor }) => (
+        <Box
+          bgColor={bgColor}
+          textColor={textColor}
+          padding={3}
+          mb={2}
+        >
+          .bg-
+          {bgColor}
+        </Box>
+      ))}
+    </>
+  );
+}
+BackgroundColors.storyName = 'Background colors';
+
+export function BackgroundGradients() {
+  const examples = [
+    { bgColor: 'primary', textColor: 'white' },
+    { bgColor: 'secondary', textColor: 'white' },
+    { bgColor: 'success', textColor: 'white' },
+    { bgColor: 'danger', textColor: 'white' },
+    { bgColor: 'warning', textColor: 'dark' },
+    { bgColor: 'info', textColor: 'dark' },
+    { bgColor: 'light', textColor: 'dark' },
+    { bgColor: 'dark', textColor: 'white' },
+  ];
+
+  return (
+    <>
+      {examples.map(({ bgColor, textColor }) => (
+        <Box
+          bgColor={bgColor}
+          isBgGradient
+          textColor={textColor}
+          padding={3}
+          mb={2}
+        >
+          .bg-
+          {bgColor}
+          .bg-gradient
+        </Box>
+      ))}
+    </>
+  );
+}
+BackgroundGradients.storyName = 'Background gradients';
+
+export function BackgroundOpacity() {
+  const examples = [
+    null,
+    75,
+    50,
+    25,
+    10,
+  ];
+
+  return (
+    <>
+      {examples.map((opacity) => (
+        <Box
+          padding={2}
+          bgColor="success"
+          bgOpacity={opacity}
+          textColor={opacity >= 10 && opacity <= 50 ? 'dark' : 'white'}
+        >
+          {opacity === null ? (
+            'This is default success background'
+          ) : (
+            `This is ${opacity}% opacity success background`
+          )}
+        </Box>
+      ))}
+    </>
+  );
+}
+BackgroundOpacity.storyName = 'Background opacity';
+
+export function BorderAdditives() {
+  const examples = [
+    true,
+    'top',
+    'end',
+    'bottom',
+    'start',
+  ];
+  return (
+    <Box display="flex">
+      {examples.map((border) => (
+        <Box
+          style={{ width: '5rem', height: '5rem' }}
+          me={3}
+          bgColor="light"
+          border={border}
+        />
+      ))}
+    </Box>
+  );
+}
+BorderAdditives.storyName = 'Border additives';
+
+export function BorderSubtractive() {
+  const examples = [
+    0,
+    'top-0',
+    'end-0',
+    'bottom-0',
+    'start-0',
+  ];
+  return (
+    <Box display="flex">
+      {examples.map((border) => (
+        <Box
+          style={{ width: '5rem', height: '5rem' }}
+          me={3}
+          bgColor="light"
+          border={border}
+        />
+      ))}
+    </Box>
+  );
+}
+BorderSubtractive.storyName = 'Border subtractive';
+
+export function BorderColors() {
+  const examples = [
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'white',
+  ];
+
+  return (
+    <Box display="flex">
+      {examples.map((borderColor) => (
+        <Box
+          style={{ width: '5rem', height: '5rem' }}
+          me={3}
+          bgColor="light"
+          border
+          borderColor={borderColor}
+        />
+      ))}
+    </Box>
+  );
+}
+BorderColors.storyName = 'Border colors';
+
+export function BorderWidth() {
+  const examples = [1, 2, 3, 4, 5];
+
+  return (
+    <Box display="flex">
+      {examples.map((borderWidth) => (
+        <Box
+          style={{ width: '5rem', height: '5rem' }}
+          me={3}
+          bgColor="light"
+          border
+          borderWidth={borderWidth}
+        />
+      ))}
+    </Box>
+  );
+}
+BorderWidth.storyName = 'Border width';
+
+export function BorderRadius() {
+  const examples = [
+    true,
+    'top',
+    'end',
+    'bottom',
+    'start',
+    'circle',
+    'pill',
+  ];
+
+  return (
+    <Box display="flex">
+      {examples.map((radius) => (
+        <Box
+          style={{
+            width: radius === 'pill' ? '10rem' : '5rem',
+            height: '5rem',
+          }}
+          me={3}
+          bgColor="secondary"
+          rounded={radius}
+          textColor="light"
+        />
+      ))}
+    </Box>
+  );
+}
+BorderRadius.storyName = 'Border radius';
+
+export function BorderSizes() {
+  const examples = [
+    0,
+    1,
+    2,
+    3,
+  ];
+
+  return (
+    <Box display="flex">
+      {examples.map((size) => (
+        <Box
+          style={{
+            width: '5rem',
+            height: '5rem',
+          }}
+          me={3}
+          bgColor="secondary"
+          rounded={size}
+          textColor="light"
+        />
+      ))}
+    </Box>
+  );
+}
+BorderSizes.storyName = 'Border sizes';
+
+export function TextColors() {
+  const examples = [
+    { textColor: 'primary', bgColor: null },
+    { textColor: 'secondary', bgColor: null },
+    { textColor: 'success', bgColor: null },
+    { textColor: 'danger', bgColor: null },
+    { textColor: 'warning', bgColor: 'dark' },
+    { textColor: 'info', bgColor: 'dark' },
+    { textColor: 'light', bgColor: 'dark' },
+    { textColor: 'dark', bgColor: null },
+    { textColor: 'body', bgColor: null },
+    { textColor: 'muted', bgColor: null },
+    { textColor: 'white', bgColor: 'dark' },
+    { textColor: 'black-50', bgColor: null },
+    { textColor: 'white-50', bgColor: 'dark' },
+  ];
+
+  return (
+    <>
+      {examples.map(({ textColor, bgColor }) => (
+        <Box textColor={textColor} bgColor={bgColor} mb={3}>
+          .text-
+          {textColor}
+        </Box>
+      ))}
+    </>
+  );
+}
+TextColors.storyName = 'Text colors';
+
+export function Display() {
+  return (
+    <>
+      <Box display="inline" padding={2} me={2} bgColor="primary">
+        d-inline
+      </Box>
+      <Box display="inline" padding={2} bgColor="dark" textColor="white">
+        d-inline
+      </Box>
+      <Box paddingY={2} />
+      <Box display="block" padding={2} bgColor="primary" mb={2}>
+        d-block
+      </Box>
+      <Box display="block" padding={2} bgColor="dark" textColor="white">
+        d-block
+      </Box>
+    </>
+  );
+}
+
+export function Float() {
+  const examples = [
+    'start',
+    'end',
+    'none',
+  ];
+
+  return (
+    <Box>
+      {examples.map((float) => (
+        <>
+          <Box float={float}>
+            {float === 'none' ? 'Don`t float' : `Float ${float}`}
+            {' '}
+            on all viewport sizes
+          </Box>
+          <br />
+        </>
+      ))}
+    </Box>
+  );
+}
+
+export function FloatResponsive() {
+  return (
+    <>
+      <Box floatSm="start">
+        Float start on viewports sized SM (small) or wider
+      </Box>
+      <br />
+      <Box floatMd="start">
+        Float start on viewports sized MD (medium) or wider
+      </Box>
+      <br />
+      <Box floatLg="start">
+        Float start on viewports sized LG (large) or wider
+      </Box>
+      <br />
+      <Box floatXl="start">
+        Float start on viewports sized XL (extra-large) or wider
+      </Box>
+      <br />
+      <Box floatXxl="start">
+        Float start on viewports sized XL (extra-large) or wider
+      </Box>
+    </>
+  );
+}
+FloatResponsive.storyName = 'Float responsive';
+
+export function TextSelections() {
+  return (
+    <>
+      <Box textSelect="all" mb={2}>
+        This paragraph will be entirely selected when clicked by the user.
+      </Box>
+      <Box textSelect="auto" mb={2}>
+        This paragraph has default select behavior.
+      </Box>
+      <Box textSelect="none">
+        This paragraph will not be selectable when clicked by the user.
+      </Box>
+    </>
+  );
+}
+TextSelections.storyName = 'Text selections';
+
+export function Opacity() {
+  const examples = [
+    100,
+    75,
+    50,
+    25,
+  ];
+
+  return (
+    <>
+      {examples.map((opacity) => (
+        <Box bgColor="primary" textColor="white" padding={3} opacity={opacity}>
+          {opacity}
+          %
+        </Box>
+      ))}
+    </>
+  );
+}
+
+export function Overflow() {
+  return (
+    <Box display="flex">
+      <Box
+        style={{ maxWidth: '250px', maxHeight: '100px' }}
+        padding={3}
+        me={3}
+        overflow="auto"
+        bgColor="light"
+      >
+        This is an example of using .overflow-auto on an element
+        with set width and height dimensions. By design, this
+        content will vertically scroll.
+      </Box>
+      <Box
+        style={{ maxWidth: '250px', maxHeight: '100px' }}
+        padding={3}
+        me={3}
+        overflow="hidden"
+        bgColor="light"
+      >
+        This is an example of using .overflow-hidden
+        on an element with set width and height dimensions.
+      </Box>
+      <Box
+        style={{ maxWidth: '250px', maxHeight: '100px' }}
+        padding={3}
+        me={3}
+        overflow="visible"
+        bgColor="light"
+      >
+        This is an example of using .overflow-visible on an
+        element with set width and height dimensions.
+      </Box>
+      <Box
+        style={{ maxWidth: '250px', maxHeight: '100px' }}
+        padding={3}
+        me={3}
+        overflow="scroll"
+        bgColor="light"
+      >
+        This is an example of using .overflow-scroll on an
+        element with set width and height dimensions.
+      </Box>
+    </Box>
+  );
+}
 
 export function Positions() {
   const examples = [
@@ -40,12 +608,12 @@ export function Positions() {
         top, end, bottom, start,
       }) => (
         <Box
+          style={{ width: '2rem', height: '2rem' }}
           position="absolute"
           top={top}
           end={end}
           bottom={bottom}
           start={start}
-          style={{ width: '2rem', height: '2rem' }}
           bgColor="dark"
           border
           rounded={3}
@@ -54,3 +622,227 @@ export function Positions() {
     </Box>
   );
 }
+
+export function CenterElements() {
+  const examples = [
+    {
+      top: 0, end: null, bottom: null, start: 0,
+    },
+    {
+      top: 0, end: null, bottom: null, start: 50,
+    },
+    {
+      top: 0, end: null, bottom: null, start: 100,
+    },
+    {
+      top: 50, end: null, bottom: null, start: 0,
+    },
+    {
+      top: 50, end: null, bottom: null, start: 50,
+    },
+    {
+      top: 50, end: null, bottom: null, start: 100,
+    },
+    {
+      top: 100, end: null, bottom: null, start: 0,
+    },
+    {
+      top: 100, end: null, bottom: null, start: 50,
+    },
+    {
+      top: 100, end: null, bottom: null, start: 100,
+    },
+  ];
+
+  return (
+    <Box
+      position="relative"
+      margin={5}
+      bgColor="light"
+      border
+      rounded={3}
+      style={{ height: '200px' }}
+    >
+      {examples.map(({
+        top, end, bottom, start,
+      }) => (
+        <Box
+          style={{ width: '2rem', height: '2rem' }}
+          position="absolute"
+          top={top}
+          end={end}
+          bottom={bottom}
+          start={start}
+          bgColor="dark"
+          border
+          rounded={3}
+          isTranslateMiddle
+        />
+      ))}
+    </Box>
+  );
+}
+CenterElements.storyName = 'Center elements';
+
+export function CenterElements2() {
+  const examples = [
+    {
+      top: 0,
+      end: null,
+      bottom: null,
+      start: 0,
+      translateMiddle: false,
+      translateMiddleX: false,
+      translateMiddleY: false,
+    },
+    {
+      top: 0,
+      end: null,
+      bottom: null,
+      start: 50,
+      translateMiddle: false,
+      translateMiddleX: true,
+      translateMiddleY: false,
+    },
+    {
+      top: 0,
+      end: 0,
+      bottom: null,
+      start: null,
+      translateMiddle: false,
+      translateMiddleX: false,
+      translateMiddleY: false,
+    },
+    {
+      top: 50,
+      end: null,
+      bottom: null,
+      start: 0,
+      translateMiddle: false,
+      translateMiddleX: false,
+      translateMiddleY: true,
+    },
+    {
+      top: 50,
+      end: null,
+      bottom: null,
+      start: 50,
+      translateMiddle: true,
+      translateMiddleX: false,
+      translateMiddleY: false,
+    },
+    {
+      top: 50,
+      end: 0,
+      bottom: null,
+      start: null,
+      translateMiddle: false,
+      translateMiddleX: false,
+      translateMiddleY: true,
+    },
+    {
+      top: null,
+      end: null,
+      bottom: 0,
+      start: 0,
+      translateMiddle: false,
+      translateMiddleX: false,
+      translateMiddleY: false,
+    },
+    {
+      top: null,
+      end: null,
+      bottom: 0,
+      start: 50,
+      translateMiddle: false,
+      translateMiddleX: true,
+      translateMiddleY: false,
+    },
+    {
+      top: null,
+      end: 0,
+      bottom: 0,
+      start: null,
+      translateMiddle: false,
+      translateMiddleX: false,
+      translateMiddleY: false,
+    },
+  ];
+
+  return (
+    <Box
+      position="relative"
+      bgColor="light"
+      border
+      rounded={3}
+      style={{ height: '200px' }}
+    >
+      {examples.map(({
+        top,
+        end,
+        bottom,
+        start,
+        translateMiddle,
+        translateMiddleX,
+        translateMiddleY,
+      }) => (
+        <Box
+          style={{ width: '2rem', height: '2rem' }}
+          position="absolute"
+          top={top}
+          end={end}
+          bottom={bottom}
+          start={start}
+          bgColor="dark"
+          border
+          rounded={3}
+          isTranslateMiddle={translateMiddle}
+          isTranslateMiddleX={translateMiddleX}
+          isTranslateMiddleY={translateMiddleY}
+        />
+      ))}
+    </Box>
+  );
+}
+CenterElements2.storyName = 'Center elements 2';
+
+export function Shadows() {
+  const examples = [
+    { shadow: false, label: 'No' },
+    { shadow: 'sm', label: 'Small' },
+    { shadow: true, label: 'Regular' },
+    { shadow: 'lg', label: 'Large' },
+  ];
+
+  return (
+    <>
+      {examples.map(({ shadow, label }) => (
+        <Box
+          shadow={shadow}
+          bgColor={!shadow ? 'light' : 'body'}
+          rounded
+          padding={3}
+          mb={5}
+        >
+          {label}
+          {' '}
+          shadow
+        </Box>
+      ))}
+    </>
+  );
+}
+
+export function ClearFix() {
+  return (
+    <Box bgColor="info" isClearFix>
+      <Button theme="secondary" float="start">
+        Example Button floated left
+      </Button>
+      <Button theme="secondary" float="end">
+        Example Button floated right
+      </Button>
+    </Box>
+  );
+}
+ClearFix.storyName = 'Clearfix';
