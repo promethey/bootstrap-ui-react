@@ -84,7 +84,7 @@ const Box = React.forwardRef((props, ref) => {
     ...rest
   } = props;
 
-  const classes = classNames(
+  let classes = classNames(
     {
       [usePrefix('w', width)]: width !== null,
       [usePrefix('mw', maxWidth)]: maxWidth !== null,
@@ -175,6 +175,10 @@ const Box = React.forwardRef((props, ref) => {
     className,
   );
 
+  if (!classes) {
+    classes = null;
+  }
+
   return (
     <Component ref={ref} style={style} className={classes} {...rest}>
       {children}
@@ -183,7 +187,7 @@ const Box = React.forwardRef((props, ref) => {
 });
 
 Box.propTypes = {
-  /** Change JSX type */
+  /** Change element type */
   as: PropTypes.oneOf([
     'div',
     'span',
@@ -199,6 +203,11 @@ Box.propTypes = {
     'strong',
     'small',
     'p',
+    'form',
+    'ul',
+    'ol',
+    'select',
+    'label',
   ]),
 
   /** Add other styles */

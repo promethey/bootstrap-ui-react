@@ -53,6 +53,7 @@ export function LiveExample() {
     )
   );
 }
+LiveExample.storyName = 'Live example';
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -109,6 +110,7 @@ LinkColor.args = {
     'Give it a click if you like.',
   ],
 };
+LinkColor.storyName = 'Link color';
 
 export const Dismissing = Template.bind({});
 Dismissing.args = {
@@ -139,3 +141,4 @@ AdditionalContent.args = {
     </Text>,
   ],
 };
+AdditionalContent.storyName = 'Additional content';

@@ -1,13 +1,14 @@
 import React from 'react';
 import {
-  Box, Form, Row, Col,
+  Box, Label, Control, Row, Col,
 } from 'components';
 
 export default {
   title: 'Forms/Control',
-  component: Form.Control,
+  component: Control,
   subcomponents: {
-    'Form.Label': Form.Label,
+    Label,
+    Box,
   },
   parameters: {
     docs: {
@@ -21,27 +22,27 @@ export default {
 };
 
 function Story(args) {
-  return <Form.Control {...args} />;
+  return <Control {...args} />;
 }
 
 export function Example() {
   return (
     <>
       <Box mb={3}>
-        <Form.Label htmlFor="exampleFormControlInput1">
+        <Label htmlFor="exampleFormControlInput1">
           Email address
-        </Form.Label>
-        <Form.Control
+        </Label>
+        <Control
           type="email"
           id="exampleFormControlInput1"
           placeholder="name@example.com"
         />
       </Box>
       <Box>
-        <Form.Label htmlFor="exampleFormControlTextarea1">
+        <Label htmlFor="exampleFormControlTextarea1">
           Example textarea
-        </Form.Label>
-        <Form.Control
+        </Label>
+        <Control
           as="textarea"
           id="exampleFormControlTextarea1"
           rows={3}
@@ -54,18 +55,18 @@ export function Example() {
 export function Sizing() {
   return (
     <>
-      <Form.Control
+      <Control
         size="lg"
         placeholder=".form-control-lg"
         aria-label=".form-control-lg example"
         mb={2}
       />
-      <Form.Control
+      <Control
         placeholder="Default input"
         aria-label="default input example"
         mb={2}
       />
-      <Form.Control
+      <Control
         size="sm"
         placeholder=".form-control-sm"
         aria-label=".form-control-sm example"
@@ -77,13 +78,13 @@ export function Sizing() {
 export function Disabled() {
   return (
     <>
-      <Form.Control
+      <Control
         placeholder="Disabled input"
         aria-label="Disabled input example"
         isDisabled
         mb={2}
       />
-      <Form.Control
+      <Control
         value="Disabled readonly input"
         aria-label="Disabled input example"
         isDisabled
@@ -105,12 +106,12 @@ export function ReadonlyPlainText() {
     <>
       <Row mb={3} alignItems="center">
         <Col sm={2}>
-          <Form.Label htmlFor="staticEmail" style={{ marginBottom: 0 }}>
+          <Label htmlFor="staticEmail" style={{ marginBottom: 0 }}>
             Email
-          </Form.Label>
+          </Label>
         </Col>
         <Col sm={10}>
-          <Form.Control
+          <Control
             id="staticEmail"
             value="email@example.com"
             isPlainText
@@ -120,12 +121,12 @@ export function ReadonlyPlainText() {
       </Row>
       <Row mb={3} alignItems="center">
         <Col sm={2}>
-          <Form.Label htmlFor="inputPassword" style={{ marginBottom: 0 }}>
+          <Label htmlFor="inputPassword" style={{ marginBottom: 0 }}>
             Password
-          </Form.Label>
+          </Label>
         </Col>
         <Col sm={10}>
-          <Form.Control
+          <Control
             type="password"
             id="inputPassword"
           />
@@ -140,46 +141,46 @@ export function FileInput() {
   return (
     <>
       <Box mb={3}>
-        <Form.Label htmlFor="formFile">
+        <Label htmlFor="formFile">
           Default file input example
-        </Form.Label>
-        <Form.Control type="file" id="formFile" />
+        </Label>
+        <Control type="file" id="formFile" />
       </Box>
       <Box mb={3}>
-        <Form.Label htmlFor="formFileMultiple">
+        <Label htmlFor="formFileMultiple">
           Multiple files input example
-        </Form.Label>
-        <Form.Control
+        </Label>
+        <Control
           type="file"
           id="formFileMultiple"
           isMultiple
         />
       </Box>
       <Box mb={3}>
-        <Form.Label htmlFor="formFileDisabled">
+        <Label htmlFor="formFileDisabled">
           Disabled file input example
-        </Form.Label>
-        <Form.Control
+        </Label>
+        <Control
           type="file"
           id="formFileDisabled"
           isDisabled
         />
       </Box>
       <Box mb={3}>
-        <Form.Label htmlFor="formFileSm">
+        <Label htmlFor="formFileSm">
           Small file input example
-        </Form.Label>
-        <Form.Control
+        </Label>
+        <Control
           type="file"
           id="formFileSm"
           size="sm"
         />
       </Box>
       <Box>
-        <Form.Label htmlFor="formFileLg">
+        <Label htmlFor="formFileLg">
           Large file input example
-        </Form.Label>
-        <Form.Control
+        </Label>
+        <Control
           type="file"
           id="formFileLg"
           size="lg"
@@ -189,13 +190,13 @@ export function FileInput() {
   );
 }
 
-export function Color() {
+export function ColorPicker() {
   return (
     <>
-      <Form.Label htmlFor="exampleColorInput">
+      <Label htmlFor="exampleColorInput">
         Color picker
-      </Form.Label>
-      <Form.Control
+      </Label>
+      <Control
         type="color"
         id="exampleColorInput"
         value="#563d7c"
@@ -204,3 +205,4 @@ export function Color() {
     </>
   );
 }
+ColorPicker.storyName = 'Color picker';

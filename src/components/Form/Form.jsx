@@ -1,9 +1,21 @@
-import FormControl from './FormControl';
-import FormLabel from './FormLabel';
+import React from 'react';
+import Box from 'components/Box';
+import Control from './Control';
+import Label from './Label';
+import Select from './Select';
+import Option from './Option';
+import Check from './Check';
 
-const Form = () => {};
+function Form(props) {
+  return (
+    <Box as="form" {...props} />
+  );
+}
 
-Form.Control = FormControl;
-Form.Label = FormLabel;
+Form.Label = Label;
+Form.Control = Control;
+Form.Select = Select;
+Form.Option = Option;
+Form.Check = Check;
 
 export default Form;

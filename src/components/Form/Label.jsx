@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Box from 'components/Box';
 
-function FormLabel(props) {
+function Label(props) {
   const {
     style,
     children,
@@ -11,24 +12,27 @@ function FormLabel(props) {
     ...rest
   } = props;
 
+  const BASE_CLASS_NAME = 'form-label';
+
   const classes = classNames(
-    'form-label',
+    BASE_CLASS_NAME,
     className,
   );
 
   return (
-    <label
+    <Box
+      as="label"
       htmlFor={htmlFor}
       style={style}
       className={classes}
       {...rest}
     >
       {children}
-    </label>
+    </Box>
   );
 }
 
-FormLabel.propTypes = {
+Label.propTypes = {
   /** Add other styles */
   style: PropTypes.shape({}),
 
@@ -45,9 +49,9 @@ FormLabel.propTypes = {
   htmlFor: PropTypes.string.isRequired,
 };
 
-FormLabel.defaultProps = {
+Label.defaultProps = {
   style: null,
   className: null,
 };
 
-export default FormLabel;
+export default Label;
