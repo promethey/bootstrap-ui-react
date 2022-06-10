@@ -19,8 +19,8 @@ function Check(props) {
     isChecked,
     isDisabled,
     isSwitched,
-    isInline,
-    isReverse,
+    isInlined,
+    isReversed,
     onChange,
     ...rest
   } = props;
@@ -31,8 +31,8 @@ function Check(props) {
     BASE_CLASS_NAME,
     {
       [usePrefix('form', 'switch')]: isSwitched,
-      [usePrefix(BASE_CLASS_NAME, 'inline')]: isInline,
-      [usePrefix(BASE_CLASS_NAME, 'reverse')]: isReverse,
+      [usePrefix(BASE_CLASS_NAME, 'inline')]: isInlined,
+      [usePrefix(BASE_CLASS_NAME, 'reverse')]: isReversed,
     },
     className,
   );
@@ -53,9 +53,11 @@ function Check(props) {
         isDisabled={isDisabled}
         onChange={onChange}
       />
-      <CheckLabel htmlFor={id}>
-        {label || children}
-      </CheckLabel>
+      {(!!label || !!children) && (
+        <CheckLabel htmlFor={id}>
+          {label || children}
+        </CheckLabel>
+      )}
     </Box>
   );
 }
@@ -86,7 +88,7 @@ Check.propTypes = {
   ]),
 
   /** Set label */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 
   /** Set name for radios */
   name: PropTypes.string,
@@ -101,10 +103,10 @@ Check.propTypes = {
   isSwitched: PropTypes.bool,
 
   /** Activate inline design */
-  isInline: PropTypes.bool,
+  isInlined: PropTypes.bool,
 
   /** Activate reverse design */
-  isReverse: PropTypes.bool,
+  isReversed: PropTypes.bool,
 
   /** On change event handler */
   onChange: PropTypes.func,
@@ -115,12 +117,13 @@ Check.defaultProps = {
   className: null,
   type: 'checkbox',
   value: null,
+  label: null,
   name: null,
   isChecked: false,
   isDisabled: false,
   isSwitched: false,
-  isInline: false,
-  isReverse: false,
+  isInlined: false,
+  isReversed: false,
   onChange: null,
 };
 

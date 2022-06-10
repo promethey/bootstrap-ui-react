@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Check } from 'components';
 
 export default {
@@ -8,19 +9,36 @@ export default {
     CheckInput: Check.Input,
     CheckLabel: Check.Label,
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `Create consistent cross-browser and
+        cross-device checkboxes and radios with our completely
+        rewritten checks component.`,
+      },
+    },
+  },
 };
 
-function Story(args) {
-  const [checked, setChecked] = useState(args.isChecked || false);
+function Story({ isChecked, ...rest }) {
+  const [checked, setChecked] = useState(isChecked || false);
 
   return (
     <Check
-      {...args}
       isChecked={checked}
       onChange={() => setChecked((prev) => !prev)}
+      {...rest}
     />
   );
 }
+
+Story.propTypes = {
+  isChecked: PropTypes.bool,
+};
+
+Story.defaultProps = {
+  isChecked: false,
+};
 
 export const Default = Story.bind({});
 Default.args = {
@@ -88,13 +106,13 @@ export function DisabledRadios() {
 
   const examples = [
     {
-      value: 'value1',
       id: 'flexRadioDisabled1',
+      value: 'value1',
       label: 'Disabled radio',
     },
     {
-      value: 'value2',
       id: 'flexRadioDisabled2',
+      value: 'value2',
       label: 'Disabled checked radio',
     },
   ];
@@ -192,7 +210,7 @@ export function InlineCheckbox() {
       <Check
         id={id}
         value={value}
-        isInline
+        isInlined
         isChecked={isChecked}
         onChange={onChange}
         isDisabled={isDisabled}
@@ -208,20 +226,38 @@ export function InlineRadio() {
   const [optionRadio, setOptionRadio] = useState(null);
 
   const examples = [
-    { value: 'option1', id: 'inlineCheckbox1', label: '1' },
-    { value: 'option2', id: 'inlineCheckbox2', label: '2' },
-    { value: 'option3', id: 'inlineCheckbox3', label: '3' },
+    {
+      id: 'inlineCheckbox1',
+      value: 'option1',
+      label: '1',
+      isDisabled: false,
+    },
+    {
+      id: 'inlineCheckbox2',
+      value: 'option2',
+      label: '2',
+      isDisabled: false,
+    },
+    {
+      id: 'inlineCheckbox3',
+      value: 'option3',
+      label: '3 (disabled)',
+      isDisabled: true,
+    },
   ];
 
   return (
-    examples.map(({ value, id, label }) => (
+    examples.map(({
+      value, id, label, isDisabled,
+    }) => (
       <Check
         id={id}
         value={value}
         type="radio"
-        isInline
+        isInlined
         isChecked={optionRadio === value}
         onChange={() => setOptionRadio(value)}
+        isDisabled={isDisabled}
       >
         {label}
       </Check>
@@ -231,14 +267,61 @@ export function InlineRadio() {
 InlineRadio.storyName = 'Inline radio';
 
 export function Reverse() {
+  const [checkbox1, setCheckbox1] = useState(false);
+  const [checkbox2, setCheckbox2] = useState(false);
+  const [checkbox3, setCheckbox3] = useState(false);
+
   return (
     <>
-      <Check id="reverseCheck1" isReverse>
+      <Check
+        id="reverseCheck1"
+        isChecked={checkbox1}
+        onChange={() => setCheckbox1((prev) => !prev)}
+        isReversed
+      >
         Reverse checkbox
       </Check>
-      <Check id="reverseCheck2" isDisabled isReverse>
+      <Check
+        id="reverseCheck2"
+        isChecked={checkbox2}
+        onChange={() => setCheckbox2((prev) => !prev)}
+        isDisabled
+        isReversed
+      >
         Disabled reverse checkbox
+      </Check>
+      <Check
+        id="reverseCheck3"
+        isChecked={checkbox3}
+        onChange={() => setCheckbox3((prev) => !prev)}
+        isSwitched
+        isReversed
+      >
+        Reverse switch checkbox input
       </Check>
     </>
   );
 }
+
+export function WithoutLabels() {
+  const [checkbox, setCheckbox] = useState(false);
+  const [radiobox, setRadiobox] = useState('');
+
+  return (
+    <>
+      <Check
+        id="checkboxNoLabel"
+        isChecked={checkbox}
+        onChange={() => setCheckbox((prev) => !prev)}
+      />
+      <Check
+        type="radio"
+        id="radioNoLabel1"
+        name="radioNoLabel"
+        isChecked={radiobox === 'radioNoLabel'}
+        onChange={() => setRadiobox('radioNoLabel')}
+      />
+    </>
+  );
+}
+WithoutLabels.storyName = 'Without labels';
