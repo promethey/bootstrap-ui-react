@@ -14,9 +14,8 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
+  "ignorePatterns": ["dist", ".storybook", "node_modules"],
   "rules": {
     "linebreak-style": 0,
     "no-restricted-exports": 0,

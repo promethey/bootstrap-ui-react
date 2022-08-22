@@ -2,8 +2,8 @@ import React, { useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
-import CloseButton from 'components/CloseButton';
 import Box from 'components/Box';
+import CloseButton from 'components/CloseButton';
 import AlertLink from './AlertLink';
 import AlertHeading from './AlertHeading';
 

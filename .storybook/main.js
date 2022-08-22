@@ -11,7 +11,7 @@ module.exports = {
     "@storybook/addon-interactions"
   ],
   "framework": "@storybook/react",
-  webpackFinal: async (config) => {
+  webpackFinal: async (config, { configType }) => {
     config.resolve.modules = [
       ...(config.resolve.modules || []),
       path.resolve(__dirname, '../src'),
