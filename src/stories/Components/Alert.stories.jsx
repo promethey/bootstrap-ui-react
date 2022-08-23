@@ -26,7 +26,6 @@ function Template(args) {
 export const Default = Template.bind({});
 Default.args = {
   children: 'A simple default alert—check it out!',
-  onClose: null,
 };
 
 export function LiveExample() {
@@ -34,23 +33,24 @@ export function LiveExample() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    setShow(true);
+    setShow((prev) => !prev);
   };
 
   return (
-    show ? (
+    <>
+      <Button onClick={handleClick}>
+        Live Alert
+      </Button>
       <Alert
+        mt={2}
         theme="success"
+        isShow={show}
         isDismissible
         onClose={() => setShow(false)}
       >
         Nice, you triggered this alert message!
       </Alert>
-    ) : (
-      <Button onClick={handleClick}>
-        Show live alert
-      </Button>
-    )
+    </>
   );
 }
 LiveExample.storyName = 'Live example';

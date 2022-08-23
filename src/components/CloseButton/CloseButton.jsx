@@ -10,6 +10,7 @@ function CloseButton(props) {
     theme,
     dataDismiss,
     isDisabled,
+    onClick,
     ...rest
   } = props;
 
@@ -29,32 +30,47 @@ function CloseButton(props) {
       aria-label="Close"
       disabled={isDisabled}
       data-bs-dismiss={dataDismiss}
+      onClick={onClick}
       {...rest}
     />
   );
 }
 
 CloseButton.propTypes = {
-  /** Add other styles */
+  /**
+   * Add other styles
+   */
   style: PropTypes.shape({}),
 
-  /** Add other classes */
+  /**
+   * Add other classes
+   */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /** Choose main theme */
+  /**
+   * Choose main theme
+   */
   theme: PropTypes.oneOf(['white']),
 
   /**
    * Trigger the JavaScript functionality for closing.
    * Alias for attribute *data-bs-dismiss*
-  */
+   */
   dataDismiss: PropTypes.string,
 
-  /** Activate disabled state. Alias for attribute *disabled* */
+  /**
+   * Activate disabled state.
+   * Alias for attribute *disabled*
+   */
   isDisabled: PropTypes.bool,
+
+  /**
+   * Click event handler
+   */
+  onClick: PropTypes.func,
 };
 
 CloseButton.defaultProps = {
@@ -63,6 +79,7 @@ CloseButton.defaultProps = {
   theme: null,
   dataDismiss: null,
   isDisabled: false,
+  onClick: null,
 };
 
 export default CloseButton;

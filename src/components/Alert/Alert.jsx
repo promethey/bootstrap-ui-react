@@ -1,4 +1,4 @@
-import React, { useEffect, createRef } from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
@@ -13,6 +13,7 @@ function Alert(props) {
     children,
     className,
     theme,
+    isShow,
     isDismissible,
     isAnimated,
     onClose,
@@ -34,33 +35,21 @@ function Alert(props) {
     className,
   );
 
-  useEffect(() => {
-    if (onClose) {
-      const alert = alertRef.current;
-      const listener = () => onClose();
-      alert.addEventListener('close.bs.alert', listener);
-
-      return () => {
-        alert.removeEventListener('close.bs.alert', listener);
-      };
-    }
-
-    return null;
-  }, []);
-
   return (
-    <Box
-      role="alert"
-      ref={alertRef}
-      className={classes}
-      style={style}
-      {...rest}
-    >
-      {children}
-      {isDismissible && (
-        <CloseButton dataDismiss="alert" />
-      )}
-    </Box>
+    isShow && (
+      <Box
+        role="alert"
+        ref={alertRef}
+        className={classes}
+        style={style}
+        {...rest}
+      >
+        {children}
+        {isDismissible && (
+          <CloseButton onClick={() => onClose()} />
+        )}
+      </Box>
+    )
   );
 }
 
@@ -68,16 +57,22 @@ Alert.propTypes = {
   /** Add other styles */
   style: PropTypes.shape({}),
 
-  /** Add children components */
+  /**
+   * Add children components
+   */
   children: PropTypes.node.isRequired,
 
-  /** Add other classes */
+  /**
+   * Add other classes
+   */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /** Choose main theme */
+  /**
+   * Choose main theme
+   */
   theme: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -88,6 +83,9 @@ Alert.propTypes = {
     'light',
     'dark',
   ]),
+
+  /** Show state */
+  isShow: PropTypes.bool,
 
   /** Add close button */
   isDismissible: PropTypes.bool,
@@ -103,6 +101,7 @@ Alert.defaultProps = {
   style: null,
   className: null,
   theme: 'primary',
+  isShow: false,
   isDismissible: false,
   isAnimated: false,
   onClose: null,
