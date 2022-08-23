@@ -54,7 +54,9 @@ function Alert(props) {
 }
 
 Alert.propTypes = {
-  /** Add other styles */
+  /**
+   * Add other styles
+   */
   style: PropTypes.shape({}),
 
   /**
@@ -84,16 +86,24 @@ Alert.propTypes = {
     'dark',
   ]),
 
-  /** Show state */
+  /**
+   * Show state
+   */
   isShow: PropTypes.bool,
 
-  /** Add close button */
+  /**
+   * Add close button
+   */
   isDismissible: PropTypes.bool,
 
-  /** Add animations */
+  /**
+   * Add animations
+   */
   isAnimated: PropTypes.bool,
 
-  /** Add event handler for close */
+  /**
+   * Add event handler for close
+   */
   onClose: PropTypes.func,
 };
 
@@ -101,7 +111,7 @@ Alert.defaultProps = {
   style: null,
   className: null,
   theme: 'primary',
-  isShow: false,
+  isShow: true,
   isDismissible: false,
   isAnimated: false,
   onClose: null,
