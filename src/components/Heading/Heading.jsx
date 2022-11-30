@@ -10,11 +10,12 @@ function Heading(props) {
     style,
     children,
     className,
+    d,
     display,
   } = props;
 
   const classes = classNames(
-    { [usePrefix('display', display)]: display },
+    { [usePrefix('display', display)]: display || d },
     className,
   );
 
@@ -37,6 +38,14 @@ Heading.propTypes = {
   style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  d: PropTypes.oneOf([
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+  ]),
   display: PropTypes.oneOf([
     1,
     2,
@@ -51,6 +60,7 @@ Heading.defaultProps = {
   as: 'h1',
   style: null,
   className: null,
+  d: null,
   display: null,
 };
 

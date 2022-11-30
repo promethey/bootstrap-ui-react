@@ -18,12 +18,12 @@ function Text(props) {
     lh,
     lineHeight,
     textOpacity,
-    align,
-    alignSm,
-    alignMd,
-    alignLg,
-    alignXl,
-    transform,
+    textAlign,
+    textAlignSm,
+    textAlignMd,
+    textAlignLg,
+    textAlignXl,
+    textTransform,
     decoration,
     lead,
     wrap,
@@ -34,28 +34,28 @@ function Text(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'text';
+  const BASE_CLASSNAME = 'text';
 
   let classes = classNames(
     {
-      [usePrefix(BASE_CLASS_NAME, 'opacity', textOpacity)]: textOpacity !== null,
-      [usePrefix(BASE_CLASS_NAME, align)]: align,
-      [usePrefix(BASE_CLASS_NAME, 'sm', alignSm)]: alignSm,
-      [usePrefix(BASE_CLASS_NAME, 'md', alignMd)]: alignMd,
-      [usePrefix(BASE_CLASS_NAME, 'lg', alignLg)]: alignLg,
-      [usePrefix(BASE_CLASS_NAME, 'xl', alignXl)]: alignXl,
-      [usePrefix('fs', fs)]: fs,
-      [usePrefix('fw', fw)]: fw,
-      [usePrefix('fst', fst)]: fst,
-      [usePrefix('lh', lh)]: lh,
-      [usePrefix(BASE_CLASS_NAME, transform)]: transform,
-      [usePrefix(BASE_CLASS_NAME, 'decoration', decoration)]: decoration,
+      [usePrefix(BASE_CLASSNAME, 'opacity', textOpacity)]: textOpacity !== null,
+      [usePrefix(BASE_CLASSNAME, textAlign)]: textAlign,
+      [usePrefix(BASE_CLASSNAME, 'sm', textAlignSm)]: textAlignSm,
+      [usePrefix(BASE_CLASSNAME, 'md', textAlignMd)]: textAlignMd,
+      [usePrefix(BASE_CLASSNAME, 'lg', textAlignLg)]: textAlignLg,
+      [usePrefix(BASE_CLASSNAME, 'xl', textAlignXl)]: textAlignXl,
+      [usePrefix('fs', fs)]: fs || fontSize,
+      [usePrefix('fw', fw)]: fw || fontWeight,
+      [usePrefix('fst', fst)]: fst || fontStyle,
+      [usePrefix('lh', lh)]: lh || lineHeight,
+      [usePrefix(BASE_CLASSNAME, textTransform)]: textTransform,
+      [usePrefix(BASE_CLASSNAME, 'decoration', decoration)]: decoration,
       lead,
-      [usePrefix(BASE_CLASS_NAME, 'wrap')]: wrap && !noWrap,
-      [usePrefix(BASE_CLASS_NAME, 'nowrap')]: noWrap && !wrap,
-      [usePrefix(BASE_CLASS_NAME, 'break')]: breakWord,
+      [usePrefix(BASE_CLASSNAME, 'wrap')]: wrap && !noWrap,
+      [usePrefix(BASE_CLASSNAME, 'nowrap')]: noWrap && !wrap,
+      [usePrefix(BASE_CLASSNAME, 'break')]: breakWord,
       [usePrefix('font', 'monospace')]: monospace,
-      [usePrefix('text', 'truncation')]: truncate,
+      [usePrefix(BASE_CLASSNAME, 'truncation')]: truncate,
     },
     className,
   );
@@ -109,6 +109,7 @@ Text.propTypes = {
   fw: PropTypes.oneOf([
     'bold',
     'bolder',
+    'semibold',
     'normal',
     'light',
     'lighter',
@@ -118,6 +119,7 @@ Text.propTypes = {
   fontWeight: PropTypes.oneOf([
     'bold',
     'bolder',
+    'semibold',
     'normal',
     'light',
     'lighter',
@@ -158,43 +160,43 @@ Text.propTypes = {
     25, 50, 75,
   ]),
 
-  /** Change *text* alignement style */
-  align: PropTypes.oneOf([
+  /** Change *text* textAlignement style */
+  textAlign: PropTypes.oneOf([
     'start',
     'center',
     'end',
   ]),
 
-  /** Change *text* alignement style for breakpoint sm */
-  alignSm: PropTypes.oneOf([
+  /** Change *text* textAlignement style for breakpoint sm */
+  textAlignSm: PropTypes.oneOf([
     'start',
     'center',
     'end',
   ]),
 
-  /** Change *text* alignement style for breakpoint md */
-  alignMd: PropTypes.oneOf([
+  /** Change *text* textAlignement style for breakpoint md */
+  textAlignMd: PropTypes.oneOf([
     'start',
     'center',
     'end',
   ]),
 
-  /** Change *text* alignement style for breakpoint lg */
-  alignLg: PropTypes.oneOf([
+  /** Change *text* textAlignement style for breakpoint lg */
+  textAlignLg: PropTypes.oneOf([
     'start',
     'center',
     'end',
   ]),
 
-  /** Change *text* alignement style for breakpoint xl */
-  alignXl: PropTypes.oneOf([
+  /** Change *text* textAlignement style for breakpoint xl */
+  textAlignXl: PropTypes.oneOf([
     'start',
     'center',
     'end',
   ]),
 
-  /** Change *text* transform style */
-  transform: PropTypes.oneOf([
+  /** Change *text* textTransform style */
+  textTransform: PropTypes.oneOf([
     'lowercase',
     'uppercase',
     'capitalize',
@@ -242,12 +244,12 @@ Text.defaultProps = {
   lh: null,
   lineHeight: null,
   textOpacity: null,
-  align: null,
-  alignSm: null,
-  alignMd: null,
-  alignLg: null,
-  alignXl: null,
-  transform: null,
+  textAlign: null,
+  textAlignSm: null,
+  textAlignMd: null,
+  textAlignLg: null,
+  textAlignXl: null,
+  textTransform: null,
   decoration: null,
   lead: false,
   wrap: false,

@@ -81,8 +81,10 @@ const Box = React.forwardRef((props, ref) => {
     textColor,
     border,
     borderColor,
+    borderOpacity,
     borderWidth,
-    rounded,
+    borderRadius,
+    borderRadiusSize,
     visually,
     visible,
     invisible,
@@ -121,10 +123,12 @@ const Box = React.forwardRef((props, ref) => {
       [usePrefix('border', border)]: typeof border === 'string',
       [usePrefix('border', borderWidth)]: borderWidth,
       [usePrefix('border', borderColor)]: borderColor,
+      [usePrefix('border', borderOpacity)]: borderOpacity,
       [usePrefix('border', border)]: typeof border === 'string' || typeof border === 'number',
       border: typeof border === 'boolean' && border,
-      [usePrefix('rounded', rounded)]: typeof rounded === 'string' || typeof rounded === 'number',
-      rounded: typeof rounded === 'boolean',
+      [usePrefix('rounded', borderRadius)]: typeof borderRadius === 'string',
+      [usePrefix('rounded', borderRadiusSize)]: typeof borderRadius === 'number',
+      borderRadius: typeof borderRadius === 'boolean',
       [usePrefix('visually', 'hidden')]: typeof visually === 'boolean' && !visually,
       [usePrefix('visually', visually)]: typeof visually === 'string',
       visible: visible && !invisible,
@@ -755,6 +759,14 @@ Box.propTypes = {
     'white',
   ]),
 
+  /** Change background color opacity */
+  borderOpacity: PropTypes.oneOf([
+    10,
+    25,
+    50,
+    75,
+  ]),
+
   /** Change border width style */
   borderWidth: PropTypes.oneOf([
     1,
@@ -765,7 +777,7 @@ Box.propTypes = {
   ]),
 
   /** Add border radius style */
-  rounded: PropTypes.oneOfType([
+  borderRadius: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.oneOf([
       0,
@@ -780,6 +792,16 @@ Box.propTypes = {
       'start',
       'circle',
       'pill',
+    ]),
+  ]),
+
+  /** Add border radius style */
+  borderRadiusSize: PropTypes.oneOfType([
+    PropTypes.oneOf([
+      0,
+      1,
+      2,
+      3,
     ]),
   ]),
 
@@ -901,7 +923,9 @@ Box.defaultProps = {
   borderWidth: null,
   border: false,
   borderColor: null,
-  rounded: null,
+  borderOpacity: null,
+  borderRadius: null,
+  borderRadiusSize: null,
   visually: null,
   visible: false,
   invisible: false,
