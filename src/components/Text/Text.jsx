@@ -10,9 +10,13 @@ function Text(props) {
     children,
     className,
     fs,
+    fontSize,
     fw,
+    fontWeight,
     fst,
+    fontStyle,
     lh,
+    lineHeight,
     textOpacity,
     align,
     alignSm,
@@ -21,12 +25,12 @@ function Text(props) {
     alignXl,
     transform,
     decoration,
-    isLead,
-    isWrap,
-    isNoWrap,
-    isBreak,
-    isMonospace,
-    isTruncate,
+    lead,
+    wrap,
+    noWrap,
+    breakWord,
+    monospace,
+    truncate,
     ...rest
   } = props;
 
@@ -46,12 +50,12 @@ function Text(props) {
       [usePrefix('lh', lh)]: lh,
       [usePrefix(BASE_CLASS_NAME, transform)]: transform,
       [usePrefix(BASE_CLASS_NAME, 'decoration', decoration)]: decoration,
-      lead: isLead,
-      [usePrefix(BASE_CLASS_NAME, 'wrap')]: isWrap && !isNoWrap,
-      [usePrefix(BASE_CLASS_NAME, 'nowrap')]: isNoWrap && !isWrap,
-      [usePrefix(BASE_CLASS_NAME, 'break')]: isBreak,
-      [usePrefix('font', 'monospace')]: isMonospace,
-      [usePrefix('text', 'truncation')]: isTruncate,
+      lead,
+      [usePrefix(BASE_CLASS_NAME, 'wrap')]: wrap && !noWrap,
+      [usePrefix(BASE_CLASS_NAME, 'nowrap')]: noWrap && !wrap,
+      [usePrefix(BASE_CLASS_NAME, 'break')]: breakWord,
+      [usePrefix('font', 'monospace')]: monospace,
+      [usePrefix('text', 'truncation')]: truncate,
     },
     className,
   );
@@ -95,11 +99,23 @@ Text.propTypes = {
     PropTypes.string,
   ]),
 
-  /** Change font size style */
+  /** Change font size style [SHORT VERSION] */
   fs: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
 
-  /** Change font weight style */
+  /** Change font size style [SHORT VERSION] */
+  fontSize: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+
+  /** Change font weight style [SHORT VERSION] */
   fw: PropTypes.oneOf([
+    'bold',
+    'bolder',
+    'normal',
+    'light',
+    'lighter',
+  ]),
+
+  /** Change font weight style */
+  fontWeight: PropTypes.oneOf([
     'bold',
     'bolder',
     'normal',
@@ -113,8 +129,23 @@ Text.propTypes = {
     'normal',
   ]),
 
-  /** Change line height style */
+  /** Change font style [SHORT VERSION] */
+  fontStyle: PropTypes.oneOf([
+    'italic',
+    'normal',
+  ]),
+
+  /** Change line height style [SHORT VERSION] */
   lh: PropTypes.oneOf([
+    1,
+    '1',
+    'sm',
+    'base',
+    'lg',
+  ]),
+
+  /** Change line height style */
+  lineHeight: PropTypes.oneOf([
     1,
     '1',
     'sm',
@@ -177,25 +208,25 @@ Text.propTypes = {
   ]),
 
   /** Activate *text* lead style */
-  isLead: PropTypes.bool,
+  lead: PropTypes.bool,
 
   /** Activate *text* wrap */
-  isWrap: PropTypes.bool,
+  wrap: PropTypes.bool,
 
   /** Activate *text* no wrap */
-  isNoWrap: PropTypes.bool,
+  noWrap: PropTypes.bool,
 
   /** Activate *text* break */
-  isBreak: PropTypes.bool,
+  breakWord: PropTypes.bool,
 
   /** Activate *text* monospace style */
-  isMonospace: PropTypes.bool,
+  monospace: PropTypes.bool,
 
   /**
    * Activate *text* truncation style.
    * Truncate long strings of text with an ellipsis.
    */
-  isTruncate: PropTypes.bool,
+  truncate: PropTypes.bool,
 };
 
 Text.defaultProps = {
@@ -203,9 +234,13 @@ Text.defaultProps = {
   style: null,
   className: null,
   fs: null,
+  fontSize: null,
   fw: null,
+  fontWeight: null,
   fst: null,
+  fontStyle: null,
   lh: null,
+  lineHeight: null,
   textOpacity: null,
   align: null,
   alignSm: null,
@@ -214,12 +249,12 @@ Text.defaultProps = {
   alignXl: null,
   transform: null,
   decoration: null,
-  isLead: false,
-  isWrap: false,
-  isNoWrap: false,
-  isBreak: false,
-  isMonospace: false,
-  isTruncate: false,
+  lead: false,
+  wrap: false,
+  noWrap: false,
+  breakWord: false,
+  monospace: false,
+  truncate: false,
 };
 
 export default Text;

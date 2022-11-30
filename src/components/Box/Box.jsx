@@ -11,6 +11,7 @@ const Box = React.forwardRef((props, ref) => {
     style,
     children,
     className,
+    d,
     display,
     displaySm,
     displayMd,
@@ -23,15 +24,20 @@ const Box = React.forwardRef((props, ref) => {
     displayPrintLg,
     displayPrintXl,
     displayPrintXxl,
+    w,
     width,
+    maxW,
     maxWidth,
+    h,
     height,
+    maxH,
     maxHeight,
     position,
     top,
     end,
     bottom,
     start,
+    m,
     margin,
     marginSm,
     marginMd,
@@ -39,18 +45,23 @@ const Box = React.forwardRef((props, ref) => {
     marginXl,
     marginXxl,
     marginX,
+    mx,
     marginY,
+    my,
     mt,
     me,
     mb,
     ms,
+    p,
     padding,
     paddingSm,
     paddingMd,
     paddingLg,
     paddingXl,
     paddingXxl,
+    px,
     paddingX,
+    py,
     paddingY,
     pt,
     pe,
@@ -65,7 +76,7 @@ const Box = React.forwardRef((props, ref) => {
     opacity,
     shadow,
     bgColor,
-    isBgGradient,
+    bgGradient,
     bgOpacity,
     textColor,
     border,
@@ -73,12 +84,12 @@ const Box = React.forwardRef((props, ref) => {
     borderWidth,
     rounded,
     visually,
-    isVisible,
-    isInvisible,
-    isClearFix,
-    isTranslateMiddle,
-    isTranslateMiddleX,
-    isTranslateMiddleY,
+    visible,
+    invisible,
+    clearfix,
+    translateMiddle,
+    translateMiddleX,
+    translateMiddleY,
     textSelect,
     overflow,
     ...rest
@@ -104,7 +115,7 @@ const Box = React.forwardRef((props, ref) => {
       [usePrefix('opacity', opacity)]: opacity,
       [usePrefix('shadow', shadow)]: shadow,
       [usePrefix('bg', bgColor)]: bgColor,
-      [usePrefix('bg', 'gradient')]: isBgGradient,
+      [usePrefix('bg', 'gradient')]: bgGradient,
       [usePrefix('bg', 'opacity', bgOpacity)]: bgOpacity,
       [usePrefix('text', textColor)]: textColor,
       [usePrefix('border', border)]: typeof border === 'string',
@@ -116,12 +127,12 @@ const Box = React.forwardRef((props, ref) => {
       rounded: typeof rounded === 'boolean',
       [usePrefix('visually', 'hidden')]: typeof visually === 'boolean' && !visually,
       [usePrefix('visually', visually)]: typeof visually === 'string',
-      visible: isVisible && !isInvisible,
-      invisible: isInvisible && !isVisible,
-      clearfix: isClearFix,
-      [usePrefix('translate', 'middle')]: isTranslateMiddle,
-      [usePrefix('translate', 'middle', 'x')]: isTranslateMiddleX,
-      [usePrefix('translate', 'middle', 'y')]: isTranslateMiddleY,
+      visible: visible && !invisible,
+      invisible: invisible && !visible,
+      clearfix,
+      [usePrefix('translate', 'middle')]: translateMiddle,
+      [usePrefix('translate', 'middle', 'x')]: translateMiddleX,
+      [usePrefix('translate', 'middle', 'y')]: translateMiddleY,
       [usePrefix('user', 'select', textSelect)]: textSelect,
       [usePrefix('overflow', overflow)]: overflow,
     },
@@ -150,8 +161,8 @@ const Box = React.forwardRef((props, ref) => {
       marginLg,
       marginXl,
       marginXxl,
-      marginX,
-      marginY,
+      mx,
+      my,
       mt,
       me,
       mb,
@@ -159,14 +170,14 @@ const Box = React.forwardRef((props, ref) => {
     ),
     getSpacingClassNames(
       'p',
-      padding,
+      padding || p,
       paddingSm,
       paddingMd,
       paddingLg,
       paddingXl,
       paddingXxl,
-      paddingX,
-      paddingY,
+      paddingX || px,
+      paddingY || py,
       pt,
       pe,
       pb,
@@ -223,37 +234,99 @@ Box.propTypes = {
   ]),
 
   /** Change *display* style */
+  d: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+  ]),
+
+  /** Change *display* style */
   display: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
     'flex',
     'inline-flex',
   ]),
 
   /** Change *display* style for breakpoint sm */
   displaySm: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
     'flex',
     'inline-flex',
   ]),
 
   /** Change *display* style for breakpoint md */
   displayMd: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
     'flex',
     'inline-flex',
   ]),
 
   /** Change *display* style for breakpoint lg */
   displayLg: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
     'flex',
     'inline-flex',
   ]),
 
   /** Change *flex-display* style for breakpoint xl */
   displayXl: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
     'flex',
     'inline-flex',
   ]),
 
   /** Change *display* style for breakpoint xxl */
   displayXxl: PropTypes.oneOf([
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'grid',
+    'table',
+    'table-cell',
+    'table-row',
     'flex',
     'inline-flex',
   ]),
@@ -345,14 +418,26 @@ Box.propTypes = {
   /** Change width style */
   width: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
+  /** Change width style [SHORT VERSION] */
+  w: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
   /** Change max width style */
   maxWidth: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
+  /** Change max width style [SHORT VERSION] */
+  maxW: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
   /** Change height style */
   height: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
+  /** Change height style [SHORT VERSION] */
+  h: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
   /** Change max height style */
   maxHeight: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
+
+  /** Change max height style [SHORT VERSION] */
+  maxH: PropTypes.oneOf([0, 25, 50, 75, 100, 'auto']),
 
   /** Change position style */
   position: PropTypes.oneOf([
@@ -377,6 +462,14 @@ Box.propTypes = {
 
   /** Change top position */
   start: PropTypes.oneOf([0, 50, 100]),
+
+  /** Set *margin* style [SHORT VERSION] */
+  m: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
 
   /** Set *margin* style */
   margin: PropTypes.oneOfType([
@@ -427,10 +520,16 @@ Box.propTypes = {
   ]),
 
   /** Set *margin* X-axis style */
-  marginX: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  marginX: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *margin* X-axis style [SHORT VERSION] */
+  mx: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
 
   /** Set *margin* Y-axis style */
-  marginY: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  marginY: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *margin* Y-axis style [SHORT VERSION] */
+  my: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
 
   /** Set *margin* top style */
   mt: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
@@ -443,6 +542,14 @@ Box.propTypes = {
 
   /** Set *margin* start style */
   ms: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+
+  /** Set *padding* style [SHORT VERSION] */
+  p: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
+    ),
+    PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+  ]),
 
   /** Set *padding* style */
   padding: PropTypes.oneOfType([
@@ -495,8 +602,14 @@ Box.propTypes = {
   /** Set *padding* X-axis style */
   paddingX: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
 
+  /** Set *padding* X-axis style [SHORT VERSION] */
+  px: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+
   /** Set *padding* Y-axis style */
   paddingY: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
+
+  /** Set *padding* Y-axis style [SHORT VERSION] */
+  py: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
 
   /** Set *padding* top style */
   pt: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 'auto']),
@@ -585,7 +698,7 @@ Box.propTypes = {
   ]),
 
   /** Activate background gradient style */
-  isBgGradient: PropTypes.bool,
+  bgGradient: PropTypes.bool,
 
   /** Change background color opacity */
   bgOpacity: PropTypes.oneOf([
@@ -680,22 +793,22 @@ Box.propTypes = {
   ]),
 
   /** Activate visible */
-  isVisible: PropTypes.bool,
+  visible: PropTypes.bool,
 
   /** Activate invisible */
-  isInvisible: PropTypes.bool,
+  invisible: PropTypes.bool,
 
   /** Activate clearfix */
-  isClearFix: PropTypes.bool,
+  clearfix: PropTypes.bool,
 
   /** Activate translate middle style */
-  isTranslateMiddle: PropTypes.bool,
+  translateMiddle: PropTypes.bool,
 
   /** Activate translate middle style for axis-X */
-  isTranslateMiddleX: PropTypes.bool,
+  translateMiddleX: PropTypes.bool,
 
   /** Activate translate middle style for axis-Y */
-  isTranslateMiddleY: PropTypes.bool,
+  translateMiddleY: PropTypes.bool,
 
   /** Change text select */
   textSelect: PropTypes.oneOf([
@@ -717,6 +830,7 @@ Box.defaultProps = {
   as: 'div',
   style: null,
   className: null,
+  d: null,
   display: null,
   displaySm: null,
   displayMd: null,
@@ -729,15 +843,20 @@ Box.defaultProps = {
   displayPrintLg: null,
   displayPrintXl: null,
   displayPrintXxl: null,
+  w: null,
   width: null,
   maxWidth: null,
+  maxW: null,
+  h: null,
   height: null,
   maxHeight: null,
+  maxH: null,
   position: null,
   top: null,
   end: null,
   bottom: null,
   start: null,
+  m: null,
   margin: null,
   marginSm: null,
   marginMd: null,
@@ -745,11 +864,14 @@ Box.defaultProps = {
   marginXl: null,
   marginXxl: null,
   marginX: null,
+  mx: null,
   marginY: null,
+  my: null,
   mt: null,
   me: null,
   mb: null,
   ms: null,
+  p: null,
   padding: null,
   paddingSm: null,
   paddingMd: null,
@@ -757,7 +879,9 @@ Box.defaultProps = {
   paddingXl: null,
   paddingXxl: null,
   paddingX: null,
+  px: null,
   paddingY: null,
+  py: null,
   pt: null,
   pe: null,
   pb: null,
@@ -771,7 +895,7 @@ Box.defaultProps = {
   opacity: null,
   shadow: null,
   bgColor: null,
-  isBgGradient: false,
+  bgGradient: false,
   bgOpacity: null,
   textColor: null,
   borderWidth: null,
@@ -779,12 +903,12 @@ Box.defaultProps = {
   borderColor: null,
   rounded: null,
   visually: null,
-  isVisible: false,
-  isInvisible: false,
-  isClearFix: false,
-  isTranslateMiddle: false,
-  isTranslateMiddleX: false,
-  isTranslateMiddleY: false,
+  visible: false,
+  invisible: false,
+  clearfix: false,
+  translateMiddle: false,
+  translateMiddleX: false,
+  translateMiddleY: false,
   textSelect: null,
   overflow: null,
 };
