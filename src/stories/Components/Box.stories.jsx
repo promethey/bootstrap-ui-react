@@ -12,7 +12,7 @@ export function Example() {
       bgColor="light"
       padding={3}
       border
-      borderRadius={3}
+      borderRadiusSize={3}
     >
       Box component
     </Box>

@@ -84,7 +84,7 @@ const Box = React.forwardRef((props, ref) => {
 
   let classes = classNames(
     {
-      [usePrefix('w', width || w)]: width !== null && w !== null,
+      [usePrefix('w', width || w)]: width !== null || w !== null,
       [usePrefix('mw', maxWidth || maxW)]: maxWidth !== null || maxW !== null,
       [usePrefix('h', height || h)]: height !== null || h !== null,
       [usePrefix('mh', maxHeight || maxH)]: maxHeight !== null || maxH !== null,
@@ -106,7 +106,7 @@ const Box = React.forwardRef((props, ref) => {
       [usePrefix('border', border)]: typeof border === 'string' || typeof border === 'number',
       border: typeof border === 'boolean' && border,
       [usePrefix('rounded', borderRadius)]: typeof borderRadius === 'string',
-      [usePrefix('rounded', borderRadiusSize)]: typeof borderRadius === 'number',
+      [usePrefix('rounded', borderRadiusSize)]: typeof borderRadiusSize === 'number',
       rounded: typeof borderRadius === 'boolean',
       [usePrefix('visually', 'hidden')]: typeof visually === 'boolean' && !visually,
       [usePrefix('visually', visually)]: typeof visually === 'string',
