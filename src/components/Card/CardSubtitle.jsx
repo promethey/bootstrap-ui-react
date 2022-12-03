@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
+import Text from 'components/Text';
 
 function CardSubtitle(props) {
   const {
@@ -22,9 +23,9 @@ function CardSubtitle(props) {
   );
 
   return (
-    <Component className={classes} style={style} {...rest}>
+    <Text as={Component} className={classes} style={style} {...rest}>
       {children}
-    </Component>
+    </Text>
   );
 }
 

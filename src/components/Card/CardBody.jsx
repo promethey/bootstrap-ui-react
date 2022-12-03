@@ -1,29 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from 'helpers/prefix';
+import Box from 'components/Box';
 
 function CardBody(props) {
   const {
     style,
     children,
     className,
-    textColor,
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'card-body';
+  const BASE_CLASSNAME = 'card-body';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
-    { [usePrefix('text', textColor)]: textColor },
+    BASE_CLASSNAME,
     className,
   );
 
   return (
-    <div className={classes} style={style} {...rest}>
+    <Box className={classes} style={style} {...rest}>
       {children}
-    </div>
+    </Box>
   );
 }
 
@@ -39,29 +37,11 @@ CardBody.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
-
-  /** Change text color */
-  textColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'body',
-    'muted',
-    'white',
-    'black-50',
-    'white-50',
-  ]),
 };
 
 CardBody.defaultProps = {
   style: null,
   className: null,
-  textColor: null,
 };
 
 export default CardBody;

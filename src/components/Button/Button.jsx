@@ -24,14 +24,14 @@ function Button(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'btn';
+  const BASE_CLASSNAME = 'btn';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
-    `${BASE_CLASS_NAME}${isOutline ? '-outline' : ''}-${theme}`,
+    BASE_CLASSNAME,
+    `${BASE_CLASSNAME}${isOutline ? '-outline' : ''}-${theme}`,
     {
       disabled: isDisabled && Component !== 'button',
-      [usePrefix(BASE_CLASS_NAME, size)]: size,
+      [usePrefix(BASE_CLASSNAME, size)]: size,
       active: isPressed,
       [usePrefix('stretched', 'link')]: isStretchedLink && Component === 'a',
     },
@@ -76,7 +76,7 @@ function Button(props) {
     linkProperties['aria-disabled'] = true;
   }
 
-  /** <a /> */
+  /** Render <a /> */
   if (Component === 'a' || to !== null) {
     return (
       <Box as="a" {...linkProperties}>
@@ -85,7 +85,7 @@ function Button(props) {
     );
   }
 
-  /** <button /> */
+  /** Render <button /> */
   if (Component === 'button') {
     return (
       <Box as="button" {...buttonProperties} data-bs-target={bsTarget}>
@@ -94,7 +94,7 @@ function Button(props) {
     );
   }
 
-  /** <input /> */
+  /** Render <input /> */
   if (Component === 'input') {
     return (
       <Box as="input" {...inputProps} />

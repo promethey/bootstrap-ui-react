@@ -1,27 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Text from 'components/Text';
 
 function AlertHeading(props) {
   const {
-    style, children, className, ...rest
+    as: Component, style, children, className, ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'alert-heading';
+  const BASE_CLASSNAME = 'alert-heading';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     className,
   );
 
   return (
-    <h4 className={classes} style={style} {...rest}>
+    <Text as={Component} className={classes} style={style} {...rest}>
       {children}
-    </h4>
+    </Text>
   );
 }
 
 AlertHeading.propTypes = {
+  as: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+  ]),
   style: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
   className: PropTypes.oneOfType([
@@ -31,6 +40,7 @@ AlertHeading.propTypes = {
 };
 
 AlertHeading.defaultProps = {
+  as: 'h4',
   style: null,
   className: null,
 };

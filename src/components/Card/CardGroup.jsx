@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Box from 'components/Box';
 
 function CardGroup(props) {
   const {
     style, children, className, ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'card-group';
+  const BASE_CLASSNAME = 'card-group';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     className,
   );
 
   return (
-    <div className={classes} style={style} {...rest}>
+    <Box className={classes} style={style} {...rest}>
       {children}
-    </div>
+    </Box>
   );
 }
 

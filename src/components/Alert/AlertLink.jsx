@@ -7,10 +7,10 @@ function AlertLink(props) {
     style, children, className, to, ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'alert-link';
+  const BASE_CLASSNAME = 'alert-link';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     className,
   );
 

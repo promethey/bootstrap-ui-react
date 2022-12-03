@@ -12,21 +12,22 @@ function Breadcrumb(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'breadcrumb';
+  const BASE_CLASSNAME = 'breadcrumb';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     className,
   );
 
   const navStyle = {};
 
+  // Change divider style
   if (divider !== null) {
     navStyle['--bs-breadcrumb-divider'] = `'${divider}'`;
   }
 
   return (
-    <nav style={navStyle} aria-label="breadcrumb">
+    <nav style={navStyle}>
       <ol style={style} className={classes} {...rest}>
         {children}
       </ol>

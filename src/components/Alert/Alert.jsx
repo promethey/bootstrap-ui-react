@@ -20,15 +20,15 @@ function Alert(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'alert';
+  const BASE_CLASSNAME = 'alert';
 
   const alertRef = createRef(null);
 
   const classes = classNames(
-    BASE_CLASS_NAME,
-    usePrefix(BASE_CLASS_NAME, theme),
+    BASE_CLASSNAME,
+    usePrefix(BASE_CLASSNAME, theme),
     {
-      [usePrefix(BASE_CLASS_NAME, 'dismissible')]: isDismissible,
+      [usePrefix(BASE_CLASSNAME, 'dismissible')]: isDismissible,
       fade: isAnimated,
       show: isAnimated,
     },
@@ -45,9 +45,7 @@ function Alert(props) {
         {...rest}
       >
         {children}
-        {isDismissible && (
-          <CloseButton onClick={() => onClose()} />
-        )}
+        {isDismissible && <CloseButton onClick={() => onClose()} />}
       </Box>
     )
   );

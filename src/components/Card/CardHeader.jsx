@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from 'helpers/prefix';
+import Text from 'components/Text';
 
 function CardHeader(props) {
   const {
@@ -9,28 +9,20 @@ function CardHeader(props) {
     style,
     children,
     className,
-    bgColor,
-    textColor,
-    borderColor,
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'card-header';
+  const BASE_CLASSNAME = 'card-header';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
-    {
-      [usePrefix('text', textColor)]: textColor,
-      [usePrefix('bg', bgColor)]: bgColor,
-      [usePrefix('border', borderColor)]: borderColor,
-    },
+    BASE_CLASSNAME,
     className,
   );
 
   return (
-    <Component className={classes} style={style} {...rest}>
+    <Text as={Component} className={classes} style={style} {...rest}>
       {children}
-    </Component>
+    </Text>
   );
 }
 
@@ -57,60 +49,12 @@ CardHeader.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
-
-  /** Change text color */
-  textColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'body',
-    'muted',
-    'white',
-    'black-50',
-    'white-50',
-  ]),
-
-  /** Change background color */
-  bgColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'body',
-    'white',
-    'transparent',
-  ]),
-
-  /** Change border color */
-  borderColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'white',
-  ]),
 };
 
 CardHeader.defaultProps = {
   as: 'div',
   style: null,
   className: null,
-  textColor: null,
-  bgColor: null,
-  borderColor: null,
 };
 
 export default CardHeader;

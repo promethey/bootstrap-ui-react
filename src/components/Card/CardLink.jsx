@@ -13,10 +13,10 @@ function CardLink(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'card-link';
+  const BASE_CLASSNAME = 'card-link';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     { [usePrefix('link', linkColor)]: linkColor },
     className,
   );

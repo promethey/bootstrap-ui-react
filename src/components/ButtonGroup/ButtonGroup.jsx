@@ -10,19 +10,19 @@ function ButtonGroup(props) {
     children,
     className,
     size,
-    isVertical,
+    vertical,
     drop,
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'btn-group';
+  const BASE_CLASSNAME = 'btn-group';
 
-  const verticalClassName = usePrefix(BASE_CLASS_NAME, 'vertical');
+  const verticalClassName = usePrefix(BASE_CLASSNAME, 'vertical');
 
   const classes = classNames(
-    !isVertical ? BASE_CLASS_NAME : verticalClassName,
+    !vertical ? BASE_CLASSNAME : verticalClassName,
     {
-      [usePrefix(BASE_CLASS_NAME, size)]: size,
+      [usePrefix(BASE_CLASSNAME, size)]: size,
       [`drop${drop}`]: drop,
     },
     className,
@@ -57,7 +57,7 @@ ButtonGroup.propTypes = {
   size: PropTypes.oneOf(['sm', 'lg']),
 
   /** Activate vertical style */
-  isVertical: PropTypes.bool,
+  vertical: PropTypes.bool,
 
   /** Change dropdown directions */
   drop: PropTypes.oneOf([
@@ -71,7 +71,7 @@ ButtonGroup.defaultProps = {
   style: null,
   className: null,
   size: null,
-  isVertical: false,
+  vertical: false,
   drop: null,
 };
 

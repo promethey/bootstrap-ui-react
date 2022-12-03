@@ -112,7 +112,7 @@ export function Sizing() {
 export const VerticalButtons = Template.bind({});
 VerticalButtons.args = {
   'aria-label': 'Basic vertical buttons example',
-  isVertical: true,
+  vertical: true,
   children: [
     <Button theme="dark">Button</Button>,
     <Button theme="dark">Button</Button>,

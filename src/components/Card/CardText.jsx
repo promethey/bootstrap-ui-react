@@ -1,29 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from 'helpers/prefix';
+import Text from 'components/Text';
 
 function CardText(props) {
   const {
     style,
     children,
     className,
-    textColor,
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'card-text';
+  const BASE_CLASSNAME = 'card-text';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
-    { [usePrefix('text', textColor)]: textColor },
+    BASE_CLASSNAME,
     className,
   );
 
   return (
-    <p className={classes} style={style} {...rest}>
+    <Text className={classes} style={style} {...rest}>
       {children}
-    </p>
+    </Text>
   );
 }
 
@@ -39,29 +37,11 @@ CardText.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
-
-  /** Change text color */
-  textColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'body',
-    'muted',
-    'white',
-    'black-50',
-    'white-50',
-  ]),
 };
 
 CardText.defaultProps = {
   style: null,
   className: null,
-  textColor: null,
 };
 
 export default CardText;

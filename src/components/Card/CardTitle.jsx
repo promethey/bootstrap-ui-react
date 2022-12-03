@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from 'helpers/prefix';
+import Text from 'components/Text';
 
 function CardTitle(props) {
   const {
-    as: Component, style, children, className, textColor,
+    as: Component, style, children, className,
   } = props;
 
-  const BASE_CLASS_NAME = 'card-title';
-
-  const titleTextColor = usePrefix('text', textColor);
+  const BASE_CLASSNAME = 'card-title';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
-    { [titleTextColor]: textColor },
+    BASE_CLASSNAME,
     className,
   );
 
   return (
-    <Component className={classes} style={style}>
+    <Text as={Component} className={classes} style={style}>
       {children}
-    </Component>
+    </Text>
   );
 }
 
@@ -40,30 +37,12 @@ CardTitle.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
-
-  /** Change text color */
-  textColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'body',
-    'muted',
-    'white',
-    'black-50',
-    'white-50',
-  ]),
 };
 
 CardTitle.defaultProps = {
   as: 'h5',
   style: null,
   className: null,
-  textColor: null,
 };
 
 export default CardTitle;

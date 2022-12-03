@@ -11,10 +11,10 @@ function BreadcrumbItem(props) {
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'breadcrumb-item';
+  const BASE_CLASSNAME = 'breadcrumb-item';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     { active: isActive },
     className,
   );
