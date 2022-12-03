@@ -12,7 +12,7 @@ export function Example() {
       bgColor="light"
       padding={3}
       border
-      rounded={3}
+      borderRadius={3}
     >
       Box component
     </Box>
@@ -28,12 +28,12 @@ export function Width() {
   ];
 
   return (
-    <Box padding={2} bgColor="light" border>
+    <Box p={2} bgColor="light" border>
       {examples.map((width, index) => (
         <Box
-          width={width}
+          w={width}
           mb={index !== examples.length - 1 ? 2 : null}
-          padding={2}
+          p={2}
           bgColor="primary"
           textColor="light"
           border
@@ -49,11 +49,11 @@ export function Width() {
 export function MaxWidth() {
   return (
     <Box
-      maxWidth={100}
+      maxW={100}
       bgColor="secondary"
       textColor="light"
       style={{ height: '100px' }}
-      padding={3}
+      p={3}
     >
       Max-width 100%
     </Box>
@@ -71,17 +71,17 @@ export function Height() {
 
   return (
     <Box
-      display="flex"
-      padding={2}
+      d="flex"
+      p={2}
       bgColor="light"
       border
       style={{ height: '200px' }}
     >
       {examples.map((height, index) => (
         <Box
-          width={25}
-          height={height}
-          padding={[1, 2]}
+          w={25}
+          h={height}
+          p={[1, 2]}
           me={index !== examples.length - 1 ? 2 : null}
           bgColor="primary"
           textColor="light"
@@ -99,7 +99,7 @@ export function MaxHeight() {
   return (
     <Box bgColor="info" bgOpacity={25} style={{ height: '100px' }}>
       <Box
-        maxHeight={100}
+        maxH={100}
         bgColor="info"
         style={{ width: '100px', height: '200px' }}
       >
@@ -113,10 +113,10 @@ MaxHeight.storyName = 'Max height';
 export function Visibility() {
   return (
     <>
-      <Box padding={2} bgColor="light" border isVisible>
+      <Box p={2} bgColor="light" border visible>
         Visible
       </Box>
-      <Box padding={2} bgColor="light" border isInvisible>
+      <Box p={2} bgColor="light" border invisible>
         Invisible
       </Box>
     </>
@@ -126,22 +126,21 @@ export function Visibility() {
 export function Visually() {
   return (
     <>
-      <Box padding={2} bgColor="light" border>
+      <Box p={2} bgColor="light" border>
         Visible
       </Box>
-      <Box padding={2} bgColor="light" border visually={false}>
+      <Box p={2} bgColor="light" border visually={false}>
         Visually hidden
       </Box>
-      <Box padding={2} bgColor="light" border visually="hidden">
-        Visually hidden 2
+      <Box p={2} bgColor="light" border visually="hidden">
+        Visually hidden v2
       </Box>
-      <Box padding={2} bgColor="light" border visually="hidden-focusable">
+      <Box p={2} bgColor="light" border visually="hidden-focusable">
         Visually hidden focusable
       </Box>
     </>
   );
 }
-Visually.storyName = 'Visually';
 
 export function BackgroundColors() {
   const examples = [
@@ -164,7 +163,7 @@ export function BackgroundColors() {
         <Box
           bgColor={bgColor}
           textColor={textColor}
-          padding={3}
+          p={3}
           mb={2}
         >
           .bg-
@@ -193,9 +192,9 @@ export function BackgroundGradients() {
       {examples.map(({ bgColor, textColor }) => (
         <Box
           bgColor={bgColor}
-          isBgGradient
+          bgGradient
           textColor={textColor}
-          padding={3}
+          p={3}
           mb={2}
         >
           .bg-
@@ -221,7 +220,7 @@ export function BackgroundOpacity() {
     <>
       {examples.map((opacity) => (
         <Box
-          padding={2}
+          p={2}
           bgColor="success"
           bgOpacity={opacity}
           textColor={opacity >= 10 && opacity <= 50 ? 'dark' : 'white'}
@@ -247,7 +246,7 @@ export function BorderAdditives() {
     'start',
   ];
   return (
-    <Box display="flex">
+    <Box d="flex">
       {examples.map((border) => (
         <Box
           style={{ width: '5rem', height: '5rem' }}
@@ -270,7 +269,7 @@ export function BorderSubtractive() {
     'start-0',
   ];
   return (
-    <Box display="flex">
+    <Box d="flex">
       {examples.map((border) => (
         <Box
           style={{ width: '5rem', height: '5rem' }}
@@ -298,7 +297,7 @@ export function BorderColors() {
   ];
 
   return (
-    <Box display="flex">
+    <Box d="flex">
       {examples.map((borderColor) => (
         <Box
           style={{ width: '5rem', height: '5rem' }}
@@ -317,7 +316,7 @@ export function BorderWidth() {
   const examples = [1, 2, 3, 4, 5];
 
   return (
-    <Box display="flex">
+    <Box d="flex">
       {examples.map((borderWidth) => (
         <Box
           style={{ width: '5rem', height: '5rem' }}
@@ -344,7 +343,7 @@ export function BorderRadius() {
   ];
 
   return (
-    <Box display="flex">
+    <Box d="flex">
       {examples.map((radius) => (
         <Box
           style={{
@@ -353,7 +352,7 @@ export function BorderRadius() {
           }}
           me={3}
           bgColor="secondary"
-          rounded={radius}
+          borderRadius={radius}
           textColor="light"
         />
       ))}
@@ -371,7 +370,7 @@ export function BorderSizes() {
   ];
 
   return (
-    <Box display="flex">
+    <Box d="flex">
       {examples.map((size) => (
         <Box
           style={{
@@ -380,7 +379,7 @@ export function BorderSizes() {
           }}
           me={3}
           bgColor="secondary"
-          rounded={size}
+          borderRadius={size}
           textColor="light"
         />
       ))}
@@ -422,18 +421,21 @@ TextColors.storyName = 'Text colors';
 export function Display() {
   return (
     <>
-      <Box display="inline" padding={2} me={2} bgColor="primary">
+      <Box d="inline" p={2} me={2} bgColor="primary">
         d-inline
       </Box>
-      <Box display="inline" padding={2} bgColor="dark" textColor="white">
+      <Box d="inline" p={2} bgColor="dark" textColor="white">
         d-inline
       </Box>
-      <Box paddingY={2} />
-      <Box display="block" padding={2} bgColor="primary" mb={2}>
+      <Box py={2} />
+      <Box d="block" p={2} bgColor="primary" mb={2}>
         d-block
       </Box>
-      <Box display="block" padding={2} bgColor="dark" textColor="white">
+      <Box d="block" p={2} bgColor="dark" textColor="white" mb={2}>
         d-block
+      </Box>
+      <Box d={{ xs: 'inline-flex', md: 'flex' }} p={2} bgColor="dark" textColor="white">
+        d-flex d-md-flex
       </Box>
     </>
   );
@@ -465,24 +467,24 @@ export function Float() {
 export function FloatResponsive() {
   return (
     <>
-      <Box floatSm="start">
+      <Box float={{ sm: 'start' }}>
         Float start on viewports sized SM (small) or wider
       </Box>
       <br />
-      <Box floatMd="start">
+      <Box float={{ md: 'start' }}>
         Float start on viewports sized MD (medium) or wider
       </Box>
       <br />
-      <Box floatLg="start">
+      <Box float={{ lg: 'start' }}>
         Float start on viewports sized LG (large) or wider
       </Box>
       <br />
-      <Box floatXl="start">
+      <Box float={{ xl: 'start' }}>
         Float start on viewports sized XL (extra-large) or wider
       </Box>
       <br />
-      <Box floatXxl="start">
-        Float start on viewports sized XL (extra-large) or wider
+      <Box float={{ xxl: 'start' }}>
+        Float start on viewports sized XXL (extra-large) or wider
       </Box>
     </>
   );
@@ -517,7 +519,7 @@ export function Opacity() {
   return (
     <>
       {examples.map((opacity) => (
-        <Box bgColor="primary" textColor="white" padding={3} opacity={opacity}>
+        <Box bgColor="primary" textColor="white" p={3} opacity={opacity}>
           {opacity}
           %
         </Box>
@@ -528,10 +530,10 @@ export function Opacity() {
 
 export function Overflow() {
   return (
-    <Box display="flex">
+    <Box d="flex">
       <Box
         style={{ maxWidth: '250px', maxHeight: '100px' }}
-        padding={3}
+        p={3}
         me={3}
         overflow="auto"
         bgColor="light"
@@ -542,7 +544,7 @@ export function Overflow() {
       </Box>
       <Box
         style={{ maxWidth: '250px', maxHeight: '100px' }}
-        padding={3}
+        p={3}
         me={3}
         overflow="hidden"
         bgColor="light"
@@ -552,7 +554,7 @@ export function Overflow() {
       </Box>
       <Box
         style={{ maxWidth: '250px', maxHeight: '100px' }}
-        padding={3}
+        p={3}
         me={3}
         overflow="visible"
         bgColor="light"
@@ -562,7 +564,7 @@ export function Overflow() {
       </Box>
       <Box
         style={{ maxWidth: '250px', maxHeight: '100px' }}
-        padding={3}
+        p={3}
         me={3}
         overflow="scroll"
         bgColor="light"
@@ -601,7 +603,7 @@ export function Positions() {
       position="relative"
       bgColor="light"
       border
-      rounded={3}
+      borderRadius={3}
       style={{ height: '200px' }}
     >
       {examples.map(({
@@ -616,7 +618,7 @@ export function Positions() {
           start={start}
           bgColor="dark"
           border
-          rounded={3}
+          borderRadius={3}
         />
       ))}
     </Box>
@@ -657,10 +659,10 @@ export function CenterElements() {
   return (
     <Box
       position="relative"
-      margin={5}
+      m={5}
       bgColor="light"
       border
-      rounded={3}
+      borderRadius={3}
       style={{ height: '200px' }}
     >
       {examples.map(({
@@ -675,8 +677,8 @@ export function CenterElements() {
           start={start}
           bgColor="dark"
           border
-          rounded={3}
-          isTranslateMiddle
+          borderRadius={3}
+          translateMiddle
         />
       ))}
     </Box>
@@ -774,7 +776,7 @@ export function CenterElements2() {
       position="relative"
       bgColor="light"
       border
-      rounded={3}
+      borderRadius={3}
       style={{ height: '200px' }}
     >
       {examples.map(({
@@ -795,10 +797,10 @@ export function CenterElements2() {
           start={start}
           bgColor="dark"
           border
-          rounded={3}
-          isTranslateMiddle={translateMiddle}
-          isTranslateMiddleX={translateMiddleX}
-          isTranslateMiddleY={translateMiddleY}
+          borderRadius={3}
+          translateMiddle={translateMiddle}
+          translateMiddleX={translateMiddleX}
+          translateMiddleY={translateMiddleY}
         />
       ))}
     </Box>
@@ -820,8 +822,8 @@ export function Shadows() {
         <Box
           shadow={shadow}
           bgColor={!shadow ? 'light' : 'body'}
-          rounded
-          padding={3}
+          borderRadius
+          p={3}
           mb={5}
         >
           {label}
@@ -835,7 +837,7 @@ export function Shadows() {
 
 export function ClearFix() {
   return (
-    <Box bgColor="info" isClearFix>
+    <Box bgColor="info" clearFix>
       <Button theme="secondary" float="start">
         Example Button floated left
       </Button>
@@ -845,4 +847,3 @@ export function ClearFix() {
     </Box>
   );
 }
-ClearFix.storyName = 'Clearfix';
