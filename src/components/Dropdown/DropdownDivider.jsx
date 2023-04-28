@@ -4,11 +4,7 @@ import classNames from 'classnames';
 import DropdownToggle from './DropdownToggle';
 import DropdownMenu from './DropdownMenu';
 
-function DropdownDivider(props) {
-  const {
-    style, className, ...rest
-  } = props;
-
+function DropdownDivider({ style, className, ...rest }) {
   const BASE_CLASS_NAME = 'dropdown-divider';
 
   const classes = classNames(

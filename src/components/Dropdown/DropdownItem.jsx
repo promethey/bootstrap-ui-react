@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function DropdownItem(props) {
-  const {
-    as: Component,
-    style,
-    children,
-    className,
-    to,
-    isActive,
-    isDisabled,
-    ...rest
-  } = props;
-
+function DropdownItem({
+  as: Component,
+  style,
+  children,
+  className,
+  to,
+  isActive,
+  isDisabled,
+  ...rest
+}) {
   const BASE_CLASS_NAME = 'dropdown-item';
 
   const classes = classNames(
@@ -25,21 +23,24 @@ function DropdownItem(props) {
     className,
   );
 
+  // Basis properties
   const properties = {
     style,
     className: classes,
   };
 
+  // If component type is a link
   if (Component === 'a') {
     properties.href = to;
   }
 
-  if (isActive) {
-    properties['aria-current'] = isActive;
-  }
-
+  // If component type is a button
   if (Component === 'button') {
     properties.type = 'button';
+  }
+
+  if (isActive) {
+    properties['aria-current'] = isActive;
   }
 
   return (

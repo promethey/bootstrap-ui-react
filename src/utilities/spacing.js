@@ -1,5 +1,5 @@
 import { usePrefix } from 'helpers/prefix';
-import { convertObjToArray } from './convert';
+import { getBootstrapClassNames } from './convert';
 
 export function getSpacingClassNames(
   prefix,
@@ -30,7 +30,7 @@ export function getSpacingClassNames(
   if (typeof spaces === 'object') {
     return {
       ...result,
-      [convertObjToArray(prefix, spaces)]: spaces !== null,
+      [getBootstrapClassNames(prefix, spaces)]: spaces !== null,
     };
   }
 }

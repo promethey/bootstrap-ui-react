@@ -27,13 +27,13 @@ function TemplateItems(args) {
       {...args}
     >
       <Flex padding={2} bgColor="light" border>
-        Flex item
+        Flex item #1
       </Flex>
       <Flex padding={2} bgColor="light" border>
-        Flex item
+        Flex item #2
       </Flex>
       <Flex padding={2} bgColor="light" border>
-        Flex item
+        Flex item #3
       </Flex>
     </Flex>
   );
@@ -44,15 +44,16 @@ function TemplateAlignContent(args) {
     <Flex
       style={{ height: '200px' }}
       width={75}
-      isWrap
+      flexWrap
       padding={1}
       bgColor="light"
       border
       {...args}
     >
-      {[...new Array(15)].map(() => (
+      {[...new Array(15)].map((item, index) => (
         <Flex padding={2} bgColor="light" border>
-          Flex item
+          Flex item #
+          {index + 1}
         </Flex>
       ))}
     </Flex>
@@ -104,21 +105,22 @@ DirectionColumnReverse.storyName = 'Direction column reverse';
 export function DirectionResponsive() {
   return (
     <Flex
-      direction="row"
-      directionSm="row-reverse"
-      directionMd="row"
-      directionLg="row-reverse"
-      directionXl="column"
-      directionXxl="column-reverse"
+      direction={{
+        sm: 'row-reverse',
+        md: 'row',
+        lg: 'row-reverse',
+        xl: 'column',
+        xxl: 'column-reverse',
+      }}
     >
       <Flex padding={2} bgColor="light" border>
-        Flex item 1
+        Flex item #1
       </Flex>
       <Flex padding={2} bgColor="light" border>
-        Flex item 2
+        Flex item #2
       </Flex>
       <Flex padding={2} bgColor="light" border>
-        Flex item 3
+        Flex item #3
       </Flex>
     </Flex>
   );
@@ -163,12 +165,9 @@ JustifyContentEvenly.storyName = 'Justify content evenly';
 
 export const JustifyContentResponsive = TemplateItems.bind({});
 JustifyContentResponsive.args = {
-  justifyContent: 'start',
-  justifyContentSm: 'end',
-  justifyContentMd: 'around',
-  justifyContentLg: 'evenly',
-  justifyContentXl: 'center',
-  justifyContentXxl: 'between',
+  justifyContent: {
+    sm: 'end', md: 'around', lg: 'evenly', xl: 'center', xxl: 'between',
+  },
 };
 JustifyContentResponsive.storyName = 'Justify content responsive';
 
@@ -210,11 +209,13 @@ AlignItemsStretch.storyName = 'Align items stretch';
 export const AlignItemsResponsive = TemplateItems.bind({});
 AlignItemsResponsive.args = {
   style: { height: '100px' },
-  alignItemsSm: 'center',
-  alignItemsMd: 'stretch',
-  alignItemsLg: 'start',
-  alignItemsXl: 'end',
-  alignItemsXxl: 'baseline',
+  alignItems: {
+    sm: 'center',
+    md: 'stretch',
+    lg: 'start',
+    xl: 'end',
+    xxl: 'baseline',
+  },
 };
 AlignItemsResponsive.storyName = 'Align items responsive';
 
@@ -340,12 +341,14 @@ export function AlignSelfResponsive() {
         Flex item
       </Flex>
       <Flex
-        alignSelf="start"
-        alignSelfSm="center"
-        alignSelfMd="end"
-        alignSelfLg="stretch"
-        alignSelfXl="baseline"
-        alignSelfXxl="start"
+        alignSelf={{
+          xs: 'start',
+          sm: 'center',
+          md: 'end',
+          lg: 'stretch',
+          xl: 'baseline',
+          xxl: 'start',
+        }}
         padding={2}
         bgColor="info"
         border="primary"
@@ -358,17 +361,18 @@ export function AlignSelfResponsive() {
     </Flex>
   );
 }
+AlignSelfResponsive.storyName = 'Align self responsive';
 
 export function FlexFill() {
   return (
     <Flex padding={1} bgColor="light" border>
-      <Flex isFill padding={2} bgColor="light" border>
+      <Flex flexFill padding={2} bgColor="light" border>
         Flex item with a lot of content
       </Flex>
-      <Flex isFill padding={2} bgColor="light" border>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex isFill padding={2} bgColor="light" border>
+      <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -496,7 +500,7 @@ WithAlignItems.storyName = 'With align items';
 
 export function Wrap() {
   return (
-    <Flex isWrap padding={1} bgColor="light" border style={{ width: '100px' }}>
+    <Flex flexWrap padding={1} bgColor="light" style={{ width: '100px' }} border>
       <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
@@ -518,7 +522,7 @@ export function Wrap() {
 
 export function NoWrap() {
   return (
-    <Flex isNoWrap padding={1} bgColor="light" border style={{ width: '100px' }}>
+    <Flex flexNoWrap padding={1} bgColor="light" border style={{ width: '100px' }}>
       <Flex padding={2} bgColor="light" border>
         Flex item
       </Flex>
@@ -541,7 +545,7 @@ NoWrap.storyName = 'No wrap';
 
 export function Order() {
   return (
-    <Flex isNoWrap padding={1} bgColor="light" border>
+    <Flex flexNoWrap padding={1} bgColor="light" border>
       <Flex order={3} padding={2} bgColor="light" border>
         First flex item
       </Flex>

@@ -20,40 +20,38 @@ npm i bootstrap-ui
 + 📖 Many informative, original and honest examples
 + ✨ Clean JavaScript (without TS)
 
-### **Import**
+### **Import Example**
 ```js
 import { Badge } from 'bootstrap-ui';
 ```
 
-### **Usage**
+### **Usage Grid**
 ```js
 import { Container, Row, Col } from 'bootstrap-ui';
 
-function Example() {
+export default function Example() {
   return (
     <Container>
       <Row cols={2}>
         <Col>
-          Column
+          Column #1
         </Col>
         <Col>
-          Column
+          Column #2
         </Col>
         <Col>
-          Column
+          Column #3
         </Col>
         <Col>
-          Column
+          Column #4
         </Col>
       </Row>
     </Container>
   )
 }
-
-export default Example;
 ```
 
-### **Components**
+### **Components Support**
 + ⬜ Accordion
 + ✅ Alert
 + ✅ Badge

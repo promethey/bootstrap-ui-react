@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function DropdownHeader(props) {
-  const {
-    style, children, className, ...rest
-  } = props;
-
+function DropdownHeader({
+  style, children, className, ...rest
+}) {
   const BASE_CLASS_NAME = 'dropdown-header';
 
   const classes = classNames(
@@ -24,8 +22,13 @@ function DropdownHeader(props) {
 }
 
 DropdownHeader.propTypes = {
+  /** Add other styles */
   style: PropTypes.shape({}),
+
+  /** Add text content for title */
   children: PropTypes.node.isRequired,
+
+  /** Add other classnames */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,

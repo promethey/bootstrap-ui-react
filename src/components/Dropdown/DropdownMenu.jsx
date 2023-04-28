@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 import { getSpacingClassNames } from 'utilities/spacing';
+import Flex from 'components/Flex';
 
 function DropdownMenu(props) {
   const {
@@ -93,14 +94,14 @@ function DropdownMenu(props) {
   );
 
   return (
-    <div
+    <Flex
       style={style}
       className={classes}
       aria-labelledby={label}
       {...rest}
     >
       {children}
-    </div>
+    </Flex>
   );
 }
 

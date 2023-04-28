@@ -1,8 +1,14 @@
-export function usePrefix(baseClassName, ...classNames) {
+/**
+ * Function for creating classnames like Bootstrap
+ * @param {stirng} prefix
+ * @param  {array} classNames
+ * @returns {string} classnames
+ */
+export function usePrefix(prefix, ...classNames) {
   const classes = [];
   const SEPARATOR = '-';
 
-  classes.push(baseClassName);
+  classes.push(prefix);
 
   if (classNames.length > 0) {
     for (let i = 0; i < classNames.length; i += 1) {

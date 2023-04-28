@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getDisplayClassNames } from 'utilities/display';
 import { getSpacingClassNames } from 'utilities/spacing';
 import { usePrefix } from 'helpers/prefix';
-import { getFloatClassNames } from 'utilities/float';
+import { getBootstrapClassNames } from 'utilities/convert';
 
 const Box = React.forwardRef((props, ref) => {
   const {
@@ -82,10 +81,10 @@ const Box = React.forwardRef((props, ref) => {
     ...rest
   } = props;
 
-  let classes = classNames(
+  const classes = classNames(
     {
-      [usePrefix('w', width || w)]: width !== null || w !== null,
-      [usePrefix('mw', maxWidth || maxW)]: maxWidth !== null || maxW !== null,
+      [usePrefix('w', width || w)]: width || w,
+      [usePrefix('mw', maxWidth || maxW)]: maxWidth || maxW,
       [usePrefix('h', height || h)]: height !== null || h !== null,
       [usePrefix('mh', maxHeight || maxH)]: maxHeight !== null || maxH !== null,
       [usePrefix('position', position)]: position,
@@ -119,9 +118,9 @@ const Box = React.forwardRef((props, ref) => {
       [usePrefix('user', 'select', textSelect)]: textSelect,
       [usePrefix('overflow', overflow)]: overflow,
     },
-    getDisplayClassNames('d', d || display),
-    getDisplayClassNames('d-print', dPrint || displayPrint),
-    getFloatClassNames(float),
+    getBootstrapClassNames('d', d || display),
+    getBootstrapClassNames('d-print', dPrint || displayPrint),
+    getBootstrapClassNames(float),
     getSpacingClassNames(
       'm',
       margin || m,
@@ -144,10 +143,6 @@ const Box = React.forwardRef((props, ref) => {
     ),
     className,
   );
-
-  if (!classes) {
-    classes = null;
-  }
 
   return (
     <Component ref={ref} style={style} className={classes} {...rest}>
