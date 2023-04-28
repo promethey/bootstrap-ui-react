@@ -12,7 +12,6 @@ export function Example() {
       bgColor="light"
       padding={3}
       border
-      borderRadiusSize={3}
     >
       Box component
     </Box>
@@ -20,12 +19,7 @@ export function Example() {
 }
 
 export function Width() {
-  const examples = [
-    25,
-    50,
-    75,
-    100,
-  ];
+  const examples = [25, 50, 75, 100];
 
   return (
     <Box p={2} bgColor="light" border>
@@ -268,6 +262,7 @@ export function BorderSubtractive() {
     'bottom-0',
     'start-0',
   ];
+
   return (
     <Box d="flex">
       {examples.map((border) => (
@@ -367,6 +362,8 @@ export function BorderSizes() {
     1,
     2,
     3,
+    4,
+    5,
   ];
 
   return (
@@ -379,7 +376,7 @@ export function BorderSizes() {
           }}
           me={3}
           bgColor="secondary"
-          borderRadius={size}
+          borderRadiusSize={size}
           textColor="light"
         />
       ))}
@@ -422,20 +419,26 @@ export function Display() {
   return (
     <>
       <Box d="inline" p={2} me={2} bgColor="primary">
-        d-inline
+        d=inline
       </Box>
-      <Box d="inline" p={2} bgColor="dark" textColor="white">
-        d-inline
+      <Box display="inline" p={2} bgColor="dark" textColor="white">
+        display=inline
       </Box>
       <Box py={2} />
       <Box d="block" p={2} bgColor="primary" mb={2}>
-        d-block
+        d=block
       </Box>
-      <Box d="block" p={2} bgColor="dark" textColor="white" mb={2}>
-        d-block
+      <Box display="block" p={2} bgColor="dark" textColor="white" mb={2}>
+        display=block
       </Box>
       <Box d={{ xs: 'inline-flex', md: 'flex' }} p={2} bgColor="dark" textColor="white">
-        d-flex d-md-flex
+        xs:
+        {' '}
+        inline-flex
+        {', '}
+        md:
+        {' '}
+        flex
       </Box>
     </>
   );

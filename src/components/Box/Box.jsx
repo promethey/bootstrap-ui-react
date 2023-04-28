@@ -11,23 +11,28 @@ const Box = React.forwardRef((props, ref) => {
     style,
     children,
     className,
+
     d,
     display,
     dPrint,
     displayPrint,
+
     w,
     width,
     maxW,
     maxWidth,
+
     h,
     height,
     maxH,
     maxHeight,
+
     position,
     top,
     end,
     bottom,
     start,
+
     m,
     margin,
     mx,
@@ -42,6 +47,7 @@ const Box = React.forwardRef((props, ref) => {
     marginBottom,
     ms,
     marginStart,
+
     p,
     padding,
     px,
@@ -56,71 +62,110 @@ const Box = React.forwardRef((props, ref) => {
     paddingBottom,
     ps,
     paddingStart,
+
     float,
+
     opacity,
+
     shadow,
+
     bgColor,
     bgGradient,
     bgOpacity,
+
     textColor,
+
     border,
     borderColor,
     borderOpacity,
     borderWidth,
     borderRadius,
     borderRadiusSize,
+
     visually,
     visible,
     invisible,
+
     clearFix,
+
     translateMiddle,
-    translateMiddleX,
-    translateMiddleY,
+
     textSelect,
+
     overflow,
     ...rest
   } = props;
 
   const classes = classNames(
     {
+      /** width */
       [usePrefix('w', width || w)]: width || w,
       [usePrefix('mw', maxWidth || maxW)]: maxWidth || maxW,
+
+      /** height */
       [usePrefix('h', height || h)]: height !== null || h !== null,
       [usePrefix('mh', maxHeight || maxH)]: maxHeight !== null || maxH !== null,
+
+      /** position and top,end,bottom,start */
       [usePrefix('position', position)]: position,
       [usePrefix('top', top)]: top !== null,
       [usePrefix('end', end)]: end !== null,
       [usePrefix('bottom', bottom)]: bottom !== null,
       [usePrefix('start', start)]: start !== null,
+
+      /** opacity */
       [usePrefix('opacity', opacity)]: opacity,
+
+      /** shadow */
       [usePrefix('shadow', shadow)]: shadow,
+
+      /** background */
       [usePrefix('bg', bgColor)]: bgColor,
       [usePrefix('bg', 'gradient')]: bgGradient,
       [usePrefix('bg', 'opacity', bgOpacity)]: bgOpacity,
+
+      /** text color */
       [usePrefix('text', textColor)]: textColor,
-      [usePrefix('border', border)]: typeof border === 'string',
+
+      /** border */
+      [usePrefix('border border', border)]: typeof border === 'string',
       [usePrefix('border', borderWidth)]: borderWidth,
       [usePrefix('border', borderColor)]: borderColor,
       [usePrefix('border', borderOpacity)]: borderOpacity,
       [usePrefix('border', border)]: typeof border === 'string' || typeof border === 'number',
       border: typeof border === 'boolean' && border,
+
+      /** 'border-radius' style as 'rounded' classname */
       [usePrefix('rounded', borderRadius)]: typeof borderRadius === 'string',
       [usePrefix('rounded', borderRadiusSize)]: typeof borderRadiusSize === 'number',
       rounded: typeof borderRadius === 'boolean',
+
+      /**
+       * if (visually === false) => 'visually-hidden'
+       * else dynamic string 'visually-${visually}'
+       */
       [usePrefix('visually', 'hidden')]: typeof visually === 'boolean' && !visually,
       [usePrefix('visually', visually)]: typeof visually === 'string',
+
+      /** 'hidden', 'scroll'... etc. */
+      [usePrefix('overflow', overflow)]: overflow,
+
+      /** 'visible' or 'invisible' */
       visible: visible && !invisible,
       invisible: invisible && !visible,
+
+      /**
+       * Clearfix utility
+       * (https://getbootstrap.com/docs/5.3/helpers/clearfix/)
+       */
       clearFix,
-      [usePrefix('translate', 'middle')]: translateMiddle,
-      [usePrefix('translate', 'middle', 'x')]: translateMiddleX,
-      [usePrefix('translate', 'middle', 'y')]: translateMiddleY,
+
+      /** Interactions: text selection */
       [usePrefix('user', 'select', textSelect)]: textSelect,
-      [usePrefix('overflow', overflow)]: overflow,
     },
     getBootstrapClassNames('d', d || display),
     getBootstrapClassNames('d-print', dPrint || displayPrint),
-    getBootstrapClassNames(float),
+    getBootstrapClassNames('float', float),
     getSpacingClassNames(
       'm',
       margin || m,
@@ -142,6 +187,7 @@ const Box = React.forwardRef((props, ref) => {
       ps,
     ),
     className,
+    getBootstrapClassNames('translate-middle', translateMiddle),
   );
 
   return (
@@ -550,12 +596,6 @@ Box.propTypes = {
   /** Activate translate middle style */
   translateMiddle: PropTypes.bool,
 
-  /** Activate translate middle style for axis-X */
-  translateMiddleX: PropTypes.bool,
-
-  /** Activate translate middle style for axis-Y */
-  translateMiddleY: PropTypes.bool,
-
   /** Change text select */
   textSelect: PropTypes.oneOf([
     'all',
@@ -576,23 +616,28 @@ Box.defaultProps = {
   as: 'div',
   style: null,
   className: null,
+
   d: null,
   display: null,
   dPrint: null,
   displayPrint: null,
+
   w: null,
   width: null,
   maxWidth: null,
   maxW: null,
+
   h: null,
   height: null,
   maxHeight: null,
   maxH: null,
+
   position: null,
   top: null,
   end: null,
   bottom: null,
   start: null,
+
   m: null,
   margin: null,
   marginX: null,
@@ -607,6 +652,7 @@ Box.defaultProps = {
   mb: null,
   marginStart: null,
   ms: null,
+
   p: null,
   padding: null,
   paddingX: null,
@@ -621,27 +667,37 @@ Box.defaultProps = {
   pb: null,
   paddingStart: null,
   ps: null,
+
   float: null,
+
   opacity: null,
+
   shadow: null,
+
   bgColor: null,
   bgGradient: false,
   bgOpacity: null,
+
   textColor: null,
+
   borderWidth: null,
   border: false,
   borderColor: null,
   borderOpacity: null,
   borderRadius: null,
   borderRadiusSize: null,
+
   visually: null,
+
   visible: false,
   invisible: false,
+
   clearFix: false,
+
   translateMiddle: false,
-  translateMiddleX: false,
-  translateMiddleY: false,
+
   textSelect: null,
+
   overflow: null,
 };
 

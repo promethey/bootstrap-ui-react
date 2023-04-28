@@ -3,33 +3,40 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 import Box from 'components/Box';
+import { getBootstrapClassNames } from 'utilities/convert';
 
 function Text(props) {
   const {
     style,
     children,
     className,
+
     fs,
     fontSize,
+
     fw,
     fontWeight,
+
     fst,
     fontStyle,
+
     lh,
     lineHeight,
+
     textOpacity,
     textAlign,
-    textAlignSm,
-    textAlignMd,
-    textAlignLg,
-    textAlignXl,
     textTransform,
+
     decoration,
     lead,
+
     wrap,
     noWrap,
+
     breakWord,
+
     monospace,
+
     truncate,
     ...rest
   } = props;
@@ -39,11 +46,6 @@ function Text(props) {
   let classes = classNames(
     {
       [usePrefix(BASE_CLASSNAME, 'opacity', textOpacity)]: textOpacity !== null,
-      [usePrefix(BASE_CLASSNAME, textAlign)]: textAlign,
-      [usePrefix(BASE_CLASSNAME, 'sm', textAlignSm)]: textAlignSm,
-      [usePrefix(BASE_CLASSNAME, 'md', textAlignMd)]: textAlignMd,
-      [usePrefix(BASE_CLASSNAME, 'lg', textAlignLg)]: textAlignLg,
-      [usePrefix(BASE_CLASSNAME, 'xl', textAlignXl)]: textAlignXl,
       [usePrefix('fs', fs)]: fs || fontSize,
       [usePrefix('fw', fw)]: fw || fontWeight,
       [usePrefix('fst', fst)]: fst || fontStyle,
@@ -57,6 +59,7 @@ function Text(props) {
       [usePrefix('font', 'monospace')]: monospace,
       [usePrefix(BASE_CLASSNAME, 'truncation')]: truncate,
     },
+    getBootstrapClassNames(BASE_CLASSNAME, textAlign),
     className,
   );
 

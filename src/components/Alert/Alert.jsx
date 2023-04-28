@@ -13,8 +13,8 @@ function Alert(props) {
     children,
     className,
     theme,
-    isShow,
-    isDismissible,
+    show,
+    dissmisible,
     isAnimated,
     onClose,
     ...rest
@@ -28,7 +28,7 @@ function Alert(props) {
     BASE_CLASSNAME,
     usePrefix(BASE_CLASSNAME, theme),
     {
-      [usePrefix(BASE_CLASSNAME, 'dismissible')]: isDismissible,
+      [usePrefix(BASE_CLASSNAME, 'dismissible')]: dissmisible,
       fade: isAnimated,
       show: isAnimated,
     },
@@ -36,7 +36,7 @@ function Alert(props) {
   );
 
   return (
-    isShow && (
+    show && (
       <Box
         role="alert"
         ref={alertRef}
@@ -45,34 +45,26 @@ function Alert(props) {
         {...rest}
       >
         {children}
-        {isDismissible && <CloseButton onClick={() => onClose()} />}
+        {dissmisible && <CloseButton onClick={() => onClose()} />}
       </Box>
     )
   );
 }
 
 Alert.propTypes = {
-  /**
-   * Add other styles
-   */
+  /** Add other styles */
   style: PropTypes.shape({}),
 
-  /**
-   * Add children components
-   */
+  /** Add alert content */
   children: PropTypes.node.isRequired,
 
-  /**
-   * Add other classes
-   */
+  /** Add other classes */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /**
-   * Choose main theme
-   */
+  /** Choose main theme */
   theme: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -84,24 +76,16 @@ Alert.propTypes = {
     'dark',
   ]),
 
-  /**
-   * Show state
-   */
-  isShow: PropTypes.bool,
+  /** Show state */
+  show: PropTypes.bool,
 
-  /**
-   * Add close button
-   */
-  isDismissible: PropTypes.bool,
+  /** Add close button */
+  dissmisible: PropTypes.bool,
 
-  /**
-   * Add animations
-   */
+  /** Add animations */
   isAnimated: PropTypes.bool,
 
-  /**
-   * Add event handler for close
-   */
+  /** Add event handler for close */
   onClose: PropTypes.func,
 };
 
@@ -109,8 +93,8 @@ Alert.defaultProps = {
   style: null,
   className: null,
   theme: 'primary',
-  isShow: true,
-  isDismissible: false,
+  show: true,
+  dissmisible: false,
   isAnimated: false,
   onClose: null,
 };

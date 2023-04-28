@@ -5,7 +5,7 @@ import Text from 'components/Text';
 
 function AlertHeading(props) {
   const {
-    as: Component, style, children, className, ...rest
+    as: ComponentType, style, children, className, ...rest
   } = props;
 
   const BASE_CLASSNAME = 'alert-heading';
@@ -16,7 +16,7 @@ function AlertHeading(props) {
   );
 
   return (
-    <Text as={Component} className={classes} style={style} {...rest}>
+    <Text as={ComponentType} className={classes} style={style} {...rest}>
       {children}
     </Text>
   );
