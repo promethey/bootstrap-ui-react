@@ -41,15 +41,16 @@ export function LiveExample() {
       <Button onClick={handleClick}>
         Live Alert
       </Button>
-      <Alert
-        mt={2}
-        theme="success"
-        show={show}
-        dissmisible
-        onClose={() => setShow(false)}
-      >
-        Nice, you triggered this alert message!
-      </Alert>
+      {show && (
+        <Alert
+          mt={2}
+          theme="success"
+          dissmisible
+          onClose={() => setShow(false)}
+        >
+          Nice, you triggered this alert message!
+        </Alert>
+      )}
     </>
   );
 }
@@ -111,6 +112,45 @@ LinkColor.args = {
   ],
 };
 LinkColor.storyName = 'Link color';
+
+export function Icons() {
+  return (
+    <>
+      <Alert theme="primary" d="flex" alignItems="center">
+        <Box d="inline-block" me={2}>
+          <i className="bi bi-info-circle-fill" />
+        </Box>
+        <div>
+          An example alert with an icon
+        </div>
+      </Alert>
+      <Alert theme="success" d="flex" alignItems="center">
+        <Box d="inline-block" me={2}>
+          <i className="bi bi-check-circle-fill" />
+        </Box>
+        <div>
+          An example success alert with an icon
+        </div>
+      </Alert>
+      <Alert theme="warning" d="flex" alignItems="center">
+        <Box d="inline-block" me={2}>
+          <i className="bi bi-exclamation-triangle-fill" />
+        </Box>
+        <div>
+          An example warning alert with an icon
+        </div>
+      </Alert>
+      <Alert theme="danger" d="flex" alignItems="center">
+        <Box d="inline-block" me={2}>
+          <i className="bi bi-exclamation-triangle-fill" />
+        </Box>
+        <div>
+          An example danger alert with an icon
+        </div>
+      </Alert>
+    </>
+  );
+}
 
 export const Dismissing = Template.bind({});
 Dismissing.args = {

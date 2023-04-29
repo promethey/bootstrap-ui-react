@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
@@ -12,7 +12,6 @@ function Alert({
   children,
   className,
   theme,
-  show,
   dissmisible,
   animated,
   onClose,
@@ -20,31 +19,29 @@ function Alert({
 }) {
   const BASE_CLASSNAME = 'alert';
 
-  const alertRef = createRef(null);
+  const alertRef = useRef(null);
 
   const classes = classNames(
     BASE_CLASSNAME,
     usePrefix(BASE_CLASSNAME, theme),
     {
       [usePrefix(BASE_CLASSNAME, 'dismissible')]: dissmisible,
-      fade: animated,
+      'show fade': animated,
     },
     className,
   );
 
   return (
-    show && (
-      <Box
-        role="alert"
-        ref={alertRef}
-        className={classes}
-        style={style}
-        {...rest}
-      >
-        {children}
-        {dissmisible && <CloseButton onClick={() => onClose()} />}
-      </Box>
-    )
+    <Box
+      role="alert"
+      ref={alertRef}
+      className={classes}
+      style={style}
+      {...rest}
+    >
+      {children}
+      {dissmisible && <CloseButton onClick={onClose} />}
+    </Box>
   );
 }
 
@@ -73,16 +70,16 @@ Alert.propTypes = {
     'dark',
   ]),
 
-  /** Show state */
-  show: PropTypes.bool,
-
   /** Add close button */
   dissmisible: PropTypes.bool,
 
   /** Add animations */
   animated: PropTypes.bool,
 
-  /** Add event handler for close */
+  /**
+   * Fires immediately when the
+   * close instance method is called
+   */
   onClose: PropTypes.func,
 };
 
@@ -90,7 +87,6 @@ Alert.defaultProps = {
   style: null,
   className: null,
   theme: 'primary',
-  show: true,
   dissmisible: false,
   animated: false,
   onClose: null,
