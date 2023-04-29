@@ -1,5 +1,5 @@
 import { usePrefix } from 'helpers/prefix';
-import { convertObjToArray } from './convert';
+import { getBootstrapClassNames } from './convert';
 
 export function getFloatClassNames(floats) {
   const PREFIX = 'float';
@@ -9,7 +9,7 @@ export function getFloatClassNames(floats) {
   }
 
   if (typeof floats === 'object') {
-    return convertObjToArray(PREFIX, floats);
+    return getBootstrapClassNames(PREFIX, floats);
   }
 
   return null;

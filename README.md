@@ -1,8 +1,6 @@
 # **Bootstrap-UI**
 
-ReactJS component library basis on [Bootstrap](https://getbootstrap.com/) for fast creating web application.
-
-Documentation generate by [Storybook](storybook.js.org)
+React component library basis on [Bootstrap](https://getbootstrap.com/) for fast creating web application. Documentation generate by [Storybook](storybook.js.org)
 
 Currenlty: v1.0.0 | Bootstrap: [v5.1.3](https://www.npmjs.com/package/bootstrap)
 

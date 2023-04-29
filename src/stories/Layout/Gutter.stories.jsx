@@ -11,14 +11,14 @@ export default {
 export function HorizontalGutters() {
   return (
     <Container>
-      <Row gutterX={5}>
+      <Row gx={5}>
         <Col>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
@@ -31,14 +31,14 @@ HorizontalGutters.storyName = 'Horizontal gutters';
 export function OverflowHidden() {
   return (
     <Container overflow="hidden">
-      <Row gutterX={5}>
+      <Row gx={5}>
         <Col>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
@@ -51,24 +51,24 @@ OverflowHidden.storyName = 'Overflow hidden';
 export function VerticalGutters() {
   return (
     <Container overflow="hidden">
-      <Row gutterY={5}>
+      <Row gy={5}>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
@@ -81,24 +81,24 @@ VerticalGutters.storyName = 'Vertical gutters';
 export function HorizontalAndVerticalGutters() {
   return (
     <Container>
-      <Row gutter={2}>
+      <Row g={2}>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
         <Col xs={6}>
-          <Flex padding={3} bgColor="light" isBorder>
+          <Flex p={3} bgColor="light" border>
             Custom column padding
           </Flex>
         </Col>
@@ -111,10 +111,10 @@ HorizontalAndVerticalGutters.storyName = 'Horizontal and vertical gutters';
 export function RowColumnsGutters() {
   return (
     <Container>
-      <Row cols={2} colsLg={5} gutter={2} gutterLg={3}>
+      <Row cols={2} g={{ xs: 2, lg: 3 }}>
         {[...new Array(10)].map(() => (
           <Col>
-            <Flex padding={3} bgColor="light" isBorder>
+            <Flex p={3} bgColor="light" border>
               Row column
             </Flex>
           </Col>
@@ -129,10 +129,10 @@ export function NoGutters() {
   return (
     <Container>
       <Row gutter={0}>
-        <Col xs={false} sm={6} md={8} padding={3} bgColor="light" isBorder>
+        <Col xs={false} sm={6} md={8} p={3} bgColor="light" border>
           .col-sm-6 .col-md-8
         </Col>
-        <Col xs={6} md={4} padding={3} bgColor="light" isBorder>
+        <Col xs={6} md={4} p={3} bgColor="light" border>
           .col-6 .col-md-4
         </Col>
       </Row>

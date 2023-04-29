@@ -17,9 +17,9 @@ function Container(props) {
 
   const classes = classNames(
     {
-      [BASE_CLASSNAME]: !fluid,
       [usePrefix(BASE_CLASSNAME, fluid)]: typeof fluid === 'string' && fluid,
       [usePrefix(BASE_CLASSNAME, 'fluid')]: typeof fluid === 'boolean' && fluid,
+      [BASE_CLASSNAME]: !fluid,
     },
     className,
   );

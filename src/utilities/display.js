@@ -1,5 +1,5 @@
 import { usePrefix } from 'helpers/prefix';
-import { convertObjToArray } from './convert';
+import { getBootstrapClassNames } from './convert';
 
 export function getDisplayClassNames(prefix = 'd', displays = null) {
   if (typeof displays === 'string') {
@@ -7,7 +7,7 @@ export function getDisplayClassNames(prefix = 'd', displays = null) {
   }
 
   if (typeof displays === 'object') {
-    return convertObjToArray(prefix, displays);
+    return getBootstrapClassNames(prefix, displays);
   }
 
   return null;

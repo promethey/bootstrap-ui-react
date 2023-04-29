@@ -24,10 +24,7 @@ function Flex(props) {
     ...rest
   } = props;
 
-  const BASE_CLASSNAME = 'd-flex';
-
   const classes = classNames(
-    BASE_CLASSNAME,
     getBootstrapClassNames('flex', direction),
     getBootstrapClassNames('justify-content', justifyContent),
     getBootstrapClassNames('align-items', alignItems),
