@@ -6,18 +6,18 @@ import Box from 'components/Box';
 
 function Button(props) {
   const {
-    as: Component,
+    as: ComponentType,
     style,
     children,
     className,
     to,
     type,
     theme,
-    isOutline,
+    outline,
     size,
-    isDisabled,
-    isPressed,
-    isStretchedLink,
+    disabled,
+    pressed,
+    stretchedLink,
     bsToggle,
     bsTarget,
     onClick,
@@ -28,12 +28,12 @@ function Button(props) {
 
   const classes = classNames(
     BASE_CLASSNAME,
-    `${BASE_CLASSNAME}${isOutline ? '-outline' : ''}-${theme}`,
+    usePrefix(BASE_CLASSNAME, outline ? 'outline' : null, theme),
     {
-      disabled: isDisabled && Component !== 'button',
+      disabled: disabled && ComponentType !== 'button',
       [usePrefix(BASE_CLASSNAME, size)]: size,
-      active: isPressed,
-      [usePrefix('stretched', 'link')]: isStretchedLink && Component === 'a',
+      active: pressed,
+      [usePrefix('stretched', 'link')]: stretchedLink && ComponentType === 'a',
     },
     className,
   );
@@ -46,38 +46,38 @@ function Button(props) {
     ...rest,
   };
 
-  /** <button /> props */
+  /** button properties */
   const buttonProperties = {
     ...baseProperties,
     type,
-    disabled: isDisabled,
+    disabled,
   };
 
-  /** <a /> props */
+  /** link properties */
   const linkProperties = {
     ...baseProperties,
     href: to || '#',
     role: 'button',
   };
 
-  /** <input /> props */
+  /** input properties */
   const inputProps = {
     ...baseProperties,
     type,
     value: children,
   };
 
-  if (isPressed) {
+  if (pressed) {
     buttonProperties['aria-pressed'] = true;
     linkProperties['aria-pressed'] = true;
   }
 
-  if (isDisabled) {
+  if (disabled) {
     linkProperties['aria-disabled'] = true;
   }
 
-  /** Render <a /> */
-  if (Component === 'a' || to !== null) {
+  /** Render as link */
+  if (ComponentType === 'a' || to !== null) {
     return (
       <Box as="a" {...linkProperties}>
         {children}
@@ -85,8 +85,8 @@ function Button(props) {
     );
   }
 
-  /** Render <button /> */
-  if (Component === 'button') {
+  /** Render as button */
+  if (ComponentType === 'button') {
     return (
       <Box as="button" {...buttonProperties} data-bs-target={bsTarget}>
         {children}
@@ -94,8 +94,8 @@ function Button(props) {
     );
   }
 
-  /** Render <input /> */
-  if (Component === 'input') {
+  /** Render as input */
+  if (ComponentType === 'input') {
     return (
       <Box as="input" {...inputProps} />
     );
@@ -103,7 +103,7 @@ function Button(props) {
 }
 
 Button.propTypes = {
-  /** Component JSX type */
+  /** Change JSX type */
   as: PropTypes.oneOf([
     'button',
     'a',
@@ -142,7 +142,7 @@ Button.propTypes = {
   ]),
 
   /** Activate outline style */
-  isOutline: PropTypes.bool,
+  outline: PropTypes.bool,
 
   /** Change button size */
   size: PropTypes.oneOf([
@@ -151,16 +151,16 @@ Button.propTypes = {
   ]),
 
   /** Activate disabled state */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 
   /** Add toggle state */
   isToggle: PropTypes.bool,
 
   /** Add active style */
-  isPressed: PropTypes.bool,
+  pressed: PropTypes.bool,
 
   /** Make clickable by *stretching* a nested link */
-  isStretchedLink: PropTypes.bool,
+  stretchedLink: PropTypes.bool,
 
   /** Click event handler */
   onClick: PropTypes.func,
@@ -179,12 +179,12 @@ Button.defaultProps = {
   to: null,
   type: 'button',
   theme: 'primary',
-  isOutline: false,
+  outline: false,
   size: null,
-  isDisabled: false,
+  disabled: false,
   isToggle: false,
-  isPressed: false,
-  isStretchedLink: false,
+  pressed: false,
+  stretchedLink: false,
   onClick: null,
   bsToggle: null,
   bsTarget: null,

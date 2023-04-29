@@ -44,8 +44,8 @@ export function LiveExample() {
       <Alert
         mt={2}
         theme="success"
-        isShow={show}
-        isDismissible
+        show={show}
+        dissmisible
         onClose={() => setShow(false)}
       >
         Nice, you triggered this alert message!
@@ -115,8 +115,8 @@ LinkColor.storyName = 'Link color';
 export const Dismissing = Template.bind({});
 Dismissing.args = {
   theme: 'warning',
-  isDismissible: true,
-  isAnimated: true,
+  dissmisible: true,
+  animated: true,
   children: [
     <Text as="strong">Holy guacamole!</Text>,
     ' ',

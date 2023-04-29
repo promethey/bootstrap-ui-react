@@ -8,15 +8,15 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `Use Bootstrap’s custom button styles for actions in forms,
-        dialogs, and more with support for multiple sizes, states, and more.`,
+        component: `Use Bootstrap custom button styles for actions in forms,
+        dialogs, and more with support for multiple sizes, states, and more`,
       },
     },
   },
   args: { onClick: null },
 };
 
-function Template(args) {
+function DefaultTemplate(args) {
   return <Button {...args} />;
 }
 
@@ -130,89 +130,89 @@ export function Tags() {
   );
 }
 
-export const Primary = Template.bind({});
+export const Primary = DefaultTemplate.bind({});
 Primary.args = {
   theme: 'primary',
   children: 'Primary',
 };
 
-export const Secondary = Template.bind({});
+export const Secondary = DefaultTemplate.bind({});
 Secondary.args = {
   theme: 'secondary',
   children: 'Secondary',
 };
 
-export const Success = Template.bind({});
+export const Success = DefaultTemplate.bind({});
 Success.args = {
   theme: 'success',
   children: 'Success',
 };
 
-export const Danger = Template.bind({});
+export const Danger = DefaultTemplate.bind({});
 Danger.args = {
   theme: 'danger',
   children: 'Danger',
 };
 
-export const Warning = Template.bind({});
+export const Warning = DefaultTemplate.bind({});
 Warning.args = {
   theme: 'warning',
   children: 'Warning',
 };
 
-export const Info = Template.bind({});
+export const Info = DefaultTemplate.bind({});
 Info.args = {
   theme: 'info',
   children: 'Info',
 };
 
-export const Light = Template.bind({});
+export const Light = DefaultTemplate.bind({});
 Light.args = {
   theme: 'light',
   children: 'Light',
 };
 
-export const Dark = Template.bind({});
+export const Dark = DefaultTemplate.bind({});
 Dark.args = {
   theme: 'dark',
   children: 'Dark',
 };
 
-export const Link = Template.bind({});
+export const Link = DefaultTemplate.bind({});
 Link.args = {
   theme: 'link',
   children: 'Link',
 };
 
-export const Outline = Template.bind({});
+export const Outline = DefaultTemplate.bind({});
 Outline.args = {
   theme: 'primary',
   outline: true,
   children: 'Outline',
 };
 
-export const Small = Template.bind({});
+export const Small = DefaultTemplate.bind({});
 Small.args = {
   theme: 'primary',
   size: 'sm',
   children: 'Small',
 };
 
-export const Large = Template.bind({});
+export const Large = DefaultTemplate.bind({});
 Large.args = {
   theme: 'primary',
   size: 'lg',
   children: 'Large',
 };
 
-export const Disabled = Template.bind({});
+export const Disabled = DefaultTemplate.bind({});
 Disabled.args = {
   theme: 'primary',
   isDisabled: true,
   children: 'Disabled',
 };
 
-export const DisabledLink = Template.bind({});
+export const DisabledLink = DefaultTemplate.bind({});
 DisabledLink.args = {
   as: 'a',
   theme: 'primary',
@@ -221,7 +221,7 @@ DisabledLink.args = {
 };
 DisabledLink.storyName = 'Disabled link';
 
-export const DisabledInput = Template.bind({});
+export const DisabledInput = DefaultTemplate.bind({});
 DisabledInput.args = {
   as: 'input',
   theme: 'primary',
@@ -230,7 +230,7 @@ DisabledInput.args = {
 };
 DisabledInput.storyName = 'Disabled input';
 
-export const Block = Template.bind({});
+export const Block = DefaultTemplate.bind({});
 Block.args = {
   theme: 'primary',
   width: 100,

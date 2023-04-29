@@ -4,6 +4,13 @@ import { Box, Button } from 'components';
 export default {
   title: 'Components/Box',
   component: Box,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Main and basic component for Bootstrap-UI. This component helps provide classname functionality for other components',
+      },
+    },
+  },
 };
 
 export function Example() {
