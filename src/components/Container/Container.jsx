@@ -19,6 +19,7 @@ function Container(props) {
     {
       [BASE_CLASSNAME]: !fluid,
       [usePrefix(BASE_CLASSNAME, fluid)]: typeof fluid === 'string' && fluid,
+      [usePrefix(BASE_CLASSNAME, 'fluid')]: typeof fluid === 'boolean' && fluid,
     },
     className,
   );

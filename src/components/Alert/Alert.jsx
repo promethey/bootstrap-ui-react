@@ -7,19 +7,17 @@ import CloseButton from 'components/CloseButton';
 import AlertLink from './AlertLink';
 import AlertHeading from './AlertHeading';
 
-function Alert(props) {
-  const {
-    style,
-    children,
-    className,
-    theme,
-    show,
-    dissmisible,
-    isAnimated,
-    onClose,
-    ...rest
-  } = props;
-
+function Alert({
+  style,
+  children,
+  className,
+  theme,
+  show,
+  dissmisible,
+  animated,
+  onClose,
+  ...rest
+}) {
   const BASE_CLASSNAME = 'alert';
 
   const alertRef = createRef(null);
@@ -29,8 +27,7 @@ function Alert(props) {
     usePrefix(BASE_CLASSNAME, theme),
     {
       [usePrefix(BASE_CLASSNAME, 'dismissible')]: dissmisible,
-      fade: isAnimated,
-      show: isAnimated,
+      fade: animated,
     },
     className,
   );
@@ -83,7 +80,7 @@ Alert.propTypes = {
   dissmisible: PropTypes.bool,
 
   /** Add animations */
-  isAnimated: PropTypes.bool,
+  animated: PropTypes.bool,
 
   /** Add event handler for close */
   onClose: PropTypes.func,
@@ -95,7 +92,7 @@ Alert.defaultProps = {
   theme: 'primary',
   show: true,
   dissmisible: false,
-  isAnimated: false,
+  animated: false,
   onClose: null,
 };
 

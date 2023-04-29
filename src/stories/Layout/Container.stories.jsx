@@ -23,7 +23,7 @@ Default.args = {
   children: 'Container',
   padding: 3,
   bgColor: 'light',
-  isBorder: true,
+  border: true,
 };
 
 export function Responsive() {
@@ -39,11 +39,11 @@ export function Responsive() {
     examples.map((example) => (
       <Container
         key={example.value}
-        isFluid={example.value}
+        fluid={example.value}
         mb={3}
         padding={3}
         bgColor="light"
-        isBorder
+        border
       >
         100% wide until
         {' '}
@@ -60,30 +60,6 @@ Fluid.args = {
   children: 'Fluid container',
   padding: 3,
   bgColor: 'light',
-  isBorder: true,
-  isFluid: true,
+  border: true,
+  fluid: true,
 };
-
-export function Visibility() {
-  return (
-    <>
-      <Container
-        mb={3}
-        padding={3}
-        bgColor="light"
-        isBorder
-        isVisible
-      >
-        Visible container
-      </Container>
-      <Container
-        padding={3}
-        bgColor="light"
-        isBorder
-        isInvisible
-      >
-        Invisible container
-      </Container>
-    </>
-  );
-}

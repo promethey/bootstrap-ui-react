@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function AlertLink(props) {
-  const {
-    style, children, className, to, ...rest
-  } = props;
-
+function AlertLink({
+  style, children, className, to, ...rest
+}) {
   const BASE_CLASSNAME = 'alert-link';
 
   const classes = classNames(
@@ -27,12 +25,19 @@ function AlertLink(props) {
 }
 
 AlertLink.propTypes = {
+  // Add other styles
   style: PropTypes.shape({}),
+
+  // Add link label
   children: PropTypes.node.isRequired,
+
+  // Add other classnames
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  // Alias for href
   to: PropTypes.string,
 };
 
