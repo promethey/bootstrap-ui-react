@@ -16,23 +16,22 @@ function Check(props) {
     value,
     label,
     name,
-    isChecked,
-    isDisabled,
-    isSwitched,
-    isInlined,
-    isReversed,
-    onChange,
+    checked,
+    disabled,
+    switched,
+    inlined,
+    reversed,
     ...rest
   } = props;
 
-  const BASE_CLASS_NAME = 'form-check';
+  const BASE_CLASSNAME = 'form-check';
 
   const classes = classNames(
-    BASE_CLASS_NAME,
+    BASE_CLASSNAME,
     {
-      [usePrefix('form', 'switch')]: isSwitched,
-      [usePrefix(BASE_CLASS_NAME, 'inline')]: isInlined,
-      [usePrefix(BASE_CLASS_NAME, 'reverse')]: isReversed,
+      [usePrefix('form', 'switch')]: switched,
+      [usePrefix(BASE_CLASSNAME, 'inline')]: inlined,
+      [usePrefix(BASE_CLASSNAME, 'reverse')]: reversed,
     },
     className,
   );
@@ -41,19 +40,18 @@ function Check(props) {
     <Box
       className={classes}
       style={style}
-      {...rest}
     >
       <CheckInput
         id={id}
         type={type}
         value={value}
         name={name}
-        role={isSwitched ? 'switch' : null}
-        isChecked={isChecked}
-        isDisabled={isDisabled}
-        onChange={onChange}
+        role={switched ? 'switch' : null}
+        checked={checked}
+        disabled={disabled}
+        {...rest}
       />
-      {(!!label || !!children) && (
+      {(label || children) && (
         <CheckLabel htmlFor={id}>
           {label || children}
         </CheckLabel>
@@ -87,29 +85,29 @@ Check.propTypes = {
     PropTypes.string,
   ]),
 
-  /** Set label */
+  /** Add label */
   label: PropTypes.string,
 
   /** Set name for radios */
   name: PropTypes.string,
 
   /** Set checked */
-  isChecked: PropTypes.bool,
+  checked: PropTypes.bool,
 
   /** Set disabled */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 
   /** Activate switch design */
-  isSwitched: PropTypes.bool,
+  switched: PropTypes.bool,
 
   /** Activate inline design */
-  isInlined: PropTypes.bool,
+  inlined: PropTypes.bool,
 
   /** Activate reverse design */
-  isReversed: PropTypes.bool,
+  reversed: PropTypes.bool,
 
   /** On change event handler */
-  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 Check.defaultProps = {
@@ -119,12 +117,12 @@ Check.defaultProps = {
   value: null,
   label: null,
   name: null,
-  isChecked: false,
-  isDisabled: false,
-  isSwitched: false,
-  isInlined: false,
-  isReversed: false,
-  onChange: null,
+  checked: false,
+  disabled: false,
+  switched: false,
+  inlined: false,
+  reversed: false,
+  onClick: null,
 };
 
 Check.Input = CheckInput;

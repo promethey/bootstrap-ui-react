@@ -9,6 +9,8 @@ function Flex(props) {
     style,
     children,
     className,
+    d,
+    display,
     direction,
     justifyContent,
     alignItems,
@@ -41,7 +43,7 @@ function Flex(props) {
   );
 
   return (
-    <Box style={style} className={classes} {...rest}>
+    <Box style={style} className={classes} display={d || display} {...rest}>
       {children}
     </Box>
   );
@@ -58,6 +60,26 @@ Flex.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
+  ]),
+
+  /** Change display [SHORT VERSION] */
+  d: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'flex',
+      'inline-flex',
+      'none',
+    ]),
+  ]),
+
+  /** Change display */
+  display: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf([
+      'flex',
+      'inline-flex',
+      'none',
+    ]),
   ]),
 
   /** Change *direction* */
@@ -144,6 +166,8 @@ Flex.propTypes = {
 Flex.defaultProps = {
   style: null,
   className: null,
+  d: null,
+  display: 'flex',
   direction: null,
   justifyContent: null,
   alignItems: null,

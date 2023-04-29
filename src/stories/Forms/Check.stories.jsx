@@ -20,24 +20,24 @@ export default {
   },
 };
 
-function Story({ isChecked, ...rest }) {
-  const [checked, setChecked] = useState(isChecked || false);
+function Story({ checked, ...rest }) {
+  const [check, setCheck] = useState(checked || false);
 
   return (
     <Check
-      isChecked={checked}
-      onChange={() => setChecked((prev) => !prev)}
+      checked={check}
+      onChange={() => setCheck((prev) => !prev)}
       {...rest}
     />
   );
 }
 
 Story.propTypes = {
-  isChecked: PropTypes.bool,
+  checked: PropTypes.bool,
 };
 
 Story.defaultProps = {
-  isChecked: false,
+  checked: false,
 };
 
 export const Default = Story.bind({});
@@ -50,22 +50,22 @@ export const Checked = Story.bind({});
 Checked.args = {
   id: 'flexCheckChecked',
   label: 'Checked checkbox',
-  isChecked: true,
+  checked: true,
 };
 
 export const Disabled = Story.bind({});
 Disabled.args = {
   id: 'flexCheckDisabled',
   label: 'Disabled checkbox',
-  isDisabled: true,
+  disabled: true,
 };
 
 export const DisabledChecked = Story.bind({});
 DisabledChecked.args = {
   id: 'flexCheckCheckedDisabled',
   label: 'Disabled checked checkbox',
-  isChecked: true,
-  isDisabled: true,
+  checked: true,
+  disabled: true,
 };
 DisabledChecked.storyName = 'Disabled checked';
 
@@ -92,8 +92,8 @@ export function Radios() {
         type="radio"
         name="flexRadioDefault"
         value={value}
-        isChecked={checkedValue === value}
-        onChange={() => setCheckedValue(value)}
+        checked={checkedValue === value}
+        onClick={() => setCheckedValue(value)}
       >
         {label}
       </Check>
@@ -124,9 +124,9 @@ export function DisabledRadios() {
         type="radio"
         name="flexRadioDisabled"
         value={value}
-        isChecked={checkedValue === value}
+        checked={checkedValue === value}
         onChange={() => setCheckedValue(value)}
-        isDisabled
+        disabled
       >
         {label}
       </Check>
@@ -139,16 +139,16 @@ export const Switch = Story.bind();
 Switch.args = {
   label: 'Default switch checkbox input',
   id: 'flexSwitchCheckDefault',
-  isSwitched: true,
-  isChecked: false,
+  switched: true,
+  checked: false,
 };
 
 export const SwitchChecked = Story.bind();
 SwitchChecked.args = {
   label: 'Checked switch checkbox input',
   id: 'flexSwitchCheckChecked',
-  isSwitched: true,
-  isChecked: true,
+  switched: true,
+  checked: true,
 };
 SwitchChecked.storyName = 'Switch checked';
 
@@ -156,9 +156,9 @@ export const SwitchDisabled = Story.bind();
 SwitchDisabled.args = {
   label: 'Disabled switch checkbox input',
   id: 'flexSwitchCheckDisabled',
-  isSwitched: true,
-  isChecked: false,
-  isDisabled: true,
+  switched: true,
+  checked: false,
+  disabled: true,
 };
 SwitchDisabled.storyName = 'Switch disabled';
 
@@ -166,9 +166,9 @@ export const SwitchCheckedDisabled = Story.bind();
 SwitchCheckedDisabled.args = {
   label: 'Disabled checked switch checkbox input',
   id: 'flexSwitchCheckCheckedDisabled',
-  isSwitched: true,
-  isChecked: true,
-  isDisabled: true,
+  switched: true,
+  checked: true,
+  disabled: true,
 };
 SwitchCheckedDisabled.storyName = 'Switch checked disabled';
 
@@ -181,39 +181,39 @@ export function InlineCheckbox() {
       id: 'inlineCheckbox1',
       label: 1,
       value: 'option1',
-      isChecked: optionChecked1,
-      isDisabled: false,
+      checked: optionChecked1,
+      disabled: false,
       onChange: () => setOptionChecked1((prev) => !prev),
     },
     {
       id: 'inlineCheckbox2',
       label: 2,
       value: 'option2',
-      isChecked: optionChecked2,
-      isDisabled: false,
+      checked: optionChecked2,
+      disabled: false,
       onChange: () => setOptionChecked2((prev) => !prev),
     },
     {
       id: 'inlineCheckbox3',
       label: '3 (disabled)',
       value: 'option3',
-      isChecked: false,
-      isDisabled: true,
+      checked: false,
+      disabled: true,
       onChange: null,
     },
   ];
 
   return (
     examples.map(({
-      id, label, value, isChecked, isDisabled, onChange,
+      id, label, value, checked, disabled, onChange,
     }) => (
       <Check
         id={id}
         value={value}
-        isInlined
-        isChecked={isChecked}
+        inlined
+        checked={checked}
         onChange={onChange}
-        isDisabled={isDisabled}
+        disabled={disabled}
       >
         {label}
       </Check>
@@ -230,34 +230,34 @@ export function InlineRadio() {
       id: 'inlineCheckbox1',
       value: 'option1',
       label: '1',
-      isDisabled: false,
+      disabled: false,
     },
     {
       id: 'inlineCheckbox2',
       value: 'option2',
       label: '2',
-      isDisabled: false,
+      disabled: false,
     },
     {
       id: 'inlineCheckbox3',
       value: 'option3',
       label: '3 (disabled)',
-      isDisabled: true,
+      disabled: true,
     },
   ];
 
   return (
     examples.map(({
-      value, id, label, isDisabled,
+      value, id, label, disabled,
     }) => (
       <Check
         id={id}
         value={value}
         type="radio"
-        isInlined
-        isChecked={optionRadio === value}
+        inlined
+        checked={optionRadio === value}
         onChange={() => setOptionRadio(value)}
-        isDisabled={isDisabled}
+        disabled={disabled}
       >
         {label}
       </Check>
@@ -275,27 +275,27 @@ export function Reverse() {
     <>
       <Check
         id="reverseCheck1"
-        isChecked={checkbox1}
+        checked={checkbox1}
         onChange={() => setCheckbox1((prev) => !prev)}
-        isReversed
+        reversed
       >
         Reverse checkbox
       </Check>
       <Check
         id="reverseCheck2"
-        isChecked={checkbox2}
+        checked={checkbox2}
         onChange={() => setCheckbox2((prev) => !prev)}
-        isDisabled
-        isReversed
+        disabled
+        reversed
       >
         Disabled reverse checkbox
       </Check>
       <Check
         id="reverseCheck3"
-        isChecked={checkbox3}
+        checked={checkbox3}
         onChange={() => setCheckbox3((prev) => !prev)}
-        isSwitched
-        isReversed
+        switched
+        reversed
       >
         Reverse switch checkbox input
       </Check>
@@ -311,14 +311,14 @@ export function WithoutLabels() {
     <>
       <Check
         id="checkboxNoLabel"
-        isChecked={checkbox}
+        checked={checkbox}
         onChange={() => setCheckbox((prev) => !prev)}
       />
       <Check
         type="radio"
         id="radioNoLabel1"
         name="radioNoLabel"
-        isChecked={radiobox === 'radioNoLabel'}
+        checked={radiobox === 'radioNoLabel'}
         onChange={() => setRadiobox('radioNoLabel')}
       />
     </>

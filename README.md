@@ -6,10 +6,10 @@ React component library basis on [Bootstrap](https://getbootstrap.com/) for fast
 
 ### **Features**
 + 💥 Install library via [`npm`](https://www.npmjs.com) or [`yarn`](https://classic.yarnpkg.com/)
-+ 🔥 Support latest version of [Bootstrap](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
-+ 🧾 Documents generate by [Storybook](https://www.storybook.js.org)
++ 🔥 Support latest version of [`Bootstrap`](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
++ 🧾 Documents generate by [`Storybook`](https://www.storybook.js.org)
 + 📖 Many informative, original and honest examples
-+ ✨ Clean JavaScript (without TypeScript)
++ ✨ Clean `JavaScript` (without `TypeScript`)
 
 ### **Preparation**
 
@@ -35,13 +35,11 @@ yarn add bootstrap
 
 and you need import Bootstrap styles and script in `index.js` or `App.[js|jsx]` file (to your notice):
 
-> Import styles
-```shell
+> Example
+```js
+// css
 import 'bootstrap/dist/css/bootstrap.min.css';
-```
-
-> Import scripts
-```shell
+// scripts
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 

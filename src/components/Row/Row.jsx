@@ -31,7 +31,7 @@ function Row(props) {
   );
 
   return (
-    <Flex style={style} className={classes} {...rest}>
+    <Flex display={null} style={style} className={classes} {...rest}>
       {children}
     </Flex>
   );
