@@ -44,6 +44,13 @@ export function All() {
   );
 }
 
+export function BaseClass() {
+  return (
+    <Button theme={null}>Base class</Button>
+  );
+}
+BaseClass.storyName = 'Base class';
+
 export function Outlines() {
   return (
     [

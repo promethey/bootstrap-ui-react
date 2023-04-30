@@ -28,8 +28,8 @@ function Button(props) {
 
   const classes = classNames(
     BASE_CLASSNAME,
-    usePrefix(BASE_CLASSNAME, outline ? 'outline' : null, theme),
     {
+      [usePrefix(BASE_CLASSNAME, outline ? 'outline' : null, theme)]: theme,
       disabled: disabled && ComponentType !== 'button',
       [usePrefix(BASE_CLASSNAME, size)]: size,
       active: pressed,
@@ -85,21 +85,19 @@ function Button(props) {
     );
   }
 
-  /** Render as button */
-  if (ComponentType === 'button') {
-    return (
-      <Box as="button" {...buttonProperties} data-bs-target={bsTarget}>
-        {children}
-      </Box>
-    );
-  }
-
   /** Render as input */
   if (ComponentType === 'input') {
     return (
       <Box as="input" {...inputProps} />
     );
   }
+
+  /** Render as button */
+  return (
+    <Box as="button" {...buttonProperties} data-bs-target={bsTarget}>
+      {children}
+    </Box>
+  );
 }
 
 Button.propTypes = {
@@ -153,9 +151,6 @@ Button.propTypes = {
   /** Activate disabled state */
   disabled: PropTypes.bool,
 
-  /** Add toggle state */
-  isToggle: PropTypes.bool,
-
   /** Add active style */
   pressed: PropTypes.bool,
 
@@ -182,7 +177,6 @@ Button.defaultProps = {
   outline: false,
   size: null,
   disabled: false,
-  isToggle: false,
   pressed: false,
   stretchedLink: false,
   onClick: null,

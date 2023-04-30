@@ -33,33 +33,6 @@ function Badge(props) {
   );
 }
 
-export const BadgeBgColors = [
-  'primary',
-  'secondary',
-  'success',
-  'danger',
-  'warning',
-  'info',
-  'light',
-  'dark',
-];
-
-export const BadgeTextColors = [
-  'primary',
-  'secondary',
-  'success',
-  'danger',
-  'warning',
-  'info',
-  'light',
-  'dark',
-  'body',
-  'muted',
-  'white',
-  'black-50',
-  'white-50',
-];
-
 Badge.propTypes = {
   /** Add other styles */
   style: PropTypes.shape({}),
@@ -74,10 +47,33 @@ Badge.propTypes = {
   ]),
 
   /** Choose background color */
-  bgColor: PropTypes.oneOf(BadgeBgColors),
+  bgColor: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+  ]),
 
   /** Choose text color */
-  textColor: PropTypes.oneOf(BadgeTextColors),
+  textColor: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'body',
+    'muted',
+    'white',
+    'black-50',
+    'white-50',
+  ]),
 };
 
 Badge.defaultProps = {

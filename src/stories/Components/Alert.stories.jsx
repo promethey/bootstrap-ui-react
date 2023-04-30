@@ -6,7 +6,10 @@ import {
 export default {
   title: 'Components/Alert',
   component: Alert,
-  subcomponents: { Box },
+  subcomponents: {
+    'Alert.Heading': Alert.Heading,
+    'Alert.Link': Alert.Link,
+  },
   parameters: {
     docs: {
       description: {
