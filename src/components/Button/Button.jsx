@@ -18,8 +18,6 @@ function Button(props) {
     disabled,
     pressed,
     stretchedLink,
-    bsToggle,
-    bsTarget,
     onClick,
     ...rest
   } = props;
@@ -42,7 +40,6 @@ function Button(props) {
     style,
     className: classes,
     onClick,
-    'data-bs-toggle': bsToggle,
     ...rest,
   };
 
@@ -94,7 +91,7 @@ function Button(props) {
 
   /** Render as button */
   return (
-    <Box as="button" {...buttonProperties} data-bs-target={bsTarget}>
+    <Box as="button" {...buttonProperties}>
       {children}
     </Box>
   );
@@ -159,12 +156,6 @@ Button.propTypes = {
 
   /** Click event handler */
   onClick: PropTypes.func,
-
-  /** Alias for *data-bs-toggle* */
-  bsToggle: PropTypes.string,
-
-  /** Alias for *data-bs-target* */
-  bsTarget: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -180,8 +171,6 @@ Button.defaultProps = {
   pressed: false,
   stretchedLink: false,
   onClick: null,
-  bsToggle: null,
-  bsTarget: null,
 };
 
 export default Button;
