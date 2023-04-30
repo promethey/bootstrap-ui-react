@@ -6,7 +6,7 @@ import Box from 'components/Box';
 export const AccordionItemContext = createContext(null);
 
 function AccordionItem({
-  children, style, className, activeKey, ...rest
+  children, style, className, itemKey, ...rest
 }) {
   const classes = classNames(
     'accordion-item',
@@ -14,7 +14,7 @@ function AccordionItem({
   );
 
   return (
-    <AccordionItemContext.Provider value={activeKey}>
+    <AccordionItemContext.Provider value={itemKey}>
       <Box className={classes} style={style} {...rest}>
         {children}
       </Box>
@@ -36,8 +36,8 @@ AccordionItem.propTypes = {
     PropTypes.object,
   ]),
 
-  /** Select active key number for item */
-  activeKey: PropTypes.number.isRequired,
+  /** Select item key number for item */
+  itemKey: PropTypes.number.isRequired,
 };
 
 AccordionItem.defaultProps = {

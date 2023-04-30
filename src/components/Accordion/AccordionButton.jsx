@@ -8,12 +8,12 @@ import { AccordionItemContext } from './AccordionItem';
 function AccordionButton({
   children, style, className, onClick, ...rest
 }) {
-  const { activeItem, setActiveItem, alwaysOpen } = useContext(AccordionContext);
-  const activeKey = useContext(AccordionItemContext);
+  const { changeActiveItems, checkActiveKey } = useContext(AccordionContext);
+  const itemKey = useContext(AccordionItemContext);
 
   const classes = classNames(
     'accordion-button',
-    { collapsed: activeItem !== activeKey },
+    { collapsed: !checkActiveKey(itemKey) },
     className,
   );
 
@@ -23,13 +23,7 @@ function AccordionButton({
       type="button"
       className={classes}
       style={style}
-      onClick={() => setActiveItem((prev) => {
-        if (alwaysOpen) {
-          return prev.includes(activeKey) ? prev.filter((item) => item !== activeKey)
-            : [...prev, activeKey];
-        }
-        return prev === activeKey ? null : activeKey;
-      })}
+      onClick={() => changeActiveItems(itemKey)}
       {...rest}
     >
       {children}

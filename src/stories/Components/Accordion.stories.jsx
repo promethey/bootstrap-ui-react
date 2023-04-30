@@ -27,7 +27,7 @@ function DefaultTemplate(args) {
   return (
     <Accordion {...args}>
       {[...new Array(3)].map((item, index) => (
-        <Accordion.Item key={uuidv4()} activeKey={index}>
+        <Accordion.Item key={uuidv4()} itemKey={index}>
           <Accordion.Header>
             Accordion Item #
             {index + 1}
@@ -58,7 +58,7 @@ function DefaultTemplate(args) {
 }
 
 export const Default = DefaultTemplate.bind({});
-Default.args = { defaultActiveKey: 0 };
+Default.args = { activeItems: 0 };
 
 export const Flush = DefaultTemplate.bind({});
 Flush.args = { flush: true };

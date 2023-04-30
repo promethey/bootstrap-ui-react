@@ -9,8 +9,8 @@ import { AccordionItemContext } from './AccordionItem';
 function AccordionBody({
   children, style, className, ...rest
 }) {
-  const { activeItem } = useContext(AccordionContext);
-  const activeKey = useContext(AccordionItemContext);
+  const { checkActiveKey } = useContext(AccordionContext);
+  const itemKey = useContext(AccordionItemContext);
 
   const classes = classNames(
     'accordion-body',
@@ -18,7 +18,7 @@ function AccordionBody({
   );
 
   return (
-    <AccordionCollapse in={activeItem === activeKey}>
+    <AccordionCollapse in={checkActiveKey(itemKey)}>
       <Box className={classes} style={style} {...rest}>
         {children}
       </Box>
