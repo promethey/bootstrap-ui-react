@@ -28,14 +28,14 @@ function Collapse(props) {
   const [dimension, setDimension] = useState(null);
   const nodeRef = useRef(null);
 
-  const transitions = {
+  const TRANSITIONS = {
     entering: 'collapsing',
     entered: 'collapse show',
     exiting: 'collapsing',
     exited: 'collapse',
   };
 
-  const getTransitonClassName = (status) => (transitions[status] || 'collapse');
+  const getTransitonClassName = (status) => (TRANSITIONS[status] || 'collapse');
 
   const getNode = () => nodeRef.current;
 
@@ -107,17 +107,18 @@ function Collapse(props) {
     >
       {(status) => {
         const classes = classNames(
+          className,
           getTransitonClassName(status),
           { 'collapse-horizontal': horizontal },
         );
 
-        const customStyles = (dimension === null) ? null
+        const dimensionStyles = (dimension === null) ? null
           : { [horizontal ? 'width' : 'height']: dimension };
 
         return (
           <Box
             ref={nodeRef}
-            style={{ ...customStyles, ...style }}
+            style={{ ...dimensionStyles, ...style }}
             className={classes}
             {...rest}
           >
