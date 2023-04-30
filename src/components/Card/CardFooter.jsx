@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from 'components/Box';
 
-function CardFooter(props) {
-  const {
-    style,
-    children,
-    className,
-    ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card-footer';
+function CardFooter({
+  style,
+  children,
+  className,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'card-footer';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

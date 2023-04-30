@@ -3,32 +3,34 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 
-function CardLink(props) {
-  const {
-    style,
-    children,
-    className,
-    to,
-    linkColor,
-    ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card-link';
+function CardLink({
+  as: Component,
+  style,
+  children,
+  className,
+  to,
+  linkColor,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'card-link';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     { [usePrefix('link', linkColor)]: linkColor },
     className,
   );
 
   return (
-    <a href={to} className={classes} style={style} {...rest}>
+    <Component href={to} className={classes} style={style} {...rest}>
       {children}
-    </a>
+    </Component>
   );
 }
 
 CardLink.propTypes = {
+  // Change JSX component type
+  as: PropTypes.oneOf(['a']),
+
   /** Add other styles */
   style: PropTypes.shape({}),
 
@@ -58,6 +60,7 @@ CardLink.propTypes = {
 };
 
 CardLink.defaultProps = {
+  as: 'a',
   style: null,
   className: null,
   to: '#',

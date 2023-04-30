@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from 'components/Box';
 
-function CardBody(props) {
-  const {
-    style,
-    children,
-    className,
-    ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card-body';
+function CardBody({
+  style,
+  children,
+  className,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'card-body';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

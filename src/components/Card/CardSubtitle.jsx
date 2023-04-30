@@ -4,16 +4,14 @@ import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 import Text from 'components/Text';
 
-function CardSubtitle(props) {
-  const {
-    as: Component,
-    style,
-    children,
-    className,
-    textColor,
-    ...rest
-  } = props;
-
+function CardSubtitle({
+  as: Component,
+  style,
+  children,
+  className,
+  textColor,
+  ...rest
+}) {
   const BASE_CLASS_NAME = 'card-title';
 
   const classes = classNames(

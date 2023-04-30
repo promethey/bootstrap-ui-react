@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Text from 'components/Text';
 
-function CardTitle(props) {
-  const {
-    as: Component, style, children, className,
-  } = props;
-
-  const BASE_CLASSNAME = 'card-title';
+function CardTitle({
+  as: Component, style, children, className,
+}) {
+  const BASE_CLASS_NAME = 'card-title';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

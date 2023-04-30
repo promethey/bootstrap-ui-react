@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Text from 'components/Text';
 
-function CardText(props) {
-  const {
-    style,
-    children,
-    className,
-    ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card-text';
+function CardText({
+  style,
+  children,
+  className,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'card-text';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

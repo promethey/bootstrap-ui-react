@@ -3,24 +3,22 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Text from 'components/Text';
 
-function CardHeader(props) {
-  const {
-    as: Component,
-    style,
-    children,
-    className,
-    ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card-header';
+function CardHeader({
+  as: ComponentType,
+  style,
+  children,
+  className,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'card-header';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 
   return (
-    <Text as={Component} className={classes} style={style} {...rest}>
+    <Text as={ComponentType} className={classes} style={style} {...rest}>
       {children}
     </Text>
   );

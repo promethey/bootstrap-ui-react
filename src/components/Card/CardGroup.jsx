@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from 'components/Box';
 
-function CardGroup(props) {
-  const {
-    style, children, className, ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card-group';
+function CardGroup({
+  style, children, className, ...rest
+}) {
+  const BASE_CLASS_NAME = 'card-group';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

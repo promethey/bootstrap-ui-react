@@ -12,18 +12,16 @@ import CardText from './CardText';
 import CardLink from './CardLink';
 import CardFooter from './CardFooter';
 
-function Card(props) {
-  const {
-    style,
-    children,
-    className,
-    ...rest
-  } = props;
-
-  const BASE_CLASSNAME = 'card';
+function Card({
+  style,
+  children,
+  className,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'card';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from 'helpers/prefix';
 
-function CardImage(props) {
-  const {
-    style,
-    className,
-    src,
-    alt,
-    position,
-    ...rest
-  } = props;
-
+function CardImage({
+  style,
+  className,
+  src,
+  alt,
+  position,
+  ...rest
+}) {
   const BASE_CLASS_NAME = 'card-img';
 
   const classes = classNames(
