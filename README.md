@@ -86,7 +86,7 @@ export default function Example() {
 ```
 
 ### **Components support**
-+ ⬜ Accordion
++ ✅ Accordion
 + ✅ Alert
 + ✅ Badge
 + ✅ Breadcrumb
@@ -95,7 +95,7 @@ export default function Example() {
 + ✅ Card
 + ✅ Carousel
 + ✅ CloseButton
-+ ⬜ Collapse
++ ✅ Collapse
 + ✅ Dropdown
 + ✅ ListGroup
 + ⬜ Modal
