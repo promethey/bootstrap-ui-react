@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Collapse, Button, Card, Flex, Row, Col, Box,
 } from 'components';
@@ -18,17 +18,16 @@ export default {
 };
 
 export function Example() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
-      <Flex mb={2}>
-        <Button className="me-2" to="#collapseExample" bsToggle="collapse">
-          Link with href
-        </Button>
-        <Button bsToggle="collapse" bsTarget="#collapseExample">
-          Button with data-bs-target
-        </Button>
-      </Flex>
-      <Collapse id="collapseExample">
+      <Button onClick={() => setOpen((prev) => !prev)}>
+        {open ? 'Hide' : 'Show'}
+        {' '}
+        collapse
+      </Button>
+      <Collapse in={open} mt={2}>
         <Card>
           <Card.Body>
             Some placeholder content for the collapse component.
@@ -42,42 +41,60 @@ export function Example() {
 }
 
 export function Horizontal() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <>
-      <Button mb={2} bsToggle="collapse" bsTarget="#collapseWidthExample">
+    <Box style={{ minHeight: '152px' }}>
+      <Button mb={2} onClick={() => setOpen((prev) => !prev)}>
         Toggle width collapse
       </Button>
-      <Flex style={{ minHeight: '120px' }}>
-        <Collapse id="collapseWidthExample" isHorizontal>
-          <Card style={{ width: '300px' }}>
-            <Card.Body>
-              This is some placeholder content for a horizontal collapse.
-              It&apos;s hidden by default and shown when triggered.
-            </Card.Body>
-          </Card>
-        </Collapse>
-      </Flex>
-    </>
+      <Collapse in={open} horizontal>
+        <Card style={{ width: '300px' }}>
+          <Card.Body>
+            This is some placeholder content for a horizontal collapse.
+            It&apos;s hidden by default and shown when triggered.
+          </Card.Body>
+        </Card>
+      </Collapse>
+    </Box>
   );
 }
 
 export function MultipleTargets() {
+  const [openCollapse, setOpenCollapse] = useState(false);
+  const [openCollapse2, setOpenCollapse2] = useState(false);
+
   return (
     <>
       <Flex mb={2}>
-        <Button me={2} to="#multiCollapseExample1" bsToggle="collapse">
+        <Button
+          me={2}
+          onClick={() => {
+            setOpenCollapse((prev) => !prev);
+          }}
+        >
           Toggle first element
         </Button>
-        <Button me={2} bsToggle="collapse" bsTarget="#multiCollapseExample2">
+        <Button
+          me={2}
+          onClick={() => {
+            setOpenCollapse2((prev) => !prev);
+          }}
+        >
           Toggle second element
         </Button>
-        <Button bsToggle="collapse" bsTarget=".multi-collapse">
+        <Button
+          onClick={() => {
+            setOpenCollapse((prev) => !prev);
+            setOpenCollapse2((prev) => !prev);
+          }}
+        >
           Toggle both elements
         </Button>
       </Flex>
       <Row>
         <Col>
-          <Collapse id="multiCollapseExample1" className="multi-collapse">
+          <Collapse in={openCollapse}>
             <Card>
               <Card.Body>
                 Some placeholder content for the first collapse component of
@@ -88,7 +105,7 @@ export function MultipleTargets() {
           </Collapse>
         </Col>
         <Col>
-          <Collapse id="multiCollapseExample2" className="multi-collapse">
+          <Collapse in={openCollapse2}>
             <Card>
               <Card.Body>
                 Some placeholder content for the first collapse component of
