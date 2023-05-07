@@ -17,15 +17,15 @@ function Alert({
   onClose,
   ...rest
 }) {
-  const BASE_CLASSNAME = 'alert';
+  const BASE_CLASS_NAME = 'alert';
 
   const alertRef = useRef(null);
 
   const classes = classNames(
-    BASE_CLASSNAME,
-    usePrefix(BASE_CLASSNAME, theme),
+    BASE_CLASS_NAME,
+    usePrefix(BASE_CLASS_NAME, theme),
     {
-      [usePrefix(BASE_CLASSNAME, 'dismissible')]: dissmisible,
+      [usePrefix(BASE_CLASS_NAME, 'dismissible')]: dissmisible,
       'show fade': animated,
     },
     className,

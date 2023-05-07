@@ -6,10 +6,10 @@ import Text from 'components/Text';
 function AlertHeading({
   as: ComponentType, style, children, className, ...rest
 }) {
-  const BASE_CLASSNAME = 'alert-heading';
+  const BASE_CLASS_NAME = 'alert-heading';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

@@ -28,10 +28,10 @@ Default.args = {
   ],
 };
 
-export const Active = Template.bind({});
-Active.args = {
+export const Pressed = Template.bind({});
+Pressed.args = {
   children: [
-    <Button as="a" isPressed aria-current="page">
+    <Button as="a" pressed aria-current="page">
       Active link
     </Button>,
     <Button as="a">Link</Button>,
@@ -60,9 +60,9 @@ export const OutlinedStyles = Template.bind({});
 OutlinedStyles.args = {
   'aria-label': 'Basic outlined example',
   children: [
-    <Button isOutline>Left</Button>,
-    <Button isOutline>Middle</Button>,
-    <Button isOutline>Right</Button>,
+    <Button outline>Left</Button>,
+    <Button outline>Middle</Button>,
+    <Button outline>Right</Button>,
   ],
 };
 OutlinedStyles.storyName = 'Outlines styles';
@@ -71,37 +71,37 @@ export function Sizing() {
   return (
     <>
       <ButtonGroup size="lg">
-        <Button theme="dark" isOutline>
+        <Button outline>
           Left
         </Button>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Middle
         </Button>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Right
         </Button>
       </ButtonGroup>
       <div className="my-2" />
       <ButtonGroup>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Left
         </Button>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Middle
         </Button>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Right
         </Button>
       </ButtonGroup>
       <div className="my-2" />
       <ButtonGroup size="sm">
-        <Button theme="dark" isOutline>
+        <Button outline>
           Left
         </Button>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Middle
         </Button>
-        <Button theme="dark" isOutline>
+        <Button outline>
           Right
         </Button>
       </ButtonGroup>
@@ -114,12 +114,12 @@ VerticalButtons.args = {
   'aria-label': 'Basic vertical buttons example',
   vertical: true,
   children: [
-    <Button theme="dark">Button</Button>,
-    <Button theme="dark">Button</Button>,
-    <Button theme="dark">Button</Button>,
-    <Button theme="dark">Button</Button>,
-    <Button theme="dark">Button</Button>,
-    <Button theme="dark">Button</Button>,
+    <Button>Button</Button>,
+    <Button>Button</Button>,
+    <Button>Button</Button>,
+    <Button>Button</Button>,
+    <Button>Button</Button>,
+    <Button>Button</Button>,
   ],
 };
 VerticalButtons.storyName = 'Vertical buttons';

@@ -15,14 +15,14 @@ function ButtonGroup(props) {
     ...rest
   } = props;
 
-  const BASE_CLASSNAME = 'btn-group';
+  const BASE_CLASS_NAME = 'btn-group';
 
-  const verticalClassName = usePrefix(BASE_CLASSNAME, 'vertical');
+  const verticalClassName = usePrefix(BASE_CLASS_NAME, 'vertical');
 
   const classes = classNames(
-    !vertical ? BASE_CLASSNAME : verticalClassName,
+    !vertical ? BASE_CLASS_NAME : verticalClassName,
     {
-      [usePrefix(BASE_CLASSNAME, size)]: size,
+      [usePrefix(BASE_CLASS_NAME, size)]: size,
       [`drop${drop}`]: drop,
     },
     className,

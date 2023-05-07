@@ -22,14 +22,14 @@ function Button(props) {
     ...rest
   } = props;
 
-  const BASE_CLASSNAME = 'btn';
+  const BASE_CLASS_NAME = 'btn';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     {
-      [usePrefix(BASE_CLASSNAME, outline ? 'outline' : null, theme)]: theme,
+      [usePrefix(BASE_CLASS_NAME, outline ? 'outline' : null, theme)]: theme,
       disabled: disabled && ComponentType !== 'button',
-      [usePrefix(BASE_CLASSNAME, size)]: size,
+      [usePrefix(BASE_CLASS_NAME, size)]: size,
       active: pressed,
       [usePrefix('stretched', 'link')]: stretchedLink && ComponentType === 'a',
     },

@@ -5,10 +5,10 @@ import classNames from 'classnames';
 function AlertLink({
   style, children, className, to, ...rest
 }) {
-  const BASE_CLASSNAME = 'alert-link';
+  const BASE_CLASS_NAME = 'alert-link';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 

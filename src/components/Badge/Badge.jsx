@@ -13,10 +13,10 @@ function Badge(props) {
     ...rest
   } = props;
 
-  const BASE_CLASSNAME = 'badge';
+  const BASE_CLASS_NAME = 'badge';
 
   const classes = classNames(
-    BASE_CLASSNAME,
+    BASE_CLASS_NAME,
     className,
   );
 
