@@ -1,6 +1,6 @@
 # **Bootstrap-UI**
 
-React component library basis on [Bootstrap](https://getbootstrap.com/) for fast creating web application. Documentation generate by [Storybook](storybook.js.org). Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
+Simple, fast and moduler React component library basis on [Bootstrap](https://getbootstrap.com/) styles for fast creating Web apps. Documentation generate by [Storybook](storybook.js.org). Using Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
 
 ![BootstrapUILogo](./img/bootstrap-ui.png)
 
@@ -15,44 +15,40 @@ React component library basis on [Bootstrap](https://getbootstrap.com/) for fast
 
 If you have not created a project yet, I advise you to create it through [`create-react-app`](https://create-react-app.dev). This is most simple way.
 
-> Via npx
 ```shell
+# via npx
 npx create-react-app [project-name]
 ```
 
 This components library usage [**Boostrap**](https://getbootstrap.com) package. Before install library you need
 install original [**Boostrap**](https://getbootstrap.com) package via `npm` or `yarn`
 
-> Via npm
 ```shell
+# via npm
 npm i bootstrap
-```
 
-> Via yarn
-```shell
+# via yarn
 yarn add bootstrap
 ```
 
 and you need import Bootstrap styles and script in `index.js` or `App.[js|jsx]` file (to your notice):
 
-> Example
 ```js
-// css
+// CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
-// scripts
+
+// Scripts
 import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
 ### **Instalation**
-If you successed complete Preparation block, go to install components library:
+If you successed complete *Preparation* block, go to install components library:
 
-> Via npm
 ```shell
+# via npm
 npm i bootstrap-ui
-```
 
-> Via yarn
-```shell
+# via yarn
 yarn add bootstrap-ui
 ```
 
@@ -99,9 +95,9 @@ export default function Example() {
 + ✅ Dropdown
 + ✅ ListGroup
 + ⬜ Modal
-+ ⬜ Nav
++ ✅ Nav
 + ⬜ Tab
-+ ⬜ Navbar
++ ✅ Navbar
 + ⬜ Offcanvas
 + ⬜ Pagination
 + ⬜ Placeholder

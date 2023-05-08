@@ -15,9 +15,9 @@ export { default as Collapse } from 'components/Collapse';
 export { default as Dropdown } from 'components/Dropdown';
 export { default as ListGroup } from 'components/ListGroup';
 // Modal
-// Nav
+export { default as Nav } from 'components/Nav';
 // Tab
-// Navbar
+export { default as Navbar } from 'components/Navbar';
 // Offcanvas
 // Pagination
 // Placeholder
