@@ -1,6 +1,6 @@
 # **Bootstrap-UI**
 
-Simple, fast and moduler React component library basis on [Bootstrap](https://getbootstrap.com/) styles for fast creating Web apps. Documentation generate by [Storybook](storybook.js.org). Using Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
+Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org). Using Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
 
 ![BootstrapUILogo](./img/bootstrap-ui.png)
 
@@ -21,7 +21,7 @@ npx create-react-app [project-name]
 ```
 
 This components library usage [**Boostrap**](https://getbootstrap.com) package. Before install library you need
-install original [**Boostrap**](https://getbootstrap.com) package via `npm` or `yarn`
+install original package via `npm` or `yarn`
 
 ```shell
 # via npm
@@ -42,7 +42,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
 ### **Instalation**
-If you successed complete *Preparation* block, go to install components library:
+If you successed complete **Preparation** block, go to install components library:
 
 ```shell
 # via npm
@@ -53,12 +53,14 @@ yarn add bootstrap-ui
 ```
 
 ### **Import components**
+For example we import `Badge` component from a library
 ```js
 import { Badge } from 'bootstrap-ui';
 import Badge from 'bootstrap-ui/Badge';
 ```
 
 ### **Usage Grid**
+`Grid` is a basic **Bootstrap** system for creating adaptive web apps
 ```js
 import { Container, Row, Col } from 'bootstrap-ui';
 // equivalent usage object Grid
