@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Navbar, Container, Nav } from 'components';
+import {
+  Navbar, Container, Nav, Box, Form, Button,
+} from 'components';
 
 export default {
   title: 'Components/Navbar',
@@ -45,5 +47,134 @@ function DefaultTemplate(args) {
   );
 }
 
+function AlternativeTemplate(args) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Navbar bgColor="light" expand="lg" {...args}>
+      <Container fluid="md">
+        <Navbar.Brand>Navbar</Navbar.Brand>
+        <Navbar.Toggler onClick={() => setOpen((prev) => !prev)} />
+        <Navbar.Collapse in={open}>
+          <Navbar.Nav>
+            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>Features</Nav.Link>
+            <Nav.Link>Pricing</Nav.Link>
+            <Nav.Link disabled>Disabled</Nav.Link>
+          </Navbar.Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
 export const Default = DefaultTemplate.bind({});
 Default.storyName = 'Default';
+
+export function Brand() {
+  return (
+    <>
+      <Navbar bgColor="light" expand="lg" mb={3}>
+        <Container>
+          <Navbar.Brand>Navbar</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Navbar bgColor="light" expand="lg">
+        <Container>
+          <Navbar.Brand as="span" mb={0} className="h1">
+            Navbar
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+    </>
+  );
+}
+
+export function Image() {
+  return (
+    <Navbar bgColor="light" expand="lg" mb={3}>
+      <Container>
+        <Navbar.Brand>
+          <Box
+            as="img"
+            src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
+            alt="Bootstrap Logo"
+            style={{ width: '30px', height: '24px' }}
+          />
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
+  );
+}
+
+export function ImageAndText() {
+  return (
+    <Navbar bgColor="light" expand="lg" mb={3}>
+      <Container>
+        <Navbar.Brand>
+          <Box
+            as="img"
+            d="inline-block"
+            me={2}
+            src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
+            alt="Bootstrap Logo"
+            style={{ width: '30px', height: '24px', verticalAlign: 'text-top' }}
+          />
+          Bootstrap
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
+  );
+}
+ImageAndText.storyName = 'Image and text';
+
+export const ShortNav = AlternativeTemplate.bind({});
+ShortNav.storyName = 'Short Nav';
+
+export function FormExample() {
+  return (
+    <Navbar bgColor="light">
+      <Container fluid>
+        <Navbar.Brand>Navbar</Navbar.Brand>
+        <Form d="flex">
+          <Form.Control type="search" placeholder="Search" me={2} />
+          <Button theme="success" as="button" outline type="submit">
+            Search
+          </Button>
+        </Form>
+      </Container>
+    </Navbar>
+  );
+}
+FormExample.storyName = 'Forms';
+
+export function Text() {
+  return (
+    <Navbar bgColor="light">
+      <Container fluid>
+        <Navbar.Text>
+          Navbar text with an inline element
+        </Navbar.Text>
+      </Container>
+    </Navbar>
+  );
+}
+Text.storyName = 'Text';
+
+export function ColorSchemas() {
+  return (
+    <Navbar bgColor="dark">
+      <Container>
+        <Navbar.Brand>Navbar</Navbar.Brand>
+        <Navbar.Collapse>
+          <Navbar.Nav>
+            <Nav.Link>Home</Nav.Link>
+            <Nav.Link>Features</Nav.Link>
+            <Nav.Link>Pricing</Nav.Link>
+            <Nav.Link disabled>Disabled</Nav.Link>
+          </Navbar.Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
