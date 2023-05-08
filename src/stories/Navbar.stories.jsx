@@ -8,6 +8,8 @@ export default {
   component: Navbar,
   parameters: {
     docs: {
+      inlineStories: false,
+      iframeHeight: 500,
       description: {
         component: `Documentation and examples for Bootstrap’s powerful,
         responsive navigation header, the navbar. Includes support for
@@ -163,18 +165,34 @@ Text.storyName = 'Text';
 
 export function ColorSchemas() {
   return (
-    <Navbar bgColor="dark">
-      <Container>
-        <Navbar.Brand>Navbar</Navbar.Brand>
-        <Navbar.Collapse>
-          <Navbar.Nav>
-            <Nav.Link>Home</Nav.Link>
-            <Nav.Link>Features</Nav.Link>
-            <Nav.Link>Pricing</Nav.Link>
-            <Nav.Link disabled>Disabled</Nav.Link>
-          </Navbar.Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <DefaultTemplate
+        bgColor="dark"
+        data-bs-theme="dark"
+        mb={3}
+      />
+      <DefaultTemplate
+        bgColor="primary"
+        data-bs-theme="dark"
+        mb={3}
+      />
+      <DefaultTemplate
+        style={{ backgroundColor: '#e3f2fd' }}
+      />
+    </>
   );
 }
+ColorSchemas.storyName = 'Color schemas';
+
+export function ContainerExample() {
+  return (
+    <Container>
+      <Navbar bgColor="light">
+        <Container fluid>
+          <Navbar.Brand>Navbar</Navbar.Brand>
+        </Container>
+      </Navbar>
+    </Container>
+  );
+}
+ContainerExample.storyName = 'Container';

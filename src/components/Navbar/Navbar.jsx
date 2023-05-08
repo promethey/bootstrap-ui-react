@@ -10,7 +10,11 @@ import NavbarNav from './NavbarNav';
 import NavbarText from './NavbarText';
 
 function Navbar({
-  children, style, expand, className, ...rest
+  children,
+  style,
+  expand,
+  placement,
+  className, ...rest
 }) {
   const BASE_CLASS_NAME = 'navbar';
 
@@ -18,6 +22,7 @@ function Navbar({
     BASE_CLASS_NAME,
     {
       [usePrefix(BASE_CLASS_NAME, 'expand', expand)]: expand,
+      [placement]: placement,
     },
     className,
   );
@@ -44,13 +49,22 @@ Navbar.propTypes = {
   ]),
 
   /** Change responsive collapsing  */
-  expand: PropTypes.oneOf('sm', 'md', 'lg', 'xl', 'xxl'),
+  expand: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
+
+  /** Change navbar placement */
+  placement: PropTypes.oneOf([
+    'fixed-top',
+    'fixed-bottom',
+    'sticky-top',
+    'sticky-bottom',
+  ]),
 };
 
 Navbar.defaultProps = {
   style: null,
   className: null,
   expand: null,
+  placement: null,
 };
 
 Navbar.Brand = NavbarBrand;
