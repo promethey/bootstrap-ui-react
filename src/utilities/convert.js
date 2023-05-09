@@ -8,10 +8,10 @@ import { usePrefix } from 'helpers/prefix';
  * ('d', { xs: 'inline-flex', sm: 'block', md: 'flex' }) ->
  * 'd-inline-flex d-sm-block d-md-flex'
  *
- * @param {string} prefix
- * @param {object} classNames
- * @param {object} options
- * @returns {array||string} result classnames
+ * @param {string} prefix Bootstrap prefix (for example: 'btn')
+ * @param {object} classNames Other classnames
+ * @param {object} options Add classNames param in prefix
+ * @returns {array||string} Result classnames
  */
 export function getBootstrapClassNames(
   prefix,
@@ -44,7 +44,7 @@ export function getBootstrapClassNames(
   const prefixInArray = prefix.split('-');
 
   /**
-   * Copy prefix array and drop last elem in prefix array.
+   * Copy prefix array and drop first elem in prefix array.
    * Example: ['flex', 'wrap', 'reverse'] => ['wrap', 'reverse']
    */
   const copyPrefixInArray = [...prefixInArray];
@@ -79,5 +79,5 @@ export function getBootstrapClassNames(
     return classNamesArray;
   }
 
-  return false;
+  return null;
 }

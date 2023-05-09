@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Box from 'components/Box';
+import Flex from 'components/Flex';
 
-function NavbarBrand({
-  as: Component, children, style, to, className, ...rest
-}) {
-  const BASE_CLASS_NAME = 'navbar-brand';
-
-  const classes = classNames(BASE_CLASS_NAME, className);
-
-  return (
-    <Box href={to} as="a" className={classes} style={style} {...rest}>
-      {children}
-    </Box>
-  );
-}
-
-NavbarBrand.propTypes = {
+/**
+ * PropTypes
+ */
+const propTypes = {
   /** Change component type */
-  as: PropTypes.oneOf(['a']),
+  as: PropTypes.oneOf([
+    'a',
+    'span',
+    'div',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'strong',
+  ]),
 
   /** Add brand text content */
   children: PropTypes.node.isRequired,
@@ -38,11 +38,51 @@ NavbarBrand.propTypes = {
   to: PropTypes.string,
 };
 
-NavbarBrand.defaultProps = {
+/**
+ * DefaultProps
+ */
+const defaultProps = {
   as: 'a',
   style: null,
   className: null,
   to: '#',
 };
+
+/**
+ * NavbarBrand component
+ * Basis on Flex component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/navbar}
+ */
+function NavbarBrand({
+  as: Component,
+  children,
+  style,
+  to,
+  className,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'navbar-brand';
+
+  const classes = classNames(BASE_CLASS_NAME, className);
+
+  return (
+    <Flex
+      href={to}
+      as={Component}
+      className={classes}
+      style={style}
+      {...rest}
+    >
+      {children}
+    </Flex>
+  );
+}
+
+NavbarBrand.propTypes = propTypes;
+NavbarBrand.defaultProps = defaultProps;
 
 export default NavbarBrand;
