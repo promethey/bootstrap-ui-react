@@ -55,7 +55,7 @@ const defaultProps = {
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
  * @since 1.0.0
- * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/navbar}
+ * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/navbar/}
  */
 function Navbar({
   children,
