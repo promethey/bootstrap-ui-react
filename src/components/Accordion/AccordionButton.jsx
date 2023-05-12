@@ -5,14 +5,66 @@ import Box from 'components/Box';
 import { AccordionContext } from './AccordionContext';
 import { AccordionItemContext } from './AccordionItem';
 
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add Accordion header title
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add other classnames
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
+
+  /**
+   * Add handler for onClick event
+   */
+  onClick: PropTypes.func,
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+  onClick: null,
+};
+
+/**
+ * Accordion Body component
+ * Basis on Box component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/accordion}
+ */
 function AccordionButton({
-  children, style, className, onClick, ...rest
+  children,
+  style,
+  className,
+  onClick,
+  ...rest
 }) {
   const { changeActiveItems, checkActiveKey } = useContext(AccordionContext);
   const itemKey = useContext(AccordionItemContext);
+  const BASE_CLASS_NAME = 'accordion-button';
 
   const classes = classNames(
-    'accordion-button',
+    BASE_CLASS_NAME,
     { collapsed: !checkActiveKey(itemKey) },
     className,
   );
@@ -31,28 +83,7 @@ function AccordionButton({
   );
 }
 
-AccordionButton.propTypes = {
-  // Add Accordion header title
-  children: PropTypes.node.isRequired,
-
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other classnames */
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
-
-  /** Add handler for onClick event */
-  onClick: PropTypes.func,
-};
-
-AccordionButton.defaultProps = {
-  style: null,
-  className: null,
-  onClick: null,
-};
+AccordionButton.propTypes = propTypes;
+AccordionButton.defaultProps = defaultProps;
 
 export default AccordionButton;

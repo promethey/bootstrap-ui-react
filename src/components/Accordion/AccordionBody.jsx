@@ -6,8 +6,52 @@ import AccordionCollapse from './AccordionCollapse';
 import { AccordionContext } from './AccordionContext';
 import { AccordionItemContext } from './AccordionItem';
 
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add Accordion header title
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add other classnames
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * Accordion Body component
+ * Basis on Box component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/accordion}
+ */
 function AccordionBody({
-  children, style, className, ...rest
+  children,
+  style,
+  className,
+  ...rest
 }) {
   const { checkActiveKey } = useContext(AccordionContext);
   const itemKey = useContext(AccordionItemContext);
@@ -26,24 +70,7 @@ function AccordionBody({
   );
 }
 
-AccordionBody.propTypes = {
-  // Add Accordion header title
-  children: PropTypes.node.isRequired,
-
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other classnames */
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
-};
-
-AccordionBody.defaultProps = {
-  style: null,
-  className: null,
-};
+AccordionBody.propTypes = propTypes;
+AccordionBody.defaultProps = defaultProps;
 
 export default AccordionBody;
