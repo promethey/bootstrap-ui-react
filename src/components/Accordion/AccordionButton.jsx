@@ -44,13 +44,8 @@ const defaultProps = {
 };
 
 /**
- * Accordion Body component
+ * AccordionBody is children component of AccordionHeader
  * Basis on Box component
- *
- * @author Sedelkov Egor <sedelkovegor@gmail.com>
- * @version 1.0.0
- * @since 1.0.0
- * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/accordion}
  */
 function AccordionButton({
   children,

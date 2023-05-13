@@ -70,10 +70,17 @@ const defaultProps = {
  * Accordion component
  * Basis on Box component
  *
+ * Subcomponents:
+ * - Item
+ * - Header
+ * - Body
+ *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
  * @since 1.0.0
- * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/accordion}
+ * @link https://getbootstrap.com/docs/5.3/components/accordion
+ *
+ * Changelog:
  */
 function Accordion({
   children,

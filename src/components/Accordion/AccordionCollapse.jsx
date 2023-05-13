@@ -36,13 +36,8 @@ const defaultProps = {
 };
 
 /**
- * AccordionCollapse component
+ * AccordionCollapse is children component of AccordionBody
  * Basis on Collapse component
- *
- * @author Sedelkov Egor <sedelkovegor@gmail.com>
- * @version 1.0.0
- * @since 1.0.0
- * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/accordion}
  */
 function AccordionCollapse({
   children,

@@ -43,13 +43,8 @@ const defaultProps = {
 };
 
 /**
- * AccordionHeader component
+ * AccordionHeader is children component of Accordion
  * Basis on Text component
- *
- * @author Sedelkov Egor <sedelkovegor@gmail.com>
- * @version 1.0.0
- * @since 1.0.0
- * @see [Bootstrap]{@link https://getbootstrap.com/docs/5.3/components/accordion}
  */
 function AccordionHeader({
   as: ComponentType,
