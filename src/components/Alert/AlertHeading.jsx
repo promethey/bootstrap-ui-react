@@ -20,15 +20,15 @@ const propTypes = {
   ]),
 
   /**
-   * Add other styles
-   */
-  style: PropTypes.shape({}),
-
-  /**
    * Add content text
    * Required
    */
   children: PropTypes.node.isRequired,
+
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
 
   /**
    * Add other classnames

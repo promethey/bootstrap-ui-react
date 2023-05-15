@@ -11,19 +11,28 @@ import AlertHeading from './AlertHeading';
  * PropTypes
  */
 const propTypes = {
-/** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add alert content */
+  /**
+   * Add alert content
+   * Required
+   */
   children: PropTypes.node.isRequired,
 
-  /** Add other classes */
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add other classes
+   */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /** Choose main theme */
+  /**
+   * Choose main theme
+   */
   theme: PropTypes.oneOf([
     'primary',
     'secondary',
@@ -35,10 +44,14 @@ const propTypes = {
     'dark',
   ]),
 
-  /** Add close button */
+  /**
+   * Add close button
+   */
   dissmisible: PropTypes.bool,
 
-  /** Add animations */
+  /**
+   * Add animations
+   */
   animated: PropTypes.bool,
 
   /**
@@ -67,7 +80,7 @@ const defaultProps = {
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
  * @since 1.0.0
- * @link https://getbootstrap.com/docs/5.3/components/alert
+ * @link https://getbootstrap.com/docs/5.3/components/alerts
  */
 function Alert({
   style,
