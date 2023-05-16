@@ -80,16 +80,14 @@ const defaultProps = {
  *
  * Changelog:
  */
-function Badge(props) {
-  const {
-    style,
-    children,
-    className,
-    bgColor,
-    textColor,
-    ...rest
-  } = props;
-
+function Badge({
+  style,
+  children,
+  className,
+  bgColor,
+  textColor,
+  ...rest
+}) {
   const BASE_CLASS_NAME = 'badge';
 
   const classes = classNames(
