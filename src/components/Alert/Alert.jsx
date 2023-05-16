@@ -77,10 +77,16 @@ const defaultProps = {
  * Alert component
  * Basis on Box component
  *
+ * Subcomponents:
+ * - Header
+ * - Link
+ *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
  * @since 1.0.0
  * @link https://getbootstrap.com/docs/5.3/components/alerts
+ *
+ * Changelog:
  */
 function Alert({
   style,
