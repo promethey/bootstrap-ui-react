@@ -1,8 +1,7 @@
 {
-  "name": "bootstrap-ui",
-  "version": "1.0.0",
+  "name": "bootstrap-ui-react",
+  "version": "0.8.0",
   "description": "React component library basis on Bootstrap [getbootstrap.com]",
-  "private": true,
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "storybook-docs": "storybook dev --docs --no-manager-cache",
