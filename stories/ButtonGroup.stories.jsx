@@ -114,12 +114,12 @@ VerticalButtons.args = {
   'aria-label': 'Basic vertical buttons example',
   vertical: true,
   children: [
-    <Button>Button</Button>,
-    <Button>Button</Button>,
-    <Button>Button</Button>,
-    <Button>Button</Button>,
-    <Button>Button</Button>,
-    <Button>Button</Button>,
+    <Button outline>Button #1</Button>,
+    <Button outline>Button #2</Button>,
+    <Button outline>Button #3</Button>,
+    <Button outline>Button #4</Button>,
+    <Button outline>Button #5</Button>,
+    <Button outline>Button #6</Button>,
   ],
 };
 VerticalButtons.storyName = 'Vertical buttons';
