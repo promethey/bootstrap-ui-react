@@ -1,4 +1,4 @@
-import { usePrefix } from 'helpers/prefix';
+import { usePrefix } from './prefix';
 import { getBootstrapClassNames } from './convert';
 
 export function getFloatClassNames(floats) {

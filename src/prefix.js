@@ -1,9 +1,9 @@
 /**
  * Function for creating classnames like Bootstrap
  *
- * @param {stirng} prefix - Bootstrap prefix classname
+ * @param {string} prefix - Bootstrap prefix
  * @param  {array} classNames - Bootstrap other classnames
- * @returns {string} - Result
+ * @returns {string}
  */
 export function usePrefix(prefix, ...classNames) {
   const classes = [];

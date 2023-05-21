@@ -5,13 +5,12 @@ import { usePrefix } from './prefix';
  * responsive classes
  *
  * Example:
- * ('d', { xs: 'inline-flex', sm: 'block', md: 'flex' }) ->
- * 'd-inline-flex d-sm-block d-md-flex'
+ * ('d', { sm: 'block' }) -> 'd-sm-block'
  *
- * @param {string} prefix - Bootstrap prefix (for example: 'btn')
+ * @param {string} prefix - Bootstrap prefix
  * @param {object} classNames - Other classnames
- * @param {object} options - Add classNames param in prefix
- * @returns {(array|string)} - Result classnames
+ * @param {object} options - Add other options
+ * @returns {(array|string)}
  */
 export function getBootstrapClassNames(
   prefix,
