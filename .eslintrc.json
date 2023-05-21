@@ -27,12 +27,5 @@
     "no-restricted-syntax": 0,
     "react/jsx-no-bind": 0,
     "react/jsx-no-constructed-context-values": 0
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    }
   }
 }
