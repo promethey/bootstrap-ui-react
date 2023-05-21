@@ -2,9 +2,9 @@
 
 Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org). 
 
->Using Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
+>Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
 
-![BootstrapUILogo](./img/bootstrap-ui.png)
+![BootstrapUILogo](./static/bootstrap-ui.png)
 
 ## **Features**
 + 💥 Install library via [`npm`](https://www.npmjs.com) or [`yarn`](https://classic.yarnpkg.com/)
