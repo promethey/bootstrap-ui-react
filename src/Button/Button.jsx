@@ -4,24 +4,143 @@ import classNames from 'classnames';
 import { usePrefix } from '../prefix';
 import Box from '../Box';
 
-function Button(props) {
-  const {
-    as: ComponentType,
-    style,
-    children,
-    className,
-    to,
-    type,
-    theme,
-    outline,
-    size,
-    disabled,
-    pressed,
-    stretchedLink,
-    onClick,
-    ...rest
-  } = props;
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Change component type
+   */
+  as: PropTypes.oneOf([
+    'button',
+    'a',
+    'input',
+  ]),
 
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add label for button
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classes
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+
+  /**
+   * Alias for attribute href
+   */
+  to: PropTypes.string,
+
+  /**
+   * Alias for attribute type
+   */
+  type: PropTypes.string,
+
+  /**
+   * Choose main theme
+   */
+  theme: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'danger',
+    'warning',
+    'info',
+    'light',
+    'dark',
+    'link',
+  ]),
+
+  /**
+   * Activate outline style
+   */
+  outline: PropTypes.bool,
+
+  /**
+   * Change button size
+   */
+  size: PropTypes.oneOf([
+    'sm',
+    'lg',
+  ]),
+
+  /**
+   * Activate disabled state
+   */
+  disabled: PropTypes.bool,
+
+  /**
+   * Add active style
+   */
+  pressed: PropTypes.bool,
+
+  /**
+   * Make clickable by
+   * stretching a nested link
+   */
+  stretched: PropTypes.bool,
+
+  /**
+   * Click event handler
+   */
+  onClick: PropTypes.func,
+};
+
+/**
+ * DefaultProps
+ */
+export const defaultProps = {
+  as: 'button',
+  style: null,
+  className: null,
+  to: '#',
+  type: 'button',
+  theme: 'primary',
+  outline: false,
+  size: null,
+  disabled: false,
+  pressed: false,
+  stretched: false,
+  onClick: null,
+};
+
+/**
+ * Button component
+ * Basis on Box component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @link https://getbootstrap.com/docs/5.3/components/buttons
+ *
+ * Changelog:
+ * - Refactoring component [21/05/2023]
+ */
+export default function Button({
+  as: ComponentType,
+  style,
+  children,
+  className,
+  to,
+  type,
+  theme,
+  outline,
+  size,
+  disabled,
+  pressed,
+  stretched,
+  onClick,
+  ...rest
+}) {
   const BASE_CLASS_NAME = 'btn';
 
   const classes = classNames(
@@ -31,11 +150,14 @@ function Button(props) {
       disabled: disabled && ComponentType !== 'button',
       [usePrefix(BASE_CLASS_NAME, size)]: size,
       active: pressed,
-      [usePrefix('stretched', 'link')]: stretchedLink && ComponentType === 'a',
+      [usePrefix('stretched', 'link')]: stretched && ComponentType === 'a',
     },
     className,
   );
 
+  /**
+   * Base properties
+   */
   const baseProperties = {
     style,
     className: classes,
@@ -43,21 +165,27 @@ function Button(props) {
     ...rest,
   };
 
-  /** button properties */
+  /**
+   * Only button properties
+   */
   const buttonProperties = {
     ...baseProperties,
     type,
     disabled,
   };
 
-  /** link properties */
+  /**
+   * Only link properties
+   */
   const linkProperties = {
     ...baseProperties,
     href: to || '#',
     role: 'button',
   };
 
-  /** input properties */
+  /**
+   * Only input properties
+   */
   const inputProps = {
     ...baseProperties,
     type,
@@ -73,8 +201,10 @@ function Button(props) {
     linkProperties['aria-disabled'] = true;
   }
 
-  /** Render as link */
-  if (ComponentType === 'a' || to !== null) {
+  /**
+   * Render as link
+   */
+  if (ComponentType === 'a') {
     return (
       <Box as="a" {...linkProperties}>
         {children}
@@ -82,14 +212,19 @@ function Button(props) {
     );
   }
 
-  /** Render as input */
+  /**
+   * Render as input
+   */
   if (ComponentType === 'input') {
     return (
       <Box as="input" {...inputProps} />
     );
   }
 
-  /** Render as button */
+  /**
+   * Render as button
+   * (default)
+   */
   return (
     <Box as="button" {...buttonProperties}>
       {children}
@@ -97,80 +232,5 @@ function Button(props) {
   );
 }
 
-Button.propTypes = {
-  /** Change JSX type */
-  as: PropTypes.oneOf([
-    'button',
-    'a',
-    'input',
-  ]),
-
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add label for button */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  /** Alias for attribute *href* */
-  to: PropTypes.string,
-
-  /** Alias for attribute *type* */
-  type: PropTypes.string,
-
-  /** Choose main theme */
-  theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'link',
-  ]),
-
-  /** Activate outline style */
-  outline: PropTypes.bool,
-
-  /** Change button size */
-  size: PropTypes.oneOf([
-    'sm',
-    'lg',
-  ]),
-
-  /** Activate disabled state */
-  disabled: PropTypes.bool,
-
-  /** Add active style */
-  pressed: PropTypes.bool,
-
-  /** Make clickable by *stretching* a nested link */
-  stretchedLink: PropTypes.bool,
-
-  /** Click event handler */
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  as: 'button',
-  style: null,
-  className: null,
-  to: null,
-  type: 'button',
-  theme: 'primary',
-  outline: false,
-  size: null,
-  disabled: false,
-  pressed: false,
-  stretchedLink: false,
-  onClick: null,
-};
-
-export default Button;
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;

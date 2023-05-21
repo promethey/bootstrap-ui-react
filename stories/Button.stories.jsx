@@ -35,7 +35,7 @@ export function All() {
     ].map((theme) => (
       <Button
         key={theme}
-        className="me-2"
+        me={2}
         theme={theme.toLowerCase()}
       >
         {theme}
@@ -65,9 +65,9 @@ export function Outlines() {
     ].map((theme) => (
       <Button
         key={theme}
-        className="me-2"
+        me={2}
         theme={theme.toLowerCase()}
-        isOutline
+        outline
       >
         {theme}
       </Button>
@@ -77,30 +77,30 @@ export function Outlines() {
 
 export function Width() {
   return (
-    <Flex direction="column" padding={2} bgColor="light" border>
-      <Button width={25} maxWidth={100} mb={2}>
+    <Flex direction="column" p={2} bgColor="light" border>
+      <Button w={25} maxWidth={100} mb={2}>
         Width 25%
       </Button>
-      <Button width={50} mb={2}>
+      <Button w={50} mb={2}>
         Width 50%
       </Button>
-      <Button width={75} mb={2}>
+      <Button w={75} mb={2}>
         Width 75%
       </Button>
-      <Button width={100} mb={2}>
+      <Button w={100} mb={2}>
         Width 100%
       </Button>
-      <Button width="auto" mb={2}>
+      <Button w="auto" mb={2}>
         Width auto
       </Button>
-      <Button width={100}>Block</Button>
+      <Button w={100}>Block</Button>
     </Flex>
   );
 }
 
 export function StretchedLink() {
   return (
-    <Button as="a" isStretchedLink>
+    <Button as="a" stretched>
       Stretched link
     </Button>
   );
@@ -215,7 +215,7 @@ Large.args = {
 export const Disabled = DefaultTemplate.bind({});
 Disabled.args = {
   theme: 'primary',
-  isDisabled: true,
+  disabled: true,
   children: 'Disabled',
 };
 
@@ -223,7 +223,7 @@ export const DisabledLink = DefaultTemplate.bind({});
 DisabledLink.args = {
   as: 'a',
   theme: 'primary',
-  isDisabled: true,
+  disabled: true,
   children: 'Disabled',
 };
 DisabledLink.storyName = 'Disabled link';
@@ -232,7 +232,7 @@ export const DisabledInput = DefaultTemplate.bind({});
 DisabledInput.args = {
   as: 'input',
   theme: 'primary',
-  isDisabled: true,
+  disabled: true,
   children: 'Disabled',
 };
 DisabledInput.storyName = 'Disabled input';
@@ -247,32 +247,31 @@ Block.args = {
 export function ToggleStates() {
   const examples = [
     {
-      isPressed: false,
-      isDisabled: false,
+      pressed: false,
+      disabled: false,
       label: 'Toggle button',
     },
     {
-      isPressed: true,
-      isDisabled: false,
+      pressed: true,
+      disabled: false,
       label: 'Active toggle button',
     },
     {
-      isPressed: false,
-      isDisabled: true,
+      pressed: false,
+      disabled: true,
       label: 'Disabled toggle button',
     },
   ];
 
   return (
     <>
-      {examples.map(({ isPressed, label, isDisabled }) => (
+      {examples.map(({ pressed, label, disabled }) => (
         <Button
           key={label}
-          bsToggle="button"
-          autoComplete="off"
-          isPressed={isPressed}
-          isDisabled={isDisabled}
-          className="me-2"
+          data-bs-toggle="button"
+          pressed={pressed}
+          disabled={disabled}
+          me={2}
         >
           {label}
         </Button>
@@ -285,33 +284,32 @@ ToggleStates.storyName = 'Toggle states';
 export function ToggleStatesForLinks() {
   const examples = [
     {
-      isPressed: false,
-      isDisabled: false,
+      pressed: false,
+      disabled: false,
       label: 'Toggle button',
     },
     {
-      isPressed: true,
-      isDisabled: false,
+      pressed: true,
+      disabled: false,
       label: 'Active toggle button',
     },
     {
-      isPressed: false,
-      isDisabled: true,
+      pressed: false,
+      disabled: true,
       label: 'Disabled toggle button',
     },
   ];
 
   return (
     <>
-      {examples.map(({ isPressed, label, isDisabled }) => (
+      {examples.map(({ pressed, label, disabled }) => (
         <Button
           key={label}
           as="a"
           bsToggle="button"
-          autoComplete="off"
-          isPressed={isPressed}
-          isDisabled={isDisabled}
-          className="me-2"
+          pressed={pressed}
+          disabled={disabled}
+          me={2}
         >
           {label}
         </Button>
