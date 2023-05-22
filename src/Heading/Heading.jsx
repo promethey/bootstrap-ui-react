@@ -4,64 +4,70 @@ import classNames from 'classnames';
 import { usePrefix } from '../prefix';
 import Text from '../Text';
 
-function Heading(props) {
-  const {
-    as: Component,
-    style,
-    children,
-    className,
-    d,
-    display,
-  } = props;
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
 
+  /**
+   * Add heading content
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classnames
+   */
+  className: PropTypes.string,
+
+  /**
+   * Change font size special classname
+   */
+  banner: PropTypes.oneOf([
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+  banner: null,
+};
+
+export default function Heading({
+  style,
+  children,
+  className,
+  banner,
+  ...rest
+}) {
   const classes = classNames(
-    { [usePrefix('display', display)]: display || d },
+    {
+      /**
+       * banner is synonimus of display classname
+       */
+      [usePrefix('display', banner)]: banner,
+    },
     className,
   );
 
   return (
-    <Text as={Component} style={style} className={classes}>
+    <Text style={style} className={classes} {...rest}>
       {children}
     </Text>
   );
 }
 
-Heading.propTypes = {
-  as: PropTypes.oneOf([
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-  ]),
-  style: PropTypes.shape({}),
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  d: PropTypes.oneOf([
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-  ]),
-  display: PropTypes.oneOf([
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-  ]),
-};
-
-Heading.defaultProps = {
-  as: 'h1',
-  style: null,
-  className: null,
-  d: null,
-  display: null,
-};
-
-export default Heading;
+Heading.propTypes = propTypes;
+Heading.defaultProps = defaultProps;

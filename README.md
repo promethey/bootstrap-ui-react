@@ -1,4 +1,4 @@
-# **Bootstrap-UI**
+# **Bootstrap UI**
 
 Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org). 
 
