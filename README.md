@@ -1,12 +1,13 @@
 # **Bootstrap UI**
 
-Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org). 
+Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org).
 
 >Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
 
 ![BootstrapUILogo](./static/bootstrap-ui.png)
 
 ## **Features**
+The library differs from others in the fast release of new features from the Bootstrap Team and the fact that all functional components without TypeScript
 + 💥 Install library via [`npm`](https://www.npmjs.com) or [`yarn`](https://classic.yarnpkg.com/)
 + 🔥 Support latest version of [`Bootstrap`](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
 + 🧾 Documents generate by [`Storybook`](https://www.storybook.js.org)
@@ -54,14 +55,14 @@ npm i bootstrap-ui
 yarn add bootstrap-ui
 ```
 
-## **Import components**
+## **Import**
 For example we import `Badge` component from a library
 ```js
 import { Badge } from 'bootstrap-ui';
 import Badge from 'bootstrap-ui/Badge';
 ```
 
-## **Usage Grid**
+## **Layout**
 `Grid` is a basic **Bootstrap** system for creating adaptive web apps
 ```js
 import { Container, Row, Col } from 'bootstrap-ui';
@@ -85,7 +86,7 @@ export default function Example() {
 }
 ```
 
-## **Components support**
+## **Support**
 + ✅ Accordion (stable)
 + ✅ Alert (stable)
 + ✅ Badge (stable)
