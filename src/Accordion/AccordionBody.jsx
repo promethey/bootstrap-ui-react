@@ -42,7 +42,7 @@ const defaultProps = {
  * AccordionBody is children component of Accordion
  * Basis on Box component
  */
-function AccordionBody({
+export default function AccordionBody({
   children,
   style,
   className,
@@ -51,8 +51,10 @@ function AccordionBody({
   const { checkActiveKey } = useContext(AccordionContext);
   const itemKey = useContext(AccordionItemContext);
 
+  const BASE_CLASS_NAME = 'accordion-body';
+
   const classes = classNames(
-    'accordion-body',
+    BASE_CLASS_NAME,
     className,
   );
 
@@ -67,5 +69,3 @@ function AccordionBody({
 
 AccordionBody.propTypes = propTypes;
 AccordionBody.defaultProps = defaultProps;
-
-export default AccordionBody;

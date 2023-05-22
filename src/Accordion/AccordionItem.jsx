@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from '../Box';
 
+export const AccordionItemContext = createContext(null);
+
 /**
  * PropTypes
  */
@@ -44,7 +46,7 @@ const defaultProps = {
  * AccordionItem is children component of Accordion
  * Basis on Box component
  */
-function AccordionItem({
+export default function AccordionItem({
   children,
   style,
   className,
@@ -69,6 +71,3 @@ function AccordionItem({
 
 AccordionItem.propTypes = propTypes;
 AccordionItem.defaultProps = defaultProps;
-
-export const AccordionItemContext = createContext(null);
-export default AccordionItem;

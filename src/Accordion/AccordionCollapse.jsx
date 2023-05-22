@@ -39,14 +39,16 @@ const defaultProps = {
  * AccordionCollapse is children component of AccordionBody
  * Basis on Collapse component
  */
-function AccordionCollapse({
+export default function AccordionCollapse({
   children,
   style,
   className,
   ...rest
 }) {
+  const BASE_CLASS_NAME = 'accordion-collapse';
+
   const classes = classNames(
-    'accordion-collapse',
+    BASE_CLASS_NAME,
     className,
   );
 
@@ -63,5 +65,3 @@ function AccordionCollapse({
 
 AccordionCollapse.propTypes = propTypes;
 AccordionCollapse.defaultProps = defaultProps;
-
-export default AccordionCollapse;

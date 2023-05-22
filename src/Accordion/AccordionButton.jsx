@@ -47,7 +47,7 @@ const defaultProps = {
  * AccordionBody is children component of AccordionHeader
  * Basis on Box component
  */
-function AccordionButton({
+export default function AccordionButton({
   children,
   style,
   className,
@@ -56,6 +56,7 @@ function AccordionButton({
 }) {
   const { changeActiveItems, checkActiveKey } = useContext(AccordionContext);
   const itemKey = useContext(AccordionItemContext);
+
   const BASE_CLASS_NAME = 'accordion-button';
 
   const classes = classNames(
@@ -80,5 +81,3 @@ function AccordionButton({
 
 AccordionButton.propTypes = propTypes;
 AccordionButton.defaultProps = defaultProps;
-
-export default AccordionButton;

@@ -83,7 +83,7 @@ const defaultProps = {
  * Changelog:
  * - Refactoring component [21/05/2023]
  */
-function Accordion({
+export default function Accordion({
   children,
   style,
   className,
@@ -149,5 +149,3 @@ Accordion.defaultProps = defaultProps;
 Accordion.Item = AccordionItem;
 Accordion.Header = AccordionHeader;
 Accordion.Body = AccordionBody;
-
-export default Accordion;

@@ -9,7 +9,7 @@ import AccordionButton from './AccordionButton';
  */
 const propTypes = {
   /**
-   * Change JSX component type
+   * Change component type
    */
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
 
@@ -46,7 +46,7 @@ const defaultProps = {
  * AccordionHeader is children component of Accordion
  * Basis on Text component
  */
-function AccordionHeader({
+export default function AccordionHeader({
   as: ComponentType,
   children,
   style,
@@ -71,5 +71,3 @@ function AccordionHeader({
 
 AccordionHeader.propTypes = propTypes;
 AccordionHeader.defaultProps = defaultProps;
-
-export default AccordionHeader;
