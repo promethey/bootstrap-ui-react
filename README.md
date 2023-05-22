@@ -86,31 +86,31 @@ export default function Example() {
 ```
 
 ## **Components support**
-+ ✅ Accordion
-+ ✅ Alert
-+ ✅ Badge
-+ ✅ Breadcrumb
-+ ✅ Button
-+ ✅ ButtonGroup
-+ ✅ Card
-+ ✅ Carousel
-+ ✅ CloseButton
-+ ✅ Collapse
-+ ✅ Dropdown
-+ ✅ ListGroup
++ ✅ Accordion (stable)
++ ✅ Alert (stable)
++ ✅ Badge (stable)
++ ✅ Breadcrumb (stable)
++ ✅ Button (stable)
++ ✅ ButtonGroup (stable)
++ ✅ Card (stable)
++ ✅ Carousel (unstable)
++ ✅ CloseButton (unstable)
++ ✅ Collapse (unstable)
++ ✅ Dropdown (unstable)
++ ✅ ListGroup (unstable)
 + ⬜ Modal
-+ ✅ Nav
++ ✅ Nav (unstable)
 + ⬜ Tab
-+ ✅ Navbar
++ ✅ Navbar (unstable)
 + ⬜ Offcanvas
 + ⬜ Pagination
 + ⬜ Placeholder
-+ ✅ Progress
-+ ✅ Spinner
++ ✅ Progress (unstable)
++ ✅ Spinner (unstable)
 + ⬜ Toast
-+ ✅ Box
-+ ✅ Flex
-+ ✅ Heading
-+ ✅ Text
++ ✅ Box (stable)
++ ✅ Flex (unstable)
++ ✅ Heading (stable)
++ ✅ Text (unstable)
 
 Good luck! The end...
