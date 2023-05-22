@@ -6,7 +6,7 @@
     "storybook": "storybook dev -p 6006",
     "storybook-docs": "storybook dev --docs --no-manager-cache",
     "build-storybook": "storybook build",
-    "build": "webpack --mode production --config webpack.prod.js"
+    "build": "webpack --mode production --config webpack.config.js"
   },
   "keywords": [
     "react",
