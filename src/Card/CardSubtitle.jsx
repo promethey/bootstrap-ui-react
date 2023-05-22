@@ -1,77 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../prefix';
-import Text from '../Text';
+import Heading from '../Heading';
 
-function CardSubtitle({
-  as: Component,
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add subtitle content
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classnames
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * CardSubtitle is children component of Card
+ * Basis on Heading component
+ */
+export default function CardSubtitle({
   style,
   children,
   className,
-  textColor,
   ...rest
 }) {
   const BASE_CLASS_NAME = 'card-title';
 
   const classes = classNames(
     BASE_CLASS_NAME,
-    { [usePrefix('text', textColor)]: textColor },
     className,
   );
 
   return (
-    <Text as={Component} className={classes} style={style} {...rest}>
+    <Heading className={classes} style={style} {...rest}>
       {children}
-    </Text>
+    </Heading>
   );
 }
 
-CardSubtitle.propTypes = {
-  /** Component JSX type */
-  as: PropTypes.oneOf([
-    'h1',
-    'h2',
-    'h3',
-    'h4',
-    'h5',
-    'h6',
-  ]),
-
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add title */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  textColor: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
-    'body',
-    'muted',
-    'white',
-    'black-50',
-    'white-50',
-  ]),
-};
-
-CardSubtitle.defaultProps = {
-  as: 'h6',
-  style: null,
-  className: null,
-  textColor: 'muted',
-};
-
-export default CardSubtitle;
+CardSubtitle.propTypes = propTypes;
+CardSubtitle.defaultProps = defaultProps;

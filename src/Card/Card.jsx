@@ -12,7 +12,61 @@ import CardText from './CardText';
 import CardLink from './CardLink';
 import CardFooter from './CardFooter';
 
-function Card({
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add other subcomponents
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classes
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * Card component
+ * Basis on Box component
+ *
+ * Childrens:
+ * - Header
+ * - Image
+ * - Body
+ * - Title
+ * - Subtitle
+ * - Text
+ * - Link
+ * - Footer
+ * - Group
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @link https://getbootstrap.com/docs/5.3/components/card
+ *
+ * Changelog:
+ * - Refactoring component [22/05/2023]
+ */
+export default function Card({
   style,
   children,
   className,
@@ -32,24 +86,8 @@ function Card({
   );
 }
 
-Card.propTypes = {
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other subcomponents */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-};
-
-Card.defaultProps = {
-  style: null,
-  className: null,
-};
+Card.propTypes = propTypes;
+Card.defaultProps = defaultProps;
 
 Card.Group = CardGroup;
 Card.Header = CardHeader;
@@ -60,5 +98,3 @@ Card.Subtitle = CardSubtitle;
 Card.Text = CardText;
 Card.Link = CardLink;
 Card.Footer = CardFooter;
-
-export default Card;

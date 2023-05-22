@@ -3,8 +3,46 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from '../Box';
 
-function CardGroup({
-  style, children, className, ...rest
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add other subcomponents
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classes
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * CardGroup is children component of Card
+ * Basis on Box component
+ */
+export default function CardGroup({
+  style,
+  children,
+  className,
+  ...rest
 }) {
   const BASE_CLASS_NAME = 'card-group';
 
@@ -20,23 +58,5 @@ function CardGroup({
   );
 }
 
-CardGroup.propTypes = {
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other subcomponents */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-};
-
-CardGroup.defaultProps = {
-  style: null,
-  className: null,
-};
-
-export default CardGroup;
+CardGroup.propTypes = propTypes;
+CardGroup.defaultProps = defaultProps;

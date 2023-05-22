@@ -1,10 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Text from '../Text';
+import Heading from '../Heading';
 
-function CardTitle({
-  as: Component, style, children, className,
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add title content
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classes
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * CardTitle is children component of Card
+ * Basis on Heading component
+ */
+export default function CardTitle({
+  style,
+  children,
+  className,
 }) {
   const BASE_CLASS_NAME = 'card-title';
 
@@ -14,33 +51,11 @@ function CardTitle({
   );
 
   return (
-    <Text as={Component} className={classes} style={style}>
+    <Heading className={classes} style={style}>
       {children}
-    </Text>
+    </Heading>
   );
 }
 
-CardTitle.propTypes = {
-  /** Change JSX component type */
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add title */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-};
-
-CardTitle.defaultProps = {
-  as: 'h5',
-  style: null,
-  className: null,
-};
-
-export default CardTitle;
+CardTitle.propTypes = propTypes;
+CardTitle.defaultProps = defaultProps;

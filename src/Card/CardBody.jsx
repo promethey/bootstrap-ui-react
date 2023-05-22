@@ -3,7 +3,42 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from '../Box';
 
-function CardBody({
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add other subcomponents
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classnames
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * CardBody is children component of Card
+ * Basis on Box component
+ */
+export default function CardBody({
   style,
   children,
   className,
@@ -23,23 +58,5 @@ function CardBody({
   );
 }
 
-CardBody.propTypes = {
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other subcomponents */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-};
-
-CardBody.defaultProps = {
-  style: null,
-  className: null,
-};
-
-export default CardBody;
+CardBody.propTypes = propTypes;
+CardBody.defaultProps = defaultProps;
