@@ -42,12 +42,4 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-    alias: {
-      utilities: path.resolve(__dirname, 'src', 'utilities'),
-      helpers: path.resolve(__dirname, 'src', 'helpers'),
-      components: path.resolve(__dirname, 'src', 'components'),
-    },
-  },
 };

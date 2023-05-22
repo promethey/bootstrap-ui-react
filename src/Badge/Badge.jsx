@@ -81,7 +81,7 @@ const defaultProps = {
  * Changelog:
  * - Refactoring component [21/05/2023]
  */
-function Badge({
+export default function Badge({
   style,
   children,
   className,
@@ -111,5 +111,3 @@ function Badge({
 
 Badge.propTypes = propTypes;
 Badge.defaultProps = defaultProps;
-
-export default Badge;
