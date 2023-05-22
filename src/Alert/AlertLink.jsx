@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Link from '../Link';
 
 /**
  * PropTypes
@@ -13,7 +14,6 @@ const propTypes = {
 
   /**
    * Add link label
-   * Required
    */
   children: PropTypes.node.isRequired,
 
@@ -42,8 +42,9 @@ const defaultProps = {
 
 /**
  * AlertLink is children component of Alert
+ * Basis on Link component
  */
-function AlertLink({
+export default function AlertLink({
   style,
   children,
   className,
@@ -58,18 +59,16 @@ function AlertLink({
   );
 
   return (
-    <a
+    <Link
       href={to}
       className={classes}
       style={style}
       {...rest}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
 AlertLink.propTypes = propTypes;
 AlertLink.defaultProps = defaultProps;
-
-export default AlertLink;

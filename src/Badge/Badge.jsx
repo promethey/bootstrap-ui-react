@@ -14,6 +14,7 @@ const propTypes = {
 
   /**
    * Add label for badge
+   * [REQUIRED]
    */
   children: PropTypes.node.isRequired,
 

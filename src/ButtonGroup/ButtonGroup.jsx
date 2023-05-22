@@ -94,7 +94,7 @@ export default function ButtonGroup({
        */
       [usePrefix(BASE_CLASS_NAME, size)]: size,
       /**
-       *
+       * Drop position classname
        */
       [`drop${drop}`]: drop,
     },

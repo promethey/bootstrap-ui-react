@@ -8,7 +8,7 @@ import Text from '../Text';
  */
 const propTypes = {
   /**
-   * Change JSX type
+   * Change component type
    */
   as: PropTypes.oneOf([
     'h1',
