@@ -89,7 +89,7 @@ const defaultProps = {
  * Changelog:
  * - Refactoring component [21/05/2023]
  */
-function Alert({
+export default function Alert({
   style,
   children,
   className,
@@ -132,5 +132,3 @@ Alert.defaultProps = defaultProps;
 
 Alert.Link = AlertLink;
 Alert.Heading = AlertHeading;
-
-export default Alert;
