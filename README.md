@@ -87,13 +87,13 @@ export default function Example() {
 ```
 
 ## **Support**
-+ ✅ Accordion (stable)
-+ ✅ Alert (stable)
-+ ✅ Badge (stable)
-+ ✅ Breadcrumb (stable)
-+ ✅ Button (stable)
-+ ✅ ButtonGroup (stable)
-+ ✅ Card (stable)
++ ✅ Accordion
++ ✅ Alert
++ ✅ Badge
++ ✅ Breadcrumb
++ ✅ Button
++ ✅ ButtonGroup
++ ✅ Card
 + ✅ Carousel (unstable)
 + ✅ CloseButton (unstable)
 + ✅ Collapse (unstable)
@@ -107,11 +107,11 @@ export default function Example() {
 + ⬜ Pagination
 + ⬜ Placeholder
 + ✅ Progress (unstable)
-+ ✅ Spinner (unstable)
++ ✅ Spinner
 + ⬜ Toast
-+ ✅ Box (stable)
++ ✅ Box
 + ✅ Flex (unstable)
-+ ✅ Heading (stable)
++ ✅ Heading
 + ✅ Text (unstable)
 
 Good luck! The end...

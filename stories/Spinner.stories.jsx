@@ -116,8 +116,8 @@ TextAlignCenter.storyName = 'Text align center';
 export function Small() {
   return (
     <>
-      <Spinner me={2} isSmall />
-      <Spinner type="grow" isSmall />
+      <Spinner me={2} small />
+      <Spinner type="grow" small />
     </>
   );
 }
@@ -141,11 +141,11 @@ CustomSize.storyName = 'Custom size';
 export function Buttons() {
   return (
     <>
-      <Button me={2} isDisabled>
-        <Spinner isSmall />
+      <Button me={2} disabled>
+        <Spinner small />
       </Button>
-      <Button isDisabled>
-        <Spinner isSmall />
+      <Button disabled>
+        <Spinner small />
         {' '}
         Loading...
       </Button>
@@ -156,11 +156,11 @@ export function Buttons() {
 export function GrowButtons() {
   return (
     <>
-      <Button me={2} isDisabled>
-        <Spinner type="grow" isSmall />
+      <Button me={2} disabled>
+        <Spinner type="grow" small />
       </Button>
-      <Button isDisabled>
-        <Spinner type="grow" isSmall />
+      <Button disabled>
+        <Spinner type="grow" small />
         {' '}
         Loading...
       </Button>
