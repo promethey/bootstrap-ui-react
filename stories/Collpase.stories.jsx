@@ -27,7 +27,7 @@ export function Example() {
         {' '}
         collapse
       </Button>
-      <Collapse in={open} mt={2}>
+      <Collapse open={open} mt={2}>
         <Card>
           <Card.Body>
             Some placeholder content for the collapse component.
@@ -48,7 +48,7 @@ export function Horizontal() {
       <Button mb={2} onClick={() => setOpen((prev) => !prev)}>
         Toggle width collapse
       </Button>
-      <Collapse in={open} horizontal>
+      <Collapse open={open} horizontal>
         <Card style={{ width: '300px' }}>
           <Card.Body>
             This is some placeholder content for a horizontal collapse.
@@ -94,7 +94,7 @@ export function MultipleTargets() {
       </Flex>
       <Row>
         <Col>
-          <Collapse in={openCollapse}>
+          <Collapse open={openCollapse}>
             <Card>
               <Card.Body>
                 Some placeholder content for the first collapse component of
@@ -105,7 +105,7 @@ export function MultipleTargets() {
           </Collapse>
         </Col>
         <Col>
-          <Collapse in={openCollapse2}>
+          <Collapse open={openCollapse2}>
             <Card>
               <Card.Body>
                 Some placeholder content for the first collapse component of

@@ -5,26 +5,125 @@ import classNames from 'classnames';
 import { Transition } from 'react-transition-group';
 import Box from '../Box';
 
-function Collapse(props) {
-  const {
-    style,
-    children,
-    className,
-    in: inProp,
-    horizontal,
-    mountOnEnter,
-    unmountOnExit,
-    appear,
-    enter,
-    exit,
-    onEntering,
-    onEntered,
-    onExit,
-    onExiting,
-    onExited,
-    ...rest
-  } = props;
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
 
+  /**
+   * Add other subcomponents
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classes
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+
+  /**
+   * Triggers the enter or exit states
+   */
+  open: PropTypes.bool,
+
+  /**
+   * Activate horizontal collapsing
+   */
+  horizontal: PropTypes.bool,
+
+  /**
+   * Mount collapse in first render
+   */
+  mountOnEnter: PropTypes.bool,
+
+  /**
+   * Unmount collapse when animation exit
+   */
+  unmountOnExit: PropTypes.bool,
+
+  /**
+   * Add transition when it first mounts
+   */
+  appear: PropTypes.bool,
+
+  /**
+   * Activate enter transitions
+   */
+  enter: PropTypes.bool,
+
+  /**
+   * Activate exit transitions
+   */
+  exit: PropTypes.bool,
+
+  /**
+   * Callbacks for other transitions
+   */
+  onEnter: PropTypes.func,
+  onEntering: PropTypes.func,
+  onEntered: PropTypes.func,
+  onExit: PropTypes.func,
+  onExiting: PropTypes.func,
+  onExited: PropTypes.func,
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+  open: false,
+  horizontal: false,
+  mountOnEnter: false,
+  unmountOnExit: false,
+  appear: false,
+  enter: true,
+  exit: true,
+  onEnter: null,
+  onEntering: null,
+  onEntered: null,
+  onExit: null,
+  onExiting: null,
+  onExited: null,
+};
+
+/**
+ * Collapse component
+ * Basis on Box component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @link https://getbootstrap.com/docs/5.3/components/collapse
+ *
+ * Changelog:
+ * - Refactoring component [24/05/2023]
+ */
+export default function Collapse({
+  style,
+  children,
+  className,
+  open: inProp,
+  horizontal,
+  mountOnEnter,
+  unmountOnExit,
+  appear,
+  enter,
+  exit,
+  onEntering,
+  onEntered,
+  onExit,
+  onExiting,
+  onExited,
+  ...rest
+}) {
   const [dimension, setDimension] = useState(null);
   const nodeRef = useRef(null);
 
@@ -130,65 +229,5 @@ function Collapse(props) {
   );
 }
 
-Collapse.propTypes = {
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other subcomponents */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  // Triggers the enter or exit states
-  in: PropTypes.bool,
-
-  /** Activate horizontal collapsing */
-  horizontal: PropTypes.bool,
-
-  /** Mount collapse in first render */
-  mountOnEnter: PropTypes.bool,
-
-  /** Unmount collapse when animation exit */
-  unmountOnExit: PropTypes.bool,
-
-  // Add transition when it first mounts
-  appear: PropTypes.bool,
-
-  /** Activate enter transitions */
-  enter: PropTypes.bool,
-
-  /** Activate exit transitions */
-  exit: PropTypes.bool,
-
-  /** Callbacks for other transitions */
-  onEnter: PropTypes.func,
-  onEntering: PropTypes.func,
-  onEntered: PropTypes.func,
-  onExit: PropTypes.func,
-  onExiting: PropTypes.func,
-  onExited: PropTypes.func,
-};
-
-Collapse.defaultProps = {
-  style: null,
-  className: null,
-  in: false,
-  horizontal: false,
-  mountOnEnter: false,
-  unmountOnExit: false,
-  appear: false,
-  enter: true,
-  exit: true,
-  onEnter: null,
-  onEntering: null,
-  onEntered: null,
-  onExit: null,
-  onExiting: null,
-  onExited: null,
-};
-
-export default Collapse;
+Collapse.propTypes = propTypes;
+Collapse.defaultProps = defaultProps;
