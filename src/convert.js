@@ -5,6 +5,7 @@ import { usePrefix } from './prefix';
  * responsive classes
  *
  * Example:
+ * ('d', 'inline') -> 'd-inline'
  * ('d', { sm: 'block' }) -> 'd-sm-block'
  *
  * @param {string} prefix - Bootstrap prefix
