@@ -4,53 +4,31 @@ import classNames from 'classnames';
 import Flex from '../Flex';
 import { getBootstrapClassNames } from '../convert';
 
-function Row(props) {
-  const {
-    style,
-    children,
-    className,
-    cols,
-    g,
-    gx,
-    gy,
-    gutter,
-    gutterX,
-    gutterY,
-    ...rest
-  } = props;
-
-  const BASE_CLASS_NAME = 'row';
-
-  const classes = classNames(
-    BASE_CLASS_NAME,
-    getBootstrapClassNames('row-cols', cols),
-    getBootstrapClassNames('g', gutter || g),
-    getBootstrapClassNames('gx', gutterX || gx),
-    getBootstrapClassNames('gy', gutterY || gy),
-    className,
-  );
-
-  return (
-    <Flex display={null} style={style} className={classes} {...rest}>
-      {children}
-    </Flex>
-  );
-}
-
-Row.propTypes = {
-  /** Add other styles */
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
   style: PropTypes.shape({}),
 
-  /** Add other components */
+  /**
+   * Add other components
+   */
   children: PropTypes.node.isRequired,
 
-  /** Add other classes */
+  /**
+   * Add other classes
+   */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /** Set the number of columns */
+  /**
+   * Set the number of columns
+   */
   cols: PropTypes.oneOf([
     1,
     2,
@@ -66,7 +44,10 @@ Row.propTypes = {
     'auto',
   ]),
 
-  /** Change gaps between columns [SHORT VERSION] */
+  /**
+   * Change gaps between columns
+   * [SHORT VERSION]
+   */
   g: PropTypes.oneOf([
     0,
     1,
@@ -76,7 +57,10 @@ Row.propTypes = {
     5,
   ]),
 
-  /** Change gaps between columns axis-X [SHORT VERSION] */
+  /**
+   * Change gaps between columns axis-X
+   * [SHORT VERSION]
+   */
   gx: PropTypes.oneOf([
     0,
     1,
@@ -86,7 +70,10 @@ Row.propTypes = {
     5,
   ]),
 
-  /** Change gaps between columns axis-Y [SHORT VERSION] */
+  /**
+   * Change gaps between columns axis-Y
+   * [SHORT VERSION]
+   */
   gy: PropTypes.oneOf([
     0,
     1,
@@ -96,7 +83,9 @@ Row.propTypes = {
     5,
   ]),
 
-  /** Change gaps between columns */
+  /**
+   * Change gaps between columns
+   */
   gutter: PropTypes.oneOf([
     0,
     1,
@@ -106,7 +95,9 @@ Row.propTypes = {
     5,
   ]),
 
-  /** Change gaps between columns axis-X */
+  /**
+   * Change gaps between columns axis-X
+   */
   gutterX: PropTypes.oneOf([
     0,
     1,
@@ -116,7 +107,9 @@ Row.propTypes = {
     5,
   ]),
 
-  /** Change gaps between columns axis-Y */
+  /**
+   * Change gaps between columns axis-Y
+   */
   gutterY: PropTypes.oneOf([
     0,
     1,
@@ -127,7 +120,10 @@ Row.propTypes = {
   ]),
 };
 
-Row.defaultProps = {
+/**
+ * DefaultProps
+ */
+const defaultProps = {
   style: null,
   className: null,
   cols: null,
@@ -139,4 +135,48 @@ Row.defaultProps = {
   gutterY: null,
 };
 
-export default Row;
+/**
+ * Row component
+ * Basis on Flex component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @link https://getbootstrap.com/docs/5.3/layout/grid
+ *
+ * Changelog:
+ * - Refactoring component [24/05/2023]
+ */
+export default function Row({
+  style,
+  children,
+  className,
+  cols,
+  g,
+  gx,
+  gy,
+  gutter,
+  gutterX,
+  gutterY,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'row';
+
+  const classes = classNames(
+    BASE_CLASS_NAME,
+    getBootstrapClassNames('row-cols', cols),
+    getBootstrapClassNames('g', gutter || g),
+    getBootstrapClassNames('gx', gutterX || gx),
+    getBootstrapClassNames('gy', gutterY || gy),
+    className,
+  );
+
+  return (
+    <Flex noflex style={style} className={classes} {...rest}>
+      {children}
+    </Flex>
+  );
+}
+
+Row.propTypes = propTypes;
+Row.defaultProps = defaultProps;

@@ -4,8 +4,15 @@ import {
 } from '../src';
 
 export default {
-  title: 'Layout/Gutter',
+  title: 'Layout/Row',
   component: Row,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Row component. Basis on Flex component',
+      },
+    },
+  },
 };
 
 export function HorizontalGutters() {

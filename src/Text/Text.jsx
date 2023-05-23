@@ -217,6 +217,13 @@ const defaultProps = {
 /**
  * Text component
  * Basis on Box component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ * Changelog:
+ * - Refactoring component [24/05/2023]
  */
 export default function Text(props) {
   const {

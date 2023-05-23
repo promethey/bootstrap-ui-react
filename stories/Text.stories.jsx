@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `Component for displaying text.
+        component: `Component for ding text.
         Support all text utilities to control align,
         wrapping, weight, and more.`,
       },
@@ -59,38 +59,38 @@ export function Colors() {
 export function Display() {
   return (
     <>
-      <Text display="none">
+      <Text d="none">
         This is default text
       </Text>
       <Text
-        display="block"
-        padding={2}
+        d="block"
+        p={2}
         bgColor="light"
-        isBorder
+        border
       >
         Display block
       </Text>
       <Text
-        display="inline-block"
-        padding={2}
+        d="inline-block"
+        p={2}
         bgColor="light"
-        isBorder
+        border
       >
         Display inline-block
       </Text>
       <Text
-        display="flex"
-        padding={2}
+        d="flex"
+        p={2}
         bgColor="light"
-        isBorder
+        border
       >
         Display flex
       </Text>
       <Text
-        display="inline-flex"
-        padding={2}
+        d="inline-flex"
+        p={2}
         bgColor="light"
-        isBorder
+        border
       >
         Display inline-flex
       </Text>
@@ -101,14 +101,14 @@ export function Display() {
 export function Print() {
   return (
     <>
-      <Text margin={0} displayPrint="none">
-        Screen Only (Hide on displayPrint only)
+      <Text m={0} dPrint="none">
+        Screen Only (Hide on dPrint only)
       </Text>
-      <Text margin={0} display="none" displayPrint="block">
+      <Text d="none" m={0} dPrint="block">
         Print Only (Hide on screen only)
       </Text>
-      <Text margin={0} display="none" displayLg="block" displayPrint="block">
-        Hide up to large on screen, but always show on displayPrint
+      <Text d={{ xs: 'none', lg: 'block' }} m={0} dPrint="block">
+        Hide up to large on screen, but always show on dPrint
       </Text>
     </>
   );
@@ -117,16 +117,16 @@ export function Print() {
 export function Opacity() {
   return (
     <>
-      <Text margin={0} textColor="primary">
+      <Text m={0} textColor="primary">
         This is default primary text
       </Text>
-      <Text margin={0} textColor="primary" textOpacity={75}>
+      <Text m={0} textColor="primary" textOpacity={75}>
         This is 75% opacity primary text
       </Text>
-      <Text margin={0} textColor="primary" textOpacity={50}>
+      <Text m={0} textColor="primary" textOpacity={50}>
         This is 50% opacity primary text
       </Text>
-      <Text margin={0} textColor="primary" textOpacity={25}>
+      <Text m={0} textColor="primary" textOpacity={25}>
         This is 25% opacity primary text
       </Text>
     </>
@@ -136,25 +136,25 @@ export function Opacity() {
 export function TextAlignment() {
   return (
     <>
-      <Text align="start">
+      <Text textAlign="start">
         Start aligned Text on all viewport sizes.
       </Text>
-      <Text align="center">
+      <Text textAlign="center">
         Center aligned Text on all viewport sizes.
       </Text>
-      <Text align="end">
+      <Text textAlign="end">
         End aligned Text on all viewport sizes.
       </Text>
-      <Text alignSm="start">
+      <Text textAlign={{ sm: 'start' }}>
         Start aligned Text on viewports sized SM (small) or wider.
       </Text>
-      <Text alignMd="start">
+      <Text textAlign={{ md: 'start' }}>
         Start aligned Text on viewports sized MD (medium) or wider.
       </Text>
-      <Text alignLg="start">
+      <Text textAlign={{ lg: 'start' }}>
         Start aligned Text on viewports sized LG (large) or wider.
       </Text>
-      <Text alignXl="start">
+      <Text textAlign={{ xl: 'start' }}>
         Start aligned Text on viewports sized XL (extra-large) or wider.
       </Text>
     </>
@@ -167,8 +167,8 @@ Wrap.args = {
   style: { width: '8rem' },
   children: 'This text should wrap.',
   bgColor: 'light',
-  isBorder: true,
-  isWrap: true,
+  border: true,
+  wrap: true,
 };
 
 export const NoWrap = Template.bind({});
@@ -176,34 +176,34 @@ NoWrap.args = {
   style: { width: '8rem' },
   children: 'This text should overflow the parent.',
   bgColor: 'light',
-  isBorder: true,
-  isNoWrap: true,
+  border: true,
+  noWrap: true,
 };
 NoWrap.storyName = 'No wrap';
 
 export const WordBreak = Template.bind({});
 WordBreak.args = {
   children: 'mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm',
-  isBreak: true,
+  breakWord: true,
 };
 WordBreak.storyName = 'Word break';
 
 export const Lowercase = Template.bind({});
 Lowercase.args = {
   children: 'Lowercased text.',
-  transform: 'lowercase',
+  texttransform: 'lowercase',
 };
 
 export const Uppercase = Template.bind({});
 Uppercase.args = {
   children: 'Uppercased text.',
-  transform: 'uppercase',
+  texttransform: 'uppercase',
 };
 
 export const Capitalize = Template.bind({});
 Capitalize.args = {
   children: 'CapiTaliZed Text.',
-  transform: 'capitalize',
+  texttransform: 'capitalize',
 };
 
 export function FontSizes() {
@@ -260,25 +260,25 @@ FontStyles.storyName = 'Font styles';
 export function LineHeights() {
   return (
     <>
-      <Text padding={2} lh={1} isBorder>
+      <Text p={2} lh={1} border>
         This is a long paragraph written to show how the line-height of
         an element is affected by our utilities. Classes are applied to
         the element itself or sometimes the parent element.
         These classes can be customized as needed with our utility API.
       </Text>
-      <Text padding={2} lh="sm" isBorder>
+      <Text p={2} lh="sm" border>
         This is a long paragraph written to show how the line-height of
         an element is affected by our utilities. Classes are applied to
         the element itself or sometimes the parent element. These classes
         can be customized as needed with our utility API.
       </Text>
-      <Text padding={2} lh="base" isBorder>
+      <Text p={2} lh="base" border>
         This is a long paragraph written to show how the line-height of an
         element is affected by our utilities. Classes are applied to the element
         itself or sometimes the parent element. These classes can be customized
         as needed with our utility API.
       </Text>
-      <Text padding={2} lh="lg" isBorder>
+      <Text p={2} lh="lg" border>
         This is a long paragraph written to show how the line-height of an element
         is affected by our utilities. Classes are applied to the element itself
         or sometimes the parent element. These classes can be customized as
@@ -292,7 +292,7 @@ LineHeights.storyName = 'Line heights';
 export const Monospace = Template.bind({});
 Monospace.args = {
   children: 'This is in monospace',
-  isMonospace: true,
+  monospace: true,
 };
 
 export const ResetColor = Template.bind({});
@@ -326,75 +326,75 @@ export function Margins() {
     <>
       <Text
         bgColor="light"
-        isBorder
-        margin={[1, 2, 3, 4]}
-        padding={2}
+        border
+        m={[1, 2, 3, 4]}
+        p={2}
       >
         Example
       </Text>
       <Text
         bgColor="light"
-        isBorder
-        margin={[3, 4]}
-        padding={2}
+        border
+        m={[3, 4]}
+        p={2}
       >
         Example 1
       </Text>
       <Text
         bgColor="light"
-        isBorder
+        border
         mt={3}
         ms={3}
-        padding={2}
+        p={2}
       >
         Example 2
       </Text>
       <Text
         bgColor="light"
-        isBorder
-        margin={[3, null]}
-        padding={2}
+        border
+        m={[3, null]}
+        p={2}
       >
         Example 3
       </Text>
       <Text
         bgColor="light"
-        isBorder
+        border
         mt={3}
         me={3}
-        padding={2}
+        p={2}
       >
         Example 4
       </Text>
       <Text
         bgColor="light"
-        isBorder
-        margin={[3, 3, 3]}
-        padding={2}
+        border
+        m={[3, 3, 3]}
+        p={2}
       >
         Example 5
       </Text>
       <Text
         bgColor="light"
-        isBorder
-        margin={3}
-        padding={2}
+        border
+        m={3}
+        p={2}
       >
         Example 6
       </Text>
       <Text
         bgColor="light"
-        isBorder
-        marginX={4}
-        padding={2}
+        border
+        mx={4}
+        p={2}
       >
         Example 7
       </Text>
       <Text
         bgColor="light"
-        isBorder
-        marginY={4}
-        padding={2}
+        border
+        my={4}
+        p={2}
       >
         Example 8
       </Text>
@@ -406,22 +406,22 @@ export const HorizonalCentering = Template.bind({});
 HorizonalCentering.args = {
   style: { width: '200px' },
   children: 'Centered element',
-  marginX: 'auto',
+  mx: 'auto',
   bgColor: 'light',
-  isBorder: true,
+  border: true,
 };
 HorizonalCentering.storyName = 'Horizonal centering';
 
 export function Paddings() {
   return (
     <>
-      <Text bgColor="light" isBorder padding={[3, 3, 3, 3]}>
+      <Text bgColor="light" border p={[3, 3, 3, 3]}>
         Example
       </Text>
-      <Text bgColor="light" isBorder paddingX={3} paddingY={3}>
+      <Text bgColor="light" border px={3} py={3}>
         Example 2
       </Text>
-      <Text bgColor="light" isBorder padding={3}>
+      <Text bgColor="light" border p={3}>
         Example 3
       </Text>
     </>
@@ -432,15 +432,15 @@ export function Custom() {
   return (
     <Text
       as="div"
+      p={4}
       bgColor="danger"
       textColor="white"
-      padding={4}
     >
       <Text
+        m={0}
         fs={5}
         fw="bolder"
-        margin={0}
-        align="center"
+        textAlign="center"
       >
         Example 4
       </Text>

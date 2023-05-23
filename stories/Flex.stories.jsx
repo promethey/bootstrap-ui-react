@@ -21,18 +21,18 @@ function Template(args) {
 function TemplateItems(args) {
   return (
     <Flex
-      padding={1}
+      p={1}
       bgColor="light"
       border
       {...args}
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item #1
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item #2
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item #3
       </Flex>
     </Flex>
@@ -45,13 +45,13 @@ function TemplateAlignContent(args) {
       style={{ height: '200px' }}
       width={75}
       flexWrap
-      padding={1}
+      p={1}
       bgColor="light"
       border
       {...args}
     >
       {[...new Array(15)].map((item, index) => (
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item #
           {index + 1}
         </Flex>
@@ -65,16 +65,18 @@ Default.args = {
   children: 'I\'m a flexbox container!',
   bgColor: 'light',
   border: true,
-  padding: 2,
+  p: 2,
 };
 
 export const InlineFlex = Template.bind({});
 InlineFlex.args = {
+  d: 'inline-flex',
+  noflex: true,
   children: 'I\'m an inline flexbox container!',
   display: 'inline-flex',
   bgColor: 'light',
   border: true,
-  padding: 2,
+  p: 2,
 };
 InlineFlex.storyName = 'Inline flex';
 
@@ -113,13 +115,13 @@ export function DirectionResponsive() {
         xxl: 'column-reverse',
       }}
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item #1
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item #2
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item #3
       </Flex>
     </Flex>
@@ -223,17 +225,17 @@ export function AlignSelfStart() {
   return (
     <Flex
       style={{ height: '100px' }}
-      padding={1}
+      p={1}
       bgColor="light"
       border
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="start" padding={2} bgColor="info" border="primary">
+      <Flex alignSelf="start" p={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -245,17 +247,17 @@ export function AlignSelfEnd() {
   return (
     <Flex
       style={{ height: '100px' }}
-      padding={1}
+      p={1}
       bgColor="light"
       border
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="end" padding={2} bgColor="info" border="primary">
+      <Flex alignSelf="end" p={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -267,17 +269,17 @@ export function AlignSelfCenter() {
   return (
     <Flex
       style={{ height: '100px' }}
-      padding={1}
+      p={1}
       bgColor="light"
       border
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="center" padding={2} bgColor="info" border="primary">
+      <Flex alignSelf="center" p={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -289,17 +291,17 @@ export function AlignSelfBaseline() {
   return (
     <Flex
       style={{ height: '100px' }}
-      padding={1}
+      p={1}
       bgColor="light"
       border
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="baseline" padding={2} bgColor="info" border="primary">
+      <Flex alignSelf="baseline" p={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -311,17 +313,17 @@ export function AlignSelfStretch() {
   return (
     <Flex
       style={{ height: '100px' }}
-      padding={1}
+      p={1}
       bgColor="light"
       border
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex alignSelf="stretch" padding={2} bgColor="info" border="primary">
+      <Flex alignSelf="stretch" p={2} bgColor="info" border="primary">
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -333,11 +335,11 @@ export function AlignSelfResponsive() {
   return (
     <Flex
       style={{ height: '100px' }}
-      padding={1}
+      p={1}
       bgColor="light"
       border
     >
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
       <Flex
@@ -349,13 +351,13 @@ export function AlignSelfResponsive() {
           xl: 'baseline',
           xxl: 'start',
         }}
-        padding={2}
+        p={2}
         bgColor="info"
         border="primary"
       >
         Aligned flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -365,14 +367,14 @@ AlignSelfResponsive.storyName = 'Align self responsive';
 
 export function FlexFill() {
   return (
-    <Flex padding={1} bgColor="light" border>
-      <Flex flexFill padding={2} bgColor="light" border>
+    <Flex p={1} bgColor="light" border>
+      <Flex flexFill p={2} bgColor="light" border>
         Flex item with a lot of content
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -382,14 +384,14 @@ FlexFill.storyName = 'Flex fill';
 
 export function FlexGrow() {
   return (
-    <Flex padding={1} bgColor="light" border>
-      <Flex flexGrow={1} padding={2} bgColor="light" border>
+    <Flex p={1} bgColor="light" border>
+      <Flex flexGrow={1} p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Third flex item
       </Flex>
     </Flex>
@@ -399,11 +401,11 @@ FlexGrow.storyName = 'Flex grow';
 
 export function FlexShrink() {
   return (
-    <Flex padding={1} bgColor="light" border>
-      <Flex width={100} padding={2} bgColor="light" border>
+    <Flex p={1} bgColor="light" border>
+      <Flex w={100} p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex flexShrink={1} padding={2} bgColor="light" border>
+      <Flex flexShrink={1} p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -414,36 +416,36 @@ FlexShrink.storyName = 'Flex shrink';
 export function AutoMargins() {
   return (
     <>
-      <Flex mb={3} padding={1} bgColor="light" border>
-        <Flex padding={2} bgColor="light" border>
+      <Flex mb={3} p={1} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" border>
-          Flex item
-        </Flex>
-      </Flex>
-      <Flex mb={3} padding={1} bgColor="light" border>
-        <Flex me="auto" padding={2} bgColor="light" border>
-          Flex item
-        </Flex>
-        <Flex padding={2} bgColor="light" border>
-          Flex item
-        </Flex>
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
-      <Flex mb={3} padding={1} bgColor="light" border>
-        <Flex padding={2} bgColor="light" border>
+      <Flex mb={3} p={1} bgColor="light" border>
+        <Flex me="auto" p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex ms="auto" padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
+          Flex item
+        </Flex>
+      </Flex>
+      <Flex mb={3} p={1} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
+          Flex item
+        </Flex>
+        <Flex p={2} bgColor="light" border>
+          Flex item
+        </Flex>
+        <Flex ms="auto" p={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
@@ -459,18 +461,18 @@ export function WithAlignItems() {
         direction="column"
         alignItems="start"
         me={3}
-        padding={1}
+        p={1}
         style={{ height: '200px' }}
         bgColor="light"
         border
       >
-        <Flex mb="auto" padding={2} bgColor="light" border>
+        <Flex mb="auto" p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
@@ -478,18 +480,18 @@ export function WithAlignItems() {
         direction="column"
         alignItems="end"
         me={3}
-        padding={1}
+        p={1}
         style={{ height: '200px' }}
         bgColor="light"
         border
       >
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex padding={2} bgColor="light" border>
+        <Flex p={2} bgColor="light" border>
           Flex item
         </Flex>
-        <Flex mt="auto" padding={2} bgColor="light" border>
+        <Flex mt="auto" p={2} bgColor="light" border>
           Flex item
         </Flex>
       </Flex>
@@ -500,20 +502,20 @@ WithAlignItems.storyName = 'With align items';
 
 export function Wrap() {
   return (
-    <Flex flexWrap padding={1} bgColor="light" style={{ width: '100px' }} border>
-      <Flex padding={2} bgColor="light" border>
+    <Flex flexWrap p={1} bgColor="light" style={{ width: '100px' }} border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -522,20 +524,20 @@ export function Wrap() {
 
 export function NoWrap() {
   return (
-    <Flex flexNoWrap padding={1} bgColor="light" border style={{ width: '100px' }}>
-      <Flex padding={2} bgColor="light" border>
+    <Flex flexNoWrap p={1} bgColor="light" border style={{ width: '100px' }}>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
-      <Flex padding={2} bgColor="light" border>
+      <Flex p={2} bgColor="light" border>
         Flex item
       </Flex>
     </Flex>
@@ -545,14 +547,14 @@ NoWrap.storyName = 'No wrap';
 
 export function Order() {
   return (
-    <Flex flexNoWrap padding={1} bgColor="light" border>
-      <Flex order={3} padding={2} bgColor="light" border>
+    <Flex flexNoWrap p={1} bgColor="light" border>
+      <Flex order={3} p={2} bgColor="light" border>
         First flex item
       </Flex>
-      <Flex order={2} padding={2} bgColor="light" border>
+      <Flex order={2} p={2} bgColor="light" border>
         Second flex item
       </Flex>
-      <Flex order={1} padding={2} bgColor="light" border>
+      <Flex order={1} p={2} bgColor="light" border>
         Third flex item
       </Flex>
     </Flex>
