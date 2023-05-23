@@ -13,6 +13,7 @@ function Story(args) {
 
 export const Default = Story.bind({});
 Default.args = {
+  as: 'h4',
   children: 'Bootstrap heading',
 };
 
@@ -61,7 +62,7 @@ export function DisplayHeadings() {
 
   return (
     examples.map((example) => (
-      <Heading display={example}>
+      <Heading banner={example}>
         Display
         {' '}
         {example}
