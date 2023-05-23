@@ -5,9 +5,84 @@ import BootstrapUIImage from '../static/bootstrap-ui.png';
 
 # **Bootstrap UI**
 
-Simple, fast and moduler React component library basis
-on [Bootstrap](https://getbootstrap.com/) styles for
-fast creating web apps. Documentation generate by
-[Storybook](storybook.js.org). 
+Simple, fast and moduler React component library basis on
+[**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps.
+Documentation generate by [**Storybook**](storybook.js.org).
 
-<img className="order mt-2 mb-4" style={{ maxWidth: '600px' }} src={BootstrapUIImage} alt="Bootstrap-UI logo" />
+<img
+  className="order mb-5 mt-3"
+  style={{ maxWidth: '600px' }}
+  src={BootstrapUIImage}
+  alt="Bootstrap-UI logo"
+/>
+
+## **Preparation**
+
+If you have not created a project yet, I advise you to create it through [`create-react-app`](https://create-react-app.dev). This is most simple way.
+
+```shell
+# via npx
+npx create-react-app [project-name]
+```
+
+This components library usage [**Boostrap**](https://getbootstrap.com) package. Before install library you need
+install original package via `npm` or `yarn`
+
+```shell
+# via npm
+npm i bootstrap
+
+# via yarn
+yarn add bootstrap
+```
+
+and you need import Bootstrap styles and script in `index.js` or `App.[js|jsx]` file (to your notice):
+
+```js
+// CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Scripts
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+## **Instalation**
+If you successed complete **Preparation** block, go to install components library:
+
+```shell
+# via npm
+npm i bootstrap-ui
+# via yarn
+yarn add bootstrap-ui
+```
+
+## **Import**
+For example we import `Badge` component from a library
+```js
+import { Badge } from 'bootstrap-ui';
+import Badge from 'bootstrap-ui/Badge';
+```
+
+## **Layout**
+`Grid` is a basic **Bootstrap** system for creating adaptive web apps
+```js
+import { Container, Row, Col } from 'bootstrap-ui';
+// equivalent usage object Grid
+// import { Grid } from 'bootstrap-ui'
+// <Grid.Container /> === <Container>,
+// <Grid.Row /> === <Row />
+// <Grid.Col /> === <Col />
+
+export default function Example() {
+  return (
+    <Container>
+      <Row cols={2}>
+        <Col>Column #1</Col>
+        <Col>Column #2</Col>
+        <Col>Column #3</Col>
+        <Col>Column #4</Col>
+      </Row>
+    </Container>
+  )
+}
+```
