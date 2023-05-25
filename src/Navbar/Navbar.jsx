@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Flex from '../Flex';
-import { usePrefix } from '../prefix';
+import { usePrefix } from '../../scripts/prefix';
 import NavbarBrand from './NavbarBrand';
 import NavbarToggler from './NavbarToggler';
 import NavbarCollapse from './NavbarCollapse';

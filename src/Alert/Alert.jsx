@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../prefix';
+import { usePrefix } from '../../scripts/prefix';
 import Box from '../Box';
 import CloseButton from '../CloseButton';
 import AlertLink from './AlertLink';

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../prefix';
+import { usePrefix } from '../../scripts/prefix';
 import CarouselControlIcon from './CarouselControlIcon';
 import Box from '../Box';
 import { CarouselContext } from './CarouselContext';

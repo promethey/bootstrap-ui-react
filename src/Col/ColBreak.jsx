@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getDisplayClassNames } from '../display';
+import { getDisplayClassNames } from '../../scripts/display';
 
 function ColBreak(props) {
   const {

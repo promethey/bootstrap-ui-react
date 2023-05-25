@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../prefix';
+import { usePrefix } from '../../scripts/prefix';
 
 function ProgressBar(props) {
   const {

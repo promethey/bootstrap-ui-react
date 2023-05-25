@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { usePrefix } from '../prefix';
-import { getBootstrapClassNames } from '../convert';
+import { usePrefix } from '../../scripts/prefix';
+import { getBootstrapClassNames } from '../../scripts/convert';
 import Flex from '../Flex';
 import ColBreak from './ColBreak';
 

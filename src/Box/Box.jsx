@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { getBootstrapClassNames } from '../convert';
-import { getSpacingClassNames } from '../spacing';
-import { usePrefix } from '../prefix';
+import { getBootstrapClassNames } from '../../scripts/convert';
+import { getSpacingClassNames } from '../../scripts/spacing';
+import { usePrefix } from '../../scripts/prefix';
 
 /**
  * PropTypes

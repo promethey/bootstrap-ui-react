@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Flex from '../Flex';
-import { getBootstrapClassNames } from '../convert';
+import { getBootstrapClassNames } from '../../scripts/convert';
 
 /**
  * PropTypes

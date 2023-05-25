@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Box from '../Box';
-import { usePrefix } from '../prefix';
+import { usePrefix } from '../../scripts/prefix';
 import Option from './Option';
 
 function Select(props) {
