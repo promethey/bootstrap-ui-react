@@ -8,8 +8,8 @@ Simple, fast and moduler React component library basis on [**Bootstrap**](https:
 
 ## **Features**
 The library differs from others in the fast release of new features from the Bootstrap Team and the fact that all functional components without TypeScript
-+ 💥 Install library via [`npm`](https://www.npmjs.com) or [`yarn`](https://classic.yarnpkg.com/)
-+ 🔥 Support latest version of [`Bootstrap`](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
++ 💥 Install library via [`npm`](https://www.npmjs.com)
++ 🔥 Fast support Bootstrap last version (https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
 + 🧾 Documents generate by [`Storybook`](https://www.storybook.js.org)
 + 📖 Many informative, original and honest examples
 + ✨ Clean `JavaScript` (without `TypeScript`)
@@ -24,14 +24,11 @@ npx create-react-app [project-name]
 ```
 
 This components library usage [**Boostrap**](https://getbootstrap.com) package. Before install library you need
-install original package via `npm` or `yarn`
+install original package via `npm`
 
 ```shell
 # via npm
 npm i bootstrap
-
-# via yarn
-yarn add bootstrap
 ```
 
 and you need import Bootstrap styles and script in `index.js` or `App.[js|jsx]` file (to your notice):
@@ -50,9 +47,6 @@ If you successed complete **Preparation** block, go to install components librar
 ```shell
 # via npm
 npm i bootstrap-ui
-
-# via yarn
-yarn add bootstrap-ui
 ```
 
 ## **Import**
