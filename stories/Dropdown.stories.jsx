@@ -1,6 +1,11 @@
 import React from 'react';
 import {
-  Dropdown, ButtonGroup, Button, Text, Flex,
+  Dropdown,
+  ButtonGroup,
+  Button,
+  Text,
+  Flex,
+  Box,
 } from '../src';
 
 export default {
@@ -29,10 +34,10 @@ function Story(args) {
 export const Default = Story.bind({});
 Default.args = {
   children: [
-    <Dropdown.Toggle theme="secondary" id="dropdownMenuButton1">
+    <Dropdown.Toggle theme="secondary">
       Dropdown button
     </Dropdown.Toggle>,
-    <Dropdown.Menu label="dropdownMenuButton1">
+    <Dropdown.Menu>
       <Dropdown.Item>Action</Dropdown.Item>
       <Dropdown.Item>Another action</Dropdown.Item>
       <Dropdown.Item>Something else here</Dropdown.Item>
@@ -43,10 +48,10 @@ Default.args = {
 export const ItemLinks = Story.bind({});
 ItemLinks.args = {
   children: [
-    <Dropdown.Toggle theme="secondary" id="dropdownMenuButton1">
+    <Dropdown.Toggle theme="secondary">
       Dropdown links
     </Dropdown.Toggle>,
-    <Dropdown.Menu label="dropdownMenuButton1">
+    <Dropdown.Menu>
       <Dropdown.Item>
         Action
       </Dropdown.Item>
@@ -64,10 +69,10 @@ ItemLinks.storyName = 'Item links';
 export const ItemButtons = Story.bind({});
 ItemButtons.args = {
   children: [
-    <Dropdown.Toggle theme="secondary" id="dropdownMenuButton1">
+    <Dropdown.Toggle theme="secondary">
       Dropdown links
     </Dropdown.Toggle>,
-    <Dropdown.Menu label="dropdownMenuButton1">
+    <Dropdown.Menu>
       <Dropdown.Item as="button">
         Action
       </Dropdown.Item>
@@ -133,10 +138,10 @@ export function SplitButton() {
           <Button theme={example.toLowerCase()}>
             {example}
           </Button>
-          <Dropdown.Toggle isSplit theme={example.toLowerCase()}>
-            <span className="visually-hidden">
+          <Dropdown.Toggle split theme={example.toLowerCase()}>
+            <Box visually={false}>
               Toggle Dropdown
-            </span>
+            </Box>
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>Action</Dropdown.Item>
@@ -171,10 +176,10 @@ export function LargeSize() {
         <Button theme="secondary" size="lg">
           Small split button
         </Button>
-        <Dropdown.Toggle isSplit theme="secondary" size="lg">
-          <span className="visually-hidden">
-            Toggle dropdown
-          </span>
+        <Dropdown.Toggle split theme="secondary" size="lg">
+          <Box visually={false}>
+            Toggle Dropdown
+          </Box>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
@@ -208,10 +213,10 @@ export function SmallSize() {
         <Button theme="secondary" size="sm">
           Large split button
         </Button>
-        <Dropdown.Toggle isSplit theme="secondary" size="sm">
-          <span className="visually-hidden">
-            Toggle dropdown
-          </span>
+        <Dropdown.Toggle split theme="secondary" size="sm">
+          <Box visually={false}>
+            Toggle Dropdown
+          </Box>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
@@ -229,10 +234,10 @@ SmallSize.storyName = 'Small size';
 export const Dark = Story.bind({});
 Dark.args = {
   children: [
-    <Dropdown.Toggle theme="secondary" id="dropdownMenuButton2">
+    <Dropdown.Toggle theme="secondary">
       Dropdown button
     </Dropdown.Toggle>,
-    <Dropdown.Menu label="dropdownMenuButton2" isDark>
+    <Dropdown.Menu dark>
       <Dropdown.Item>Action</Dropdown.Item>
       <Dropdown.Item>Another action</Dropdown.Item>
       <Dropdown.Item>Something else here</Dropdown.Item>
@@ -261,10 +266,10 @@ export function Dropup() {
         <Button theme="secondary">
           Split dropup
         </Button>
-        <Dropdown.Toggle theme="secondary" isSplit>
-          <span className="visually-hidden">
+        <Dropdown.Toggle theme="secondary" split>
+          <Box visually={false}>
             Toggle Dropdown
-          </span>
+          </Box>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
@@ -297,10 +302,10 @@ export function Dropright() {
         <Button theme="secondary">
           Split dropright
         </Button>
-        <Dropdown.Toggle theme="secondary" isSplit>
-          <span className="visually-hidden">
+        <Dropdown.Toggle theme="secondary" split>
+          <Box visually={false}>
             Toggle Dropdown
-          </span>
+          </Box>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
@@ -333,10 +338,10 @@ export function Dropstart() {
         <Button theme="secondary">
           Split dropstart
         </Button>
-        <Dropdown.Toggle theme="secondary" isSplit>
-          <span className="visually-hidden">
+        <Dropdown.Toggle theme="secondary" split>
+          <Box visually={false}>
             Toggle Dropdown
-          </span>
+          </Box>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
@@ -353,13 +358,9 @@ export function Dropstart() {
 export function ItemText() {
   return (
     <ButtonGroup>
-      <Dropdown.Toggle>
-        Dropdown text
-      </Dropdown.Toggle>
+      <Dropdown.Toggle>Dropdown text</Dropdown.Toggle>
       <Dropdown.Menu>
-        <Dropdown.Text>
-          Dropdown item text
-        </Dropdown.Text>
+        <Dropdown.Text>Dropdown item text</Dropdown.Text>
         <Dropdown.Item>Action</Dropdown.Item>
         <Dropdown.Item>Another action</Dropdown.Item>
         <Dropdown.Item>Something else here</Dropdown.Item>
@@ -372,12 +373,10 @@ ItemText.storyName = 'Item text';
 export const Active = Story.bind({});
 Active.args = {
   children: [
-    <Dropdown.Toggle>
-      Active
-    </Dropdown.Toggle>,
+    <Dropdown.Toggle>Active</Dropdown.Toggle>,
     <Dropdown.Menu>
       <Dropdown.Item>Regular link</Dropdown.Item>
-      <Dropdown.Item isActive>Active link</Dropdown.Item>
+      <Dropdown.Item active>Active link</Dropdown.Item>
       <Dropdown.Item>Another link</Dropdown.Item>
     </Dropdown.Menu>,
   ],
@@ -389,7 +388,7 @@ Disabled.args = {
     <Dropdown.Toggle>Disabled</Dropdown.Toggle>,
     <Dropdown.Menu>
       <Dropdown.Item>Regular link</Dropdown.Item>
-      <Dropdown.Item isDisabled>Disabled link</Dropdown.Item>
+      <Dropdown.Item disabled>Disabled link</Dropdown.Item>
       <Dropdown.Item>Another link</Dropdown.Item>
     </Dropdown.Menu>,
   ],
@@ -416,7 +415,7 @@ MenuAlignmentResponsive.args = {
     <Dropdown.Toggle theme="secondary">
       Left-aligned but right aligned when large screen
     </Dropdown.Toggle>,
-    <Dropdown.Menu align="end" alignLg="start">
+    <Dropdown.Menu align={{ xs: 'end', lg: 'start' }}>
       <Dropdown.Item>Action</Dropdown.Item>
       <Dropdown.Item>Another action</Dropdown.Item>
       <Dropdown.Item>Something else here</Dropdown.Item>
@@ -445,7 +444,7 @@ Texts.args = {
     <Dropdown.Toggle theme="secondary">
       Dropdown text
     </Dropdown.Toggle>,
-    <Dropdown.Menu padding={4} textColor="muted">
+    <Dropdown.Menu p={4} textColor="muted">
       <Text>
         Some example text that&rsquo;s free-flowing
         within the dropdown menu.
@@ -461,14 +460,10 @@ export function Options() {
   return (
     <Flex>
       <Dropdown me={1}>
-        <Dropdown.Toggle
-          theme="secondary"
-          id="dropdownMenuOffset"
-          offset={[10, 20]}
-        >
+        <Dropdown.Toggle theme="secondary" offset={[10, 20]}>
           Offset
         </Dropdown.Toggle>
-        <Dropdown.Menu label="dropdownMenuOffset">
+        <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
           <Dropdown.Item>Another action</Dropdown.Item>
           <Dropdown.Item>Something else here</Dropdown.Item>
@@ -478,12 +473,12 @@ export function Options() {
         <Button theme="secondary">Reference</Button>
         <Dropdown.Toggle
           theme="secondary"
-          isSplit
+          split
           reference="parent"
         >
-          <span className="visually-hidden">
+          <Box visually={false}>
             Toggle Dropdown
-          </span>
+          </Box>
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item>Action</Dropdown.Item>
@@ -499,7 +494,7 @@ export function AutoCloseBehavior() {
   return (
     <>
       <ButtonGroup me={1}>
-        <Dropdown.Toggle theme="secondary" isAutoClose>
+        <Dropdown.Toggle theme="secondary" autoClose>
           Default dropdown
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -509,7 +504,7 @@ export function AutoCloseBehavior() {
         </Dropdown.Menu>
       </ButtonGroup>
       <ButtonGroup me={1}>
-        <Dropdown.Toggle theme="secondary" isAutoClose="inside">
+        <Dropdown.Toggle theme="secondary" autoClose="inside">
           Clickable outside
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -519,7 +514,7 @@ export function AutoCloseBehavior() {
         </Dropdown.Menu>
       </ButtonGroup>
       <ButtonGroup me={1}>
-        <Dropdown.Toggle theme="secondary" isAutoClose="outside">
+        <Dropdown.Toggle theme="secondary" autoClose="outside">
           Clickable inside
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -529,7 +524,7 @@ export function AutoCloseBehavior() {
         </Dropdown.Menu>
       </ButtonGroup>
       <ButtonGroup me={1}>
-        <Dropdown.Toggle theme="secondary" isAutoClose={false}>
+        <Dropdown.Toggle theme="secondary" autoClose={false}>
           Manual close
         </Dropdown.Toggle>
         <Dropdown.Menu>

@@ -45,6 +45,17 @@ const defaultProps = {
   banner: null,
 };
 
+/**
+ * Heading component
+ * Basis on Text component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ * Changelog:
+ * - Refactoring component [26/05/2023]
+ */
 export default function Heading({
   style,
   children,
@@ -55,7 +66,7 @@ export default function Heading({
   const classes = classNames(
     {
       /**
-       * banner is synonimus of display classname
+       * banner is synonimus of 'display' classname
        */
       [usePrefix('display', banner)]: banner,
     },

@@ -99,7 +99,7 @@ export default function Example() {
 + ✅ Collapse
 + ✅ Container
 + ✅ Row
-+ ✅ Dropdown (unstable)
++ ✅ Dropdown
 + ✅ ListGroup (unstable)
 + ⬜ Modal
 + ✅ Nav (unstable)

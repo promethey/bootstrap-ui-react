@@ -1,15 +1,78 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Box from '../Box';
 
-function DropdownItem({
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Change component type
+   */
+  as: PropTypes.oneOf([
+    'a',
+    'button',
+  ]),
+
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
+
+  /**
+   * Add children components
+   */
+  children: PropTypes.node.isRequired,
+
+  /**
+   * Add other classes
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+
+  /**
+   * Alias for href attribute
+   */
+  to: PropTypes.string,
+
+  /**
+   * Activate active style
+   */
+  active: PropTypes.bool,
+
+  /**
+   * Activate disabled style
+   */
+  disabled: PropTypes.bool,
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  as: 'a',
+  style: null,
+  className: null,
+  to: '#',
+  active: false,
+  disabled: false,
+};
+
+/**
+ * DropdownItem is children component of Dropdown
+ * Basis on Box component
+ */
+export default function DropdownItem({
   as: Component,
   style,
   children,
   className,
   to,
-  isActive,
-  isDisabled,
+  active,
+  disabled,
   ...rest
 }) {
   const BASE_CLASS_NAME = 'dropdown-item';
@@ -17,8 +80,8 @@ function DropdownItem({
   const classes = classNames(
     BASE_CLASS_NAME,
     {
-      active: isActive && !isDisabled,
-      disabled: isDisabled && !isActive,
+      active: active && !disabled,
+      disabled: disabled && !active,
     },
     className,
   );
@@ -29,62 +92,32 @@ function DropdownItem({
     className: classes,
   };
 
-  // If component type is a link
+  /**
+   * Add props for link
+   */
   if (Component === 'a') {
     properties.href = to;
   }
 
-  // If component type is a button
+  /**
+   * Add props for button
+   */
   if (Component === 'button') {
     properties.type = 'button';
   }
 
-  if (isActive) {
-    properties['aria-current'] = isActive;
+  if (active) {
+    properties['aria-current'] = active;
   }
 
   return (
-    <li>
-      <Component {...properties} {...rest}>
+    <Box>
+      <Box as={Component} {...properties} {...rest}>
         {children}
-      </Component>
-    </li>
+      </Box>
+    </Box>
   );
 }
 
-DropdownItem.propTypes = {
-  /** Change JSX type */
-  as: PropTypes.oneOf(['a', 'button']),
-
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add children components */
-  children: PropTypes.node.isRequired,
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  /** Alias for href attribute */
-  to: PropTypes.string,
-
-  /** Activate active style */
-  isActive: PropTypes.bool,
-
-  /** Activate disabled style */
-  isDisabled: PropTypes.bool,
-};
-
-DropdownItem.defaultProps = {
-  as: 'a',
-  style: null,
-  className: null,
-  to: '#',
-  isActive: false,
-  isDisabled: false,
-};
-
-export default DropdownItem;
+DropdownItem.propTypes = propTypes;
+DropdownItem.defaultProps = defaultProps;
