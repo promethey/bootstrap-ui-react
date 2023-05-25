@@ -1,65 +1,85 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Box from '../Box';
 
-function CarouselItem(props) {
-  const {
-    style,
-    children,
-    className,
-    isActive,
-    interval,
-    ...rest
-  } = props;
-
-  const BASE_CLASS_NAME = 'carousel-item';
-
-  const classes = classNames(
-    BASE_CLASS_NAME,
-    { active: isActive },
-    className,
-  );
-
-  return (
-    <div
-      style={style}
-      className={classes}
-      data-bs-interval={interval}
-      {...rest}
-    >
-      {children}
-    </div>
-  );
-}
-
-CarouselItem.propTypes = {
-  /** Add other styles */
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
   style: PropTypes.shape({}),
 
-  /** Add slide content */
+  /**
+   * Add slide content
+   */
   children: PropTypes.node.isRequired,
 
-  /** Add other classes */
+  /**
+   * Add other classes
+   */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /** Add active state for slide */
-  isActive: PropTypes.bool,
+  /**
+   * Add active state for slide
+   */
+  active: PropTypes.bool,
 
-  /** Change default interval (in milliseconds) */
+  /**
+   * Change default interval (ms)
+   */
   interval: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.bool,
   ]),
 };
 
-CarouselItem.defaultProps = {
+/**
+ * DefaultProps
+ */
+const defaultProps = {
   style: null,
   className: null,
-  isActive: false,
+  active: false,
   interval: null,
 };
 
-export default CarouselItem;
+/**
+ * CarouselItem is children component of Carousel
+ * Basis on Box component
+ */
+export default function CarouselItem({
+  style,
+  children,
+  className,
+  active,
+  interval,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'carousel-item';
+
+  const classes = classNames(
+    BASE_CLASS_NAME,
+    { active },
+    className,
+  );
+
+  return (
+    <Box
+      style={style}
+      className={classes}
+      data-bs-interval={interval}
+      {...rest}
+    >
+      {children}
+    </Box>
+  );
+}
+
+CarouselItem.propTypes = propTypes;
+CarouselItem.defaultProps = defaultProps;

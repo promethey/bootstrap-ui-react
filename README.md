@@ -94,7 +94,7 @@ export default function Example() {
 + ✅ Button
 + ✅ ButtonGroup
 + ✅ Card
-+ ✅ Carousel (unstable)
++ ✅ Carousel
 + ✅ CloseButton (unstable)
 + ✅ Collapse (unstable)
 + ✅ Container

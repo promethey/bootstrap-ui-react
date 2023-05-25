@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Carousel, Flex, Heading, Text,
 } from '../src';
@@ -32,7 +31,7 @@ function Story(args) {
   return (
     <Carousel {...args}>
       {slides.map((slide, index) => (
-        <Carousel.Item key={slide} isActive={index === 0}>
+        <Carousel.Item key={slide} active={index === 0}>
           <Flex
             style={{ height: '400px' }}
             justifyContent="center"
@@ -40,7 +39,7 @@ function Story(args) {
             bgColor="secondary"
             textColor="white-50"
           >
-            <Heading>{slide}</Heading>
+            <Heading banner={3}>{slide}</Heading>
           </Flex>
         </Carousel.Item>
       ))}
@@ -48,7 +47,8 @@ function Story(args) {
   );
 }
 
-function StoryWidthCaptions({ isDark, ...args }) {
+// eslint-disable-next-line
+function StoryWidthCaptions({ dark, ...args }) {
   const slides = [
     'First slide',
     'Second slide',
@@ -56,19 +56,19 @@ function StoryWidthCaptions({ isDark, ...args }) {
   ];
 
   return (
-    <Carousel isDark={isDark} {...args}>
+    <Carousel dark={dark} {...args}>
       {slides.map((slide, index) => (
-        <Carousel.Item key={slide} isActive={index === 0}>
+        <Carousel.Item key={slide} active={index === 0}>
           <Flex
             style={{ height: '400px' }}
             justifyContent="center"
             alignItems="center"
-            bgColor={isDark ? 'light' : 'secondary'}
-            textColor={isDark ? 'black-50' : 'white-50'}
+            bgColor={dark ? 'light' : 'secondary'}
+            textColor={dark ? 'black-50' : 'white-50'}
           >
-            <Heading>{slide}</Heading>
+            <Heading banner={3}>{slide}</Heading>
           </Flex>
-          <Carousel.Caption display="none" displayMd="block">
+          <Carousel.Caption d={{ xs: 'none', md: 'block' }}>
             <Heading as="h5">
               {slide}
               {' '}
@@ -84,12 +84,6 @@ function StoryWidthCaptions({ isDark, ...args }) {
     </Carousel>
   );
 }
-StoryWidthCaptions.propTypes = {
-  isDark: PropTypes.bool,
-};
-StoryWidthCaptions.defaultProps = {
-  isDark: false,
-};
 
 export const SlidesOnly = Story.bind({});
 SlidesOnly.args = {
@@ -100,34 +94,34 @@ SlidesOnly.storyName = 'Slides only';
 export const WidthControls = Story.bind({});
 WidthControls.args = {
   id: 'CarouselExampleControls',
-  isControls: true,
+  controls: true,
 };
 WidthControls.storyName = 'Width controls';
 
 export const WidthIndicators = Story.bind({});
 WidthIndicators.args = {
   id: 'CarouselExampleIndiacators',
-  isControls: true,
-  isIndicators: true,
-  isRide: true,
+  controls: true,
+  indicators: true,
+  ride: true,
 };
 WidthIndicators.storyName = 'Width indicators';
 
 export const WidthCaptions = StoryWidthCaptions.bind({});
 WidthCaptions.args = {
   id: 'CarouselExampleCaptions',
-  isControls: true,
-  isIndicators: true,
-  isRide: false,
+  controls: true,
+  indicators: true,
+  ride: false,
 };
 WidthCaptions.storyName = 'Width captions';
 
 export const Crossfade = Story.bind({});
 Crossfade.args = {
   id: 'CarouselExampleCrossfade',
-  isControls: true,
-  isIndicators: true,
-  isFade: true,
+  controls: true,
+  indicators: true,
+  fade: true,
 };
 
 export function IndividualIntervals() {
@@ -140,11 +134,11 @@ export function IndividualIntervals() {
   const intervals = [10000, 2000, null];
 
   return (
-    <Carousel id="CarouselCustomIntervals" isControls isIndicators>
+    <Carousel id="CarouselCustomIntervals" controls indicators>
       {slides.map((slide, index) => (
         <Carousel.Item
           key={slide}
-          isActive={index === 0}
+          active={index === 0}
           interval={intervals[index]}
         >
           <Flex
@@ -154,7 +148,7 @@ export function IndividualIntervals() {
             bgColor="secondary"
             textColor="white-50"
           >
-            <Heading>{slide}</Heading>
+            <Heading banner={3}>{slide}</Heading>
           </Flex>
         </Carousel.Item>
       ))}
@@ -166,9 +160,9 @@ IndividualIntervals.storyName = 'Individual intervals';
 export const DisableTouchSwiping = Story.bind({});
 DisableTouchSwiping.args = {
   id: 'carouselExampleControlsNoTouching',
-  isControls: true,
-  isIndicators: true,
-  isTouch: false,
+  controls: true,
+  indicators: true,
+  touch: false,
   interval: false,
 };
 DisableTouchSwiping.storyName = 'Disable touch swiping';
@@ -176,7 +170,7 @@ DisableTouchSwiping.storyName = 'Disable touch swiping';
 export const Dark = StoryWidthCaptions.bind({});
 Dark.args = {
   id: 'carouselExampleDark',
-  isControls: true,
-  isIndicators: true,
-  isDark: true,
+  controls: true,
+  indicators: true,
+  dark: true,
 };

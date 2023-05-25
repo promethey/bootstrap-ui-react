@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Box from '../Box';
+import { CarouselContext } from './CarouselContext';
 
-function CarouselIndicators(props) {
-  const {
-    style,
-    className,
-    target,
-    slides,
-    ...rest
-  } = props;
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
+  style: PropTypes.shape({}),
 
+  /**
+   * Add other classnames
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+};
+
+/**
+ * DefaultProps
+ */
+const defaultProps = {
+  style: null,
+  className: null,
+};
+
+/**
+ * CarouselIndicators is children component of Carousel
+ * Basis on Box component
+ */
+export default function CarouselIndicators({
+  style,
+  className,
+  ...rest
+}) {
   const BASE_CLASS_NAME = 'carousel-indicators';
+
+  const { targetId, slides } = useContext(CarouselContext);
 
   const classes = classNames(
     BASE_CLASS_NAME,
@@ -19,47 +49,24 @@ function CarouselIndicators(props) {
   );
 
   return (
-    <div style={style} className={classes} {...rest}>
+    <Box style={style} className={classes} {...rest}>
       {React.Children.map(slides, (slide, index) => (
-        <button
+        <Box
+          as="button"
           type="button"
-          className={classNames({ active: slide.props.isActive })}
-          data-bs-target={`#${target}`}
+          className={classNames({ active: slide.props.active })}
+          data-bs-target={`#${targetId}`}
           data-bs-slide-to={index}
         >
-          <div className="visually-hidden">
+          <Box visually="hidden">
             Indicator #
             {index + 1}
-          </div>
-        </button>
+          </Box>
+        </Box>
       ))}
-    </div>
+    </Box>
   );
 }
 
-CarouselIndicators.propTypes = {
-  /** Add other styles */
-  style: PropTypes.shape({}),
-
-  /** Add other classes */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  /** Alias for attribute *id* */
-  id: PropTypes.string.isRequired,
-
-  /** Choose carousel id (auto) */
-  target: PropTypes.string.isRequired,
-
-  /** Add carousel items (auto) */
-  slides: PropTypes.node.isRequired,
-};
-
-CarouselIndicators.defaultProps = {
-  style: null,
-  className: null,
-};
-
-export default CarouselIndicators;
+CarouselIndicators.propTypes = propTypes;
+CarouselIndicators.defaultProps = defaultProps;

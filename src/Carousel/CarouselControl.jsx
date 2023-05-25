@@ -1,64 +1,85 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from '../prefix';
 import CarouselControlIcon from './CarouselControlIcon';
+import Box from '../Box';
+import { CarouselContext } from './CarouselContext';
 
-function CarouselControl(props) {
-  const {
-    style,
-    className,
-    type,
-    target,
-    ...rest
-  } = props;
-
-  const BASE_CLASS_NAME = 'carousel-control';
-
-  const classes = classNames(
-    usePrefix(BASE_CLASS_NAME, type),
-    className,
-  );
-
-  return (
-    <button
-      type="button"
-      data-bs-target={`#${target}`}
-      data-bs-slide={type}
-      className={classes}
-      {...rest}
-    >
-      <CarouselControlIcon type={type} />
-      <span className="visually-hidden">
-        {type[0].toUpperCase() + type.slice(1)}
-      </span>
-    </button>
-  );
-}
-
-CarouselControl.propTypes = {
-  /** Add other styles */
+/**
+ * PropTypes
+ */
+const propTypes = {
+  /**
+   * Add other styles
+   */
   style: PropTypes.shape({}),
 
-  /** Add other classes */
+  /**
+   * Add other classes
+   */
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),
 
-  /** Alias for attribute *id* */
-  id: PropTypes.string.isRequired,
-
-  /** Choose control type */
-  type: PropTypes.oneOf(['prev', 'next']).isRequired,
-
-  /** Choose carousel id (auto) */
-  target: PropTypes.string.isRequired,
+  /**
+   * Choose control type
+   */
+  type: PropTypes.oneOf([
+    'prev',
+    'next',
+  ]).isRequired,
 };
 
-CarouselControl.defaultProps = {
+/**
+ * DefaultProps
+ */
+const defaultProps = {
   style: null,
   className: null,
 };
 
-export default CarouselControl;
+/**
+ * CarouselControl is children component of Carousel
+ * Basis on Box component
+ */
+export default function CarouselControl({
+  style,
+  className,
+  type,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'carousel-control';
+
+  const { targetId } = useContext(CarouselContext);
+
+  const classes = classNames(
+    /**
+     * 'carousel-control-prev'
+     * 'carousel-control-next'
+     */
+    usePrefix(BASE_CLASS_NAME, type),
+    className,
+  );
+
+  return (
+    <Box
+      as="button"
+      type="button"
+      style={style}
+      className={classes}
+      data-bs-target={`#${targetId}`}
+      data-bs-slide={type}
+      {...rest}
+    >
+      <CarouselControlIcon type={type} />
+      <Box as="span" visually="hidden">
+        {type[0].toUpperCase() + type.slice(1)}
+      </Box>
+    </Box>
+  );
+}
+
+CarouselControl.propTypes = propTypes;
+CarouselControl.defaultProps = defaultProps;
