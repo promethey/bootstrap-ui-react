@@ -24,8 +24,12 @@ export function getBootstrapClassNames(
 
   if (
     typeof prefix !== 'string'
-    || (typeof classNames !== 'object' && typeof classNames !== 'string'
-    && typeof classNames !== 'boolean' && typeof classNames !== 'number')
+    || (
+      typeof classNames !== 'object'
+      && typeof classNames !== 'string'
+      && typeof classNames !== 'boolean'
+      && typeof classNames !== 'number'
+    )
   ) {
     return null;
   }
@@ -76,7 +80,7 @@ export function getBootstrapClassNames(
       }
     }
 
-    return classNamesArray;
+    return classNamesArray.join(' ');
   }
 
   return null;
