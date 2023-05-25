@@ -4,7 +4,7 @@ Simple, fast and moduler React component library basis on [**Bootstrap**](https:
 
 >Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
 
-![BootstrapUILogo](./static/bootstrap-ui.png)
+![BootstrapUILogo](./assets/bootstrap-ui.png)
 
 ## **Features**
 The library differs from others in the fast release of new features from the Bootstrap Team and the fact that all functional components without TypeScript
