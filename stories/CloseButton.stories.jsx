@@ -29,5 +29,5 @@ White.parameters = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  isDisabled: true,
+  disabled: true,
 };

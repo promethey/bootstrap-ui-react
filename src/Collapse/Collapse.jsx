@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
 import classNames from 'classnames';
 import { Transition } from 'react-transition-group';
 import Box from '../Box';

@@ -2,41 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { usePrefix } from '../prefix';
+import Box from '../Box';
 
-function CloseButton(props) {
-  const {
-    style,
-    className,
-    theme,
-    dataDismiss,
-    isDisabled,
-    onClick,
-    ...rest
-  } = props;
-
-  const BASE_CLASS_NAME = 'btn-close';
-
-  const classes = classNames(
-    BASE_CLASS_NAME,
-    { [usePrefix(BASE_CLASS_NAME, theme)]: theme },
-    className,
-  );
-
-  return (
-    <button
-      type="button"
-      className={classes}
-      style={style}
-      aria-label="Close"
-      disabled={isDisabled}
-      data-bs-dismiss={dataDismiss}
-      onClick={onClick}
-      {...rest}
-    />
-  );
-}
-
-CloseButton.propTypes = {
+/**
+ * PropTypes
+ */
+const propTypes = {
   /**
    * Add other styles
    */
@@ -53,19 +24,21 @@ CloseButton.propTypes = {
   /**
    * Choose main theme
    */
-  theme: PropTypes.oneOf(['white']),
+  theme: PropTypes.oneOf([
+    'white',
+  ]),
 
   /**
    * Trigger the JavaScript functionality for closing.
    * Alias for attribute *data-bs-dismiss*
    */
-  dataDismiss: PropTypes.string,
+  dismiss: PropTypes.string,
 
   /**
    * Activate disabled state.
    * Alias for attribute *disabled*
    */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 
   /**
    * Click event handler
@@ -73,13 +46,65 @@ CloseButton.propTypes = {
   onClick: PropTypes.func,
 };
 
-CloseButton.defaultProps = {
+/**
+ * DefaultProps
+ */
+const defaultProps = {
   style: null,
   className: null,
   theme: null,
-  dataDismiss: null,
-  isDisabled: false,
+  dismiss: null,
+  disabled: false,
   onClick: null,
 };
 
-export default CloseButton;
+/**
+ * CloseButton component
+ * Basis on Box component
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ * @since 1.0.0
+ * @link https://getbootstrap.com/docs/5.3/components/close-button
+ *
+ * Changelog:
+ * - Refactoring component [26/05/2023]
+ */
+export default function CloseButton({
+  style,
+  className,
+  theme,
+  dismiss,
+  disabled,
+  onClick,
+  ...rest
+}) {
+  const BASE_CLASS_NAME = 'btn-close';
+
+  const classes = classNames(
+    BASE_CLASS_NAME,
+    {
+      /**
+       * 'btn-close-white'
+       */
+      [usePrefix(BASE_CLASS_NAME, theme)]: theme,
+    },
+    className,
+  );
+
+  return (
+    <Box
+      as="button"
+      type="button"
+      className={classes}
+      style={style}
+      disabled={disabled}
+      data-bs-dismiss={dismiss}
+      onClick={onClick}
+      {...rest}
+    />
+  );
+}
+
+CloseButton.propTypes = propTypes;
+CloseButton.defaultProps = defaultProps;
