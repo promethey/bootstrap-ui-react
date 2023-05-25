@@ -59,7 +59,7 @@ export default function AccordionBody({
   );
 
   return (
-    <AccordionCollapse in={checkActiveKey(itemKey)}>
+    <AccordionCollapse open={checkActiveKey(itemKey)}>
       <Box className={classes} style={style} {...rest}>
         {children}
       </Box>
