@@ -8,9 +8,9 @@ Simple, fast and moduler React component library basis on [**Bootstrap**](https:
 
 ## **Features**
 The library differs from others in the fast release of new features from the Bootstrap Team and the fact that all functional components without TypeScript
-+ 💥 Install library via [`npm`](https://www.npmjs.com)
-+ 🔥 Fast support Bootstrap last version (https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
-+ 🧾 Documents generate by [`Storybook`](https://www.storybook.js.org)
++ 💥 Install library via NPM
++ 🔥 Fast support Bootstrap last features
++ 🧾 Documents generate by Storybook
 + 📖 Many informative, original and honest examples
 + ✨ Clean `JavaScript` (without `TypeScript`)
 
