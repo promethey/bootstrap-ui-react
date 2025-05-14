@@ -1,17 +1,16 @@
-# **Bootstrap-UI**
+## **Bootstrap-UI**
 
-Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org). 
+Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org) and [**JSDoc**](jsdoc.app).
 
->Using Bootstrap [v5.1.3](https://www.npmjs.com/package/bootstrap)
-
-![BootstrapUILogo](./img/bootstrap-ui.png)
+<img src="./img/bootstrap-ui.png" alt="logo" width="700"/>
 
 ## **Features**
-+ 💥 Install library via [`npm`](https://www.npmjs.com) or [`yarn`](https://classic.yarnpkg.com/)
-+ 🔥 Support latest version of [`Bootstrap`](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
-+ 🧾 Documents generate by [`Storybook`](https://www.storybook.js.org)
-+ 📖 Many informative, original and honest examples
-+ ✨ Clean `JavaScript` (without `TypeScript`)
+
+- 💥 Install library via [`npm`](https://www.npmjs.com) or [`yarn`](https://classic.yarnpkg.com/)
+- 🔥 Support latest version of [`Bootstrap`](https://github.com/twbs/bootstrap/releases/tag/v5.1.3)
+- 🧾 Documents generate by [`Storybook`](https://www.storybook.js.org)
+- 📖 Many informative, original and honest examples
+- ✨ Clean `JavaScript` (without `TypeScript`)
 
 ## **Preparation**
 
@@ -37,34 +36,36 @@ and you need import Bootstrap styles and script in `index.js` or `App.[js|jsx]` 
 
 ```js
 // CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Scripts
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 ```
 
 ## **Instalation**
-If you successed complete **Preparation** block, go to install components library:
+
+If you successed complete **Preparation** block, go to /src folder and download library via git:
 
 ```shell
-# via npm
-npm i bootstrap-ui
-
-# via yarn
-yarn add bootstrap-ui
+# via git
+git clone https://github.com/promethey/bootstrap-ui-react.git
 ```
 
 ## **Import components**
+
 For example we import `Badge` component from a library
+
 ```js
-import { Badge } from 'bootstrap-ui';
-import Badge from 'bootstrap-ui/Badge';
+import { Badge } from "bootstrap-ui";
+import Badge from "bootstrap-ui/Badge";
 ```
 
 ## **Usage Grid**
+
 `Grid` is a basic **Bootstrap** system for creating adaptive web apps
+
 ```js
-import { Container, Row, Col } from 'bootstrap-ui';
+import { Container, Row, Col } from "bootstrap-ui";
 // equivalent usage object Grid
 // import { Grid } from 'bootstrap-ui'
 // <Grid.Container /> === <Container>,
@@ -81,36 +82,37 @@ export default function Example() {
         <Col>Column #4</Col>
       </Row>
     </Container>
-  )
+  );
 }
 ```
 
 ## **Components support**
-+ ✅ Accordion
-+ ✅ Alert
-+ ✅ Badge
-+ ✅ Breadcrumb
-+ ✅ Button
-+ ✅ ButtonGroup
-+ ✅ Card
-+ ✅ Carousel
-+ ✅ CloseButton
-+ ✅ Collapse
-+ ✅ Dropdown
-+ ✅ ListGroup
-+ ⬜ Modal
-+ ✅ Nav
-+ ⬜ Tab
-+ ✅ Navbar
-+ ⬜ Offcanvas
-+ ⬜ Pagination
-+ ⬜ Placeholder
-+ ✅ Progress
-+ ✅ Spinner
-+ ⬜ Toast
-+ ✅ Box
-+ ✅ Flex
-+ ✅ Heading
-+ ✅ Text
+
+- ✅ Accordion
+- ✅ Alert
+- ✅ Badge
+- ✅ Breadcrumb
+- ✅ Button
+- ✅ ButtonGroup
+- ✅ Card
+- ✅ Carousel
+- ✅ CloseButton
+- ✅ Collapse
+- ✅ Dropdown
+- ✅ ListGroup
+- ⬜ Modal
+- ✅ Nav
+- ⬜ Tab
+- ✅ Navbar
+- ⬜ Offcanvas
+- ⬜ Pagination
+- ⬜ Placeholder
+- ✅ Progress
+- ✅ Spinner
+- ⬜ Toast
+- ✅ Box
+- ✅ Flex
+- ✅ Heading
+- ✅ Text
 
 Good luck! The end...
