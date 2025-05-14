@@ -1,28 +1,14 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Box from 'components/Box';
-import AccordionCollapse from './AccordionCollapse';
-import { AccordionContext } from './AccordionContext';
-import { AccordionItemContext } from './AccordionItem';
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Box from "components/Box";
+import AccordionCollapse from "./AccordionCollapse";
+import { AccordionContext } from "./AccordionContext";
+import { AccordionItemContext } from "./AccordionItem";
 
-/**
- * PropTypes
- */
 const propTypes = {
-  /**
-   * Add Accordion header title
-   */
   children: PropTypes.node.isRequired,
-
-  /**
-   * Add other styles
-   */
   style: PropTypes.shape({}),
-
-  /**
-   * Add other classnames
-   */
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
@@ -30,31 +16,38 @@ const propTypes = {
   ]),
 };
 
-/**
- * DefaultProps
- */
 const defaultProps = {
   style: null,
   className: null,
 };
 
 /**
+ *
  * AccordionBody is children component of Accordion
- * Basis on Box component
+ *
+ * @param {object} props
+ * @param {ReactNode} props.children - React children components
+ * @param {object} props.style - React CSS styles
+ * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ *
+ * @returns {JSX.Element}
+ *
+ * @example
+ * <AccordionBody>Example...</AccordionBody>
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ *
  */
-function AccordionBody({
-  children,
-  style,
-  className,
-  ...rest
-}) {
+function AccordionBody({ children, style, className, ...rest }) {
+  /** @type {{checkActiveKey: bool}} */
   const { checkActiveKey } = useContext(AccordionContext);
+
+  /** @type {number} */
   const itemKey = useContext(AccordionItemContext);
 
-  const classes = classNames(
-    'accordion-body',
-    className,
-  );
+  /** @type {string} */
+  const classes = classNames("accordion-body", className);
 
   return (
     <AccordionCollapse in={checkActiveKey(itemKey)}>

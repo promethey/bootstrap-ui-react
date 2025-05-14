@@ -1,31 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Text from 'components/Text';
-import AccordionButton from './AccordionButton';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Text from "components/Text";
+import AccordionButton from "./AccordionButton";
 
-/**
- * PropTypes
- */
 const propTypes = {
-  /**
-   * Change JSX component type
-   */
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-
-  /**
-   * Add Accordion header title
-   */
+  as: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6"]),
   children: PropTypes.node.isRequired,
-
-  /**
-   * Add other styles
-   */
   style: PropTypes.shape({}),
-
-  /**
-   * Add other classnames
-   */
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
@@ -33,18 +15,30 @@ const propTypes = {
   ]),
 };
 
-/**
- * DefaultProps
- */
 const defaultProps = {
-  as: 'h2',
+  as: "h2",
   style: null,
   className: null,
 };
 
 /**
+ *
  * AccordionHeader is children component of Accordion
- * Basis on Text component
+ *
+ * @param {object} props - Component props
+ * @param {string} props.as - React component type
+ * @param {ReactNode} props.children - React children components
+ * @param {object} props.style - React CSS object
+ * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ *
+ * @return {JSX.Element}
+ *
+ * @example
+ * <AccordionHeader>Item #1</AccordionHeader>
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ *
  */
 function AccordionHeader({
   as: ComponentType,
@@ -53,18 +47,15 @@ function AccordionHeader({
   className,
   ...rest
 }) {
-  const BASE_CLASS_NAME = 'accordion-header';
+  /** @type {string} */
+  const BASE_CLASS_NAME = "accordion-header";
 
-  const classes = classNames(
-    BASE_CLASS_NAME,
-    className,
-  );
+  /** @type {string} */
+  const classes = classNames(BASE_CLASS_NAME, className);
 
   return (
     <Text as={ComponentType} className={classes} style={style} {...rest}>
-      <AccordionButton>
-        {children}
-      </AccordionButton>
+      <AccordionButton>{children}</AccordionButton>
     </Text>
   );
 }

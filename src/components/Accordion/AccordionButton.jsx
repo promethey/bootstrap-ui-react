@@ -1,42 +1,21 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Box from 'components/Box';
-import { AccordionContext } from './AccordionContext';
-import { AccordionItemContext } from './AccordionItem';
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Box from "components/Box";
+import { AccordionContext } from "./AccordionContext";
+import { AccordionItemContext } from "./AccordionItem";
 
-/**
- * PropTypes
- */
 const propTypes = {
-  /**
-   * Add Accordion header title
-   */
   children: PropTypes.node.isRequired,
-
-  /**
-   * Add other styles
-   */
   style: PropTypes.shape({}),
-
-  /**
-   * Add other classnames
-   */
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object,
   ]),
-
-  /**
-   * Add handler for onClick event
-   */
   onClick: PropTypes.func,
 };
 
-/**
- * DefaultProps
- */
 const defaultProps = {
   style: null,
   className: null,
@@ -44,24 +23,34 @@ const defaultProps = {
 };
 
 /**
+ *
  * AccordionBody is children component of AccordionHeader
- * Basis on Box component
+ *
+ * @param {object} props - Component props
+ * @param {ReactNode} props.children - React children component
+ * @param {object} props.style - React CSS object
+ * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ * @param {function} props.onClick - Function event handler onclick
+ *
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
+ *
  */
-function AccordionButton({
-  children,
-  style,
-  className,
-  onClick,
-  ...rest
-}) {
+function AccordionButton({ children, style, className, onClick, ...rest }) {
+  /** @type {{changeActiveItems: Array<number>, checkActiveKey: bool}} */
   const { changeActiveItems, checkActiveKey } = useContext(AccordionContext);
-  const itemKey = useContext(AccordionItemContext);
-  const BASE_CLASS_NAME = 'accordion-button';
 
+  /** @type {number} */
+  const itemKey = useContext(AccordionItemContext);
+
+  /** @type {string} */
+  const BASE_CLASS_NAME = "accordion-button";
+
+  /** @type {string} */
   const classes = classNames(
     BASE_CLASS_NAME,
     { collapsed: !checkActiveKey(itemKey) },
-    className,
+    className
   );
 
   return (
