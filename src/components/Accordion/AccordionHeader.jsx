@@ -22,23 +22,17 @@ const defaultProps = {
 };
 
 /**
- *
  * AccordionHeader is children component of Accordion
- *
  * @param {object} props - Component props
- * @param {string} props.as - React component type
+ * @param {string} [props.as=h2] - React component type
  * @param {ReactNode} props.children - React children components
- * @param {object} props.style - React CSS object
- * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
- *
+ * @param {object} [props.style=null] - React CSS object
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
  * @return {JSX.Element}
- *
  * @example
  * <AccordionHeader>Item #1</AccordionHeader>
- *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- *
  */
 function AccordionHeader({
   as: ComponentType,

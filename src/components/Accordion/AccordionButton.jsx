@@ -23,18 +23,15 @@ const defaultProps = {
 };
 
 /**
- *
  * AccordionBody is children component of AccordionHeader
- *
+ * @component
  * @param {object} props - Component props
  * @param {ReactNode} props.children - React children component
- * @param {object} props.style - React CSS object
- * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
- * @param {function} props.onClick - Function event handler onclick
- *
+ * @param {object} [props.style=null] - React CSS object
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ * @param {function} [props.onClick=null] - Function event handler onclick
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- *
  */
 function AccordionButton({ children, style, className, onClick, ...rest }) {
   /** @type {{changeActiveItems: Array<number>, checkActiveKey: bool}} */

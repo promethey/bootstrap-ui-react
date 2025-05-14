@@ -34,21 +34,16 @@ const defaultProps = {
 };
 
 /**
- *
  * Accordion component [(Boostrap Official Documentation)]{@link https://getbootstrap.com/docs/5.3/components/accordion}
- *
  * @component
- *
  * @param {object} props
  * @param {ReactNode} props.children - React children components
- * @param {object} [props.style] - React CSS object
- * @param {(string|Array<string>|object)} [props.className] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
- * @param {bool} props.flush - Activate flush style
- * @param {Array<number>} props.activeItems - List of open items
- * @param {bool} props.alwaysOpen - Disable closing items when click another item
- *
+ * @param {object} [props.style=null] - React CSS object
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ * @param {bool} [props.flush=false] - Activate flush style
+ * @param {Array<number>} [props.activeItems=null] - List of open items
+ * @param {bool} [props.alwaysOpen=false] - Disable closing items when click another item
  * @returns {JSX.Element}
- *
  * @example
  * <Accordion>
  *   <Accordion.Item>
@@ -56,10 +51,8 @@ const defaultProps = {
  *     <Accordion.Body>Example...</Accordion.Body>
  *   </Accordion.Item>
  * </Accordion>
- *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- *
  */
 function Accordion({
   children,
@@ -80,7 +73,10 @@ function Accordion({
     className
   );
 
-  const [activeItemsList, setActiveItemsList] = useState(() => {
+  const [
+    /** @type {Array<number>} */ activeItemsList,
+    /** @type {function} */ setActiveItemsList,
+  ] = useState(() => {
     if (alwaysOpen) {
       return activeItems ? [...activeItems] : [];
     }
@@ -88,10 +84,8 @@ function Accordion({
   });
 
   /**
-   *
    * Function for set or add item(s) key of Accordion.Item
    * @param {number} itemKey
-   *
    */
   const changeActiveItems = (itemKey) => {
     if (alwaysOpen) {
@@ -106,12 +100,9 @@ function Accordion({
   };
 
   /**
-   *
    * Function for checking key inactive items list
    * @param {number} key
-   *
-   * @returns {bool}
-   *
+   * @returns {bool} - If key contains in active list thats true also false
    */
   const checkActiveKey = (key) => {
     if (alwaysOpen) {

@@ -19,19 +19,14 @@ const defaultProps = {
 };
 
 /**
- *
  * AccordionCollapse is children component of AccordionBody
- *
  * @param {object} props - Component props
  * @param {React.node} props.children - React children componenents
- * @param {object} props.style - React CSS object
- * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
- *
+ * @param {object} [props.style=null] - React CSS object
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
  * @returns {JSX.Element}
- *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- *
  */
 function AccordionCollapse({ children, style, className, ...rest }) {
   /** @type {string} */

@@ -1,69 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-/**
- * PropTypes
- */
 const propTypes = {
-  /**
-   * Add other styles
-   */
   style: PropTypes.shape({}),
-
-  /**
-   * Add link label
-   * Required
-   */
   children: PropTypes.node.isRequired,
-
-  /**
-   * Add other classnames
-   */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  /**
-   * Alias for href
-   */
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   to: PropTypes.string,
 };
 
-/**
- * DefaultProps
- */
 const defaultProps = {
   style: null,
   className: null,
-  to: '#',
+  to: "#",
 };
 
 /**
  * AlertLink is children component of Alert
+ * @component
+ * @param {object} props
+ * @param {object} [props.style=null] - React CSS object
+ * @param {ReactNode} props.children - React children component
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ * @param {string} [props.to=#] - Add link path
+ * @returns {JSX.Element}
+ * @author Sedelkov Egor <sedelkovegor@gmail.com>
+ * @version 1.0.0
  */
-function AlertLink({
-  style,
-  children,
-  className,
-  to,
-  ...rest
-}) {
-  const BASE_CLASS_NAME = 'alert-link';
+function AlertLink({ style, children, className, to, ...rest }) {
+  /** @type {string} */
+  const BASE_CLASS_NAME = "alert-link";
 
-  const classes = classNames(
-    BASE_CLASS_NAME,
-    className,
-  );
+  /** @type {string} */
+  const classes = classNames(BASE_CLASS_NAME, className);
 
   return (
-    <a
-      href={to}
-      className={classes}
-      style={style}
-      {...rest}
-    >
+    <a href={to} className={classes} style={style} {...rest}>
       {children}
     </a>
   );

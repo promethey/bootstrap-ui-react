@@ -22,22 +22,17 @@ const defaultProps = {
 };
 
 /**
- *
- * AccordionBody is children component of Accordion
- *
+ * Children component of Accordion
+ * @component
  * @param {object} props
  * @param {ReactNode} props.children - React children components
- * @param {object} props.style - React CSS styles
- * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
- *
+ * @param {object} [props.style=null] - React CSS styles
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
  * @returns {JSX.Element}
- *
  * @example
  * <AccordionBody>Example...</AccordionBody>
- *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- *
  */
 function AccordionBody({ children, style, className, ...rest }) {
   /** @type {{checkActiveKey: bool}} */

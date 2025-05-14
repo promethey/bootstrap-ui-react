@@ -1,92 +1,56 @@
-import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { usePrefix } from 'helpers/prefix';
-import Box from 'components/Box';
-import CloseButton from 'components/CloseButton';
-import AlertLink from './AlertLink';
-import AlertHeading from './AlertHeading';
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { usePrefix } from "helpers/prefix";
+import Box from "components/Box";
+import CloseButton from "components/CloseButton";
+import AlertLink from "./AlertLink";
+import AlertHeading from "./AlertHeading";
 
-/**
- * PropTypes
- */
 const propTypes = {
-  /**
-   * Add alert content
-   * Required
-   */
   children: PropTypes.node.isRequired,
-
-  /**
-   * Add other styles
-   */
   style: PropTypes.shape({}),
-
-  /**
-   * Add other classes
-   */
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
-
-  /**
-   * Choose main theme
-   */
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   theme: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'success',
-    'danger',
-    'warning',
-    'info',
-    'light',
-    'dark',
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "light",
+    "dark",
   ]),
-
-  /**
-   * Add close button
-   */
   dissmisible: PropTypes.bool,
-
-  /**
-   * Add animations
-   */
   animated: PropTypes.bool,
-
-  /**
-   * Fires immediately when the
-   * close instance method is called
-   */
   onClose: PropTypes.func,
 };
 
-/**
- * DefaultProps
- */
 const defaultProps = {
   style: null,
   className: null,
-  theme: 'primary',
+  theme: "primary",
   dissmisible: false,
   animated: false,
   onClose: null,
 };
 
 /**
- * Alert component
- * Basis on Box component
- *
- * Subcomponents:
- * - Header
- * - Link
- *
+ * Alert component [(Bootstrap Official Documentation)]{@link https://getbootstrap.com/docs/5.3/components/alerts}
+ * @component
+ * @param {object} props
+ * @param {object} [props.style=null] - React CSS object
+ * @param {ReactNode} props.children - React children components
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ * @param {string} [props.theme="primary"] - Change theme color
+ * @param {boolean} [props.dismissible=false] - Add close button
+ * @param {boolean} [props.animated=false] - Add animation styles
+ * @param {function} [props.onClose=null] - Add event hanlder for click on close button
+ * @returns {JSX.Element}
+ * @example
+ * <Alert>A simple primary alert—check it out!</Alert>
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- * @since 1.0.0
- * @link https://getbootstrap.com/docs/5.3/components/alerts
- *
- * Changelog:
  */
 function Alert({
   style,
@@ -98,18 +62,20 @@ function Alert({
   onClose,
   ...rest
 }) {
-  const BASE_CLASS_NAME = 'alert';
+  /** @type {string} */
+  const BASE_CLASS_NAME = "alert";
 
   const alertRef = useRef(null);
 
+  /** @type {string} */
   const classes = classNames(
     BASE_CLASS_NAME,
     usePrefix(BASE_CLASS_NAME, theme),
     {
-      [usePrefix(BASE_CLASS_NAME, 'dismissible')]: dissmisible,
-      'show fade': animated,
+      [usePrefix(BASE_CLASS_NAME, "dismissible")]: dissmisible,
+      "show fade": animated,
     },
-    className,
+    className
   );
 
   return (

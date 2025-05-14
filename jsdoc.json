@@ -2,7 +2,7 @@
   "plugins": ["plugins/markdown"],
   "recurseDepth": 10,
   "source": {
-    "include": ["./src/components/Accordion"],
+    "include": ["./src/components/Accordion", "./src/components/Alert"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },

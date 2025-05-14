@@ -20,26 +20,21 @@ const defaultProps = {
 };
 
 /**
- *
  * AccordionItem is children component of Accordion
- *
+ * @component
  * @param {object} props - Component props
  * @param {ReactNode} props.children - React children components
- * @param {object} props.style - React CSS object
- * @param {(string|Array<string>|object)} props.className - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
+ * @param {object} [props.style=null] - React CSS object
+ * @param {(string|Array<string>|object)} [props.className=null] - Classnames utility [(Read npmjs.com)]{@link https://www.npmjs.com/package/classnames}
  * @param {number} props.itemKey - Item key number
- *
  * @returns {JSX.Element}
- *
  * @example
  * <AccordionItem>
  *   <Accordion.Header>Item #1</Accordion.Header>
  *   <Accordion.Body>Example...</Accordion.Body>
  * </AccordionItem>
- *
  * @author Sedelkov Egor <sedelkovegor@gmail.com>
  * @version 1.0.0
- *
  */
 function AccordionItem({ children, style, className, itemKey, ...rest }) {
   /** @type {string} */
