@@ -1,6 +1,6 @@
 ## **Bootstrap-UI**
 
-Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](storybook.js.org) and [**JSDoc**](jsdoc.app).
+Simple, fast and moduler React component library basis on [**Bootstrap**](https://getbootstrap.com/) styles for fast creating web apps. Documentation generate by [**Storybook**](https://storybook.js.org) and [**JSDoc**](https://jsdoc.app).
 
 <img src="./img/bootstrap-ui.png" alt="logo" width="700"/>
 
